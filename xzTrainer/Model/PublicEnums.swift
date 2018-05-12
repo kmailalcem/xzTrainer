@@ -41,6 +41,28 @@ public enum Turn : String {
     case L = "L", LPrime = "L'", L2 = "L2"
     case D = "D", DPrime = "D'", D2 = "D2"
     case F = "F", FPrime = "F'", F2 = "F2"
+    case M = "M", MPrime = "M'", M2 = "M2"
+    case S = "S", SPrime = "S'", S2 = "S2"
+    case E = "E", EPrime = "E'", E2 = "E2"
+}
+
+public enum WideTurn : String {
+    case Rw = "Rw", RwPrime = "Rw'", Rw2 = "Rw2"
+    case Uw = "Uw", UwPrime = "Uw'", Uw2 = "Uw2"
+    case Bw = "Bw", BwPrime = "Bw'", Bw2 = "Bw2"
+    case Lw = "Lw", LwPrime = "Lw'", Lw2 = "Lw2"
+    case Dw = "Dw", DwPrime = "Dw'", Dw2 = "Dw2"
+    case Fw = "Fw", FwPrime = "Fw'", Fw2 = "Fw2"
+}
+
+public enum Rotation : String {
+    case x = "x", xPrime = "x'", x2 = "x2"
+    case y = "y", yPrime = "y'", y2 = "y2"
+    case z = "z", zPrime = "z'", z2 = "z2"
+}
+
+public enum CubeColor {
+    case WHITE, YELLOW, GREEN, BLUE, RED, ORANGE
 }
 
 // absolute position on the cube

@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9583EC42209E0E7C004A4D3E /* CubeDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CubeDisplay.swift */; };
-		9583EC43209E0E7C004A4D3E /* CubePermutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* CubePermutation.swift */; };
+		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
+		956C5CDE20A0DCC00036D80A /* Memoriser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* Memoriser.swift */; };
+		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
+		9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* VoidCube.swift */; };
 		9583EC4C209E13BF004A4D3E /* xzTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */; };
 		9583EC54209E3F2C004A4D3E /* PublicEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC53209E3F2C004A4D3E /* PublicEnums.swift */; };
+		95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0E3720A7447200E36982 /* ColorScheme.swift */; };
 		95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5920865912004DE650 /* AppDelegate.swift */; };
 		95D52C5C20865912004DE650 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5B20865912004DE650 /* ViewController.swift */; };
 		95D52C5F20865912004DE650 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C5D20865912004DE650 /* Main.storyboard */; };
 		95D52C6120865913004DE650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C6020865913004DE650 /* Assets.xcassets */; };
 		95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C6220865913004DE650 /* LaunchScreen.storyboard */; };
+		95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,12 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9583EC40209E0E7C004A4D3E /* CubeDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDisplay.swift; sourceTree = "<group>"; };
-		9583EC41209E0E7C004A4D3E /* CubePermutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubePermutation.swift; sourceTree = "<group>"; };
+		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		956C5CDD20A0DCC00036D80A /* Memoriser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memoriser.swift; sourceTree = "<group>"; };
+		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
+		9583EC41209E0E7C004A4D3E /* VoidCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoidCube.swift; sourceTree = "<group>"; };
 		9583EC49209E13BF004A4D3E /* xzTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xzTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xzTrainerTests.swift; sourceTree = "<group>"; };
 		9583EC4D209E13BF004A4D3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9583EC53209E3F2C004A4D3E /* PublicEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEnums.swift; sourceTree = "<group>"; };
+		95AD0E3720A7447200E36982 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		95D52C5620865912004DE650 /* xzTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xzTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D52C5920865912004DE650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D52C5B20865912004DE650 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +49,7 @@
 		95D52C6020865913004DE650 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D52C6320865913004DE650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D52C6520865913004DE650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeFaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +82,11 @@
 		9598B79E2098ED8F003DF590 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9583EC40209E0E7C004A4D3E /* CubeDisplay.swift */,
-				9583EC41209E0E7C004A4D3E /* CubePermutation.swift */,
+				9583EC40209E0E7C004A4D3E /* CentreCore.swift */,
+				9583EC41209E0E7C004A4D3E /* VoidCube.swift */,
 				9583EC53209E3F2C004A4D3E /* PublicEnums.swift */,
+				956C5CDB20A0D2230036D80A /* Cube.swift */,
+				956C5CDD20A0DCC00036D80A /* Memoriser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -84,6 +94,7 @@
 		9598B79F2098ED94003DF590 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				95D52C5B20865912004DE650 /* ViewController.swift */,
+				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,8 +132,8 @@
 				9598B7A02098ED9A003DF590 /* Controller */,
 				9598B79F2098ED94003DF590 /* View */,
 				9598B79E2098ED8F003DF590 /* Model */,
-				95D52C5920865912004DE650 /* AppDelegate.swift */,
 				95D52C5D20865912004DE650 /* Main.storyboard */,
+				95D52C5920865912004DE650 /* AppDelegate.swift */,
 				95D52C6020865913004DE650 /* Assets.xcassets */,
 				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
 				95D52C6520865913004DE650 /* Info.plist */,
@@ -239,9 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				95D52C5C20865912004DE650 /* ViewController.swift in Sources */,
-				9583EC42209E0E7C004A4D3E /* CubeDisplay.swift in Sources */,
+				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
+				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
+				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
+				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
-				9583EC43209E0E7C004A4D3E /* CubePermutation.swift in Sources */,
+				9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */,
+				956C5CDE20A0DCC00036D80A /* Memoriser.swift in Sources */,
 				9583EC54209E3F2C004A4D3E /* PublicEnums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

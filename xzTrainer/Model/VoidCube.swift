@@ -8,7 +8,17 @@
 
 import Foundation
 
-public class CubePermutation {
+public class VoidCube : Equatable {
+    public static func == (lhs: VoidCube, rhs: VoidCube) -> Bool {
+        for i in 0 ..< NUM_STICKERS {
+            if (lhs.edges[i] != rhs.edges[i] ||
+                lhs.corners[i] != rhs.corners[i]) {
+                return false
+            }
+        }
+        return true
+    }
+    
     // initializing to a solved cube, white top, green front
     // traditional letter schemes
     public init() {
@@ -22,6 +32,18 @@ public class CubePermutation {
         
         cornerLetterScheme = "ABCDEFGHIJKLWMNOPQRSTXYZ"
         edgeLetterScheme = "ABCDEFGHIJKLMNOPQRSTWXYZ"
+    }
+    
+    public func scrambleCube(_ scramble: String) {
+        let turnsInScramble = scramble.split(separator: " ")
+        for turnString in turnsInScramble {
+            if let aTurn = Turn(rawValue: String(turnString)) {
+                turn(aTurn)
+            } else {
+                print("Invalid move: \(String(turnString))")
+                exit(1)
+            }
+        }
     }
     
     public func getSticker(at pos: EdgePosition) -> EdgeSticker {
@@ -88,7 +110,42 @@ public class CubePermutation {
         case .DPrime:
             rotateDPrime()
             break;
+        case .M:
+            rotateMPrime()
+            fallthrough
+        case .M2:
+            rotateMPrime()
+            fallthrough
+        case .MPrime:
+            rotateMPrime()
+            break;
+        case .S:
+            rotateSPrime()
+            fallthrough
+        case .S2:
+            rotateSPrime()
+            fallthrough
+        case .SPrime:
+            rotateSPrime()
+            break;
+        case .E:
+            rotateEPrime()
+            fallthrough
+        case .E2:
+            rotateEPrime()
+            fallthrough
+        case .EPrime:
+            rotateEPrime()
+            break;
         }
+    }
+    
+    public func at(_ pos: CornerPosition) -> CornerSticker {
+        return corners[pos.rawValue]
+    }
+    
+    public func at(_ pos: EdgePosition) -> EdgeSticker {
+        return edges[pos.rawValue]
     }
     
     private func rotateRPrime () {

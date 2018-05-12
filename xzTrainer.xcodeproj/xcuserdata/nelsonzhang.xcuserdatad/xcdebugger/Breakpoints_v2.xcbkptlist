@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "xzTrainerTests/xzTrainerTests.swift"
+            timestampString = "547486537.9361989"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "testSolved()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "xzTrainerTests.xzTrainerTests.testSolved() -&gt; ()"
+                  moduleName = "xzTrainerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nelsonzhang/Desktop/Personal%20Project/xzTrainer/xzTrainerTests/xzTrainerTests.swift"
+                  timestampString = "547484242.191856"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "712">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #5 : @autoclosure () throws -&gt; Swift.Bool in xzTrainerTests.xzTrainerTests.testSolved() -&gt; ()"
+                  moduleName = "xzTrainerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nelsonzhang/Desktop/Personal%20Project/xzTrainer/xzTrainerTests/xzTrainerTests.swift"
+                  timestampString = "547484242.1947041"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "225"
+                  endingLineNumber = "225"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "xzTrainerTests/xzTrainerTests.swift"
+            timestampString = "547486537.937819"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "xzTrainerTests"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
