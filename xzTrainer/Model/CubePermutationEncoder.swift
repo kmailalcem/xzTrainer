@@ -8,9 +8,12 @@
 
 import Foundation
 
-class Memoriser {
+class CubePermutationEncoder {
     init() {
-        _cube = Cube()
+        letterScheme = LetterScheme()
+        cube = Cube()
     }
-    private var _cube : Cube
+    
+    private var letterScheme: LetterScheme
+    private var cube: Cube
 }
