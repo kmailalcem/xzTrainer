@@ -35,7 +35,8 @@ public class VoidCube : Equatable {
     }
     
     public func scrambleCube(_ scramble: String) {
-        let turnsInScramble = scramble.split(separator: " ")
+        let turnsInScramble = scramble.replacingOccurrences(of: "’", with:
+            "'").split(separator: " ")
         for turnString in turnsInScramble {
             if let aTurn = Turn(rawValue: String(turnString)) {
                 turn(aTurn)

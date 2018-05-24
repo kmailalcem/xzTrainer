@@ -10,10 +10,14 @@ import UIKit
 
 public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
 
-    var timer: Timer?
-    var isTiming: Bool = false
-    var startTime: TimeInterval = 0
+    private var timer: Timer?
+    private var isTiming: Bool = false
+    private var startTime: TimeInterval = 0
     var delegate: TimerLabelDelegate?
+    
+    var time: Double {
+        return Double(Date.timeIntervalSinceReferenceDate - startTime)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,11 +91,6 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
     }
     
     @objc func updateTimer() {
-        /*
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "H:m:ss.SSS"
-         */
-        let time = Date().timeIntervalSinceReferenceDate - startTime
         text = String(format: "%.3f", time)
     }
 }

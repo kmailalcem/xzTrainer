@@ -38,7 +38,7 @@ class CubeFaceView: UIView {
         context.addRect(CGRect(x: rect.minX, y: rect.minY, width: rect.width, height: rect.height))
         context.setStrokeColor(red:0, green:0, blue:0, alpha:1)
         context.setLineWidth(2)
-        context.strokePath()
+        //context.strokePath()
         showFaceFillView(context: context, frame: rect)
     }
     

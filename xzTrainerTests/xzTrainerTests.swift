@@ -236,4 +236,29 @@ class xzTrainerTests: XCTestCase {
         cube.turn(.MPrime)
         XCTAssertTrue(cube.solved())
     }
+    
+    /*
+    func testRandom() {
+        for _ in 0 ..< 20 {
+            print(randomIntInRange(start: 2, end: 3))
+            print(randomIntInRange(start: 0, end: 2))
+            print(randomIntInRange(start: 5, end: 7))
+            print()
+        }
+    }
+ */
+    
+    func testScramble() {
+        print(Scrambler.getRandomScrambleWithLength(from: 20, to: 28))
+        print(Scrambler.getRandomScrambleWithLength(from: 10, to: 15))
+        print(Scrambler.getRandomScrambleWithLength(from: 30, to: 50))
+    }
+    
+    func testEdgeMemo() {
+        let solver = CubePermutationEncoder(forScramble: "U' L2 D F2 U' L' R F2 D' U2 B R' U' B' R F D R2 F' R'")
+        print(solver.edgeMemo)
+        print(solver.cornerMemo)
+        print(solver.edgeFlips)
+        print(solver.cornerTwists)
+    }
 }

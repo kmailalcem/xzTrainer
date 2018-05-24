@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, TimerLabelDelegate,  UIGestureRecognizerDelegate {
-    
+class TimerVC: UIViewController, UITextFieldDelegate, TimerLabelDelegate,  UIGestureRecognizerDelegate {
     
     // var swipeRecognizer: UISwipeGestureRecognizer!
     @IBOutlet var scrambleTextField: UITextField!
     @IBOutlet var cubeView: CubeView!
     @IBOutlet var timerLabel: TimerLabel!
+    var userSolves: [SolveTime] = []
     
     public func gestureRecognizer(
         _ gestureRecognizer: UIGestureRecognizer,
@@ -38,20 +38,23 @@ class ViewController: UIViewController, UITextFieldDelegate, TimerLabelDelegate,
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ResultTableVC {
-            print("segued")
+            destination.userSolves = userSolves
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.isUserInteractionEnabled = true
-        cubeView.cube = Cube(top: .WHITE, front: .GREEN, scramble: "R U R' U'")
+        cubeView.cube = Cube(top: .WHITE, front: .GREEN, scramble: "")
         scrambleTextField.delegate = self
+        scrambleTextField.borderStyle = .none
         timerLabel.delegate = self
         
-        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipeDetected))
+        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerVC.swipeDetected))
         swipeRecognizer.direction = .up
         view.addGestureRecognizer(swipeRecognizer)
+        
+        updateView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,11 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate, TimerLabelDelegate,
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         scrambleTextField.resignFirstResponder()
-        let cube = cubeView.cube
-        cube.reScrambleCube(scrambleTextField.text!)
-        // print(scrambleTextField.text!)
-        cubeView.cube = cube
-        cubeView.updateFaces()
+        updateCube(withScramble: scrambleTextField.text!)
         return false
     }
 
@@ -74,7 +73,21 @@ class ViewController: UIViewController, UITextFieldDelegate, TimerLabelDelegate,
     }
     
     func timerDidFinish(_ sender: TimerLabel) {
-        print("Timing ends")
+        userSolves.append(SolveTime(time: timerLabel.time,
+                                    scramble: scrambleTextField.text!))
+        updateView()
+    }
+    
+    private func updateCube (withScramble scramble: String) {
+        let cube = cubeView.cube
+        cube.reScrambleCube(scramble)
+        cubeView.cube = cube
+        cubeView.updateFaces()
+    }
+    
+    private func updateView() {
+        scrambleTextField.text = Scrambler.getRandomScrambleWithLength(from: 15, to: 20)
+        updateCube(withScramble: scrambleTextField.text!)
     }
 }
 

@@ -38,8 +38,8 @@ class CentreCore : Equatable {
     }
     
     public func rotateXPrime() {
-        let temp = oppositeColor(front)
-        _front = top
+        let temp = oppositeColor(_front)
+        _front = _top
         _top = temp
     }
     

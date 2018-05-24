@@ -10,38 +10,26 @@ import Foundation
 
 public class Cube : Equatable {
     
-    private func getColor(for sticker: CornerSticker) -> CubeColor {
-        switch sticker {
-        case .UBR, .URF, .UFL, .ULB:
-            return colorTop()
-        case .RBD, .RDF, .RFU, .RUB:
-            return colorRight()
-        case .LBU, .LUF, .LFD, .LDB:
-            return colorLeft()
-        case .BDR, .BRU, .BUL, .BLD:
-            return colorBack()
-        case .DBL, .DLF, .DFR, .DRB:
-            return colorBottom()
-        case .FDL, .FLU, .FUR, .FRD:
-            return colorFront()
+    public func scrambleCube(_ scramble: String) {
+        let turnsInScramble = scramble.replacingOccurrences(of: "’", with:
+            "'").split(separator: " ")
+        for turnString in turnsInScramble {
+            if let aTurn = Turn(rawValue: String(turnString)) {
+                turn(aTurn)
+            } else if let aTurn = WideTurn(rawValue: String(turnString)) {
+                turn(aTurn)
+            } else if let aTurn = Rotation(rawValue: String(turnString)) {
+                rotate(aTurn)
+            } else {
+                print("Cannot cast turn \(turnString) as a valid move")
+            }
         }
     }
     
-    private func getColor(for sticker: EdgeSticker) -> CubeColor {
-        switch sticker {
-        case .UF, .UR, .UB, .UL:
-            return colorTop()
-        case .RB, .RD, .RF, .RU:
-            return colorRight()
-        case .LB, .LU, .LF, .LD:
-            return colorLeft()
-        case .BD, .BR, .BU, .BL:
-            return colorBack()
-        case .DB, .DL, .DF, .DR:
-            return colorBottom()
-        case .FD, .FL, .FU, .FR:
-            return colorFront()
-        }
+    public func reScrambleCube(_ scramble: String) {
+        permutation = VoidCube()
+        currentOrientation = CentreCore(top: originalOrientation.top, front: originalOrientation.front)
+        scrambleCube(scramble)
     }
     
     public func getColor(at sticker: CornerSticker) -> CubeColor {
@@ -53,44 +41,82 @@ public class Cube : Equatable {
     }
     
     public func colorLeft() -> CubeColor {
-        return leftSideColor(top: orientation.top, front: orientation.front)
+        return leftSideColor(top: originalOrientation.top, front: originalOrientation.front)
     }
     
     public func colorRight() -> CubeColor {
-        return rightSideColor(top: orientation.top, front: orientation.front)
+        return rightSideColor(top: originalOrientation.top, front: originalOrientation.front)
     }
     
     public func colorTop() -> CubeColor {
-        return orientation.top
+        return originalOrientation.top
     }
     
     public func colorBottom() -> CubeColor {
-        return oppositeColor(orientation.top)
+        return oppositeColor(originalOrientation.top)
     }
     
     public func colorFront() -> CubeColor {
-        return orientation.front
+        return originalOrientation.front
     }
     
     public func colorBack() -> CubeColor {
-        return oppositeColor(orientation.front)
+        return oppositeColor(originalOrientation.front)
+    }
+    
+    public func colorCenterLeft() -> CubeColor {
+        return leftSideColor(top: currentOrientation.top, front: currentOrientation.front)
+    }
+    
+    public func colorCenterRight() -> CubeColor {
+        return rightSideColor(top: currentOrientation.top, front: currentOrientation.front)
+    }
+    
+    public func colorCenterTop() -> CubeColor {
+        return currentOrientation.top
+    }
+    
+    public func colorCenterBottom() -> CubeColor {
+        return oppositeColor(currentOrientation.top)
+    }
+    
+    public func colorCenterFront() -> CubeColor {
+        return currentOrientation.front
+    }
+    
+    public func colorCenterBack() -> CubeColor {
+        return oppositeColor(currentOrientation.front)
     }
     
     public static func == (lhs: Cube, rhs: Cube) -> Bool {
-        return lhs.permutation == rhs.permutation &&
-            lhs.orientation == rhs.orientation
+        var isSameWrtSameOrientation =
+            lhs.currentOrientation == rhs.currentOrientation
+        for i in 0 ..< NUM_STICKERS {
+            if lhs.getColor(at: CornerPosition(rawValue: i)!)
+                != rhs.getColor(at: CornerPosition(rawValue: i)!) {
+                isSameWrtSameOrientation = false
+            }
+            
+            if lhs.getColor(at: EdgePosition(rawValue: i)!)
+                != rhs.getColor(at: EdgePosition(rawValue: i)!) {
+                isSameWrtSameOrientation = false
+            }
+        }
+        return isSameWrtSameOrientation
+        
     }
     
     init() {
         permutation = VoidCube()
-        orientation = CentreCore()
+        originalOrientation = CentreCore()
+        currentOrientation = CentreCore()
     }
     
-    // trivial scrambles does not contain wide moves or cube rotations
-    init(top: CubeColor, front: CubeColor, scrambleTrivial: String) {
+    init(top: CubeColor, front: CubeColor, scramble: String) {
+        originalOrientation = CentreCore(top: top, front: front)
+        currentOrientation = CentreCore(top: top, front: front)
         permutation = VoidCube()
-        permutation.scrambleCube(scrambleTrivial)
-        orientation = CentreCore(top: top, front: front)
+        scrambleCube(scramble)
     }
     
     public func rotate(_ rotation: Rotation) {
@@ -128,31 +154,31 @@ public class Cube : Equatable {
     public func turn(_ turning: Turn) {
         switch turning {
         case .MPrime:
-            orientation.rotateXPrime()
+            currentOrientation.rotateXPrime()
             fallthrough
         case .M2:
-            orientation.rotateXPrime()
+            currentOrientation.rotateXPrime()
             fallthrough
         case .M:
-            orientation.rotateXPrime()
+            currentOrientation.rotateXPrime()
             break; 
         case .S:
-            orientation.rotateZPrime()
+            currentOrientation.rotateZPrime()
             fallthrough
         case .S2:
-            orientation.rotateZPrime()
+            currentOrientation.rotateZPrime()
             fallthrough
         case .SPrime:
-            orientation.rotateZPrime()
+            currentOrientation.rotateZPrime()
             break; 
         case .E:
-            orientation.rotateYPrime()
+            currentOrientation.rotateYPrime()
             fallthrough
         case .E2:
-            orientation.rotateYPrime()
+            currentOrientation.rotateYPrime()
             fallthrough
         case .EPrime:
-            orientation.rotateYPrime()
+            currentOrientation.rotateYPrime()
             break;
         default:
             break;
@@ -191,27 +217,27 @@ public class Cube : Equatable {
     }
     
     public func rotate (top: CubeColor, front: CubeColor) {
-        if top == orientation.front {
+        if top == currentOrientation.front {
             rotate(.x)
-        } else if top == oppositeColor(orientation.front) {
+        } else if top == oppositeColor(currentOrientation.front) {
             rotate(.xPrime)
-        } else if top == oppositeColor(orientation.top) {
+        } else if top == oppositeColor(currentOrientation.top) {
             rotate(.x2)
         } else if top ==
-            rightSideColor(top: orientation.top, front: orientation.front) {
+            rightSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.zPrime)
         } else if top ==
-            leftSideColor(top: orientation.top, front: orientation.front) {
+            leftSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.z)
         }
         
-        if front == oppositeColor(orientation.front) {
+        if front == oppositeColor(currentOrientation.front) {
             rotate(.y2)
         } else if front ==
-            rightSideColor(top: orientation.top, front: orientation.front) {
+            rightSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.y)
         } else if
-            front == leftSideColor(top: orientation.top, front: orientation.front) {
+            front == leftSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.yPrime)
         }
     }
@@ -219,7 +245,7 @@ public class Cube : Equatable {
     // check if under the same orientation the cubes are the same
     public func solved() -> Bool {
         let cube = Cube()
-        cube.rotate(top: orientation.top, front: orientation.front)
+        cube.rotate(top: currentOrientation.top, front: currentOrientation.front)
         return self == cube
     }
     
@@ -235,23 +261,58 @@ public class Cube : Equatable {
         permutation.turn(.RPrime)
         permutation.turn(.M)
         permutation.turn(.L)
-        orientation.rotateXPrime()
+        currentOrientation.rotateXPrime()
     }
     
     private func rotateYPrime() {
         permutation.turn(.UPrime)
         permutation.turn(.EPrime)
         permutation.turn(.D)
-        orientation.rotateYPrime()
+        currentOrientation.rotateYPrime()
     }
     
     private func rotateZPrime() {
         permutation.turn(.FPrime)
         permutation.turn(.SPrime)
         permutation.turn(.B)
-        orientation.rotateZPrime()
+        currentOrientation.rotateZPrime()
+    }
+    
+    private func getColor(for sticker: CornerSticker) -> CubeColor {
+        switch sticker {
+        case .UBR, .URF, .UFL, .ULB:
+            return colorTop()
+        case .RBD, .RDF, .RFU, .RUB:
+            return colorRight()
+        case .LBU, .LUF, .LFD, .LDB:
+            return colorLeft()
+        case .BDR, .BRU, .BUL, .BLD:
+            return colorBack()
+        case .DBL, .DLF, .DFR, .DRB:
+            return colorBottom()
+        case .FDL, .FLU, .FUR, .FRD:
+            return colorFront()
+        }
+    }
+    
+    private func getColor(for sticker: EdgeSticker) -> CubeColor {
+        switch sticker {
+        case .UF, .UR, .UB, .UL:
+            return colorTop()
+        case .RB, .RD, .RF, .RU:
+            return colorRight()
+        case .LB, .LU, .LF, .LD:
+            return colorLeft()
+        case .BD, .BR, .BU, .BL:
+            return colorBack()
+        case .DB, .DL, .DF, .DR:
+            return colorBottom()
+        case .FD, .FL, .FU, .FR:
+            return colorFront()
+        }
     }
     
     private var permutation : VoidCube
-    private var orientation : CentreCore
+    private let originalOrientation : CentreCore
+    private var currentOrientation : CentreCore
 }

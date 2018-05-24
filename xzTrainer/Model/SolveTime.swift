@@ -29,7 +29,7 @@ extension SolveTime: Comparable {
 }
 
 extension Array where Element == SolveTime {
-    func ao(_ n: Int, ending end: Int) -> Double! {
+    func mo(_ n: Int, ending end: Int) -> Double! {
         if (end - n < 0) {
             return nil
         }
@@ -38,7 +38,11 @@ extension Array where Element == SolveTime {
         }) / Double(count)
     }
     
-    func mo(_ n: Int, ending end: Int) -> Double! {
+    func mo(_ n: Int) -> Double! {
+        return ao(n, ending: count)
+    }
+    
+    func ao(_ n: Int, ending end: Int) -> Double! {
         if n < 3 || (end - n < 0) {
             return nil
         }
@@ -49,7 +53,11 @@ extension Array where Element == SolveTime {
         
         return (reduce(0, { partialResult, element in
             return partialResult + element.time
-        })) - mininum - maximum / Double(count - 2)
+        }) - mininum - maximum) / Double(count - 2)
+    }
+    
+    func ao(_ n: Int) -> Double! {
+        return mo(n, ending: count)
     }
 }
 
