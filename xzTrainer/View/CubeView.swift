@@ -22,7 +22,6 @@ class CubeView: UIView {
     var overallStackView: UIStackView!
     // var contentView: UIStackView!
     
-    var length: CGFloat = 0
     private var _cube = Cube()
     private var _colors = ColorScheme()
     
@@ -36,12 +35,10 @@ class CubeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
     }
     
     var cube : Cube {
@@ -63,8 +60,10 @@ class CubeView: UIView {
         }
     }
     
-    private func commonInit() {
-        length = min(frame.width / 4.3, frame.height / 3.2)
+    public func layingContraint() {
+        
+        print("\(frame.width), \(frame.height)")
+        let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
         
         var leadingOffset, topOffset: CGFloat
         
@@ -120,7 +119,8 @@ class CubeView: UIView {
         }
         
         updateFaces()
-        
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
     public func updateFaces() {

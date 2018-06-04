@@ -254,11 +254,17 @@ class xzTrainerTests: XCTestCase {
         print(Scrambler.getRandomScrambleWithLength(from: 30, to: 50))
     }
     
-    func testEdgeMemo() {
-        let solver = CubePermutationEncoder(forScramble: "U' L2 D F2 U' L' R F2 D' U2 B R' U' B' R F D R2 F' R'")
-        print(solver.edgeMemo)
-        print(solver.cornerMemo)
-        print(solver.edgeFlips)
-        print(solver.cornerTwists)
+    func testMemo() {
+        let solver_1 = CubePermutationEncoder(forScramble: "U' L2 D F2 U' L' R F2 D' U2 B R' U' B' R F D R2 F' R'")
+        XCTAssert(solver_1.edgeMemo == "YQ NT CF DG XH KP K")
+        XCTAssert(solver_1.cornerMemo == "SA WC GU H")
+        XCTAssert(solver_1.edgeFlips == "A ")
+        XCTAssert(solver_1.cornerTwists == "J' O ")
+        
+        let solver_2 = CubePermutationEncoder(forScramble: "R' L' F U2 R' U2 F' B' U' F U' D L U2 L R2 U2 D2 R' L D R F2 B2 L")
+        XCTAssert(solver_2.edgeMemo == "DO YN SA LA GR G")
+        XCTAssert(solver_2.cornerMemo == "XN IP JS A")
+        XCTAssert(solver_2.edgeFlips == "E ")
+        XCTAssert(solver_2.cornerTwists == "")
     }
 }

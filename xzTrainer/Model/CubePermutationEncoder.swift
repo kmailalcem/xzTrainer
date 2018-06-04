@@ -8,11 +8,28 @@
 
 import Foundation
 
+extension Cube {
+    func at(_ pos: EdgePosition, parityFilter: AdvancedParity) -> EdgeSticker {
+        let parityPiece1 = parityFilter.parityEdgePiece1.rawValue / 2
+        let parityPiece2 = parityFilter.parityEdgePiece2.rawValue / 2
+        let targetPiece = at(pos).rawValue / 2
+        let pieceOffset = at(pos).rawValue % 2
+        if parityFilter.isActivated && targetPiece == parityPiece2 {
+            return EdgeSticker(rawValue: parityPiece1 * 2 + pieceOffset)!
+        } else if parityFilter.isActivated && targetPiece == parityPiece1 {
+            return EdgeSticker(rawValue: parityPiece2 * 2 + pieceOffset)!
+        } else {
+            return at(pos)
+        }
+    }
+    
+}
+
 class CubePermutationEncoder {
     // default to M2 for edges and Old Pochmann for corners
     public let edgeBuffer: EdgePosition = .DF
     public let cornerBuffer: CornerPosition = .ULB
-    
+
     init(forCube cube: Cube) {
         self.cube = cube
     }
@@ -22,12 +39,17 @@ class CubePermutationEncoder {
     }
     
     var edgeMemo: String {
+        if hasParity == nil {
+            setUpParity()
+        }
         encodeEdge()
         return translateEdgePermutationToMemoCode()
     }
     
     var cornerMemo: String {
-        encodeCorner()
+        if hasParity == nil {
+           setUpParity()
+        }
         return translateCornerPermutationToMemoCode()
     }
     
@@ -39,6 +61,13 @@ class CubePermutationEncoder {
     var cornerTwists: String {
         encodeCornerTwists()
         return translateCornerTwistsToMemoCode()
+    }
+    
+    private func setUpParity() {
+        encodeCorner()
+        hasParity = (cornerPermutation.count % 2 == 1)
+        encoderSetting.advancedParity.isActivated =
+            encoderSetting.advancedParity.isEnabled && hasParity!
     }
     
     private func translateEdgePermutationToMemoCode() -> String {
@@ -78,15 +107,18 @@ class CubePermutationEncoder {
     }
     
     private  func isInPlace(piece: EdgePosition) -> Bool {
-        return piece.rawValue / 2 == cube.at(piece).rawValue / 2
+        return piece.rawValue / 2 == cube.at(piece, parityFilter:
+            encoderSetting.advancedParity).rawValue / 2
     }
     
     private func appendEdgeCycle() {
         appendAndSolve(edgeCycleStartingSticker!)
-        edgeStickerTracker = cube.at(edgeCycleStartingSticker!)
+        edgeStickerTracker = cube.at(edgeCycleStartingSticker!, parityFilter:
+            encoderSetting.advancedParity)
         while !requiresEdgeCycleBreak() {
             appendAndSolve(edgeStickerTracker)
-            edgeStickerTracker = cube.at(edgeStickerTracker)
+            edgeStickerTracker = cube.at(edgeStickerTracker, parityFilter:
+                encoderSetting.advancedParity)
         }
         appendAndSolve(edgeStickerTracker)
     }
@@ -257,6 +289,7 @@ class CubePermutationEncoder {
         }
     }
     
+    private var hasParity: Bool?
     private var letterScheme: LetterScheme = LetterScheme()
     private var cube: Cube = Cube()
     private var encoderSetting: EncoderSetting = EncoderSetting()

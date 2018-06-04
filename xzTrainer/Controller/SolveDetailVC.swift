@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class SolveDetailVC: UIViewController {
+class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet var currentTimeLabel: UILabel!
     @IBOutlet var mo3Label: UILabel!
@@ -20,8 +21,16 @@ class SolveDetailVC: UIViewController {
     @IBOutlet var scrambleLabel: UILabel!
     @IBOutlet var cubeView: CubeView!
     
-    var userSolves: [SolveTime]!
+    @IBOutlet var contentView: UIView!
+    
+    @IBAction func didTapScreen(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    var solves: [Solve]!
     var endingIndex: Int!
+    let managedObjectContext = (UIApplication.shared.delegate as!
+        AppDelegate).persistentContainer.viewContext
     
     @IBAction func backToTableButtonTapped() {
         dismiss(animated: true, completion: nil)
@@ -30,49 +39,35 @@ class SolveDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentTimeLabel.text = String(
-            format: "%.3f", userSolves[endingIndex - 1].time)
-        scrambleLabel.text = userSolves[endingIndex - 1].scramble
-        
-        updateAOLabels()
-        cubeView.showScramble(scrambleLabel.text!)
+        loadData()
+        // updateAOLabels()
+        // cubeView.showScramble(scrambleLabel.text!)
     }
     
     private func updateAOLabels() {
-        if let mo3 = userSolves.mo(3, ending: endingIndex) {
-            mo3Label.text = String(format: "%.3f", mo3)
-        } else {
-            mo3Label.text = "N/A"
-        }
+        let currentSolve = solves[endingIndex]
+        currentTimeLabel.text = String(format: "%.3f", currentSolve.time)
+        scrambleLabel.text = currentSolve.scramble
+        let (mo3, ao5, ao12, ao50, ao100, ao1000) =
+            (currentSolve.mo3, currentSolve.ao5,
+             currentSolve.ao12, currentSolve.ao50,
+             currentSolve.ao100, currentSolve.ao1000)
         
-        if let ao5 = userSolves.ao(5, ending: endingIndex) {
-            ao5Label.text = String(format: "%.3f", ao5)
-        } else {
-            ao5Label.text = "N/A"
-        }
-        
-        if let ao12 = userSolves.ao(12, ending: endingIndex) {
-            ao12Label.text = String(format: "%.3f", ao12)
-        } else {
-            ao12Label.text = "N/A"
-        }
-        
-        if let ao50 = userSolves.ao(50, ending: endingIndex) {
-            ao50Label.text = String(format: "%.3f", ao50)
-        } else {
-            ao50Label.text = "N/A"
-        }
-        
-        if let ao100 = userSolves.ao(100, ending: endingIndex) {
-            ao100Label.text = String(format: "%.3f", ao100)
-        } else {
-            ao100Label.text = "N/A"
-        }
-        
-        if let ao1000 = userSolves.ao(1000, ending: endingIndex) {
-            ao1000Label.text = String(format: "%.3f", ao1000)
-        } else {
-            ao1000Label.text = "N/A"
+        mo3Label.text = convertTimeDoubleToString(mo3)
+        ao5Label.text = convertTimeDoubleToString(ao5)
+        ao12Label.text = convertTimeDoubleToString(ao12)
+        ao50Label.text = convertTimeDoubleToString(ao50)
+        ao100Label.text = convertTimeDoubleToString(ao100)
+        ao1000Label.text = convertTimeDoubleToString(ao1000)
+    }
+    
+    func loadData() {
+        let solvesRequest: NSFetchRequest<Solve> = Solve.fetchRequest()
+        do {
+            try solves = managedObjectContext.fetch(solvesRequest)
+            // updateAOLabels()
+        } catch {
+            print("error fetching solves request. Message: \(error.localizedDescription)")
         }
     }
 }

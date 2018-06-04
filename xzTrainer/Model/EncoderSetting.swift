@@ -11,5 +11,13 @@ import Foundation
 class EncoderSetting {
     
     // when parity arise, switch certain edge pieces to cancel the parity
-    var advancedParity: Bool = true
+    var advancedParity = AdvancedParity()
+}
+
+class AdvancedParity {
+    var isEnabled = true
+    var isActivated = true
+    // default to Old Pochmann parity pieces
+    var parityEdgePiece1 = EdgeSticker.UL
+    var parityEdgePiece2 = EdgeSticker.UB
 }

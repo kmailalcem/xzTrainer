@@ -7,8 +7,8 @@
 //
 
 import Foundation
-
-struct SolveTime {
+/*
+struct Solve {
     var time: Double = 0
     var scramble: String = ""
     
@@ -17,21 +17,30 @@ struct SolveTime {
         self.scramble = scramble
     }
 }
+*/
 
-extension SolveTime: Comparable {
-    static func < (lhs: SolveTime, rhs: SolveTime) -> Bool {
+extension Solve: Comparable {
+    public static func < (lhs: Solve, rhs: Solve) -> Bool {
         return lhs.time < rhs.time
     }
     
-    static func == (lhs: SolveTime, rhs: SolveTime) -> Bool {
+    public static func == (lhs: Solve, rhs: Solve) -> Bool {
         return lhs.time == rhs.time
     }
 }
 
-extension Array where Element == SolveTime {
-    func mo(_ n: Int, ending end: Int) -> Double! {
+public func convertTimeDoubleToString(_ target: Double) -> String {
+    if target == -1 {
+        return "N/A"
+    } else {
+        return String(format: "%.3f", target)
+    }
+}
+
+extension Array where Element == Solve {
+    func mo(_ n: Int, ending end: Int) -> Double {
         if (end - n < 0) {
-            return nil
+            return -1
         }
         return reduce(0, { partialResult, element in
             return partialResult + element.time
@@ -42,9 +51,9 @@ extension Array where Element == SolveTime {
         return ao(n, ending: count)
     }
     
-    func ao(_ n: Int, ending end: Int) -> Double! {
+    func ao(_ n: Int, ending end: Int) -> Double {
         if n < 3 || (end - n < 0) {
-            return nil
+            return -1
         }
         
         let mininum = self.min()!.time

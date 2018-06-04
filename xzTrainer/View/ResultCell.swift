@@ -14,30 +14,41 @@ class ResultCell: UITableViewCell {
     @IBOutlet var ao5Label: UILabel!
     @IBOutlet var ao12Label: UILabel!
     @IBOutlet var indexLabel: UILabel!
+    @IBOutlet var roundedView: RoundedView!
     var scramble: String = ""
     
-    func configureCell(index: Int, solveStats: [SolveTime]) {
+    func configureCell(index: Int, solveStats: [Solve]) {
+        let currentSolve = solveStats[index]
         indexLabel.text = String(index + 1)
-        timeLabel.text = String(format: "%.3f", solveStats[index].time)
+        timeLabel.text = String(format: "%.3f", currentSolve.time)
         
-        if let ao5 = solveStats.ao(5, ending: index + 1) {
-            ao5Label.text = String(format: "ao5: %.3f", ao5)
+        if currentSolve.ao5 != -1 {
+            ao5Label.text = String(format: "ao5: %.3f", currentSolve.ao5)
         } else {
             ao5Label.text = "ao5: N/A"
         }
         
-        if let ao12 = solveStats.ao(12, ending: index + 1) {
-            ao12Label.text = String(format: "ao12: %.3f", ao12)
+        if  currentSolve.ao12 != -1 {
+            ao12Label.text = String(format: "ao12: %.3f", currentSolve.ao12)
         } else {
             ao12Label.text = "ao12: N/A"
         }
         
-        scramble = solveStats[index].scramble
+        scramble = currentSolve.scramble!
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+        selectAnimation()
     }
-
+    
+    func selectAnimation() {
+        roundedView.backgroundColor = UIColor.white
+        roundedView.alpha = 0.2
+        UIView.animate(withDuration: 0.1, animations: {
+            self.roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.3289608657, blue: 0.5148260593, alpha: 1)
+            self.roundedView.alpha = 1
+            })
+    }
 }
