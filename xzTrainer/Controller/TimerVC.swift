@@ -17,7 +17,31 @@ class TimerVC:
     UITableViewDelegate,
     UITableViewDataSource {
     
-    // var swipeRecognizer: UISwipeGestureRecognizer!
+    // Pop up window
+    @IBOutlet var popUpDetailView: RoundedView!
+    @IBOutlet var dismissPopUpButton: UIButton!
+    @IBAction func dismissPopUp(_ sender: UIButton) {
+        animatePopUpOut()
+    }
+    
+    @IBOutlet var puScrambleLabel: UILabel!
+    @IBOutlet var puTimeLabel: UILabel!
+    @IBOutlet var puMo3Label: UILabel!
+    @IBOutlet var puAo5Label: UILabel!
+    @IBOutlet var puAo12Label: UILabel!
+    @IBOutlet var puDateLabel: UILabel!
+    @IBOutlet var plusTwoButtion: RoundedButton!
+    var currentIndexPath: IndexPath!
+    
+    @IBAction func plusTwo() {
+        plusTwoButtion.isSelected = !plusTwoButtion.isSelected
+    }
+    
+    @IBAction func showDetail() {
+        // performSegue(withIdentifier: "tableToSolveDetail",
+                     // sender: currentIndexPath)
+    }
+    
     @IBOutlet var scrambleTextField: UITextField!
     @IBOutlet var cubeView: CubeView!
     @IBOutlet var timerLabel: TimerLabel!
@@ -35,6 +59,9 @@ class TimerVC:
     
     private var hiddenTableTopConstraint: NSLayoutConstraint?
     private var shownTableTopConstraint: NSLayoutConstraint?
+    
+    private var hiddenTableTriggerTopConstraint: NSLayoutConstraint?
+    private var shownTableTriggerTopConstraint: NSLayoutConstraint?
     
     var userSolves: [Solve] = []
     let managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as!
@@ -56,10 +83,8 @@ class TimerVC:
     @IBAction func resultTableTriggered(_ sender: UIButtonX) {
         if (hiddenTableTopConstraint?.isActive)! {
             swipeUpDetected()
-            resultTableTriggerButton.titleLabel?.text = "Down"
         } else {
             swipeDownDetected()
-            resultTableTriggerButton.titleLabel?.text = "Up"
         }
     }
     
@@ -104,7 +129,9 @@ class TimerVC:
         let swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerVC.swipeUpDetected))
         let swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerVC.swipeDownDetected))
         swipeUpRecognizer.direction = .up
+        swipeUpRecognizer.cancelsTouchesInView = false
         swipeDownRecognizer.direction = .down
+        swipeDownRecognizer.cancelsTouchesInView = false
         swipableView.addGestureRecognizer(swipeUpRecognizer)
         swipableView.addGestureRecognizer(swipeDownRecognizer)
     }
@@ -116,7 +143,12 @@ class TimerVC:
         
         hiddenTableTopConstraint?.isActive = false
         shownTableTopConstraint?.isActive = true
+        
+        hiddenTableTriggerTopConstraint?.isActive = false
+        shownTableTriggerTopConstraint?.isActive = true
         UIView.animate(withDuration: 0.4) {
+            self.resultTableTriggerButton.transform =
+                CGAffineTransform(rotationAngle: .pi)
             self.view.layoutIfNeeded()
         }
     }
@@ -127,7 +159,11 @@ class TimerVC:
         
         shownTableTopConstraint?.isActive = false
         hiddenTableTopConstraint?.isActive = true
+        
+        shownTableTriggerTopConstraint?.isActive = false
+        hiddenTableTriggerTopConstraint?.isActive = true
         UIView.animate(withDuration: 0.4) {
+            self.resultTableTriggerButton.transform = CGAffineTransform.identity
             self.view.layoutIfNeeded()
         }
     }
@@ -135,6 +171,7 @@ class TimerVC:
     private func setUpResultTableViewConstraints() {
         resultTableView.translatesAutoresizingMaskIntoConstraints = false
         resultTable.translatesAutoresizingMaskIntoConstraints = false
+        resultTableTriggerButton.translatesAutoresizingMaskIntoConstraints = false
         initializeTopConstraints()
         
         hiddenResultTableViewTopConstraint?.isActive = true
@@ -147,6 +184,7 @@ class TimerVC:
             equalToConstant: view.frame.height).isActive = true
         
         hiddenTableTopConstraint?.isActive = true
+        
         resultTable.leadingAnchor.constraint(
             equalTo: resultTableView.leadingAnchor).isActive = true
         resultTable.trailingAnchor.constraint(
@@ -154,6 +192,13 @@ class TimerVC:
         resultTable.bottomAnchor.constraint(
             equalTo: resultTableView.bottomAnchor).isActive = true
         
+        hiddenTableTriggerTopConstraint?.isActive = true
+        
+        resultTableTriggerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        resultTableTriggerButton.widthAnchor.constraint(
+            equalToConstant: 30).isActive = true
+        resultTableTriggerButton.heightAnchor.constraint(
+            equalToConstant: 30).isActive = true
     }
     
     fileprivate func initializeTopConstraints() {
@@ -166,6 +211,8 @@ class TimerVC:
             equalTo: resultTableView.topAnchor, constant: 40)
         shownTableTopConstraint = resultTable.topAnchor.constraint(
             equalTo: resultTableView.topAnchor, constant: 80)
+        hiddenTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 5)
+        shownTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 35)
     }
     
     func loadData() {
@@ -196,32 +243,55 @@ class TimerVC:
     
     func timerDidFinish(_ sender: TimerLabel) {
         appendNewSolve()
+        saveData()
+        updateView()
+        resultTable.reloadData()
+    }
+    
+    private func saveData() {
         do {
             try managedObjectContext.save()
         }catch {
             print("Error saving solve data. Message: \(error.localizedDescription)")
         }
         
-        updateView()
-        resultTable.reloadData()
     }
-    
     private func appendNewSolve() {
         let currentSolve = Solve(context: managedObjectContext)
         userSolves.append(currentSolve)
         currentSolve.time = timerLabel.time
         currentSolve.scramble = scrambleTextField.text!
-        currentSolve.mo3 = userSolves.mo(3)
-        currentSolve.ao5 = userSolves.ao(5)
-        currentSolve.ao12 = userSolves.ao(12)
-        currentSolve.ao50 = userSolves.ao(50)
-        currentSolve.ao100 = userSolves.ao(100)
-        currentSolve.ao1000 = userSolves.ao(1000)
+        updateStatsFromIndex(userSolves.count - 1)
         currentSolve.edgeMemo = edgeMemoLabel.text!
         currentSolve.cornerMemo = cornerMemoLabel.text!
         currentSolve.edgeFlips = edgeFlipLabel.text!
         currentSolve.cornerTwists = cornerTwistLabel.text!
+        currentSolve.date = Date()
         userSolves[userSolves.count - 1] = currentSolve
+    }
+    
+    private func updateStatsFromIndex(_ index: Int) {
+        if index < userSolves.count {
+            for i in index ..< userSolves.count {
+                let currentSolve = userSolves[i]
+                currentSolve.mo3 = userSolves.mo(3, ending: i + 1)
+                currentSolve.ao5 = userSolves.ao(5, ending: i + 1)
+                currentSolve.ao12 = userSolves.ao(12, ending: i + 1)
+                currentSolve.ao50 = userSolves.ao(50, ending: i + 1)
+                currentSolve.ao100 = userSolves.ao(100, ending: i + 1)
+                currentSolve.ao1000 = userSolves.ao(1000, ending: i + 1)
+                userSolves[i] = currentSolve
+            }
+        }
+    }
+    
+    private func deleteSolve(atIndex index: Int) {
+        if index < userSolves.count {
+            managedObjectContext.delete(userSolves[index])
+            saveData()
+            userSolves.remove(at: index)
+            updateStatsFromIndex(index)
+        }
     }
     
     private func updateCube (withScramble scramble: String) {
@@ -254,10 +324,11 @@ class TimerVC:
             resultCell.configureCell(index: userSolves.count - indexPath.row - 1,
                                      solveStats: userSolves)
             let newView = UIView()
-            newView.backgroundColor = UIColor(red: 0x92/255 ,
-                                              green: 0xa6/255,
-                                              blue:0xbe/255,
-                                              alpha: 1)
+            let extractedExpr: UIColor = UIColor(red: 0x92/255 ,
+                                                 green: 0xa6/255,
+                                                 blue:0xbe/255,
+                                                 alpha: 1)
+            newView.backgroundColor = extractedExpr
             resultCell.selectedBackgroundView? = newView
             return resultCell
         }
@@ -265,9 +336,10 @@ class TimerVC:
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected row")
         tableView.deselectRow(at: indexPath, animated: true)
-        // configurePopUp(indexPath: indexPath)
-        // animatePopUpIn()
+        configurePopUp(indexPath: indexPath)
+        animatePopUpIn()
     }
     
     func tableView(_ tableView: UITableView,
@@ -275,15 +347,27 @@ class TimerVC:
         return 60
     }
     
-    /*
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") {_,_ in
+            self.deleteSolve(atIndex: self.userSolves.count - indexPath.row - 1)
+            self.resultTable.reloadData()
+        }
+        
+        delete.backgroundColor = .red
+        return [delete]
+    }
+    
     private func configurePopUp(indexPath: IndexPath) {
         currentIndexPath = indexPath
-        let solve = userSolves[indexPath.row]
+        let solve = userSolves[userSolves.count - indexPath.row - 1]
         puScrambleLabel.text = solve.scramble
         puTimeLabel.text = convertTimeDoubleToString(solve.time)
         puMo3Label.text = convertTimeDoubleToString(solve.mo3)
         puAo5Label.text = convertTimeDoubleToString(solve.ao5)
         puAo12Label.text = convertTimeDoubleToString(solve.ao12)
+        let chineseDateFormatter = DateFormatter()
+        chineseDateFormatter.dateFormat = "(yyyy-MM-dd HH:mm:ss)"
+        puDateLabel.text = chineseDateFormatter.string(from: solve.date!)
     }
     
     private func animatePopUpIn() {
@@ -307,6 +391,5 @@ class TimerVC:
             self.popUpDetailView.removeFromSuperview()
         })
     }
- */
 }
 

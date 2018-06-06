@@ -42,9 +42,12 @@ extension Array where Element == Solve {
         if (end - n < 0) {
             return -1
         }
-        return reduce(0, { partialResult, element in
+        
+        let temp = self[(end - n) ..< end]
+        
+        return self[(end - n) ..< end].reduce(0, { partialResult, element in
             return partialResult + element.time
-        }) / Double(count)
+        }) / Double(temp.count)
     }
     
     func mo(_ n: Int) -> Double! {
@@ -55,14 +58,14 @@ extension Array where Element == Solve {
         if n < 3 || (end - n < 0) {
             return -1
         }
+        let temp = self[(end - n) ..< end]
+        let mininum = temp.min()!.time
         
-        let mininum = self.min()!.time
+        let maximum = temp.max()!.time
         
-        let maximum = self.max()!.time
-        
-        return (reduce(0, { partialResult, element in
+        return (temp.reduce(0, { partialResult, element in
             return partialResult + element.time
-        }) - mininum - maximum) / Double(count - 2)
+        }) - mininum - maximum) / Double(temp.count - 2)
     }
     
     func ao(_ n: Int) -> Double! {

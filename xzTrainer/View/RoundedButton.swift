@@ -21,7 +21,7 @@ import UIKit
             if isSelected {
                 self.backgroundColor = UIColor(red: 0x92/255, green: 0xa6/255, blue: 0xbe/255, alpha: 1)
             } else {
-                self.backgroundColor = UIColor(red: 0, green: 0x27/255, blue: 0x4c/255, alpha: 1)
+                self.backgroundColor = UIColor(red: 0, green: 0x27/255, blue: 0x4c/255, alpha: 0.9)
             }
         }
     }

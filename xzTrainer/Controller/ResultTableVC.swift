@@ -75,7 +75,7 @@ class ResultTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     private func configurePopUp(indexPath: IndexPath) {
         currentIndexPath = indexPath
-        let solve = userSolves[indexPath.row]
+        let solve = userSolves[userSolves.count - indexPath.row - 1]
         puScrambleLabel.text = solve.scramble
         puTimeLabel.text = convertTimeDoubleToString(solve.time)
         puMo3Label.text = convertTimeDoubleToString(solve.mo3)
