@@ -160,5 +160,21 @@ class CubeView: UIView {
         cube = cubeTemp
     }
     
+    public func hideFacesExceptFront() {
+        backFace.alpha = 0
+        leftFace.alpha = 0
+        rightFace.alpha = 0
+        topFace.alpha = 0
+        bottomFace.alpha = 0
+    }
+    
+    public func showAllFaces() {
+        backFace.alpha = 1
+        leftFace.alpha = 1
+        rightFace.alpha = 1
+        topFace.alpha = 1
+        bottomFace.alpha = 1
+    }
+    
 
 }

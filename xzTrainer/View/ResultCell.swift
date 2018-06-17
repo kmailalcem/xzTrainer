@@ -20,19 +20,11 @@ class ResultCell: UITableViewCell {
     func configureCell(index: Int, solveStats: [Solve]) {
         let currentSolve = solveStats[index]
         indexLabel.text = String(index + 1)
-        timeLabel.text = String(format: "%.3f", currentSolve.time)
+        timeLabel.text = convertTimeDoubleToString(currentSolve.timeIncludingPenalty)
         
-        if currentSolve.ao5 != -1 {
-            ao5Label.text = String(format: "ao5: %.3f", currentSolve.ao5)
-        } else {
-            ao5Label.text = "ao5: N/A"
-        }
+        ao5Label.text = String("ao5: \(convertTimeDoubleToString(currentSolve.ao5))" )
         
-        if  currentSolve.ao12 != -1 {
-            ao12Label.text = String(format: "ao12: %.3f", currentSolve.ao12)
-        } else {
-            ao12Label.text = "ao12: N/A"
-        }
+        ao12Label.text = String(format: "ao12: \(convertTimeDoubleToString(currentSolve.ao12))")
         
         scramble = currentSolve.scramble!
     }

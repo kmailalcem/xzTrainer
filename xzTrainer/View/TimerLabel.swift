@@ -10,7 +10,11 @@ import UIKit
 
 public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
 
-    private var timer: Timer?
+    static let defaultColor = #colorLiteral(red: 0.003921568627, green: 0.2196078431, blue: 0.3921568627, alpha: 1)
+    static let beginTappingColor = #colorLiteral(red: 0.4078431373, green: 0.5176470588, blue: 0.6431372549, alpha: 1)
+    static let readyColor: UIColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+    
+    var timer: Timer?
     private var isTiming: Bool = false
     private var startTime: TimeInterval = 0
     var delegate: TimerLabelDelegate?
@@ -33,7 +37,7 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
         // default properties
         text = "Time"
         textAlignment = .center
-        textColor = UIColor(red: 0xe5/255, green: 0xe9/255, blue: 0xef/255, alpha: 1)
+        textColor = TimerLabel.defaultColor
         font = font.withSize(50)
         
         // gesture recognizers
@@ -59,18 +63,23 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
         return true
     }
     
+    public func startTimer(delay: Double) {
+        startTime = Date().timeIntervalSinceReferenceDate + delay
+        timer = Timer.scheduledTimer(timeInterval: 0.053, target: self, selector: #selector(TimerLabel.updateTimer), userInfo: nil, repeats: true)
+    }
+    
     @objc private func timerTaped(sender: UILongPressGestureRecognizer) {
         if (!isTiming) {
             if sender.state == .began {
-                textColor = UIColor(red: 0x92/255, green: 0xa6/255, blue: 0xbe/255, alpha: 1)
+                textColor = TimerLabel.beginTappingColor
             } else if sender.state == .ended {
-                textColor = UIColor(red: 0xe5/255, green: 0xe9/255, blue: 0xef/255, alpha: 1)
+                textColor = TimerLabel.defaultColor
             }
         } else {
             if sender.state == .began {
                 timer?.invalidate()
                 updateTimer()
-                textColor = UIColor(red: 0xe5/255, green: 0xe9/255, blue: 0xef/255, alpha: 1)
+                textColor = TimerLabel.defaultColor
                 isTiming = false
                 delegate?.timerDidFinish(self)
             }
@@ -79,19 +88,17 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
 
     @objc func timerReady(sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
+            delegate?.timerWillStart(self)
             text = "Ready"
-            textColor = UIColor(red: 0xa3/255, green: 0xff/255, blue: 0x90/255, alpha: 1)
+            textColor = TimerLabel.readyColor
             isTiming = true
         } else if sender.state == .ended {
-            startTime = Date().timeIntervalSinceReferenceDate
-            timer = Timer.scheduledTimer(timeInterval: 0.053, target: self, selector: #selector(TimerLabel.updateTimer), userInfo: nil, repeats: true)
-            textColor = UIColor(red: 0xe5/255, green: 0xe9/255, blue: 0xef/255, alpha: 1)
             delegate?.timerDidStart(self)
         }
     }
     
     @objc func updateTimer() {
-        text = String(format: "%.3f", time)
+        text = time < 0 ? "React" : String(format: "%.3f", time)
     }
 }
 
@@ -99,4 +106,9 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
 public protocol TimerLabelDelegate {
     func timerDidStart(_ sender: TimerLabel)
     func timerDidFinish(_ sender: TimerLabel)
+}
+
+public extension TimerLabelDelegate {
+    func timerWillStart(_ sender: TimerLabel) {}
+    func timerWillFinish(_ sender: TimerLabel) {}
 }

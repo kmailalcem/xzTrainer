@@ -18,41 +18,86 @@ class TimerVC:
     UITableViewDataSource {
     
     // Pop up window
-    @IBOutlet var popUpDetailView: RoundedView!
-    @IBOutlet var dismissPopUpButton: UIButton!
+    @IBOutlet weak var popUpDetailView: RoundedView!
+    @IBOutlet weak var dismissPopUpButton: UIButton!
     @IBAction func dismissPopUp(_ sender: UIButton) {
         animatePopUpOut()
     }
     
-    @IBOutlet var puScrambleLabel: UILabel!
-    @IBOutlet var puTimeLabel: UILabel!
-    @IBOutlet var puMo3Label: UILabel!
-    @IBOutlet var puAo5Label: UILabel!
-    @IBOutlet var puAo12Label: UILabel!
-    @IBOutlet var puDateLabel: UILabel!
-    @IBOutlet var plusTwoButtion: RoundedButton!
+    @IBOutlet weak var puScrambleLabel: UILabel!
+    @IBOutlet weak var puTimeLabel: UILabel!
+    @IBOutlet weak var puMo3Label: UILabel!
+    @IBOutlet weak var puAo5Label: UILabel!
+    @IBOutlet weak var puAo12Label: UILabel!
+    @IBOutlet weak var puDateLabel: UILabel!
+    @IBOutlet weak var plusTwoButtion: RoundedButton!
+    @IBOutlet weak var okButton: RoundedButton!
+    @IBOutlet weak var dnfButton: RoundedButton!
     var currentIndexPath: IndexPath!
     
     @IBAction func plusTwo() {
         plusTwoButtion.isSelected = !plusTwoButtion.isSelected
+        okButton.isSelected = false
+        dnfButton.isSelected = false
+        let solve = userSolves[userSolves.count - currentIndexPath.row - 1]
+        if plusTwoButtion.isSelected {
+            solve.penalty = 2
+        } else {
+            solve.penalty = 0
+        }
+        cleanUpForPenaltyUpdate()
+    }
+    
+    @IBAction func okay() {
+        plusTwoButtion.isSelected = false
+        dnfButton.isSelected = false
+        let solve = userSolves[userSolves.count - currentIndexPath.row - 1]
+        solve.penalty = 0
+        cleanUpForPenaltyUpdate()
+    }
+    
+    @IBAction func dnf() {
+        plusTwoButtion.isSelected = false
+        okButton.isSelected = false
+        dnfButton.isSelected = !dnfButton.isSelected
+        let solve = userSolves[userSolves.count - currentIndexPath.row - 1]
+        if dnfButton.isSelected {
+            solve.penalty = Double.infinity
+        } else {
+            solve.penalty = 0
+        }
+        cleanUpForPenaltyUpdate()
+    }
+    
+    private func cleanUpForPenaltyUpdate() {
+        updateStatsFromIndex(userSolves.count - currentIndexPath.row - 1)
+        saveData()
+        resultTable.reloadData()
+        configurePopUp(indexPath: currentIndexPath)
     }
     
     @IBAction func showDetail() {
-        // performSegue(withIdentifier: "tableToSolveDetail",
-                     // sender: currentIndexPath)
+        performSegue(withIdentifier: "toSolveDetail",
+                     sender: userSolves[userSolves.count - currentIndexPath.row - 1])
     }
     
-    @IBOutlet var scrambleTextField: UITextField!
-    @IBOutlet var cubeView: CubeView!
-    @IBOutlet var timerLabel: TimerLabel!
-    @IBOutlet var edgeMemoLabel: UILabel!
-    @IBOutlet var cornerMemoLabel: UILabel!
-    @IBOutlet var edgeFlipLabel: UILabel!
-    @IBOutlet var cornerTwistLabel: UILabel!
-    @IBOutlet var resultTableView: UIView!
-    @IBOutlet var resultTable: UITableView!
-    @IBOutlet var swipableView: RoundedView!
-    @IBOutlet var resultTableTriggerButton: UIButtonX!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SolveDetailVC {
+            if let solve = sender as? Solve {
+                destination.currentSolve = solve
+            }
+        }
+    }
+   
+    @IBOutlet weak var scrambleTextField: UITextField!
+    @IBOutlet weak var cubeView: CubeView!
+    @IBOutlet weak var timerLabel: TimerLabel!
+    @IBOutlet weak var edgeMemoLabel: UILabel!
+    @IBOutlet weak var cornerMemoLabel: UILabel!
+    @IBOutlet weak var resultTableView: UIView!
+    @IBOutlet weak var resultTable: UITableView!
+    @IBOutlet weak var swipableView: RoundedView!
+    @IBOutlet weak var resultTableTriggerButton: UIButtonX!
     
     private var hiddenResultTableViewTopConstraint: NSLayoutConstraint?
     private var shownResultTableViewTopConstraint: NSLayoutConstraint?
@@ -87,15 +132,6 @@ class TimerVC:
             swipeDownDetected()
         }
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ResultTableVC {
-            destination.userSolves = userSolves
-        }
-    }
-    
-    
     
     
     override func viewDidLoad() {
@@ -229,16 +265,18 @@ class TimerVC:
         updateCube(withScramble: scrambleTextField.text!)
         return false
     }
-
+    
+    
     func timerDidStart(_ sender: TimerLabel) {
         let memorizer = CubePermutationEncoder(
             forScramble: scrambleTextField.text!)
+
+        edgeMemoLabel.text = memorizer.formattedEdgeMemo
+        cornerMemoLabel.text = memorizer.formattedCornerMemo
         
-        edgeMemoLabel.text = memorizer.edgeMemo
-        cornerMemoLabel.text = memorizer.cornerMemo
-        edgeFlipLabel.text = memorizer.edgeFlips
-        cornerTwistLabel.text = memorizer.cornerTwists
-        
+        cubeView.showAllFaces()
+        sender.startTimer(delay: 0.7)
+        sender.textColor = TimerLabel.defaultColor
     }
     
     func timerDidFinish(_ sender: TimerLabel) {
@@ -256,24 +294,32 @@ class TimerVC:
         }
         
     }
+    
     private func appendNewSolve() {
         let currentSolve = Solve(context: managedObjectContext)
         userSolves.append(currentSolve)
         currentSolve.time = timerLabel.time
+        currentSolve.best = userSolves.min()!.timeIncludingPenalty
         currentSolve.scramble = scrambleTextField.text!
         updateStatsFromIndex(userSolves.count - 1)
         currentSolve.edgeMemo = edgeMemoLabel.text!
         currentSolve.cornerMemo = cornerMemoLabel.text!
-        currentSolve.edgeFlips = edgeFlipLabel.text!
-        currentSolve.cornerTwists = cornerTwistLabel.text!
+        currentSolve.edgeFlips = ""
+        currentSolve.cornerTwists = ""
         currentSolve.date = Date()
+        currentSolve.penalty = 0
         userSolves[userSolves.count - 1] = currentSolve
+    }
+    
+    private func doubleEqual(_ d1: Double, _ d2: Double) -> Bool {
+        return abs(d1 - d2) < 0.001
     }
     
     private func updateStatsFromIndex(_ index: Int) {
         if index < userSolves.count {
             for i in index ..< userSolves.count {
                 let currentSolve = userSolves[i]
+                currentSolve.best = userSolves.min()!.timeIncludingPenalty
                 currentSolve.mo3 = userSolves.mo(3, ending: i + 1)
                 currentSolve.ao5 = userSolves.ao(5, ending: i + 1)
                 currentSolve.ao12 = userSolves.ao(12, ending: i + 1)
@@ -304,11 +350,12 @@ class TimerVC:
     private func updateView() {
         scrambleTextField.text = Scrambler.getRandomScrambleWithLength(from: 15, to: 20)
         updateCube(withScramble: scrambleTextField.text!)
+        UIView.animate(withDuration: 0.8) {
+            self.cubeView.hideFacesExceptFront()
+        }
         
-        edgeMemoLabel.text = "?? ?? ?? ?? ?? ?? ?"
-        cornerMemoLabel.text = "?? ?? ?? ?? ?"
-        edgeFlipLabel.text = "? ?"
-        cornerTwistLabel.text = "? ? ?"
+        edgeMemoLabel.text = "Reveal memo by starting the timer."
+        cornerMemoLabel.text = "You will have 0.5 seconds to react."
     }
     
    
@@ -336,7 +383,6 @@ class TimerVC:
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected row")
         tableView.deselectRow(at: indexPath, animated: true)
         configurePopUp(indexPath: indexPath)
         animatePopUpIn()
@@ -361,13 +407,15 @@ class TimerVC:
         currentIndexPath = indexPath
         let solve = userSolves[userSolves.count - indexPath.row - 1]
         puScrambleLabel.text = solve.scramble
-        puTimeLabel.text = convertTimeDoubleToString(solve.time)
+        puTimeLabel.text = convertTimeDoubleToString(solve.timeIncludingPenalty)
         puMo3Label.text = convertTimeDoubleToString(solve.mo3)
         puAo5Label.text = convertTimeDoubleToString(solve.ao5)
         puAo12Label.text = convertTimeDoubleToString(solve.ao12)
         let chineseDateFormatter = DateFormatter()
         chineseDateFormatter.dateFormat = "(yyyy-MM-dd HH:mm:ss)"
         puDateLabel.text = chineseDateFormatter.string(from: solve.date!)
+        plusTwoButtion.isSelected = doubleEqual(solve.penalty, 2)
+        dnfButton.isSelected = solve.penalty == Double.infinity
     }
     
     private func animatePopUpIn() {

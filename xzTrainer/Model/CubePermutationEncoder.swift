@@ -30,6 +30,26 @@ class CubePermutationEncoder {
     public let edgeBuffer: EdgePosition = .DF
     public let cornerBuffer: CornerPosition = .ULB
 
+    var formattedEdgeMemo: String {
+        let trimmedEdgeMemo = edgeMemo.trimmingCharacters(in: .whitespacesAndNewlines)
+        var trimmedEdgeFlips = ""
+        if edgeFlips.count > 0 {
+            trimmedEdgeFlips = " (" + edgeFlips.trimmingCharacters(in: .whitespacesAndNewlines)
+                + ")"
+        }
+        return trimmedEdgeMemo + trimmedEdgeFlips
+    }
+    
+    var formattedCornerMemo: String {
+        let trimmedCornerMemo = cornerMemo.trimmingCharacters(in: .whitespacesAndNewlines)
+        var trimmedCornerTwist = ""
+        if cornerTwists.count > 0 {
+            trimmedCornerTwist = " (" +  cornerTwists.trimmingCharacters(in: .whitespacesAndNewlines)
+                + ")"
+        }
+        return trimmedCornerMemo + trimmedCornerTwist
+    }
+    
     init(forCube cube: Cube) {
         self.cube = cube
     }
@@ -229,10 +249,17 @@ class CubePermutationEncoder {
     }
     
     private func encodeEdgeFlips() {
+        if edgeFlipsInAbsolutePosition.count != 0 {
+            return
+        }
+        
         for i in 0 ..<  NUM_STICKERS / 2 {
+            
             let edge = EdgePosition(rawValue: i * 2)!
-            if isFlipped(edge: edge) {
-                edgeFlipsInAbsolutePosition.append(edge)
+            if !belongsToSamePiece(edge, edgeBuffer) {
+                if isFlipped(edge: edge) {
+                    edgeFlipsInAbsolutePosition.append(edge)
+                }
             }
         }
     }
@@ -242,14 +269,20 @@ class CubePermutationEncoder {
     }
     
     private func pieceIsSolved(edge: EdgePosition) -> Bool {
-        return edge == cube.at(edge)
+        return edge == cube.at(edge, parityFilter: encoderSetting.advancedParity)
     }
     
     private func encodeCornerTwists() {
+        if cornerTwistsInAbsolutePosition.count != 0 {
+            return
+        }
+        
         for i in 0 ..< NUM_STICKERS / 3 {
             let corner = CornerPosition(rawValue: i * 3)!
-            if isTwisted(corner: corner) {
-                cornerTwistsInAbsolutePosition.append(corner)
+            if !belongsToSamePiece(corner, cornerBuffer) {
+                if isTwisted(corner: corner) {
+                    cornerTwistsInAbsolutePosition.append(corner)
+                }
             }
         }
     }

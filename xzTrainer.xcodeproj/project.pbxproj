@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		951A33EB20D260C000A12666 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A33EA20D260C000A12666 /* GradientView.swift */; };
 		9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526D82720C3AA2800F0E251 /* UIButtonX.swift */; };
 		9529FCA720AB4C9C0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */; };
 		952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FAA0820BB1B58007FD671 /* RoundedButton.swift */; };
@@ -14,7 +15,6 @@
 		9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533A48F20A8C24D00A5A59E /* CubeView.swift */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
-		957FF87820B089DB008D3B6A /* ResultTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957FF87720B089DB008D3B6A /* ResultTableVC.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
 		9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* VoidCube.swift */; };
 		9583EC4C209E13BF004A4D3E /* xzTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */; };
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		951A33EA20D260C000A12666 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9526D82720C3AA2800F0E251 /* UIButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2018-05-15 at 19.12.13.png"; sourceTree = "<group>"; };
 		952FAA0820BB1B58007FD671 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		9533A48F20A8C24D00A5A59E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
-		957FF87720B089DB008D3B6A /* ResultTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableVC.swift; sourceTree = "<group>"; };
 		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
 		9583EC41209E0E7C004A4D3E /* VoidCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoidCube.swift; sourceTree = "<group>"; };
 		9583EC49209E13BF004A4D3E /* xzTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xzTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +133,7 @@
 				952FAA0820BB1B58007FD671 /* RoundedButton.swift */,
 				952FAA0A20BB1CDA007FD671 /* RoundedView.swift */,
 				9526D82720C3AA2800F0E251 /* UIButtonX.swift */,
+				951A33EA20D260C000A12666 /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,7 +143,6 @@
 			children = (
 				95D52C5B20865912004DE650 /* TimerVC.swift */,
 				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
-				957FF87720B089DB008D3B6A /* ResultTableVC.swift */,
 				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
 			);
 			path = Controller;
@@ -295,6 +295,7 @@
 			files = (
 				95D52C5C20865912004DE650 /* TimerVC.swift in Sources */,
 				95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */,
+				951A33EB20D260C000A12666 /* GradientView.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
 				952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */,
 				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
@@ -304,7 +305,6 @@
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
-				957FF87820B089DB008D3B6A /* ResultTableVC.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
@@ -506,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T2XG4K2FJ;
 				INFOPLIST_FILE = xzTrainer/Info.plist;
@@ -515,6 +516,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.random.xzTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -524,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T2XG4K2FJ;
 				INFOPLIST_FILE = xzTrainer/Info.plist;
@@ -533,6 +536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.random.xzTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

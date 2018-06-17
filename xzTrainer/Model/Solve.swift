@@ -20,18 +20,28 @@ struct Solve {
 */
 
 extension Solve: Comparable {
+    var timeIncludingPenalty: Double {
+        let result = time + penalty
+        if result < 0 {
+            return Double.infinity
+        }
+        return result
+    }
+    
     public static func < (lhs: Solve, rhs: Solve) -> Bool {
-        return lhs.time < rhs.time
+        return lhs.timeIncludingPenalty < rhs.timeIncludingPenalty
     }
     
     public static func == (lhs: Solve, rhs: Solve) -> Bool {
-        return lhs.time == rhs.time
+        return lhs.timeIncludingPenalty == rhs.timeIncludingPenalty
     }
 }
 
 public func convertTimeDoubleToString(_ target: Double) -> String {
-    if target == -1 {
+    if target < 0 {
         return "N/A"
+    } else if target == Double.infinity {
+        return "DNF"
     } else {
         return String(format: "%.3f", target)
     }
@@ -46,12 +56,12 @@ extension Array where Element == Solve {
         let temp = self[(end - n) ..< end]
         
         return self[(end - n) ..< end].reduce(0, { partialResult, element in
-            return partialResult + element.time
+            return partialResult + element.timeIncludingPenalty
         }) / Double(temp.count)
     }
     
     func mo(_ n: Int) -> Double! {
-        return ao(n, ending: count)
+        return mo(n, ending: count)
     }
     
     func ao(_ n: Int, ending end: Int) -> Double {
@@ -59,17 +69,35 @@ extension Array where Element == Solve {
             return -1
         }
         let temp = self[(end - n) ..< end]
-        let mininum = temp.min()!.time
         
-        let maximum = temp.max()!.time
+        var minIndex = end - n
+        var maxIndex = end - n
+        var minimum = temp[minIndex]
+        var maximum = temp[maxIndex]
         
-        return (temp.reduce(0, { partialResult, element in
-            return partialResult + element.time
-        }) - mininum - maximum) / Double(temp.count - 2)
+        for i in (end - n) ..< end {
+            if temp[i] < minimum {
+                minimum = temp[i]
+                minIndex = i
+            } else if temp[i] > maximum {
+                maximum = temp[i]
+                maxIndex = i
+            }
+        }
+        
+        var sum: Double = 0
+        
+        for i in (end - n) ..< end {
+            if i != minIndex && i != maxIndex {
+                sum += temp[i].timeIncludingPenalty
+            }
+        }
+        
+        return sum / Double(n - 2)
     }
     
     func ao(_ n: Int) -> Double! {
-        return mo(n, ending: count)
+        return ao(n, ending: count)
     }
 }
 
