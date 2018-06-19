@@ -15,6 +15,10 @@
 		9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533A48F20A8C24D00A5A59E /* CubeView.swift */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
+		9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457120D9B6D30086202E /* TimerVCPopUp.swift */; };
+		9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457320D9B7DF0086202E /* TimerVCTableManager.swift */; };
+		9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */; };
+		9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575ED5620D90D7A00D9CF81 /* Data.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
 		9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* VoidCube.swift */; };
 		9583EC4C209E13BF004A4D3E /* xzTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */; };
@@ -55,6 +59,10 @@
 		9533A48F20A8C24D00A5A59E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
+		9572457120D9B6D30086202E /* TimerVCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCPopUp.swift; sourceTree = "<group>"; };
+		9572457320D9B7DF0086202E /* TimerVCTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTableManager.swift; sourceTree = "<group>"; };
+		9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTimerLabel.swift; sourceTree = "<group>"; };
+		9575ED5620D90D7A00D9CF81 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
 		9583EC41209E0E7C004A4D3E /* VoidCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoidCube.swift; sourceTree = "<group>"; };
 		9583EC49209E13BF004A4D3E /* xzTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xzTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +127,7 @@
 				95EB838E20B430E4003ADB37 /* Solve.swift */,
 				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
 				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
+				9575ED5620D90D7A00D9CF81 /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,8 +151,11 @@
 			isa = PBXGroup;
 			children = (
 				95D52C5B20865912004DE650 /* TimerVC.swift */,
+				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
 				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
 				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
+				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
+				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,9 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */,
 				95D52C5C20865912004DE650 /* TimerVC.swift in Sources */,
 				95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */,
 				951A33EB20D260C000A12666 /* GradientView.swift in Sources */,
+				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
 				952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */,
 				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
@@ -306,6 +320,8 @@
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
+				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
+				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
 				95EB839120B43D93003ADB37 /* SolveDetailVC.swift in Sources */,

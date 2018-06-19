@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="solve" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Solve" inverseName="session" inverseEntity="Solve" syncable="YES"/>
+    </entity>
     <entity name="Solve" representedClassName="Solve" syncable="YES" codeGenerationType="class">
         <attribute name="ao5" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ao12" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -16,8 +21,10 @@
         <attribute name="penalty" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="scramble" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="solve" inverseEntity="Session" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Solve" positionX="-21393" positionY="-457" width="128" height="270"/>
+        <element name="Solve" positionX="-21393" positionY="-457" width="128" height="283"/>
+        <element name="Session" positionX="-21116" positionY="-450" width="128" height="88"/>
     </elements>
 </model>

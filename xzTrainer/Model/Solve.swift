@@ -19,6 +19,22 @@ struct Solve {
 }
 */
 
+extension Solve: NSCopying {
+    public func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Solve()
+        (copy.best, copy.mo3, copy.ao5, copy.ao12, copy.ao100, copy.ao1000, copy.scramble, copy.date, copy.cornerMemo, copy.cornerTwists, copy.edgeMemo, copy.edgeFlips, copy.penalty, copy.time, copy.session)
+            =
+        (self.best, self.mo3, self.ao5, self.ao12, self.ao100, self.ao1000, self.scramble, self.date, self.cornerMemo, self.cornerTwists, self.edgeMemo, self.edgeFlips, self.penalty, self.time, self.session)
+        return copy
+    }
+    
+    public func copyFrom(copy: Solve) {
+        (self.best, self.mo3, self.ao5, self.ao12, self.ao100, self.ao1000, self.scramble, self.date, self.cornerMemo, self.cornerTwists, self.edgeMemo, self.edgeFlips, self.penalty, self.time, self.session)
+        =
+        (copy.best, copy.mo3, copy.ao5, copy.ao12, copy.ao100, copy.ao1000, copy.scramble, copy.date, copy.cornerMemo, copy.cornerTwists, copy.edgeMemo, copy.edgeFlips, copy.penalty, copy.time, copy.session)
+    }
+}
+
 extension Solve: Comparable {
     var timeIncludingPenalty: Double {
         let result = time + penalty
