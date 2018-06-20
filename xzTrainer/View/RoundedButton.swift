@@ -19,9 +19,9 @@ import UIKit
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.backgroundColor = UIColor(red: 0x92/255, green: 0xa6/255, blue: 0xbe/255, alpha: 1)
+                self.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
             } else {
-                self.backgroundColor = UIColor(red: 0, green: 0x27/255, blue: 0x4c/255, alpha: 0.9)
+                self.backgroundColor = #colorLiteral(red: 0, green: 0.1529411765, blue: 0.2980392157, alpha: 0.9)
             }
         }
     }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class TimerVC: UIViewController {
     
@@ -43,35 +42,19 @@ class TimerVC: UIViewController {
     
     private var hiddenTableTriggerTopConstraint: NSLayoutConstraint?
     private var shownTableTriggerTopConstraint: NSLayoutConstraint?
-    
+    let data = GlobalData.shared
     
     var currentIndexPath: IndexPath!
     
-    func cleanUpForPenaltyUpdate() {
-        updateStatsFromIndex(userSolves.count - currentIndexPath.row - 1)
-        saveData()
-        resultTable.reloadData()
-        configurePopUp(indexPath: currentIndexPath)
-    }
-    
     @IBAction func showDetail() {
-        performSegue(withIdentifier: "toSolveDetail",
-                     sender: userSolves[userSolves.count - currentIndexPath.row - 1])
+        performSegue(withIdentifier: "toSolveDetail", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SolveDetailVC {
-            if let solve = sender as? Solve {
-                destination.currentSolve = solve
-            }
+            destination.currentSolve = data.requestSolve(at: data.backIndex(currentIndexPath.row))
         }
     }
-    
-    var userSolves: [Solve] = []
-    let managedObjectContext: NSManagedObjectContext = (UIApplication.shared.delegate as!
-        AppDelegate).persistentContainer.viewContext
-    
-    
     
     @IBAction func resultTableTriggered(_ sender: UIButtonX) {
         if (hiddenTableTopConstraint?.isActive)! {
@@ -88,12 +71,11 @@ class TimerVC: UIViewController {
         setUpScrambleTexTField()
         setUpSwipeRecognizers()
         setUpResultTableViewConstraints()
-        loadData()
         updateView()
         
         timerLabel.delegate = self
         resultTable.delegate = self
-        resultTable.dataSource = self
+        resultTable.dataSource = data
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -199,65 +181,17 @@ class TimerVC: UIViewController {
         shownTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 35)
     }
     
-    func loadData() {
-        let solvesRequest: NSFetchRequest<Solve> = Solve.fetchRequest()
-        do {
-            try userSolves = managedObjectContext.fetch(solvesRequest)
-        } catch {
-            print("error fetching solves request. Message: \(error.localizedDescription)")
-        }
-    }
-    
-    func saveData() {
-        do {
-            try managedObjectContext.save()
-        }catch {
-            print("Error saving solve data. Message: \(error.localizedDescription)")
-        }
-        
-    }
-    
     func appendNewSolve() {
-        let currentSolve = Solve(context: managedObjectContext)
-        userSolves.append(currentSolve)
+        let currentSolve = data.requestSolve()
         currentSolve.time = timerLabel.time
-        currentSolve.best = userSolves.min()!.timeIncludingPenalty
         currentSolve.scramble = scrambleTextField.text!
-        updateStatsFromIndex(userSolves.count - 1)
         currentSolve.edgeMemo = edgeMemoLabel.text!
         currentSolve.cornerMemo = cornerMemoLabel.text!
         currentSolve.edgeFlips = ""
         currentSolve.cornerTwists = ""
         currentSolve.date = Date()
         currentSolve.penalty = 0
-        userSolves[userSolves.count - 1] = currentSolve
-    }
-    
-    
-    
-    func updateStatsFromIndex(_ index: Int) {
-        if index < userSolves.count {
-            for i in index ..< userSolves.count {
-                let currentSolve = userSolves[i]
-                currentSolve.best = userSolves.min()!.timeIncludingPenalty
-                currentSolve.mo3 = userSolves.mo(3, ending: i + 1)
-                currentSolve.ao5 = userSolves.ao(5, ending: i + 1)
-                currentSolve.ao12 = userSolves.ao(12, ending: i + 1)
-                currentSolve.ao50 = userSolves.ao(50, ending: i + 1)
-                currentSolve.ao100 = userSolves.ao(100, ending: i + 1)
-                currentSolve.ao1000 = userSolves.ao(1000, ending: i + 1)
-                userSolves[i] = currentSolve
-            }
-        }
-    }
-    
-    func deleteSolve(atIndex index: Int) {
-        if index < userSolves.count {
-            managedObjectContext.delete(userSolves[index])
-            saveData()
-            userSolves.remove(at: index)
-            updateStatsFromIndex(index)
-        }
+        data.append(solve: currentSolve)
     }
     
     private func updateCube (withScramble scramble: String) {

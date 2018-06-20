@@ -150,10 +150,10 @@
 		9598B7A02098ED9A003DF590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95D52C5B20865912004DE650 /* TimerVC.swift */,
-				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
 				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
 				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
+				95D52C5B20865912004DE650 /* TimerVC.swift */,
+				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
 				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
 				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
 			);

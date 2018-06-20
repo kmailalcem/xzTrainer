@@ -8,30 +8,6 @@
 
 import UIKit
 
-extension TimerVC: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userSolves.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = resultTable.dequeueReusableCell(
-            withIdentifier: "ResultCell", for: indexPath)
-        if let resultCell = cell as? ResultCell {
-            resultCell.configureCell(index: userSolves.count - indexPath.row - 1,
-                                     solveStats: userSolves)
-            let newView = UIView()
-            let extractedExpr: UIColor = UIColor(red: 0x92/255 ,
-                                                 green: 0xa6/255,
-                                                 blue:0xbe/255,
-                                                 alpha: 1)
-            newView.backgroundColor = extractedExpr
-            resultCell.selectedBackgroundView? = newView
-            return resultCell
-        }
-        return UITableViewCell()
-    }
-}
 
 extension TimerVC: UITableViewDelegate {
     
@@ -48,7 +24,7 @@ extension TimerVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") {_,_ in
-            self.deleteSolve(atIndex: self.userSolves.count - indexPath.row - 1)
+            self.data.deleteSolve(atIndex: self.data.backIndex(indexPath.row))
             self.resultTable.reloadData()
         }
         

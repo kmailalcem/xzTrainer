@@ -22,16 +22,40 @@ struct Solve {
 extension Solve: NSCopying {
     public func copy(with zone: NSZone? = nil) -> Any {
         let copy = Solve()
-        (copy.best, copy.mo3, copy.ao5, copy.ao12, copy.ao100, copy.ao1000, copy.scramble, copy.date, copy.cornerMemo, copy.cornerTwists, copy.edgeMemo, copy.edgeFlips, copy.penalty, copy.time, copy.session)
-            =
-        (self.best, self.mo3, self.ao5, self.ao12, self.ao100, self.ao1000, self.scramble, self.date, self.cornerMemo, self.cornerTwists, self.edgeMemo, self.edgeFlips, self.penalty, self.time, self.session)
+        copy.best = self.best
+        copy.mo3 =  self.mo3
+        copy.ao5 = self.ao5
+        copy.ao12 = self.ao12
+        copy.ao100 = self.ao100
+        copy.ao1000 = self.ao1000
+        copy.scramble = self.scramble
+        copy.date = self.date
+        copy.cornerMemo = self.cornerMemo
+        copy.cornerTwists = self.cornerTwists
+        copy.edgeMemo = self.edgeMemo
+        copy.edgeFlips = self.edgeFlips
+        copy.penalty = self.penalty
+        copy.time = self.time
+        copy.session = self.session
         return copy
     }
     
     public func copyFrom(copy: Solve) {
-        (self.best, self.mo3, self.ao5, self.ao12, self.ao100, self.ao1000, self.scramble, self.date, self.cornerMemo, self.cornerTwists, self.edgeMemo, self.edgeFlips, self.penalty, self.time, self.session)
-        =
-        (copy.best, copy.mo3, copy.ao5, copy.ao12, copy.ao100, copy.ao1000, copy.scramble, copy.date, copy.cornerMemo, copy.cornerTwists, copy.edgeMemo, copy.edgeFlips, copy.penalty, copy.time, copy.session)
+        self.best = copy.best
+        self.mo3 = copy.mo3
+        self.ao5 = copy.ao5
+        self.ao12 = copy.ao12
+        self.ao100 = copy.ao100
+        self.ao1000 = copy.ao1000
+        self.scramble = copy.scramble
+        self.date = copy.date
+        self.cornerMemo = copy.cornerMemo
+        self.cornerTwists = copy.cornerTwists
+        self.edgeMemo = copy.edgeMemo
+        self.edgeFlips = copy.edgeFlips
+        self.penalty = copy.penalty
+        self.time = copy.time
+        self.session = copy.session
     }
 }
 

@@ -15,8 +15,6 @@ fileprivate func doubleEqual(_ d1: Double, _ d2: Double) -> Bool {
 // managing popup view
 extension TimerVC {
     
-    
-    
     @IBAction func dismissPopUp(_ sender: UIButton) {
         animatePopUpOut()
     }
@@ -25,11 +23,11 @@ extension TimerVC {
         plusTwoButtion.isSelected = !plusTwoButtion.isSelected
         okButton.isSelected = false
         dnfButton.isSelected = false
-        let solve = userSolves[userSolves.count - currentIndexPath.row - 1]
+        let index = data.backIndex(currentIndexPath.row)
         if plusTwoButtion.isSelected {
-            solve.penalty = 2
+            data.plusTwo(forSolveAt: index)
         } else {
-            solve.penalty = 0
+            data.okay(forSolveAt: index)
         }
         cleanUpForPenaltyUpdate()
     }
@@ -37,8 +35,8 @@ extension TimerVC {
     @IBAction func okay() {
         plusTwoButtion.isSelected = false
         dnfButton.isSelected = false
-        let solve = userSolves[userSolves.count - currentIndexPath.row - 1]
-        solve.penalty = 0
+        let index = data.backIndex(currentIndexPath.row)
+        data.okay(forSolveAt: index)
         cleanUpForPenaltyUpdate()
     }
     
@@ -46,19 +44,26 @@ extension TimerVC {
         plusTwoButtion.isSelected = false
         okButton.isSelected = false
         dnfButton.isSelected = !dnfButton.isSelected
-        let solve = userSolves[userSolves.count - currentIndexPath.row - 1]
+        let index = data.backIndex(currentIndexPath.row)
         if dnfButton.isSelected {
-            solve.penalty = Double.infinity
+            data.dnf(forSolveAt: index)
         } else {
-            solve.penalty = 0
+            data.okay(forSolveAt: index)
         }
         cleanUpForPenaltyUpdate()
     }
     
+    private func cleanUpForPenaltyUpdate() {
+        
+        data.updateStatsFromIndex(data.count - currentIndexPath.row - 1)
+        data.saveData()
+        resultTable.reloadData()
+        configurePopUp(indexPath: currentIndexPath)
+    }
     
     func configurePopUp(indexPath: IndexPath) {
         currentIndexPath = indexPath
-        let solve = userSolves[userSolves.count - indexPath.row - 1]
+        let solve = data.requestSolve(at: data.backIndex(indexPath.row))
         puScrambleLabel.text = solve.scramble
         puTimeLabel.text = convertTimeDoubleToString(solve.timeIncludingPenalty)
         puMo3Label.text = convertTimeDoubleToString(solve.mo3)

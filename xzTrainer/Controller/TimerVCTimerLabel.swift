@@ -24,7 +24,7 @@ extension TimerVC: TimerLabelDelegate {
     
     func timerDidFinish(_ sender: TimerLabel) {
         appendNewSolve()
-        saveData()
+        data.saveData()
         updateView()
         resultTable.reloadData()
     }
