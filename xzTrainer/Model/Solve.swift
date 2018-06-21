@@ -36,7 +36,6 @@ extension Solve: NSCopying {
         copy.edgeFlips = self.edgeFlips
         copy.penalty = self.penalty
         copy.time = self.time
-        copy.session = self.session
         return copy
     }
     
@@ -55,7 +54,6 @@ extension Solve: NSCopying {
         self.edgeFlips = copy.edgeFlips
         self.penalty = copy.penalty
         self.time = copy.time
-        self.session = copy.session
     }
 }
 

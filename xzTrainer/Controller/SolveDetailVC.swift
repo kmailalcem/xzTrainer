@@ -37,8 +37,12 @@ class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cubeView.layingContraint()
         updateAOLabels()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        cubeView.layingContraint()
     }
     
     @IBAction func copyScramble() {

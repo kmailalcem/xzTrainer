@@ -13,13 +13,19 @@ extension TimerVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        configurePopUp(indexPath: indexPath)
-        animatePopUpIn()
+        if tableView is ResultTableView {
+            configurePopUp(indexPath: indexPath)
+            animatePopUpIn()
+            return
+        }
+        sessionTextField.text =
+            (tableView.cellForRow(at: indexPath) as? SessionCell)?.sessionNameLabel.text!
+        data.reloadSolve(forSessionAtIndex: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return (tableView is ResultTableView) ? 60 : 30
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

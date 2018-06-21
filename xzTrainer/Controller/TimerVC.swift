@@ -16,7 +16,7 @@ class TimerVC: UIViewController {
     @IBOutlet weak var edgeMemoLabel: UILabel!
     @IBOutlet weak var cornerMemoLabel: UILabel!
     @IBOutlet weak var resultTableView: UIView!
-    @IBOutlet weak var resultTable: UITableView!
+    @IBOutlet weak var resultTable: ResultTableView!
     @IBOutlet weak var swipableView: RoundedView!
     @IBOutlet weak var resultTableTriggerButton: UIButtonX!
     
@@ -32,6 +32,10 @@ class TimerVC: UIViewController {
     @IBOutlet weak var plusTwoButtion: RoundedButton!
     @IBOutlet weak var okButton: RoundedButton!
     @IBOutlet weak var dnfButton: RoundedButton!
+    
+    // session picker
+    @IBOutlet weak var sessionTable: SessionTableView!
+    @IBOutlet weak var sessionTextField: UITextField!
     
     // result table constraints
     private var hiddenResultTableViewTopConstraint: NSLayoutConstraint?
@@ -64,24 +68,52 @@ class TimerVC: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpScrambleTexTField()
         setUpSwipeRecognizers()
         setUpResultTableViewConstraints()
+        setUpSessionTableConstraints()
         updateView()
         
         timerLabel.delegate = self
         resultTable.delegate = self
         resultTable.dataSource = data
+        sessionTable.delegate = self
+        sessionTable.dataSource = data
+        sessionTextField.delegate = self
+        sessionTable.isHidden = true
+        
+        swipableView.isUserInteractionEnabled = true
+        resultTableView.isUserInteractionEnabled = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.pickerChanged), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
     }
 
+    @objc func pickerChanged (_ notification: NSNotification) {
+        resultTable.reloadData()
+    }
+    
+    @IBAction func newSession () {
+        let session = data.requestSession()
+        session.id = Int32(Date().timeIntervalSince1970)
+        session.name = Date().description
+        data.append(session: session)
+        sessionTable.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         cubeView.layingContraint()
+    }
+    
+    private func setUpSessionTableConstraints() {
+        // sessionTable.widthAnchor.constraint(equalToConstant: view.frame.width / 2).isActive = true
+        // sessionTable.heightAnchor.constraint(equalToConstant: view.frame.height / 2).isActive = true
+        sessionTable.center = view.center
+        view.addSubview(sessionTable)
     }
     
     private func setUpScrambleTexTField() {
@@ -156,7 +188,7 @@ class TimerVC: UIViewController {
         resultTable.trailingAnchor.constraint(
             equalTo: resultTableView.trailingAnchor).isActive = true
         resultTable.bottomAnchor.constraint(
-            equalTo: resultTableView.bottomAnchor).isActive = true
+            equalTo: resultTableView.bottomAnchor, constant: -60).isActive = true
         
         hiddenTableTriggerTopConstraint?.isActive = true
         
@@ -230,8 +262,20 @@ extension TimerVC: UITextFieldDelegate, UIGestureRecognizerDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        scrambleTextField.resignFirstResponder()
-        updateCube(withScramble: scrambleTextField.text!)
+        if textField == scrambleTextField {
+            scrambleTextField.resignFirstResponder()
+            updateCube(withScramble: scrambleTextField.text!)
+        }
         return false
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == sessionTextField {
+            dismissPopUpButton.alpha = 0.5
+            sessionTable.isHidden = false
+            
+            return false
+        }
+        return true
     }
 }

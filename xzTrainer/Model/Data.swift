@@ -77,17 +77,44 @@ class GlobalData: NSObject {
     }
     
     public func append(solve: Solve) {
-        solve.best = userSolves.min()!.time
-        userSolves.append(solve)
-        updateStatsFromIndex(count - 1)
         managedObjectContext.insert(solve)
+        solve.session = currentSession
+        currentSession.solve?.adding(solve)
+        userSolves.append(solve)
+        userSolves[count - 1].best = userSolves.min()!.time
+        updateStatsFromIndex(count - 1)
+        
+        saveData()
+    }
+    
+    // Every instance of Session outside this class is provided by one of these
+    // two factory functions. Only copies are provided. Copies are not inserted
+    // into the managed context unless append is called.
+    public func requestSession() -> Session {
+        let entity = NSEntityDescription.entity(forEntityName: "Session",
+                                                in: managedObjectContext)
+        return Session(entity: entity!, insertInto: nil)
+    }
+    
+    public func requestSession(at index: Int) -> Session {
+        let session = requestSession()
+        session.copyFrom(sessions[index])
+        return session
+    }
+    
+    public func append(session: Session) {
+        sessions.append(session)
+        print(session.id)
+        print(session.name!)
+        managedObjectContext.insert(session)
+        saveData()
     }
     
     public func saveData() {
         do {
             try managedObjectContext.save()
-        }catch {
-            print("Error saving solve data. Message: \(error.localizedDescription)")
+        } catch let err {
+            print(err)
         }
     }
     
@@ -100,6 +127,18 @@ class GlobalData: NSObject {
         }
     }
     
+    public func reloadSolve(forSessionAtIndex index: Int) {
+        currentSession = sessions[index]
+        let fetchRequest: NSFetchRequest<Solve> = Solve.fetchRequest()
+        let predicate = NSPredicate(format: "session.id = %d", currentSession.id)
+        fetchRequest.predicate = predicate
+        do {
+            try userSolves = managedObjectContext.fetch(fetchRequest)
+        } catch {
+            print("Error reloading session. Message: \(error.localizedDescription)")
+        }
+         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: self)
+    }
     
     public func free() {
         GlobalData.data = nil
@@ -109,24 +148,38 @@ class GlobalData: NSObject {
     
     private static var data: GlobalData?
     private var userSolves: [Solve]
+    private var sessions: [Session]
     private let managedObjectContext: NSManagedObjectContext
+    private var currentSession: Session!
     
     private override init() {
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate)
             .persistentContainer.viewContext
         userSolves = []
+        sessions = []
         super.init()
         loadData()
+        currentSession = sessions[0]
     }
     
     private func loadData() {
-        let solvesRequest: NSFetchRequest<Solve> = Solve.fetchRequest()
+        
+        let sessionRequest: NSFetchRequest<Session> = Session.fetchRequest()
         do {
-            try userSolves = managedObjectContext.fetch(solvesRequest)
+            try sessions = managedObjectContext.fetch(sessionRequest)
         } catch {
-            print("error fetching solves request. No data is fetched. Message: \(error.localizedDescription)")
-            userSolves = []
+            print("error fetching sessions. No session is fetched. Message: \(error.localizedDescription)")
         }
+        
+        if sessions.count == 0 {
+            let session = Session(context: managedObjectContext)
+            session.id = 0
+            session.name = "default"
+            saveData()
+            sessions.append(session)
+        }
+        
+        reloadSolve(forSessionAtIndex: 0)
     }
     
     deinit {
@@ -136,26 +189,54 @@ class GlobalData: NSObject {
 
 extension GlobalData: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userSolves.count
+        if tableView is ResultTableView {
+             return count
+        }
+        return sessions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "ResultCell", for: indexPath)
-        if let resultCell = cell as? ResultCell {
-            resultCell.configureCell(index: backIndex(indexPath.row),
-                                     solveStats: userSolves)
-            let newView = UIView()
-            let extractedExpr: UIColor = UIColor(red: 0x92/255 ,
-                                                 green: 0xa6/255,
-                                                 blue:0xbe/255,
-                                                 alpha: 1)
-            newView.backgroundColor = extractedExpr
-            resultCell.selectedBackgroundView? = newView
-            return resultCell
+        if let tableView = tableView as? ResultTableView {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "ResultCell", for: indexPath)
+            if let resultCell = cell as? ResultCell {
+                resultCell.configureCell(index: backIndex(indexPath.row),
+                                         solveStats: userSolves)
+                let newView = UIView()
+                let extractedExpr: UIColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
+                newView.backgroundColor = extractedExpr
+                resultCell.selectedBackgroundView? = newView
+                return resultCell
+            }
+        }
+        
+        if tableView is SessionTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath)
+            if let sessionCell = cell as? SessionCell {
+                sessionCell.sessionNameLabel.text = sessions[indexPath.row].name!
+            }
+            return cell
         }
         return UITableViewCell()
     }
+}
+
+extension GlobalData: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return sessions.count
+    }
+}
+
+extension GlobalData: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sessions[row].name!
+    }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: self, userInfo: ["session": sessions[row]])
+    }
 }

@@ -19,10 +19,13 @@
 		9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457320D9B7DF0086202E /* TimerVCTableManager.swift */; };
 		9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */; };
 		9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575ED5620D90D7A00D9CF81 /* Data.swift */; };
+		957E1C8720DA5DC000CC40AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E1C8620DA5DC000CC40AD /* Session.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
 		9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* VoidCube.swift */; };
 		9583EC4C209E13BF004A4D3E /* xzTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */; };
 		9583EC54209E3F2C004A4D3E /* PublicEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC53209E3F2C004A4D3E /* PublicEnums.swift */; };
+		9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19C20DB27B200CFF85D /* TableViewClasses.swift */; };
+		9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19E20DB2D6E00CFF85D /* SessionCell.swift */; };
 		95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0E3720A7447200E36982 /* ColorScheme.swift */; };
 		95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9838120B1F73000CE5908 /* ResultCell.swift */; };
 		95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */; };
@@ -63,12 +66,15 @@
 		9572457320D9B7DF0086202E /* TimerVCTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTableManager.swift; sourceTree = "<group>"; };
 		9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTimerLabel.swift; sourceTree = "<group>"; };
 		9575ED5620D90D7A00D9CF81 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		957E1C8620DA5DC000CC40AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
 		9583EC41209E0E7C004A4D3E /* VoidCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoidCube.swift; sourceTree = "<group>"; };
 		9583EC49209E13BF004A4D3E /* xzTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xzTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xzTrainerTests.swift; sourceTree = "<group>"; };
 		9583EC4D209E13BF004A4D3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9583EC53209E3F2C004A4D3E /* PublicEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEnums.swift; sourceTree = "<group>"; };
+		9587E19C20DB27B200CFF85D /* TableViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewClasses.swift; sourceTree = "<group>"; };
+		9587E19E20DB2D6E00CFF85D /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
 		95AD0E3720A7447200E36982 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		95B9838120B1F73000CE5908 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		95C6A4C020B32973003D8D28 /* xzTrainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = xzTrainer.xcdatamodel; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
 				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
 				9575ED5620D90D7A00D9CF81 /* Data.swift */,
+				957E1C8620DA5DC000CC40AD /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +150,8 @@
 				952FAA0A20BB1CDA007FD671 /* RoundedView.swift */,
 				9526D82720C3AA2800F0E251 /* UIButtonX.swift */,
 				951A33EA20D260C000A12666 /* GradientView.swift */,
+				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
+				9587E19E20DB2D6E00CFF85D /* SessionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,17 +320,20 @@
 				951A33EB20D260C000A12666 /* GradientView.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
+				9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */,
 				952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */,
 				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
 				95EB838F20B430E4003ADB37 /* Solve.swift in Sources */,
 				95EB839320B46CDF003ADB37 /* LetterScheme.swift in Sources */,
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
+				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
 				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,
+				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
 				95EB839120B43D93003ADB37 /* SolveDetailVC.swift in Sources */,

@@ -17,6 +17,7 @@ extension TimerVC {
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
         animatePopUpOut()
+        sessionTable.isHidden = true
     }
     
     @IBAction func plusTwo() {
