@@ -21,11 +21,12 @@ extension TimerVC: UITableViewDelegate {
         sessionTextField.text =
             (tableView.cellForRow(at: indexPath) as? SessionCell)?.sessionNameLabel.text!
         data.reloadSolve(forSessionAtIndex: indexPath.row)
+        sessionTablePopOut()
     }
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (tableView is ResultTableView) ? 60 : 30
+        return (tableView is ResultTableView) ? 60 : 60
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

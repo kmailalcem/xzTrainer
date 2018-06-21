@@ -20,6 +20,12 @@ class TimerVC: UIViewController {
     @IBOutlet weak var swipableView: RoundedView!
     @IBOutlet weak var resultTableTriggerButton: UIButtonX!
     
+    // Floating Action Buttons
+    @IBOutlet weak var floatingPlus: UIButtonX!
+    @IBOutlet weak var inTimerSettingButton: UIButtonX!
+    @IBOutlet weak var nextScrambleButton: UIButtonX!
+    @IBOutlet weak var manuallyEnterTimeButton: UIButtonX!
+    
     // Pop up window
     @IBOutlet weak var popUpDetailView: RoundedView!
     @IBOutlet weak var dismissPopUpButton: UIButton!
@@ -50,15 +56,6 @@ class TimerVC: UIViewController {
     
     var currentIndexPath: IndexPath!
     
-    @IBAction func showDetail() {
-        performSegue(withIdentifier: "toSolveDetail", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? SolveDetailVC {
-            destination.currentSolve = data.requestSolve(at: data.backIndex(currentIndexPath.row))
-        }
-    }
     
     @IBAction func resultTableTriggered(_ sender: UIButtonX) {
         if (hiddenTableTopConstraint?.isActive)! {
@@ -75,6 +72,8 @@ class TimerVC: UIViewController {
         setUpSwipeRecognizers()
         setUpResultTableViewConstraints()
         setUpSessionTableConstraints()
+        setUpFABConstraints()
+        hideFABs()
         updateView()
         
         timerLabel.delegate = self
@@ -83,25 +82,13 @@ class TimerVC: UIViewController {
         sessionTable.delegate = self
         sessionTable.dataSource = data
         sessionTextField.delegate = self
-        sessionTable.isHidden = true
         
         swipableView.isUserInteractionEnabled = true
         resultTableView.isUserInteractionEnabled = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.pickerChanged), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
     }
 
-    @objc func pickerChanged (_ notification: NSNotification) {
-        resultTable.reloadData()
-    }
-    
-    @IBAction func newSession () {
-        let session = data.requestSession()
-        session.id = Int32(Date().timeIntervalSince1970)
-        session.name = Date().description
-        data.append(session: session)
-        sessionTable.reloadData()
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -110,10 +97,10 @@ class TimerVC: UIViewController {
     }
     
     private func setUpSessionTableConstraints() {
-        // sessionTable.widthAnchor.constraint(equalToConstant: view.frame.width / 2).isActive = true
-        // sessionTable.heightAnchor.constraint(equalToConstant: view.frame.height / 2).isActive = true
+        view.insertSubview(sessionTable, aboveSubview: dismissPopUpButton)
         sessionTable.center = view.center
-        view.addSubview(sessionTable)
+        sessionTable.transform = CGAffineTransform(translationX: 0, y: view.frame.height)
+
     }
     
     private func setUpScrambleTexTField() {
@@ -167,6 +154,7 @@ class TimerVC: UIViewController {
     }
     
     private func setUpResultTableViewConstraints() {
+        view.insertSubview(resultTableView, belowSubview: dismissPopUpButton)
         resultTableView.translatesAutoresizingMaskIntoConstraints = false
         resultTable.translatesAutoresizingMaskIntoConstraints = false
         resultTableTriggerButton.translatesAutoresizingMaskIntoConstraints = false
@@ -194,9 +182,36 @@ class TimerVC: UIViewController {
         
         resultTableTriggerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         resultTableTriggerButton.widthAnchor.constraint(
-            equalToConstant: 30).isActive = true
+            equalToConstant: 20).isActive = true
         resultTableTriggerButton.heightAnchor.constraint(
-            equalToConstant: 30).isActive = true
+            equalToConstant: 20).isActive = true
+    }
+    
+    private func setUpFABConstraints() {
+        floatingPlus.translatesAutoresizingMaskIntoConstraints = false
+        inTimerSettingButton.translatesAutoresizingMaskIntoConstraints = false
+        nextScrambleButton.translatesAutoresizingMaskIntoConstraints = false
+        manuallyEnterTimeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        floatingPlus.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height - 190).isActive = true
+        floatingPlus.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        floatingPlus.widthAnchor.constraint(equalToConstant: 56).isActive = true
+        floatingPlus.heightAnchor.constraint(equalToConstant: 56).isActive = true
+        
+        inTimerSettingButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height - 260).isActive = true
+        inTimerSettingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        inTimerSettingButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        inTimerSettingButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        nextScrambleButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height - 315).isActive = true
+        nextScrambleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        nextScrambleButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        nextScrambleButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        manuallyEnterTimeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height - 370).isActive = true
+        manuallyEnterTimeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        manuallyEnterTimeButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        manuallyEnterTimeButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     fileprivate func initializeTopConstraints() {
@@ -209,8 +224,8 @@ class TimerVC: UIViewController {
             equalTo: resultTableView.topAnchor, constant: 40)
         shownTableTopConstraint = resultTable.topAnchor.constraint(
             equalTo: resultTableView.topAnchor, constant: 80)
-        hiddenTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 5)
-        shownTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 35)
+        hiddenTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 12)
+        shownTableTriggerTopConstraint = resultTableTriggerButton.topAnchor.constraint(equalTo: resultTableView.topAnchor, constant: 40)
     }
     
     func appendNewSolve() {
@@ -224,6 +239,40 @@ class TimerVC: UIViewController {
         currentSolve.date = Date()
         currentSolve.penalty = 0
         data.append(solve: currentSolve)
+    }
+    
+    @IBAction func floatingPlusPressed (_ sender: UIButton) {
+        if dismissPopUpButton.alpha == 0 {
+            if floatingPlus.transform == .identity {
+                UIView.animate(withDuration: 0.4) {
+                    self.showFABs()
+                }
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.hideFABs()
+                }
+            }
+        } else {
+            let session = data.requestSession()
+            session.id = Int32(Date().timeIntervalSince1970)
+            session.name = Date().description
+            data.append(session: session)
+            sessionTable.reloadData()
+        }
+    }
+    
+    func hideFABs() {
+        inTimerSettingButton.transform = CGAffineTransform(translationX: 0, y: 78)
+        nextScrambleButton.transform = CGAffineTransform(translationX: 0, y: 133)
+        manuallyEnterTimeButton.transform = CGAffineTransform(translationX: 0, y: 188)
+        floatingPlus.transform = .identity
+    }
+    
+    func showFABs() {
+        inTimerSettingButton.transform = .identity
+        nextScrambleButton.transform = .identity
+        manuallyEnterTimeButton.transform = .identity
+        floatingPlus.transform = CGAffineTransform(rotationAngle: 3 * .pi / 4)
     }
     
     private func updateCube (withScramble scramble: String) {
@@ -271,9 +320,7 @@ extension TimerVC: UITextFieldDelegate, UIGestureRecognizerDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == sessionTextField {
-            dismissPopUpButton.alpha = 0.5
-            sessionTable.isHidden = false
-            
+            sessionTablePopIn()
             return false
         }
         return true

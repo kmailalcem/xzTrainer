@@ -11,9 +11,13 @@ import UIKit
 class SessionCell: UITableViewCell {
 
     @IBOutlet weak var sessionNameLabel: UILabel!
+    @IBOutlet weak var cellBackground: RoundedView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        cellBackground.layer.borderWidth = 1
+        cellBackground.layer.borderColor = sessionNameLabel.textColor.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -17,7 +17,7 @@ extension TimerVC {
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
         animatePopUpOut()
-        sessionTable.isHidden = true
+        sessionTablePopOut()
     }
     
     @IBAction func plusTwo() {
@@ -98,5 +98,16 @@ extension TimerVC {
             self.popUpDetailView.removeFromSuperview()
         })
     }
+    
+    @IBAction func showDetail() {
+        performSegue(withIdentifier: "toSolveDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SolveDetailVC {
+            destination.currentSolve = data.requestSolve(at: data.backIndex(currentIndexPath.row))
+        }
+    }
+    
 }
 
