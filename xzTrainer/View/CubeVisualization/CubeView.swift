@@ -61,8 +61,6 @@ class CubeView: UIView {
     }
     
     public func layingContraint() {
-        
-        print("\(frame.width), \(frame.height)")
         let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
         
         var leadingOffset, topOffset: CGFloat

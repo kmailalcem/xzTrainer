@@ -24,6 +24,8 @@ extension TimerVC {
         UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseIn, animations: {
             self.floatingPlus.transform = CGAffineTransform(translationX: 0, y: 120)
         }, completion: nil)
+        
+        sessionTableIsShown = true
     }
     
     func sessionTablePopOut() {
@@ -38,5 +40,6 @@ extension TimerVC {
             self.floatingPlus.transform = .identity
             self.view.insertSubview(self.floatingPlus, aboveSubview: self.manuallyEnterTimeButton)
         }
+        sessionTableIsShown = false
     }
 }

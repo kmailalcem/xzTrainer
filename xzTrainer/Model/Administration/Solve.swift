@@ -81,7 +81,17 @@ public func convertTimeDoubleToString(_ target: Double) -> String {
     } else if target == Double.infinity {
         return "DNF"
     } else {
-        return String(format: "%.3f", target)
+        let minute = Int(target / 60)
+        let second = Double(Int(target) % 60) + target - Double(Int(target))
+        let minutePart = minute == 0 ? "" : "\(minute):"
+        var secondPart: String {
+            if second < 10 && minute != 0{
+                return String(format: "0%.3f", second)
+            }
+            return String(format: "%.3f", second)
+        }
+        
+        return minutePart + secondPart
     }
 }
 

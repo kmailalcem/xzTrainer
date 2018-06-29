@@ -43,6 +43,10 @@ class TimerVC: UIViewController {
     @IBOutlet weak var sessionTable: SessionTableView!
     @IBOutlet weak var sessionTextField: UITextField!
     
+    var sessionTableIsShown: Bool = false
+    var floatingPlusIsPressed: Bool = false
+    var popUpIsShown: Bool = false
+    
     // result table constraints
     private var hiddenResultTableViewTopConstraint: NSLayoutConstraint?
     private var shownResultTableViewTopConstraint: NSLayoutConstraint?
@@ -68,6 +72,13 @@ class TimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpInitialLayout()
+        assignDelegates()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
+    }
+    
+    private func setUpInitialLayout() {
         setUpScrambleTexTField()
         setUpSwipeRecognizers()
         setUpResultTableViewConstraints()
@@ -75,18 +86,17 @@ class TimerVC: UIViewController {
         setUpFABConstraints()
         hideFABs()
         updateView()
-        
+        swipableView.isUserInteractionEnabled = true
+        resultTableView.isUserInteractionEnabled = true
+    }
+    
+    private func assignDelegates() {
         timerLabel.delegate = self
         resultTable.delegate = self
         resultTable.dataSource = data
         sessionTable.delegate = self
         sessionTable.dataSource = data
         sessionTextField.delegate = self
-        
-        swipableView.isUserInteractionEnabled = true
-        resultTableView.isUserInteractionEnabled = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
     }
 
     
@@ -241,39 +251,6 @@ class TimerVC: UIViewController {
         data.append(solve: currentSolve)
     }
     
-    @IBAction func floatingPlusPressed (_ sender: UIButton) {
-        if dismissPopUpButton.alpha == 0 {
-            if floatingPlus.transform == .identity {
-                UIView.animate(withDuration: 0.4) {
-                    self.showFABs()
-                }
-            } else {
-                UIView.animate(withDuration: 0.2) {
-                    self.hideFABs()
-                }
-            }
-        } else {
-            let session = data.requestSession()
-            session.id = Int32(Date().timeIntervalSince1970)
-            session.name = Date().description
-            data.append(session: session)
-            sessionTable.reloadData()
-        }
-    }
-    
-    func hideFABs() {
-        inTimerSettingButton.transform = CGAffineTransform(translationX: 0, y: 78)
-        nextScrambleButton.transform = CGAffineTransform(translationX: 0, y: 133)
-        manuallyEnterTimeButton.transform = CGAffineTransform(translationX: 0, y: 188)
-        floatingPlus.transform = .identity
-    }
-    
-    func showFABs() {
-        inTimerSettingButton.transform = .identity
-        nextScrambleButton.transform = .identity
-        manuallyEnterTimeButton.transform = .identity
-        floatingPlus.transform = CGAffineTransform(rotationAngle: 3 * .pi / 4)
-    }
     
     private func updateCube (withScramble scramble: String) {
         let cube = cubeView.cube
@@ -282,7 +259,8 @@ class TimerVC: UIViewController {
         cubeView.updateFaces()
     }
     
-    func updateView() {
+    
+    @IBAction func updateView() {
         scrambleTextField.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22)
         updateCube(withScramble: scrambleTextField.text!)
         UIView.animate(withDuration: 0.8) {

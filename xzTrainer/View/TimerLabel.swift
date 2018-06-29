@@ -17,10 +17,11 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
     var timer: Timer?
     private var isTiming: Bool = false
     private var startTime: TimeInterval = 0
+    private var endTime: TimeInterval = 0
     var delegate: TimerLabelDelegate?
     
     var time: Double {
-        return Double(Date.timeIntervalSinceReferenceDate - startTime)
+        return Double(endTime - startTime)
     }
     
     override init(frame: CGRect) {
@@ -81,6 +82,7 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
                 updateTimer()
                 textColor = TimerLabel.defaultColor
                 isTiming = false
+                endTime = Date.timeIntervalSinceReferenceDate
                 delegate?.timerDidFinish(self)
             }
         }
@@ -98,7 +100,11 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
     }
     
     @objc func updateTimer() {
-        text = time < 0 ? "React" : String(format: "%.3f", time)
+        text = time < 0 ? "React" : convertTimeDoubleToString(time)
+    }
+    
+    @objc func manuallyEntered(time: Double) {
+        endTime = startTime + time
     }
 }
 

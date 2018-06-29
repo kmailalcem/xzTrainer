@@ -16,8 +16,19 @@ fileprivate func doubleEqual(_ d1: Double, _ d2: Double) -> Bool {
 extension TimerVC {
     
     @IBAction func dismissPopUp(_ sender: UIButton) {
-        animatePopUpOut()
-        sessionTablePopOut()
+        if floatingPlusIsPressed {
+            UIView.animate(withDuration: 0.15) {
+                self.hideFABs()
+            }
+        }
+        
+        if popUpIsShown {
+            animatePopUpOut()
+        }
+        
+        if sessionTableIsShown {
+            sessionTablePopOut()
+        }
     }
     
     @IBAction func plusTwo() {
@@ -87,6 +98,7 @@ extension TimerVC {
             self.dismissPopUpButton.alpha = 0.5
             self.popUpDetailView.transform = CGAffineTransform.identity
         })
+        popUpIsShown = true
     }
     
     func animatePopUpOut() {
@@ -97,6 +109,7 @@ extension TimerVC {
         }, completion: {success in
             self.popUpDetailView.removeFromSuperview()
         })
+        popUpIsShown = false
     }
     
     @IBAction func showDetail() {

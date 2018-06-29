@@ -52,10 +52,12 @@ class CubePermutationEncoder {
     
     init(forCube cube: Cube) {
         self.cube = cube
+        cube.rotate(top: .WHITE, front: .GREEN)
     }
     
     init(forScramble scramble: String) {
         cube.scrambleCube(scramble)
+        cube.rotate(top: .WHITE, front: .GREEN)
     }
     
     var edgeMemo: String {
@@ -152,8 +154,8 @@ class CubePermutationEncoder {
     }
     
     private func getNextUnsolvedEdgePiece() -> EdgePosition? {
-        for i in 0 ..< NUM_STICKERS {
-            if let result = unsolvedEdgeStickers[i] {
+        for pieces in userPreference.edgePreference {
+            if let result = unsolvedEdgeStickers[pieces.rawValue] {
                 return result
             }
         }
@@ -231,8 +233,8 @@ class CubePermutationEncoder {
     }
     
     private func getNextUnsolvedCornerPiece() -> CornerPosition? {
-        for i in 0 ..< NUM_STICKERS {
-            if let result = unsolvedCornerStickers[i] {
+        for piece in userPreference.cornerPreferenece {
+            if let result = unsolvedCornerStickers[piece.rawValue] {
                 return result
             }
         }
@@ -339,5 +341,7 @@ class CubePermutationEncoder {
     
     private var edgeFlipsInAbsolutePosition: [EdgePosition] = []
     private var cornerTwistsInAbsolutePosition: [CornerPosition] = []
+    
+    private var userPreference: PreferenceList = PreferenceList()
     
 }
