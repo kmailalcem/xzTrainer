@@ -18,6 +18,7 @@ extension TimerVC {
         floatingPlus.transform = CGAffineTransform(translationX: 0, y: 190)
         UIView.animate(withDuration: 0.4) {
             self.dismissPopUpButton.alpha = 0.5
+            self.view.insertSubview(self.dismissPopUpButton, belowSubview: self.sessionTable)
             self.sessionTable.transform = .identity
         }
         

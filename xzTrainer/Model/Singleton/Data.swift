@@ -103,9 +103,8 @@ class GlobalData: NSObject {
     }
     
     public func append(session: Session) {
+        session.mode = currentMode
         sessions.append(session)
-        print(session.id)
-        print(session.name!)
         managedObjectContext.insert(session)
         saveData()
     }
@@ -145,6 +144,11 @@ class GlobalData: NSObject {
         // reference count goes to 0, triggers deinitializer
     }
     
+    public var currentMode: String = "execute" {
+        didSet {
+            reloadDataForCurrentMode()
+        }
+    }
     
     private static var data: GlobalData?
     private var userSolves: [Solve]
@@ -162,9 +166,18 @@ class GlobalData: NSObject {
         currentSession = sessions[0]
     }
     
+    private func reloadDataForCurrentMode() {
+        userSolves = []
+        loadData()
+        currentSession = sessions[0]
+        reloadSolve(forSessionAtIndex: 0)
+    }
+    
     private func loadData() {
         
         let sessionRequest: NSFetchRequest<Session> = Session.fetchRequest()
+        let predicate = NSPredicate(format: "mode = %@", currentMode)
+        sessionRequest.predicate = predicate
         do {
             try sessions = managedObjectContext.fetch(sessionRequest)
         } catch {
@@ -172,11 +185,14 @@ class GlobalData: NSObject {
         }
         
         if sessions.count == 0 {
-            let session = Session(context: managedObjectContext)
-            session.id = 0
+            let  session = Session(context: managedObjectContext)
+            session.id = Int32(Date().timeIntervalSince1970)
+            session.mode = currentMode
             session.name = "default"
+            
             saveData()
             sessions.append(session)
+            
         }
         
         reloadSolve(forSessionAtIndex: 0)
@@ -203,8 +219,7 @@ extension GlobalData: UITableViewDataSource {
                 resultCell.configureCell(index: backIndex(indexPath.row),
                                          solveStats: userSolves)
                 let newView = UIView()
-                let extractedExpr: UIColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
-                newView.backgroundColor = extractedExpr
+                newView.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
                 resultCell.selectedBackgroundView? = newView
                 return resultCell
             }

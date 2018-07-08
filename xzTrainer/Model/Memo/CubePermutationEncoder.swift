@@ -26,9 +26,8 @@ extension Cube {
 }
 
 class CubePermutationEncoder {
-    // default to M2 for edges and Old Pochmann for corners
-    public let edgeBuffer: EdgePosition = .DF
-    public let cornerBuffer: CornerPosition = .ULB
+
+    
 
     var formattedEdgeMemo: String {
         let trimmedEdgeMemo = edgeMemo.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -154,7 +153,7 @@ class CubePermutationEncoder {
     }
     
     private func getNextUnsolvedEdgePiece() -> EdgePosition? {
-        for pieces in userPreference.edgePreference {
+        for pieces in userPreference.edgePreferenceAsFirstLetter {
             if let result = unsolvedEdgeStickers[pieces.rawValue] {
                 return result
             }
@@ -233,7 +232,7 @@ class CubePermutationEncoder {
     }
     
     private func getNextUnsolvedCornerPiece() -> CornerPosition? {
-        for piece in userPreference.cornerPreferenece {
+        for piece in userPreference.cornerPrefereneceAsFirstLetter {
             if let result = unsolvedCornerStickers[piece.rawValue] {
                 return result
             }
@@ -325,9 +324,8 @@ class CubePermutationEncoder {
     }
     
     private var hasParity: Bool?
-    private var letterScheme: LetterScheme = LetterScheme()
+   
     private var cube: Cube = Cube()
-    private var encoderSetting: EncoderSetting = EncoderSetting()
     
     private var edgePermutation: [EdgePosition] = []
     private var edgeStickerTracker: EdgePosition!
@@ -342,6 +340,9 @@ class CubePermutationEncoder {
     private var edgeFlipsInAbsolutePosition: [EdgePosition] = []
     private var cornerTwistsInAbsolutePosition: [CornerPosition] = []
     
-    private var userPreference: PreferenceList = PreferenceList()
-    
+    private var letterScheme = UserSetting.shared.general.letterScheme
+    private var userPreference = UserSetting.shared.encoder.userPreference
+    private var encoderSetting = UserSetting.shared.encoder
+    private let edgeBuffer = UserSetting.shared.general.edgeBuffer
+    private let cornerBuffer = UserSetting.shared.general.cornerBuffer
 }

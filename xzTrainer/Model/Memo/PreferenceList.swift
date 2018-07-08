@@ -9,39 +9,39 @@
 import Foundation
 
 class PreferenceList {
-    private var edgePreferenceList: [EdgePosition] = []
-    private var cornerPreferenceList: [CornerPosition] = []
+    private var basicEdgePreferenceList: [EdgePosition] = []
+    private var basicCornerPreferenceList: [CornerPosition] = []
     
-    var edgePreference: [EdgePosition] {
+    var edgePreferenceAsFirstLetter: [EdgePosition] {
         get {
-            return edgePreferenceList
+            return basicEdgePreferenceList
         }
     }
     
-    var cornerPreferenece: [CornerPosition] {
+    var cornerPrefereneceAsFirstLetter: [CornerPosition] {
         get {
-            return cornerPreferenceList
+            return basicCornerPreferenceList
         }
     }
     
     private func prefers(_ edge: EdgePosition) {
-        edgePreferenceList.remove(at: edgePreferenceList.index(of: edge)!)
-        edgePreferenceList.insert(edge, at: 0)
+        basicEdgePreferenceList.remove(at: basicEdgePreferenceList.index(of: edge)!)
+        basicEdgePreferenceList.insert(edge, at: 0)
     }
     
     private func prefers(_ corner: CornerPosition) {
-        cornerPreferenceList.remove(at: cornerPreferenceList.index(of: corner)!)
-        cornerPreferenceList.insert(corner, at: 0)
+        basicCornerPreferenceList.remove(at: basicCornerPreferenceList.index(of: corner)!)
+        basicCornerPreferenceList.insert(corner, at: 0)
     }
     
     private func avoid(_ edge: EdgePosition) {
-        edgePreferenceList.remove(at: edgePreferenceList.index(of: edge)!)
-        edgePreferenceList.append(edge)
+        basicEdgePreferenceList.remove(at: basicEdgePreferenceList.index(of: edge)!)
+        basicEdgePreferenceList.append(edge)
     }
     
     private func avoid(_ corner: CornerPosition) {
-        cornerPreferenceList.remove(at: cornerPreferenceList.index(of: corner)!)
-        cornerPreferenceList.append(corner)
+        basicCornerPreferenceList.remove(at: basicCornerPreferenceList.index(of: corner)!)
+        basicCornerPreferenceList.append(corner)
     }
     
     public func prefers(_ edges: [EdgePosition]) {
@@ -70,8 +70,8 @@ class PreferenceList {
     
     init() {
         for i in 0 ..< NUM_STICKERS {
-            edgePreferenceList.append(EdgePosition(rawValue: i)!)
-            cornerPreferenceList.append(CornerPosition(rawValue: i)!)
+            basicEdgePreferenceList.append(EdgePosition(rawValue: i)!)
+            basicCornerPreferenceList.append(CornerPosition(rawValue: i)!)
         }
     }
 }

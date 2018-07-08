@@ -100,6 +100,7 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
     }
     
     @objc func updateTimer() {
+        endTime = Date.timeIntervalSinceReferenceDate
         text = time < 0 ? "React" : convertTimeDoubleToString(time)
     }
     

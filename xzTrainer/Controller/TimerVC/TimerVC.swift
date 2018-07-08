@@ -10,7 +10,8 @@ import UIKit
 
 class TimerVC: UIViewController {
     
-    @IBOutlet weak var scrambleTextField: UITextField!
+    var isCasual: Bool = true
+    @IBOutlet weak var scrambleTextField: UILabel!
     @IBOutlet weak var cubeView: CubeView!
     @IBOutlet weak var timerLabel: TimerLabel!
     @IBOutlet weak var edgeMemoLabel: UILabel!
@@ -19,12 +20,17 @@ class TimerVC: UIViewController {
     @IBOutlet weak var resultTable: ResultTableView!
     @IBOutlet weak var swipableView: RoundedView!
     @IBOutlet weak var resultTableTriggerButton: UIButtonX!
+    @IBOutlet weak var memoStack: UIStackView!
+    @IBOutlet weak var modeTitleLabel: UILabel!
+    @IBAction func back() {
+        dismiss(animated: true, completion: nil)
+    }
     
     // Floating Action Buttons
-    @IBOutlet weak var floatingPlus: UIButtonX!
-    @IBOutlet weak var inTimerSettingButton: UIButtonX!
-    @IBOutlet weak var nextScrambleButton: UIButtonX!
-    @IBOutlet weak var manuallyEnterTimeButton: UIButtonX!
+    @IBOutlet weak var floatingPlus: FloatingActionButton!
+    @IBOutlet weak var inTimerSettingButton: FloatingActionButton!
+    @IBOutlet weak var nextScrambleButton: FloatingActionButton!
+    @IBOutlet weak var manuallyEnterTimeButton: FloatingActionButton!
     
     // Pop up window
     @IBOutlet weak var popUpDetailView: RoundedView!
@@ -60,9 +66,13 @@ class TimerVC: UIViewController {
     
     var currentIndexPath: IndexPath!
     
+    var resultTableIsShown: Bool {
+        return (shownTableTopConstraint?.isActive)!
+    }
     
     @IBAction func resultTableTriggered(_ sender: UIButtonX) {
-        if (hiddenTableTopConstraint?.isActive)! {
+        if !resultTableIsShown {
+            dismissPopUp(dismissPopUpButton)
             swipeUpDetected()
         } else {
             swipeDownDetected()
@@ -71,9 +81,12 @@ class TimerVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        memoStack.isHidden = isCasual
+        modeTitleLabel.text = isCasual ? "Casual BLD" : "Execution Training"
         
         setUpInitialLayout()
         assignDelegates()
+        resultTable.reloadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
     }
@@ -116,8 +129,6 @@ class TimerVC: UIViewController {
     private func setUpScrambleTexTField() {
         self.view.isUserInteractionEnabled = true
         cubeView.cube = Cube(top: .WHITE, front: .GREEN, scramble: "")
-        scrambleTextField.delegate = self
-        scrambleTextField.borderStyle = .none
     }
     
     private func setUpSwipeRecognizers() {
@@ -271,6 +282,14 @@ class TimerVC: UIViewController {
         cornerMemoLabel.text = "You will have 0.5 seconds to react."
     }
     
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+    }
+    
+    /* override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        let segue = SegueLeftToRight(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+        segue.perform()
+    } */
 }
 
 extension TimerVC: UITextFieldDelegate, UIGestureRecognizerDelegate {

@@ -15,11 +15,19 @@ fileprivate func doubleEqual(_ d1: Double, _ d2: Double) -> Bool {
 // managing popup view
 extension TimerVC {
     
+    func activateDismissButton(withAlpha alpha: CGFloat, insertAbove view: UIView) {
+        dismissPopUpButton.alpha = alpha
+        view.insertSubview(dismissPopUpButton, aboveSubview: view)
+    }
+    
+    func activateDismissButton(withAlpha alpha: CGFloat, insertBelow view: UIView) {
+        dismissPopUpButton.alpha = alpha
+        view.insertSubview(dismissPopUpButton, belowSubview: view)
+    }
+    
     @IBAction func dismissPopUp(_ sender: UIButton) {
         if floatingPlusIsPressed {
-            UIView.animate(withDuration: 0.15) {
-                self.hideFABs()
-            }
+            floatingPlusPressed(floatingPlus)
         }
         
         if popUpIsShown {
@@ -96,6 +104,7 @@ extension TimerVC {
         UIView.animate(withDuration: 0.3, animations: {
             self.popUpDetailView.alpha = 0.9
             self.dismissPopUpButton.alpha = 0.5
+            self.view.insertSubview(self.dismissPopUpButton, belowSubview: self.popUpDetailView)
             self.popUpDetailView.transform = CGAffineTransform.identity
         })
         popUpIsShown = true

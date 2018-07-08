@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+
 class UIButtonX: UIButton {
     @IBInspectable var cornerRadious: CGFloat = 0 {
         didSet {

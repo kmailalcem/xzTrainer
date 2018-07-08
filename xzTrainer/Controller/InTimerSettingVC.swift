@@ -10,20 +10,24 @@ import UIKit
 
 class InTimerSettingVC: UIViewController {
     @IBOutlet weak var backButton: UIButtonX!
-    @IBOutlet weak var settingsTable: UITableView!
+    @IBOutlet weak var settingsTable: SettingsTableView!
     var memoSettingsDataSource: MemoSettingsDataSource = MemoSettingsDataSource()
     
     override func viewDidLoad() {
-        backButton.transform = CGAffineTransform(rotationAngle: .pi)
-        settingsTable.delegate = self
+        settingsTable.delegate = memoSettingsDataSource
         settingsTable.dataSource = memoSettingsDataSource
+        settingsTable.containerViewController = self
     }
     
     @IBAction func back() {
         dismiss(animated: true, completion: nil)
     }
-}
-
-extension InTimerSettingVC: UITableViewDelegate {
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SettingsDetailVC {
+            if let sender = sender as? MemoOption {
+                destination.option = sender
+            }
+        }
+    }
 }

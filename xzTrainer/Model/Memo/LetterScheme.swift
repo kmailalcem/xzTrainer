@@ -29,4 +29,12 @@ class LetterScheme {
             edgeSchemeLetters: "A B C D E F G H I J K L M N O P Q R S T W X Y U",
             cornerSchemeLetters: "A B C D E F G H I J K L W M N O P Q R S T X Y U")
     }
+    
+    func setLetter(forPiece piece: EdgePosition, as char: String) {
+        edgeScheme[piece] = char
+    }
+    
+    func setLetter(forPiece piece: CornerPosition, as char: String) {
+        cornerScheme[piece] = char
+    }
 }

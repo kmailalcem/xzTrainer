@@ -12,26 +12,44 @@ import UIKit
 extension TimerVC {
     
     @IBAction func floatingPlusPressed (_ sender: UIButton) {
-        if dismissPopUpButton.alpha == 0 {
+        if !resultTableIsShown {
             if floatingPlus.transform == .identity {
+                
                 UIView.animate(withDuration: 0.2) {
                     self.showFABs()
                 }
+                floatingPlus.isSelected = true
             } else {
+                
                 UIView.animate(withDuration: 0.15) {
                     self.hideFABs()
                 }
+                floatingPlus.isSelected = false
             }
         } else {
-            let session = data.requestSession()
-            session.id = Int32(Date().timeIntervalSince1970)
-            session.name = Date().description
-            data.append(session: session)
-            sessionTable.reloadData()
+            
+            let alert = UIAlertController(title: "New Session", message: "Please name your new session: ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+                var sessionName = alert.textFields?.first?.placeholder
+                if alert.textFields?.first?.text! != "" {
+                    sessionName = alert.textFields?.first?.text
+                }
+                let session = self.data.requestSession()
+                session.name = sessionName
+                session.id = Int32(Date().timeIntervalSince1970)
+                self.data.append(session: session)
+                self.sessionTable.reloadData()
+            }))
+            alert.addAction(UIAlertAction(title:"Cancel", style: .cancel, handler: nil))
+            alert.addTextField { (textField) in
+                textField.placeholder = Date().description
+            }
+            present(alert, animated: true)
         }
     }
     
     func hideFABs() {
+        dismissPopUpButton.alpha = 0
         inTimerSettingButton.transform = CGAffineTransform(translationX: 0, y: 78)
         nextScrambleButton.transform = CGAffineTransform(translationX: 0, y: 133)
         manuallyEnterTimeButton.transform = CGAffineTransform(translationX: 0, y: 188)
@@ -40,6 +58,8 @@ extension TimerVC {
     }
     
     func showFABs() {
+        dismissPopUpButton.alpha = 0.05
+        view.insertSubview(dismissPopUpButton, aboveSubview: timerLabel)
         inTimerSettingButton.transform = .identity
         nextScrambleButton.transform = .identity
         manuallyEnterTimeButton.transform = .identity
@@ -74,13 +94,9 @@ extension TimerVC {
         if components.count == 2 { components.insert("0", at: 0) }
         let minutes = Int(String(components[0]))
         let seconds = Int(String(components[1]))
-        var miliseconds = Double(String(components[2]))
+        let miliseconds = Double("0." + String(components[2]))
         if minutes == nil || seconds == nil || miliseconds == nil {
             return nil
-        }
-        
-        while miliseconds! > 1.0 {
-            miliseconds! /= 10.0
         }
         
         return Double(minutes! * 60 + seconds!) + miliseconds!

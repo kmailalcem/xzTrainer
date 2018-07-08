@@ -18,7 +18,7 @@ extension TimerVC: TimerLabelDelegate {
         cornerMemoLabel.text = memorizer.formattedCornerMemo
         
         cubeView.showAllFaces()
-        sender.startTimer(delay: 0.7)
+        sender.startTimer(delay: isCasual ? 0 : 0.7)
         sender.textColor = TimerLabel.defaultColor
     }
     

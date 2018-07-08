@@ -31,16 +31,18 @@ class ResultCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-        selectAnimation()
     }
     
-    func selectAnimation() {
-        roundedView.backgroundColor = UIColor.white
-        roundedView.alpha = 0.2
-        UIView.animate(withDuration: 0.1, animations: {
-            self.roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.3289608657, blue: 0.5148260593, alpha: 1)
-            self.roundedView.alpha = 1
-            })
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        if highlighted {
+            roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
+            ao5Label.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 0.7882352941, alpha: 1)
+            ao12Label.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 0.7882352941, alpha: 1)
+            indexLabel.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 0.7882352941, alpha: 1)
+        } else {
+            roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.3289608657, blue: 0.5148260593, alpha: 1)
+        }
+        
     }
 }
