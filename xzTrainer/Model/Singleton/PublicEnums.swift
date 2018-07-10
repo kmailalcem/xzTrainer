@@ -63,6 +63,7 @@ public enum Rotation : String {
 
 public enum CubeColor {
     case WHITE, YELLOW, GREEN, BLUE, RED, ORANGE
+    static let allValues = [WHITE, YELLOW, GREEN, BLUE, RED, ORANGE]
 }
 
 // absolute position on the cube

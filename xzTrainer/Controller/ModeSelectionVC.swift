@@ -116,10 +116,13 @@ class ModeSelectionVC:
             self.dismissProfileButton.alpha = 0
             self.view.layoutIfNeeded()
         }
+        
+        profileView.isHidden = true
     }
     
     @IBAction func showProfile() {
         
+        profileView.isHidden = false
         profileViewHiddenTrailingConstraint?.isActive = false
         profileviewShownTrailingConstraint?.isActive = true
         

@@ -7,17 +7,6 @@
 //
 
 import Foundation
-/*
-struct Solve {
-    var time: Double = 0
-    var scramble: String = ""
-    
-    init(time: Double, scramble: String) {
-        self.time = time
-        self.scramble = scramble
-    }
-}
-*/
 
 extension Solve: NSCopying {
     public func copy(with zone: NSZone? = nil) -> Any {

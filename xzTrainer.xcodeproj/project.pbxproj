@@ -45,6 +45,10 @@
 		95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF902020E38FF500211563 /* TimerVCFAB.swift */; };
 		95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */; };
 		95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4C220B35286003D8D28 /* Scrambler.swift */; };
+		95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */; };
+		95CB543C20F30E800025FB6E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CB543B20F30E800025FB6E /* Settings.storyboard */; };
+		95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */; };
+		95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */; };
 		95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5920865912004DE650 /* AppDelegate.swift */; };
 		95D52C5C20865912004DE650 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5B20865912004DE650 /* TimerVC.swift */; };
 		95D52C5F20865912004DE650 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C5D20865912004DE650 /* Timer.storyboard */; };
@@ -113,6 +117,10 @@
 		95BF902020E38FF500211563 /* TimerVCFAB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCFAB.swift; sourceTree = "<group>"; };
 		95C6A4C020B32973003D8D28 /* xzTrainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = xzTrainer.xcdatamodel; sourceTree = "<group>"; };
 		95C6A4C220B35286003D8D28 /* Scrambler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrambler.swift; sourceTree = "<group>"; };
+		95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCPicker.swift; sourceTree = "<group>"; };
+		95CB543B20F30E800025FB6E /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpecificLetterVC.swift; sourceTree = "<group>"; };
+		95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSetterTextField.swift; sourceTree = "<group>"; };
 		95D52C5620865912004DE650 /* xzTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xzTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D52C5920865912004DE650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D52C5B20865912004DE650 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 		9539A77720E5C0D500A3CE20 /* Administration */ = {
 			isa = PBXGroup;
 			children = (
+				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
 				95C6A4C220B35286003D8D28 /* Scrambler.swift */,
 				95EB838E20B430E4003ADB37 /* Solve.swift */,
 				957E1C8620DA5DC000CC40AD /* Session.swift */,
@@ -202,7 +211,6 @@
 				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
 				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
 				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
-				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
 			);
 			path = TimerVC;
 			sourceTree = "<group>";
@@ -243,6 +251,7 @@
 		9539A77F20E5F0F700A3CE20 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				95CB543B20F30E800025FB6E /* Settings.storyboard */,
 				95DB65E820EF0E900095A778 /* Main.storyboard */,
 				95D52C5D20865912004DE650 /* Timer.storyboard */,
 				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
@@ -281,6 +290,7 @@
 				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
 				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
 				95D7334920E9BB21009F2708 /* SegueRightToLeft.swift */,
+				95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,16 +298,26 @@
 		9598B7A02098ED9A003DF590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95CB543820F303AA0025FB6E /* SettingsVC */,
 				9539A77820E5C0E900A3CE20 /* TimerVC */,
-				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
 				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
 				95BF901E20E380B800211563 /* InTimerSettingVC.swift */,
 				9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */,
+				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
 				95004C2920E771A300380DBB /* ModeSelectionVC.swift */,
-				950D322320F06C6800CA165C /* SettingsVC.swift */,
 				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
+				95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		95CB543820F303AA0025FB6E /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				950D322320F06C6800CA165C /* SettingsVC.swift */,
+				95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */,
+			);
+			path = SettingsVC;
 			sourceTree = "<group>";
 		};
 		95D52C4D20865912004DE650 = {
@@ -427,6 +447,7 @@
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
 				9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
+				95CB543C20F30E800025FB6E /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,16 +492,19 @@
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
+				95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */,
 				95DB124920E4DD3C007BBAFD /* MemoSettingsDataSource.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */,
+				95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */,
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
 				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,
 				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,
 				9539A78320E6249700A3CE20 /* HeaderCell.swift in Sources */,
 				95004C2C20E7739800380DBB /* ModeSelectionCell.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
+				95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
 				95004C2A20E771A300380DBB /* ModeSelectionVC.swift in Sources */,
 				95EB839120B43D93003ADB37 /* SolveDetailVC.swift in Sources */,

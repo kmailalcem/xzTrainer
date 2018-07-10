@@ -97,10 +97,20 @@ class TimerVC: UIViewController {
         setUpResultTableViewConstraints()
         setUpSessionTableConstraints()
         setUpFABConstraints()
+        setUpTimerConstraint()
         hideFABs()
         updateView()
         swipableView.isUserInteractionEnabled = true
         resultTableView.isUserInteractionEnabled = true
+    }
+    
+    func setUpTimerConstraint() {
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        if isCasual {
+            timerLabel.topAnchor.constraint(equalTo: cubeView.bottomAnchor).isActive = true
+        } else {
+            timerLabel.topAnchor.constraint(equalTo: memoStack.bottomAnchor, constant: 2).isActive = true
+        }
     }
     
     private func assignDelegates() {
@@ -264,8 +274,9 @@ class TimerVC: UIViewController {
     
     
     private func updateCube (withScramble scramble: String) {
-        let cube = cubeView.cube
-        cube.reScrambleCube(scramble)
+        let topColor = UserSetting.shared.general.topFaceColor
+        let frontColor = UserSetting.shared.general.frontFaceColor
+        let cube = Cube(top: topColor, front: frontColor, scramble: scramble)
         cubeView.cube = cube
         cubeView.updateFaces()
     }
@@ -286,10 +297,6 @@ class TimerVC: UIViewController {
         
     }
     
-    /* override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        let segue = SegueLeftToRight(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
-        segue.perform()
-    } */
 }
 
 extension TimerVC: UITextFieldDelegate, UIGestureRecognizerDelegate {

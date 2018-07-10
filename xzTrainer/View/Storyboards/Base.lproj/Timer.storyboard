@@ -104,7 +104,7 @@
                                     <constraint firstAttribute="height" constant="60" id="KQB-mS-quN"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-lC-plr" customClass="TimerLabel" customModule="xzTrainer" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7E-lC-plr" customClass="TimerLabel" customModule="xzTrainer" customModuleProvider="target">
                                 <rect key="frame" x="8" y="378" width="359" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="gT7-Fs-NAL"/>
@@ -196,7 +196,6 @@
                             <constraint firstItem="oGM-Ug-vCO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="RbE-7L-gPw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I7E-lC-plr" secondAttribute="trailing" constant="8" id="Stl-KT-Lvy"/>
                             <constraint firstItem="3U3-Yd-RSv" firstAttribute="leading" secondItem="X9n-RK-J0Y" secondAttribute="trailing" constant="8" id="Wp1-6Z-h9g"/>
-                            <constraint firstItem="I7E-lC-plr" firstAttribute="top" secondItem="uPV-kq-iFy" secondAttribute="bottom" constant="2" id="Xh9-gM-dVN"/>
                             <constraint firstItem="X9n-RK-J0Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gQ2-6O-ArP"/>
                             <constraint firstItem="PAZ-Xt-92r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="155" id="hgn-qG-05h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oGM-Ug-vCO" secondAttribute="trailing" constant="8" id="usr-Bk-KDV"/>

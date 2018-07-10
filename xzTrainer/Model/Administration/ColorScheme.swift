@@ -16,8 +16,8 @@ public struct ColorScheme {
                 .WHITE: UIColor.white.cgColor,
                 .YELLOW: UIColor.yellow.cgColor,
                 .GREEN: UIColor.green.cgColor,
-                .BLUE: UIColor.blue.cgColor,
-                .RED: UIColor.red.cgColor,
+                .BLUE: #colorLiteral(red: 0.06829141743, green: 0.373761549, blue: 0.6211334074, alpha: 1).cgColor,
+                .RED: #colorLiteral(red: 0.6431372549, green: 0, blue: 0.2392156863, alpha: 1).cgColor,
                 .ORANGE: UIColor.orange.cgColor
         ]
     }

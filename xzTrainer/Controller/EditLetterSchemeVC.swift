@@ -24,7 +24,6 @@ class EditLetterSchemeVC: UIViewController {
         let colorScheme = UserSetting.shared.general.colorScheme
         let topColor = UserSetting.shared.general.topFaceColor
         let frontColor = UserSetting.shared.general.frontFaceColor
-        
         topFace.backgroundColor = UIColor(cgColor: colorScheme.scheme[topColor]!)
         frontFace.backgroundColor = UIColor(cgColor: colorScheme.scheme[frontColor]!)
         leftFace.backgroundColor = UIColor(cgColor:
@@ -34,34 +33,103 @@ class EditLetterSchemeVC: UIViewController {
             colorScheme.scheme[oppositeColor(topColor)]!)
         backFace.backgroundColor = UIColor(cgColor:
             colorScheme.scheme[oppositeColor(frontColor)]!)
-        
+        updateLetterScheme()
+    }
+    
+    private func updateLetterScheme() {
+        for i in 0 ..< NUM_STICKERS {
+            configureEdgeButton(WithCorrespondingRawValue: i)
+            configureCornerButton(WithCorrespondingRawValue: i)
+        }
+    }
+    
+    private func configureEdgeButton(WithCorrespondingRawValue i: Int) {
         let letterScheme = UserSetting.shared.general.letterScheme
-        for i in 0..<NUM_STICKERS {
-            let edgeButton = view.viewWithTag(i + 1) as! UIButton
-            edgeButton.setTitle(letterScheme.edgeScheme[EdgePosition(rawValue: i)!]!, for: .normal)
-            let cornerButton = view.viewWithTag(i + 1 + NUM_STICKERS) as! UIButton
-            cornerButton.setTitle(letterScheme.cornerScheme[CornerPosition(rawValue: i)!]!, for: .normal) 
+        let edgeButton = view.viewWithTag(i + 1) as! UIButton
+        let edgeLetter = letterScheme.edgeScheme[EdgePosition(rawValue: i)!]!
+        if edgeLetter == "Unlabeled" {
+            edgeButton.setTitle("UNL", for: .normal)
+        } else {
+            edgeButton.setTitle(edgeLetter, for: .normal)
+        }
+        setButtonTextColor(for: edgeButton)
+    }
+    
+    private func configureCornerButton(WithCorrespondingRawValue i: Int) {
+        let letterScheme = UserSetting.shared.general.letterScheme
+        let cornerButton = view.viewWithTag(i + 1 + NUM_STICKERS) as! UIButton
+        let cornerLetter = letterScheme.cornerScheme[CornerPosition(rawValue: i)!]!
+        if cornerLetter == "Unlabeled" {
+            cornerButton.setTitle("UNL", for: .normal)
+        } else {
+            cornerButton.setTitle(cornerLetter, for: .normal)
+        }
+        setButtonTextColor(for: cornerButton)
+    }
+    
+    private func setButtonTextColor(for button: UIButton) {
+        let bgColor = button.superview!.backgroundColor!
+        var red: CGFloat = 1, green: CGFloat = 1, blue: CGFloat = 1
+        bgColor.getRed(&red, green: &green, blue: &blue, alpha: nil)
+        let brightness = (red * 299 + green * 587 + blue * 114) / 1000
+        
+        if brightness < 0.5 {
+            button.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+        } else {
+            button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func useTraditional() {
+        UserSetting.shared.general.letterScheme = LetterScheme()
+        updateLetterScheme()
     }
     
-    @IBAction func back() {
-        dismiss(animated: true, completion: nil)
+    @IBAction func useSpeffz() {
+        let cornerString = "D I F A E R B Q N C M J U G L X S H W O T V K P"
+        let edgeString = "C I D E A Q B M U K X G W S V O J P L F R H T N"
+        UserSetting.shared.general.letterScheme = LetterScheme(edgeSchemeLetters: edgeString, cornerSchemeLetters: cornerString)
+        updateLetterScheme()
     }
-    
 
-    /*
+    @IBAction func selectPiece(_ sender: UIButton) {
+        // sender is an edge piece
+        if sender.tag < NUM_STICKERS + 1 {
+            performSegue(withIdentifier: "toSpecificLetter", sender: EdgePosition(rawValue: sender.tag - 1)!)
+        } else { // sender is a corner piece
+            performSegue(withIdentifier: "toSpecificLetter", sender: CornerPosition(rawValue: sender.tag - 1 - NUM_STICKERS)!)
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? EditSpecificLetterVC {
+            if let sender = sender as? CornerPosition {
+                destination.selectedCornerPiece = sender
+            } else if let sender = sender as? EdgePosition {
+                destination.selectedEdgePiece = sender
+            }
+        }
     }
-    */
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        if let destination = segue.destination as? EditLetterSchemeVC {
+            if let source = segue.source as? EditSpecificLetterVC {
+                if source.bufferSwitch.isOn {
+                    if source.isEdge {
+                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.stickerTextField.managedEdgePosition!, as: "")
+                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.piece1TextField.managedEdgePosition!, as: "")
+                    } else {
+                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.stickerTextField.managedCornerPosition!, as: "")
+                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.piece1TextField.managedCornerPosition!, as: "")
+                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.piece2TextField.managedCornerPosition!, as: "")
+                    }
+                }
+            }
+            destination.updateLetterScheme()
+        }
+    }
 
 }
