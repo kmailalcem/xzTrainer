@@ -24,6 +24,4 @@ class UserSetting {
         general = GeneralSetting()
         encoder = EncoderSetting()
     }
-    
-    
 }

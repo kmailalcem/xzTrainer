@@ -42,7 +42,6 @@ class CubeFaceView: UIView {
         showFaceFillView(context: context, frame: rect)
     }
     
-    
     func drawRectWithoutBorder(context: CGContext, x: CGFloat, y:CGFloat,
                                width: CGFloat, height: CGFloat, color: CGColor)
     {

@@ -17,10 +17,6 @@ class CubeView: UIView {
     var topFace: CubeFaceView = CubeFaceView()
     var frontFace: CubeFaceView = CubeFaceView()
     var leftFace: CubeFaceView = CubeFaceView()
-    var blueSquare: UIView = UIView()
-    var UFDStackView: UIStackView!
-    var overallStackView: UIStackView!
-    // var contentView: UIStackView!
     
     private var _cube = Cube()
     private var _colors = ColorScheme()
@@ -61,6 +57,38 @@ class CubeView: UIView {
     }
     
     public func layingContraint() {
+        let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
+        let spacing = length / 10
+        
+        var leadingOffset, topOffset: CGFloat
+        
+        if (frame.width / 4.3 < frame.height / 3.2) {
+            // width is limiting, so pin to left and right
+            topOffset = (frame.height - length * 3.2) / 2
+            leadingOffset = 0
+        } else {
+            // height is limiting, so pin to top and bottom
+            topOffset = 0
+            leadingOffset = (frame.width - length * 4.3) / 2
+        }
+        
+        leftFace = CubeFaceView(frame: CGRect(x: leadingOffset, y: topOffset + length + spacing, width: length, height: length))
+        frontFace = CubeFaceView(frame: CGRect(x: leadingOffset + length + spacing, y: leftFace.frame.minY, width: length, height: length))
+        rightFace = CubeFaceView(frame: CGRect(x:  leadingOffset + length * 2 + spacing * 2, y: leftFace.frame.minY, width: length, height: length))
+        backFace = CubeFaceView(frame: CGRect(x: leadingOffset + length * 3 + spacing * 3, y: leftFace.frame.minY, width: length, height: length))
+        topFace = CubeFaceView(frame: CGRect(x: frontFace.frame.minX, y: topOffset, width: length, height: length))
+        bottomFace = CubeFaceView(frame: CGRect(x: frontFace.frame.minX, y: frontFace.frame.maxY + spacing, width: length, height: length))
+        for view in [frontFace, backFace, topFace, bottomFace, leftFace, rightFace] {
+            addSubview(view)
+        }
+        updateFaces()
+    }
+    
+    public func layingContraintBackUp() {
+        for view in [backFace, frontFace, leftFace, rightFace, topFace, bottomFace] {
+            view.removeConstraints(view.constraints)
+        }
+        
         let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
         
         var leadingOffset, topOffset: CGFloat

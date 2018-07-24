@@ -126,17 +126,36 @@ class GlobalData: NSObject {
         }
     }
     
+    public func deleteSession(atIndex index: Int) {
+        if index < sessions.count {
+            if currentSession == sessions[index] {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
+            }
+            for solve in requestSolves(forSessionAtIndex: index) {
+                managedObjectContext.delete(solve)
+            }
+            managedObjectContext.delete(sessions[index])
+            saveData()
+            sessions.remove(at: index)
+        }
+    }
+    
     public func reloadSolve(forSessionAtIndex index: Int) {
         currentSession = sessions[index]
+        userSolves = requestSolves(forSessionAtIndex: index)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: self)
+    }
+    
+    private func requestSolves(forSessionAtIndex index: Int) -> [Solve] {
         let fetchRequest: NSFetchRequest<Solve> = Solve.fetchRequest()
-        let predicate = NSPredicate(format: "session.id = %d", currentSession.id)
+        let predicate = NSPredicate(format: "session.id = %d", sessions[index].id)
         fetchRequest.predicate = predicate
         do {
-            try userSolves = managedObjectContext.fetch(fetchRequest)
+            return try managedObjectContext.fetch(fetchRequest)
         } catch {
             print("Error reloading session. Message: \(error.localizedDescription)")
         }
-         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: self)
+        return []
     }
     
     public func free() {

@@ -257,6 +257,43 @@ public class Cube : Equatable {
         return permutation.at(pos)
     }
     
+    private var solutionSoFar: [Turn] = []
+    public var solution: String {
+        solveHelper()
+        var solution = ""
+        for turn in solutionSoFar {
+            solution += turn.rawValue + " "
+        }
+        return solution
+    }
+    
+    // returns true if the cube is solved
+    private func solveHelper() -> Bool {
+        if solved() {
+            return true
+        }
+        for turn in Turn.regularTurns {
+            if solutionSoFar.isEmpty || solutionSoFar.last! != turn {
+                if !promising() {
+                    return false
+                }
+                
+                solutionSoFar.append(turn)
+                self.turn(turn)
+                if solveHelper() {
+                    return true
+                }
+                solutionSoFar.remove(at: solutionSoFar.count - 1)
+                self.turn(inverse(of: turn))
+            }
+        }
+        return false
+    }
+    
+    private func promising() -> Bool {
+        return solutionSoFar.count < 5
+    }
+    
     private func rotateXPrime() {
         permutation.turn(.RPrime)
         permutation.turn(.M)

@@ -31,6 +31,7 @@ class MemoMethod {
 class MemoOption {
     private var _description: String
     private var _explanation: String
+    private var _method: MemoPreference
     
     var description: String {
         return _description
@@ -40,9 +41,14 @@ class MemoOption {
         return _explanation
     }
     
-    init(description: String, explanation: String) {
+    var method: MemoPreference {
+        return _method
+    }
+    
+    init(description: String, explanation: String, method: MemoPreference) {
         _description = description
         _explanation = explanation
+        _method = method
     }
 }
 

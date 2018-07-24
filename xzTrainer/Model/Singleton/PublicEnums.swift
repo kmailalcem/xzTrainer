@@ -32,6 +32,11 @@ public enum EdgeSticker : Int {
     case FL = 18, LF = 19   // ST
     case BL = 20, LB = 21   // WX
     case BR = 22, RB = 23   // YZ
+    
+    static let leftOuterLayerPieces: [EdgeSticker] = [.UL, .BL, .DL, .FL]
+    static let rightOuterLayerPieces: [EdgeSticker] = [.UR, .BR, .DR, .FR]
+    static let leftInnerLayerPieces: [EdgeSticker] = [.LU, .LB, .LD, .LF]
+    static let rightInnerLayerPieces: [EdgeSticker] = [.RU, .RB, .RD, .RF]
 }
 
 public enum Turn : String {
@@ -44,8 +49,22 @@ public enum Turn : String {
     case M = "M", MPrime = "M'", M2 = "M2"
     case S = "S", SPrime = "S'", S2 = "S2"
     case E = "E", EPrime = "E'", E2 = "E2"
+    
+    static let regularTurns = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2]
 }
 
+public func inverse(of turn: Turn) -> Turn {
+    let rawValue = turn.rawValue
+    if rawValue.count == 1 {
+        return Turn(rawValue: rawValue + "'")!
+    } else {
+        if turn.rawValue.last == "2" {
+            return turn
+        } else {
+            return Turn(rawValue: String(rawValue[...rawValue.startIndex]))!
+        }
+    }
+}
 public enum WideTurn : String {
     case Rw = "Rw", RwPrime = "Rw'", Rw2 = "Rw2"
     case Uw = "Uw", UwPrime = "Uw'", Uw2 = "Uw2"
@@ -61,7 +80,7 @@ public enum Rotation : String {
     case z = "z", zPrime = "z'", z2 = "z2"
 }
 
-public enum CubeColor {
+public enum CubeColor: Int {
     case WHITE, YELLOW, GREEN, BLUE, RED, ORANGE
     static let allValues = [WHITE, YELLOW, GREEN, BLUE, RED, ORANGE]
 }

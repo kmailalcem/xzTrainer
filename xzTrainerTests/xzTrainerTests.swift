@@ -267,4 +267,19 @@ class xzTrainerTests: XCTestCase {
         XCTAssert(solver_2.edgeFlips == "E ")
         XCTAssert(solver_2.cornerTwists == "")
     }
+    
+    func testInverse() {
+        XCTAssert(inverse(of: .R) == .RPrime)
+        XCTAssert(inverse(of: .LPrime) == .L)
+        XCTAssert(inverse(of: .B2) == .B2)
+    }
+    
+    func testSolve() {
+        let scramble = Scrambler.getRandomScrambleWithLength(from: 5, to: 5)
+        let cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
+        print("Scramble: \(scramble)")
+        //self.measure {
+            print("Solution: \(cube.solution)")
+        //}
+    }
 }

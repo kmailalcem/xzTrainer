@@ -158,6 +158,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95183BBC21070D58006D2D6F /* ModeSelection */ = {
+			isa = PBXGroup;
+			children = (
+				95DB65E820EF0E900095A778 /* Main.storyboard */,
+				95004C2920E771A300380DBB /* ModeSelectionVC.swift */,
+			);
+			path = ModeSelection;
+			sourceTree = "<group>";
+		};
+		95183BBD21070DBD006D2D6F /* MemoSettings */ = {
+			isa = PBXGroup;
+			children = (
+				9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */,
+				95BF901E20E380B800211563 /* InTimerSettingVC.swift */,
+				9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */,
+			);
+			path = MemoSettings;
+			sourceTree = "<group>";
+		};
 		9539A77420E5C07600A3CE20 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,16 +222,19 @@
 			path = Administration;
 			sourceTree = "<group>";
 		};
-		9539A77820E5C0E900A3CE20 /* TimerVC */ = {
+		9539A77820E5C0E900A3CE20 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				95D52C5D20865912004DE650 /* Timer.storyboard */,
 				95D52C5B20865912004DE650 /* TimerVC.swift */,
 				95BF902020E38FF500211563 /* TimerVCFAB.swift */,
 				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
 				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
 				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
+				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
+				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
 			);
-			path = TimerVC;
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		9539A77920E5C10200A3CE20 /* Cells */ = {
@@ -248,18 +270,6 @@
 			path = UIExtension;
 			sourceTree = "<group>";
 		};
-		9539A77F20E5F0F700A3CE20 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				95CB543B20F30E800025FB6E /* Settings.storyboard */,
-				95DB65E820EF0E900095A778 /* Main.storyboard */,
-				95D52C5D20865912004DE650 /* Timer.storyboard */,
-				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
-				9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		9583EC4A209E13BF004A4D3E /* xzTrainerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +293,7 @@
 		9598B79F2098ED94003DF590 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9539A77F20E5F0F700A3CE20 /* Storyboards */,
+				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
 				9539A77B20E5C11F00A3CE20 /* UIExtension */,
 				9539A77A20E5C11100A3CE20 /* CubeVisualization */,
 				9539A77920E5C10200A3CE20 /* Cells */,
@@ -298,26 +308,24 @@
 		9598B7A02098ED9A003DF590 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95CB543820F303AA0025FB6E /* SettingsVC */,
-				9539A77820E5C0E900A3CE20 /* TimerVC */,
-				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
-				95BF901E20E380B800211563 /* InTimerSettingVC.swift */,
-				9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */,
-				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
-				95004C2920E771A300380DBB /* ModeSelectionVC.swift */,
-				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
-				95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */,
+				95183BBD21070DBD006D2D6F /* MemoSettings */,
+				95183BBC21070D58006D2D6F /* ModeSelection */,
+				95CB543820F303AA0025FB6E /* Settings */,
+				9539A77820E5C0E900A3CE20 /* Timer */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		95CB543820F303AA0025FB6E /* SettingsVC */ = {
+		95CB543820F303AA0025FB6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				95CB543B20F30E800025FB6E /* Settings.storyboard */,
 				950D322320F06C6800CA165C /* SettingsVC.swift */,
 				95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */,
+				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
+				95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */,
 			);
-			path = SettingsVC;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		95D52C4D20865912004DE650 = {
@@ -341,12 +349,12 @@
 		95D52C5820865912004DE650 /* xzTrainer */ = {
 			isa = PBXGroup;
 			children = (
+				95D52C6020865913004DE650 /* Assets.xcassets */,
 				9598B7A02098ED9A003DF590 /* Controller */,
 				9598B79F2098ED94003DF590 /* View */,
 				9598B79E2098ED8F003DF590 /* Model */,
 				95D52C5920865912004DE650 /* AppDelegate.swift */,
 				95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */,
-				95D52C6020865913004DE650 /* Assets.xcassets */,
 				9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */,
 				95D52C6520865913004DE650 /* Info.plist */,
 			);
