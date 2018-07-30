@@ -7,20 +7,22 @@
 //
 
 import UIKit
+fileprivate func edge(_ piece: EdgeSticker) -> String {
+    return toString(piece) + "<\(UserSetting.shared.general.letterScheme.edgeScheme[piece]!)>"
+}
+
+fileprivate func corner(_ piece: CornerSticker) -> String {
+    return toString(piece) + "<\(UserSetting.shared.general.letterScheme.cornerScheme[piece]!)>"
+}
 
 class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+    
+    
     var methods = [
-        MemoMethod(name: "General", options: [
-            MemoOption(
-                description: "Advanced Parity",
-                explanation: "Pseudo-solves the edges or corners with the pieces involving parity swapped, so that there is no need for a parity algorithm. Specify the pieces involved in your last algorithm.",
-                method: MemoGeneral()
-                )
-            ]),
         MemoMethod(name: "M2 Edges", options: [
             MemoOption(
-                description: "Prefer easy edge stickers (UB, UF, DB)",
-                explanation: "UB can be solved in only 1 move. UF, DB can be solved in 4 moves by U2 M' U2 M' or M U2 M U2. Turn on this switch so that these pieces are chosen as cycle break over others.",
+                description: "Prefer easy edge stickers (\(edge(.UB)), \(edge(.UF)), \(edge(.DB)))",
+                explanation: "\(edge(.UB)) can be solved in only 1 move. \(edge(.UF)), \(edge(.DB)) can be solved in 4 moves by U2 M' U2 M' or M U2 M U2. Turn on this switch so that these pieces are chosen as cycle break over others.",
                 method: PreferTrivial()
                 ),
             MemoOption(
@@ -37,8 +39,8 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
                 method: PreferCornerWithShortSetUp()
                 ),
             MemoOption(
-                description: "Use UFL as a target",
-                explanation: "UFL target can be solved in shorter moves than RDF by U2 [J-Perm] U. Turn on this switch so that one move setups to UFL is considered equivalently to that of RDF.",
+                description: "Use \(corner(.UFL)) as a target",
+                explanation: "\(corner(.UFL)) target can be solved in shorter moves than \(corner(.RDF)) by U2 [J-Perm] U. Turn on this switch so that one move setups to \(corner(.UFL)) is considered equivalently to that of \(corner(.RDF)).",
                 method: UseUFL()
                 )
             ]),

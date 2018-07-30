@@ -190,7 +190,7 @@ public class Cube : Equatable {
         // remove wide first
         var temp = turning.rawValue
         temp.remove(at: temp.index(after: temp.startIndex))
-        print(temp)
+        // print(temp)
         turn(Turn(rawValue: temp)!)
         
         // deal with slices

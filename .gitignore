@@ -40,4 +40,7 @@ Thumbs.db
 ##########
 *.png
 *.jpeg
+*.jpg
 *.pdf
+*.sketch
+*.xcassets

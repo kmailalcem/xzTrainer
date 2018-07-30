@@ -110,12 +110,11 @@ class TimerVC: UIViewController {
         sessionTable.dataSource = data
         sessionTextField.delegate = self
     }
-
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.view.frame = UIScreen.main.bounds
+        self.view.layoutIfNeeded()
     }
     
     private func setUpSessionTableConstraints() {
@@ -197,12 +196,15 @@ class TimerVC: UIViewController {
     
     
     @IBAction func updateView() {
-        scrambleTextField.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22)
+        scrambleTextField.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22, withOrientationMangle: !isCasual)
         updateCube(withScramble: scrambleTextField.text!)
-        UIView.animate(withDuration: 0.8) {
-            self.cubeView.hideFacesExceptFront()
+        if isCasual {
+            self.cubeView.hideFacesExceptTop()
+        } else {
+            UIView.animate(withDuration: 0.8) {
+                self.cubeView.hideFacesExceptTop()
+            }
         }
-        
         edgeMemoLabel.text = "Reveal memo by starting the timer."
         cornerMemoLabel.text = "You will have 0.5 seconds to react."
     }

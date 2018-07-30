@@ -27,8 +27,6 @@ extension Cube {
 
 class CubePermutationEncoder {
 
-    
-
     var formattedEdgeMemo: String {
         let trimmedEdgeMemo = edgeMemo.trimmingCharacters(in: .whitespacesAndNewlines)
         var trimmedEdgeFlips = ""
@@ -51,12 +49,12 @@ class CubePermutationEncoder {
     
     init(forCube cube: Cube) {
         self.cube = cube
-        cube.rotate(top: .WHITE, front: .GREEN)
+        cube.rotate(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor)
     }
     
     init(forScramble scramble: String) {
         cube.scrambleCube(scramble)
-        cube.rotate(top: .WHITE, front: .GREEN)
+        cube.rotate(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor)
     }
     
     var edgeMemo: String {

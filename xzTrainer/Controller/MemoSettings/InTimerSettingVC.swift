@@ -19,15 +19,15 @@ class InTimerSettingVC: UIViewController {
         settingsTable.containerViewController = self
     }
     
-    @IBAction func back() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SettingsDetailVC {
             if let sender = sender as? MemoOption {
                 destination.option = sender
             }
         }
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
     }
 }

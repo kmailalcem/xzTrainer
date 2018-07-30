@@ -99,7 +99,7 @@ class EditLetterSchemeVC: UIViewController {
 
     
     @IBAction func useTraditional() {
-        let alert = UIAlertController(title: "Are you sure?", message: "This will wipe out your current letter scheme.", preferredStyle: .alert)
+        let alert = BlueAlertController(title: "Are you sure?", message: "This will wipe out your current letter scheme.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Change to Traditional", style: .default, handler: { (_) in
             UserSetting.shared.general.letterScheme.useTraditional()
             self.updateLetterScheme()
@@ -109,7 +109,7 @@ class EditLetterSchemeVC: UIViewController {
     }
     
     @IBAction func useSpeffz() {
-        let alert = UIAlertController(title: "Are you sure?", message: "This will wipe out your current letter scheme.", preferredStyle: .alert)
+        let alert = BlueAlertController(title: "Are you sure?", message: "This will wipe out your current letter scheme.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Change to Speffz", style: .default, handler: { (_) in
             UserSetting.shared.general.letterScheme.useSpeffz()
             self.updateLetterScheme()

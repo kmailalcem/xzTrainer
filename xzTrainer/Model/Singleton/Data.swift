@@ -131,13 +131,27 @@ class GlobalData: NSObject {
             if currentSession == sessions[index] {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
             }
-            for solve in requestSolves(forSessionAtIndex: index) {
-                managedObjectContext.delete(solve)
-            }
+            clearSession(atIndex: index)
             managedObjectContext.delete(sessions[index])
             saveData()
             sessions.remove(at: index)
         }
+    }
+    
+    public func clearSession(atIndex index: Int) {
+        for solve in requestSolves(forSessionAtIndex: index) {
+            managedObjectContext.delete(solve)
+        }
+        
+        if currentSession == sessions[index] {
+            userSolves = []
+        }
+        saveData()
+    }
+    
+    public func renameSession(atIndex index: Int, to newName: String) {
+        sessions[index].name = newName
+        saveData()
     }
     
     public func reloadSolve(forSessionAtIndex index: Int) {

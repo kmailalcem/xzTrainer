@@ -103,8 +103,9 @@
                                             <color key="textColor" red="0.0" green="0.1529411765" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="DF" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-Gp-6qb">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="DF" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmK-Gp-6qb" customClass="DropDownTextField" customModule="xzTrainer" customModuleProvider="target">
                                             <rect key="frame" x="159" y="152" width="97" height="30"/>
+                                            <color key="tintColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="4pU-Eu-ebD"/>
                                                 <constraint firstAttribute="height" constant="30" id="9fA-Oq-lRz"/>
@@ -115,8 +116,9 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="UFL" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFP-Ko-3Gm">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="UFL" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFP-Ko-3Gm" customClass="DropDownTextField" customModule="xzTrainer" customModuleProvider="target">
                                             <rect key="frame" x="159" y="114" width="97" height="30"/>
+                                            <color key="tintColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="5Vc-HV-ZVQ"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CwA-Bx-F0q"/>
@@ -163,9 +165,10 @@
                                             <color key="textColor" red="0.0" green="0.1529411765" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Green" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcn-9h-etI">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Green" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcn-9h-etI" customClass="DropDownTextField" customModule="xzTrainer" customModuleProvider="target">
                                             <rect key="frame" x="159" y="288" width="97" height="30"/>
                                             <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="9us-uB-aJ7"/>
                                                 <constraint firstAttribute="height" constant="30" id="Gqk-EH-JOn"/>
@@ -197,8 +200,9 @@
                                                 <segue destination="2l4-8n-gqc" kind="custom" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="TWb-XR-ZKF"/>
                                             </connections>
                                         </button>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="White" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZw-bR-OE9">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="White" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZw-bR-OE9" customClass="DropDownTextField" customModule="xzTrainer" customModuleProvider="target">
                                             <rect key="frame" x="159" y="250" width="97" height="30"/>
+                                            <color key="tintColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="5g1-c5-jer"/>
                                                 <constraint firstAttribute="width" constant="97" id="La5-u8-abO"/>

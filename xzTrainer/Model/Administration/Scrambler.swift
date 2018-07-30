@@ -25,12 +25,13 @@ class Scrambler {
         = [.EMPTY, .EMPTY, .EMPTY]
     
     public static func getRandomScrambleWithLength(from minScrambleLength: Int,
-                                      to maxScrambleLength: Int) -> String {
+                                      to maxScrambleLength: Int,
+                                      withOrientationMangle: Bool) -> String {
         
         let scrambleLength = randomIntInRange(
             start: minScrambleLength, end: maxScrambleLength)
         let movesWithoutDirections = getRandomMovesWithoutDirections(
-            ofLength: scrambleLength)
+            ofLength: scrambleLength, withOrientationMangle: withOrientationMangle)
         var resultScramble = ""
         for move in movesWithoutDirections {
             resultScramble.append(assignRandomDirection(toMove: move))
@@ -38,20 +39,27 @@ class Scrambler {
         return resultScramble
     }
     
-    private static func getRandomMovesWithoutDirections(ofLength scrambleLength: Int) -> [String] {
+    private static func getRandomMovesWithoutDirections(ofLength scrambleLength: Int,
+                                                        withOrientationMangle: Bool) -> [String] {
         var movesWithoutDirections: [String] = []
         
-        for _ in 0 ..< scrambleLength {
-            movesWithoutDirections.append(getRandomMoveWithoutConflict())
+        let mangleSize = withOrientationMangle ? 0 : randomIntInRange(start: 1, end: 3)
+        for i in 0 ..< scrambleLength {
+            movesWithoutDirections.append(getRandomMoveWithoutConflict(withOrientationMangle: i >= scrambleLength - mangleSize))
         }
         
         return movesWithoutDirections
     }
     
-    private static func getRandomMoveWithoutConflict() -> String {
+    private static func getRandomMoveWithoutConflict(withOrientationMangle: Bool) -> String {
         let (faceClass, faceWithinClass) = obtainMoveWithoutRepetition()
         updateOccupancyStatus(takenClass: faceClass, takenFace: faceWithinClass)
-        return faceTurnNotations[faceClass][faceWithinClass.rawValue]
+        let moveBase = faceTurnNotations[faceClass][faceWithinClass.rawValue]
+        if withOrientationMangle {
+            return moveBase + "w"
+        } else {
+            return moveBase
+        }
     }
     
     private static func updateOccupancyStatus(takenClass: Int,

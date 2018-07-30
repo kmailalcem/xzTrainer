@@ -30,7 +30,7 @@ extension TimerVC {
     }
     
     private func newSession() {
-        let alert = UIAlertController(title: "New Session", message: "Please name your new session: ", preferredStyle: .alert)
+        let alert = BlueAlertController(title: "New Session", message: "Please name your new session: ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             var sessionName = alert.textFields?.first?.placeholder
             if alert.textFields?.first?.text! != "" {
@@ -69,7 +69,7 @@ extension TimerVC {
     }
     
     @IBAction func manualButtonPressed() {
-        let alert = UIAlertController(title: "Manually Enter Time", message: "", preferredStyle: .alert)
+        let alert = BlueAlertController(title: "Manually Enter Time", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             if let timeString = alert.textFields?.first?.text {
                 if let time = self.parseTimeString(timeString) {
