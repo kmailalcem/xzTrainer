@@ -38,9 +38,9 @@ Thumbs.db
 
 # images #
 ##########
-*.png
-*.jpeg
-*.jpg
-*.pdf
-*.sketch
-*.xcassets
+**/*.png
+**/*.jpeg
+**/*.jpg
+**/*.pdf
+**/*.sketch
+**/*.xcassets
