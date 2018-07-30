@@ -43,4 +43,4 @@ Thumbs.db
 **/*.jpg
 **/*.pdf
 **/*.sketch
-**/*.xcassets
+/Users/nelsonzhang/Desktop/Personal\ Project/xzTrainer/xzTrainer/Assets.xcassets
