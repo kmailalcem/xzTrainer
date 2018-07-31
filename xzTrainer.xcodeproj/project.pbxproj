@@ -184,62 +184,21 @@
 			path = MemoSettings;
 			sourceTree = "<group>";
 		};
-		9539A77420E5C07600A3CE20 /* Singleton */ = {
-			isa = PBXGroup;
-			children = (
-				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
-				9583EC53209E3F2C004A4D3E /* PublicEnums.swift */,
-				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
-				9575ED5620D90D7A00D9CF81 /* Data.swift */,
-				950D322720F0ABAB00CA165C /* GeneralSetting.swift */,
-				950D322920F0ACB600CA165C /* UserSetting.swift */,
-			);
-			path = Singleton;
-			sourceTree = "<group>";
-		};
 		9539A77520E5C09300A3CE20 /* Cube */ = {
 			isa = PBXGroup;
 			children = (
-				956C5CDB20A0D2230036D80A /* Cube.swift */,
-				9583EC40209E0E7C004A4D3E /* CentreCore.swift */,
-				9583EC41209E0E7C004A4D3E /* VoidCube.swift */,
+				9588BA46210FFE6700CE94C0 /* Solution */,
+				9588BA45210FFE4B00CE94C0 /* Representation */,
 			);
 			path = Cube;
-			sourceTree = "<group>";
-		};
-		9539A77620E5C0BE00A3CE20 /* Memo */ = {
-			isa = PBXGroup;
-			children = (
-				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
-				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
-				956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */,
-			);
-			path = Memo;
-			sourceTree = "<group>";
-		};
-		9539A77720E5C0D500A3CE20 /* Administration */ = {
-			isa = PBXGroup;
-			children = (
-				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
-				95C6A4C220B35286003D8D28 /* Scrambler.swift */,
-				95EB838E20B430E4003ADB37 /* Solve.swift */,
-				957E1C8620DA5DC000CC40AD /* Session.swift */,
-				9539A78020E5F21000A3CE20 /* SettingsAndHandlers.swift */,
-			);
-			path = Administration;
 			sourceTree = "<group>";
 		};
 		9539A77820E5C0E900A3CE20 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				95D52C5D20865912004DE650 /* Timer.storyboard */,
-				95D52C5B20865912004DE650 /* TimerVC.swift */,
-				95BF902020E38FF500211563 /* TimerVCFAB.swift */,
-				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
-				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
-				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
-				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
-				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
+				9588BA4D210FFFA800CE94C0 /* View */,
+				9588BA4C210FFF6E00CE94C0 /* Controller */,
+				9588BA4B210FFF6300CE94C0 /* Model */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -247,22 +206,9 @@
 		9539A77920E5C10200A3CE20 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				9587E19E20DB2D6E00CFF85D /* SessionCell.swift */,
-				95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */,
-				95B9838120B1F73000CE5908 /* ResultCell.swift */,
 				9539A78220E6249700A3CE20 /* HeaderCell.swift */,
-				95004C2B20E7739800380DBB /* ModeSelectionCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		9539A77A20E5C11100A3CE20 /* CubeVisualization */ = {
-			isa = PBXGroup;
-			children = (
-				95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */,
-				9533A48F20A8C24D00A5A59E /* CubeView.swift */,
-			);
-			path = CubeVisualization;
 			sourceTree = "<group>";
 		};
 		9539A77B20E5C11F00A3CE20 /* UIExtension */ = {
@@ -288,44 +234,44 @@
 			path = xzTrainerTests;
 			sourceTree = "<group>";
 		};
-		9598B79E2098ED8F003DF590 /* Model */ = {
+		9588BA45210FFE4B00CE94C0 /* Representation */ = {
 			isa = PBXGroup;
 			children = (
-				9539A77720E5C0D500A3CE20 /* Administration */,
-				9539A77620E5C0BE00A3CE20 /* Memo */,
-				9539A77520E5C09300A3CE20 /* Cube */,
-				9539A77420E5C07600A3CE20 /* Singleton */,
+				956C5CDB20A0D2230036D80A /* Cube.swift */,
+				9583EC40209E0E7C004A4D3E /* CentreCore.swift */,
+				9583EC41209E0E7C004A4D3E /* VoidCube.swift */,
 			);
-			path = Model;
+			path = Representation;
 			sourceTree = "<group>";
 		};
-		9598B79F2098ED94003DF590 /* View */ = {
+		9588BA46210FFE6700CE94C0 /* Solution */ = {
 			isa = PBXGroup;
 			children = (
-				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
-				9539A77B20E5C11F00A3CE20 /* UIExtension */,
-				9539A77A20E5C11100A3CE20 /* CubeVisualization */,
-				9539A77920E5C10200A3CE20 /* Cells */,
-				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
-				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
-				95D7334920E9BB21009F2708 /* SegueRightToLeft.swift */,
-				95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */,
+				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
+				956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */,
 			);
-			path = View;
+			path = Solution;
 			sourceTree = "<group>";
 		};
-		9598B7A02098ED9A003DF590 /* Controller */ = {
+		9588BA47210FFED300CE94C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				95183BBD21070DBD006D2D6F /* MemoSettings */,
-				95183BBC21070D58006D2D6F /* ModeSelection */,
-				95CB543820F303AA0025FB6E /* Settings */,
-				9539A77820E5C0E900A3CE20 /* Timer */,
+				9588BA49210FFF1200CE94C0 /* General */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		95CB543820F303AA0025FB6E /* Settings */ = {
+		9588BA48210FFEEB00CE94C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9588BA532110016400CE94C0 /* Encoder */,
+				9588BA522110015E00CE94C0 /* General */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9588BA49210FFF1200CE94C0 /* General */ = {
 			isa = PBXGroup;
 			children = (
 				95CB543B20F30E800025FB6E /* Settings.storyboard */,
@@ -333,6 +279,122 @@
 				95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */,
 				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
 				95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		9588BA4B210FFF6300CE94C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95EB838E20B430E4003ADB37 /* Solve.swift */,
+				957E1C8620DA5DC000CC40AD /* Session.swift */,
+				95C6A4C220B35286003D8D28 /* Scrambler.swift */,
+				9539A77520E5C09300A3CE20 /* Cube */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9588BA4C210FFF6E00CE94C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95D52C5D20865912004DE650 /* Timer.storyboard */,
+				95D52C5B20865912004DE650 /* TimerVC.swift */,
+				95BF902020E38FF500211563 /* TimerVCFAB.swift */,
+				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
+				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
+				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
+				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
+				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9588BA4D210FFFA800CE94C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
+				9588BA4F210FFFF500CE94C0 /* Cells */,
+				9588BA4E210FFFE700CE94C0 /* Cube Visualization */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9588BA4E210FFFE700CE94C0 /* Cube Visualization */ = {
+			isa = PBXGroup;
+			children = (
+				95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */,
+				9533A48F20A8C24D00A5A59E /* CubeView.swift */,
+			);
+			path = "Cube Visualization";
+			sourceTree = "<group>";
+		};
+		9588BA4F210FFFF500CE94C0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9587E19E20DB2D6E00CFF85D /* SessionCell.swift */,
+				95B9838120B1F73000CE5908 /* ResultCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9588BA502110001600CE94C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */,
+				95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9588BA512110005200CE94C0 /* Launch Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
+				95183BBC21070D58006D2D6F /* ModeSelection */,
+				95004C2B20E7739800380DBB /* ModeSelectionCell.swift */,
+			);
+			path = "Launch Scenes";
+			sourceTree = "<group>";
+		};
+		9588BA522110015E00CE94C0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
+				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
+				950D322920F0ACB600CA165C /* UserSetting.swift */,
+				950D322720F0ABAB00CA165C /* GeneralSetting.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		9588BA532110016400CE94C0 /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+				9539A78020E5F21000A3CE20 /* SettingsAndHandlers.swift */,
+				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
+				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
+			);
+			path = Encoder;
+			sourceTree = "<group>";
+		};
+		9588BA542110018800CE94C0 /* Projectwise */ = {
+			isa = PBXGroup;
+			children = (
+				9583EC53209E3F2C004A4D3E /* PublicEnums.swift */,
+				9575ED5620D90D7A00D9CF81 /* Data.swift */,
+				95D7334920E9BB21009F2708 /* SegueRightToLeft.swift */,
+				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
+				9539A77B20E5C11F00A3CE20 /* UIExtension */,
+			);
+			path = Projectwise;
+			sourceTree = "<group>";
+		};
+		95CB543820F303AA0025FB6E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9588BA502110001600CE94C0 /* View */,
+				9588BA48210FFEEB00CE94C0 /* Model */,
+				9588BA47210FFED300CE94C0 /* Controller */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -359,9 +421,11 @@
 			isa = PBXGroup;
 			children = (
 				95D52C6020865913004DE650 /* Assets.xcassets */,
-				9598B7A02098ED9A003DF590 /* Controller */,
-				9598B79F2098ED94003DF590 /* View */,
-				9598B79E2098ED8F003DF590 /* Model */,
+				9588BA542110018800CE94C0 /* Projectwise */,
+				9588BA512110005200CE94C0 /* Launch Scenes */,
+				9539A77820E5C0E900A3CE20 /* Timer */,
+				95CB543820F303AA0025FB6E /* Settings */,
+				9539A77920E5C10200A3CE20 /* Cells */,
 				95D52C5920865912004DE650 /* AppDelegate.swift */,
 				95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */,
 				9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */,

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/*
 class HeaderCell: UITableViewCell {
     
     @IBOutlet weak var headerLabel: UILabel!
@@ -22,4 +23,4 @@ class HeaderCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-}
+}*/
