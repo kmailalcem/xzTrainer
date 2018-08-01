@@ -8,8 +8,8 @@
 
 import UIKit
 
-func makeConfirm(title: String = "Are you sure?" , message: String, handler: @escaping (UIAlertAction) -> Void) -> BlueAlertController {
-    let alert = BlueAlertController(title: title, message: message, preferredStyle: .alert)
+func makeConfirm(title: String = "Are you sure?" , message: String, handler: @escaping (UIAlertAction) -> Void) -> ThemeAlertController {
+    let alert = ThemeAlertController(title: title, message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: handler))
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     return alert
@@ -27,8 +27,8 @@ extension TimerVC: UITableViewDelegate {
         
         if tableView is ResultTableView {
             configurePopUp(indexPath: indexPath)
-             animatePopUpIn()
-             return
+            animatePopUpIn()
+            return
         }
 
         sessionTextField.text =
@@ -73,7 +73,7 @@ extension TimerVC: UITableViewDelegate {
             clear.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.7882352941, blue: 0.8470588235, alpha: 1)
             
             let rename = UITableViewRowAction(style: .normal, title: "Rename") { (_, _) in
-                let alert = BlueAlertController(title: "Rename Session", message: "Enter the new name for this session.", preferredStyle: .alert)
+                let alert = ThemeAlertController(title: "Rename Session", message: "Enter the new name for this session.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
                     let newName = alert.textFields?.first?.text!
                     if newName != nil && newName != "" {

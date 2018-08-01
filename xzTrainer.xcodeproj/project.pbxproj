@@ -13,6 +13,9 @@
 		950D322620F0823F00CA165C /* EditLetterSchemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */; };
 		950D322820F0ABAB00CA165C /* GeneralSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322720F0ABAB00CA165C /* GeneralSetting.swift */; };
 		950D322A20F0ACB600CA165C /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322920F0ACB600CA165C /* UserSetting.swift */; };
+		950DF6C92111620800A329EB /* CustomPriorityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6C82111620800A329EB /* CustomPriorityVC.swift */; };
+		950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950DF6CA2111622400A329EB /* CustomPriority.storyboard */; };
+		950DF6CE2111640700A329EB /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6CD2111640700A329EB /* PriorityCell.swift */; };
 		950E70FA20E9DFCB0080F879 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E70F920E9DFCB0080F879 /* FloatingActionButton.swift */; };
 		95183BBF210717A1006D2D6F /* AdvancedParityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */; };
 		951A33EB20D260C000A12666 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A33EA20D260C000A12666 /* GradientView.swift */; };
@@ -22,8 +25,7 @@
 		952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FAA0A20BB1CDA007FD671 /* RoundedView.swift */; };
 		9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533A48F20A8C24D00A5A59E /* CubeView.swift */; };
 		9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */; };
-		9539A78120E5F21000A3CE20 /* SettingsAndHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78020E5F21000A3CE20 /* SettingsAndHandlers.swift */; };
-		9539A78320E6249700A3CE20 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78220E6249700A3CE20 /* HeaderCell.swift */; };
+		9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78020E5F21000A3CE20 /* MemoMethod.swift */; };
 		9539A78520E62E1400A3CE20 /* SettingsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
@@ -33,7 +35,7 @@
 		9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575ED5620D90D7A00D9CF81 /* Data.swift */; };
 		957E1C8720DA5DC000CC40AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E1C8620DA5DC000CC40AD /* Session.swift */; };
 		958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125BF210EA4F2009C564B /* DropDownTextField.swift */; };
-		958125C2210EBA91009C564B /* BlueAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125C1210EBA91009C564B /* BlueAlertController.swift */; };
+		958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125C1210EBA91009C564B /* ThemeAlertController.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
 		9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* VoidCube.swift */; };
 		9583EC4C209E13BF004A4D3E /* xzTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */; };
@@ -41,6 +43,8 @@
 		9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19C20DB27B200CFF85D /* TableViewClasses.swift */; };
 		9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19E20DB2D6E00CFF85D /* SessionCell.swift */; };
 		9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */; };
+		9588BA5721100BA500CE94C0 /* ThemeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */; };
+		9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */; };
 		95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0E3720A7447200E36982 /* ColorScheme.swift */; };
 		95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B5265920E23C5000C54F45 /* PreferenceList.swift */; };
 		95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9838120B1F73000CE5908 /* ResultCell.swift */; };
@@ -57,7 +61,7 @@
 		95D52C5F20865912004DE650 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C5D20865912004DE650 /* Timer.storyboard */; };
 		95D52C6120865913004DE650 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C6020865913004DE650 /* Assets.xcassets */; };
 		95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C6220865913004DE650 /* LaunchScreen.storyboard */; };
-		95D7334A20E9BB21009F2708 /* SegueRightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D7334920E9BB21009F2708 /* SegueRightToLeft.swift */; };
+		95D7334A20E9BB21009F2708 /* ThemeSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D7334920E9BB21009F2708 /* ThemeSegues.swift */; };
 		95DB124720E4D6EB007BBAFD /* MemoSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */; };
 		95DB124920E4DD3C007BBAFD /* MemoSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */; };
 		95DB65EA20EF0E900095A778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB65E820EF0E900095A778 /* Main.storyboard */; };
@@ -86,6 +90,9 @@
 		950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLetterSchemeVC.swift; sourceTree = "<group>"; };
 		950D322720F0ABAB00CA165C /* GeneralSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSetting.swift; sourceTree = "<group>"; };
 		950D322920F0ACB600CA165C /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
+		950DF6C82111620800A329EB /* CustomPriorityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPriorityVC.swift; sourceTree = "<group>"; };
+		950DF6CB2111622400A329EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Settings/Encoder/Controller/xzTrainer/Base.lproj/CustomPriority.storyboard; sourceTree = "<group>"; };
+		950DF6CD2111640700A329EB /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
 		950E70F920E9DFCB0080F879 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedParityVC.swift; sourceTree = "<group>"; };
 		951A33EA20D260C000A12666 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -95,8 +102,7 @@
 		952FAA0A20BB1CDA007FD671 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		9533A48F20A8C24D00A5A59E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 		9539A77D20E5F0E800A3CE20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Base.lproj/InTimerSetting.storyboard; sourceTree = "<group>"; };
-		9539A78020E5F21000A3CE20 /* SettingsAndHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAndHandlers.swift; sourceTree = "<group>"; };
-		9539A78220E6249700A3CE20 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		9539A78020E5F21000A3CE20 /* MemoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoMethod.swift; sourceTree = "<group>"; };
 		9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailVC.swift; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
@@ -106,7 +112,7 @@
 		9575ED5620D90D7A00D9CF81 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		957E1C8620DA5DC000CC40AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		958125BF210EA4F2009C564B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
-		958125C1210EBA91009C564B /* BlueAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueAlertController.swift; sourceTree = "<group>"; };
+		958125C1210EBA91009C564B /* ThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertController.swift; sourceTree = "<group>"; };
 		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
 		9583EC41209E0E7C004A4D3E /* VoidCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoidCube.swift; sourceTree = "<group>"; };
 		9583EC49209E13BF004A4D3E /* xzTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xzTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,8 @@
 		9587E19C20DB27B200CFF85D /* TableViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewClasses.swift; sourceTree = "<group>"; };
 		9587E19E20DB2D6E00CFF85D /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
 		9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCSessionManager.swift; sourceTree = "<group>"; };
+		9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitch.swift; sourceTree = "<group>"; };
+		9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCell.swift; sourceTree = "<group>"; };
 		95AD0E3720A7447200E36982 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		95B5265920E23C5000C54F45 /* PreferenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceList.swift; sourceTree = "<group>"; };
 		95B9838120B1F73000CE5908 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
@@ -134,7 +142,7 @@
 		95D52C6020865913004DE650 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95D52C6320865913004DE650 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95D52C6520865913004DE650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95D7334920E9BB21009F2708 /* SegueRightToLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueRightToLeft.swift; sourceTree = "<group>"; };
+		95D7334920E9BB21009F2708 /* ThemeSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSegues.swift; sourceTree = "<group>"; };
 		95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingCell.swift; sourceTree = "<group>"; };
 		95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsDataSource.swift; sourceTree = "<group>"; };
 		95DB65E920EF0E900095A778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/View/Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,15 +181,13 @@
 			path = ModeSelection;
 			sourceTree = "<group>";
 		};
-		95183BBD21070DBD006D2D6F /* MemoSettings */ = {
+		95183BBD21070DBD006D2D6F /* Encoder */ = {
 			isa = PBXGroup;
 			children = (
-				9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */,
-				95BF901E20E380B800211563 /* InTimerSettingVC.swift */,
-				9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */,
-				95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */,
+				9588BA58211032AE00CE94C0 /* Controller */,
+				9588BA59211032BC00CE94C0 /* Model */,
 			);
-			path = MemoSettings;
+			path = Encoder;
 			sourceTree = "<group>";
 		};
 		9539A77520E5C09300A3CE20 /* Cube */ = {
@@ -203,15 +209,7 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
-		9539A77920E5C10200A3CE20 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				9539A78220E6249700A3CE20 /* HeaderCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		9539A77B20E5C11F00A3CE20 /* UIExtension */ = {
+		9539A77B20E5C11F00A3CE20 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
 				951A33EA20D260C000A12666 /* GradientView.swift */,
@@ -220,9 +218,11 @@
 				9526D82720C3AA2800F0E251 /* UIButtonX.swift */,
 				950E70F920E9DFCB0080F879 /* FloatingActionButton.swift */,
 				958125BF210EA4F2009C564B /* DropDownTextField.swift */,
-				958125C1210EBA91009C564B /* BlueAlertController.swift */,
+				958125C1210EBA91009C564B /* ThemeAlertController.swift */,
+				9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */,
+				95D7334920E9BB21009F2708 /* ThemeSegues.swift */,
 			);
-			path = UIExtension;
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		9583EC4A209E13BF004A4D3E /* xzTrainerTests */ = {
@@ -247,7 +247,6 @@
 		9588BA46210FFE6700CE94C0 /* Solution */ = {
 			isa = PBXGroup;
 			children = (
-				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
 				956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */,
 			);
 			path = Solution;
@@ -256,29 +255,20 @@
 		9588BA47210FFED300CE94C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95183BBD21070DBD006D2D6F /* MemoSettings */,
-				9588BA49210FFF1200CE94C0 /* General */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		9588BA48210FFEEB00CE94C0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9588BA532110016400CE94C0 /* Encoder */,
-				9588BA522110015E00CE94C0 /* General */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		9588BA49210FFF1200CE94C0 /* General */ = {
-			isa = PBXGroup;
-			children = (
 				95CB543B20F30E800025FB6E /* Settings.storyboard */,
 				950D322320F06C6800CA165C /* SettingsVC.swift */,
 				95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */,
 				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
 				95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9588BA49210FFF1200CE94C0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				9588BA5A211032EB00CE94C0 /* Model */,
+				9588BA47210FFED300CE94C0 /* Controller */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -342,6 +332,8 @@
 			children = (
 				95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */,
 				95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */,
+				9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */,
+				950DF6CD2111640700A329EB /* PriorityCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,45 +348,58 @@
 			path = "Launch Scenes";
 			sourceTree = "<group>";
 		};
-		9588BA522110015E00CE94C0 /* General */ = {
-			isa = PBXGroup;
-			children = (
-				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
-				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
-				950D322920F0ACB600CA165C /* UserSetting.swift */,
-				950D322720F0ABAB00CA165C /* GeneralSetting.swift */,
-			);
-			path = General;
-			sourceTree = "<group>";
-		};
-		9588BA532110016400CE94C0 /* Encoder */ = {
-			isa = PBXGroup;
-			children = (
-				9539A78020E5F21000A3CE20 /* SettingsAndHandlers.swift */,
-				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
-				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
-			);
-			path = Encoder;
-			sourceTree = "<group>";
-		};
 		9588BA542110018800CE94C0 /* Projectwise */ = {
 			isa = PBXGroup;
 			children = (
 				9583EC53209E3F2C004A4D3E /* PublicEnums.swift */,
 				9575ED5620D90D7A00D9CF81 /* Data.swift */,
-				95D7334920E9BB21009F2708 /* SegueRightToLeft.swift */,
 				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
-				9539A77B20E5C11F00A3CE20 /* UIExtension */,
+				9539A77B20E5C11F00A3CE20 /* Theme */,
 			);
 			path = Projectwise;
+			sourceTree = "<group>";
+		};
+		9588BA58211032AE00CE94C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				950DF6CA2111622400A329EB /* CustomPriority.storyboard */,
+				9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */,
+				95BF901E20E380B800211563 /* InTimerSettingVC.swift */,
+				9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */,
+				95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */,
+				950DF6C82111620800A329EB /* CustomPriorityVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9588BA59211032BC00CE94C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9539A78020E5F21000A3CE20 /* MemoMethod.swift */,
+				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
+				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9588BA5A211032EB00CE94C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
+				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
+				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
+				950D322920F0ACB600CA165C /* UserSetting.swift */,
+				950D322720F0ABAB00CA165C /* GeneralSetting.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		95CB543820F303AA0025FB6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				95183BBD21070DBD006D2D6F /* Encoder */,
+				9588BA49210FFF1200CE94C0 /* General */,
 				9588BA502110001600CE94C0 /* View */,
-				9588BA48210FFEEB00CE94C0 /* Model */,
-				9588BA47210FFED300CE94C0 /* Controller */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -425,7 +430,6 @@
 				9588BA512110005200CE94C0 /* Launch Scenes */,
 				9539A77820E5C0E900A3CE20 /* Timer */,
 				95CB543820F303AA0025FB6E /* Settings */,
-				9539A77920E5C10200A3CE20 /* Cells */,
 				95D52C5920865912004DE650 /* AppDelegate.swift */,
 				95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */,
 				9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */,
@@ -527,6 +531,7 @@
 				9529FCA720AB4C9C0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png in Resources */,
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
 				9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */,
+				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
 				95CB543C20F30E800025FB6E /* Settings.storyboard in Resources */,
 			);
@@ -559,19 +564,22 @@
 				950D322420F06C6800CA165C /* SettingsVC.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
+				950DF6C92111620800A329EB /* CustomPriorityVC.swift in Sources */,
 				958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */,
 				9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */,
 				950D322620F0823F00CA165C /* EditLetterSchemeVC.swift in Sources */,
-				95D7334A20E9BB21009F2708 /* SegueRightToLeft.swift in Sources */,
+				95D7334A20E9BB21009F2708 /* ThemeSegues.swift in Sources */,
 				952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */,
 				950D322A20F0ACB600CA165C /* UserSetting.swift in Sources */,
 				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
 				95EB838F20B430E4003ADB37 /* Solve.swift in Sources */,
+				9588BA5721100BA500CE94C0 /* ThemeSwitch.swift in Sources */,
 				95EB839320B46CDF003ADB37 /* LetterScheme.swift in Sources */,
-				9539A78120E5F21000A3CE20 /* SettingsAndHandlers.swift in Sources */,
+				950DF6CE2111640700A329EB /* PriorityCell.swift in Sources */,
+				9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */,
 				95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */,
 				95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */,
-				958125C2210EBA91009C564B /* BlueAlertController.swift in Sources */,
+				958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */,
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
@@ -585,7 +593,6 @@
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
 				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,
 				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,
-				9539A78320E6249700A3CE20 /* HeaderCell.swift in Sources */,
 				95004C2C20E7739800380DBB /* ModeSelectionCell.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
 				95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */,
@@ -598,6 +605,7 @@
 				956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */,
 				95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */,
 				9583EC54209E3F2C004A4D3E /* PublicEnums.swift in Sources */,
+				9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */,
 				95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +621,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		950DF6CA2111622400A329EB /* CustomPriority.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				950DF6CB2111622400A329EB /* Base */,
+			);
+			name = CustomPriority.storyboard;
+			sourceTree = "<group>";
+		};
 		9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

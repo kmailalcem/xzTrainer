@@ -10,7 +10,7 @@ import UIKit
 
 class MemoSettingCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var settingSwitch: UISwitch!
+    @IBOutlet weak var settingSwitch: ThemeSwitch!
     var managedMethod: MemoPreference!
     
     @IBAction func switchTriggered() {
@@ -21,13 +21,22 @@ class MemoSettingCell: UITableViewCell {
         }
     }
     
-    func configureMemoSettingCell(title: String, method: MemoPreference) {
-        self.title.text = title
+    func configureMemoSettingCell(method: MemoPreference, applicable: Bool) {
+        let memoType = type(of: method)
+        self.title.text = memoType.description
         managedMethod = method
-        settingSwitch.onTintColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
-        settingSwitch.tintColor = #colorLiteral(red: 0.6352941176, green: 0.7803921569, blue: 0.9882352941, alpha: 1)
         let memoKey = type(of: managedMethod).memoKey
         settingSwitch.isOn = UserDefaults.standard.object(forKey: memoKey) != nil && UserDefaults.standard.bool(forKey: memoKey)
+        settingSwitch.isEnabled = applicable
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        if highlighted {
+            contentView.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.9137254902, blue: 0.937254902, alpha: 1)
+        } else {
+            contentView.backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8666666667, alpha: 1)
+        }
     }
 
 }

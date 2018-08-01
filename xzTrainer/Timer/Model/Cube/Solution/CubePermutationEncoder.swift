@@ -230,9 +230,18 @@ class CubePermutationEncoder {
     }
     
     private func getNextUnsolvedCornerPiece() -> CornerPosition? {
-        for piece in userPreference.cornerPrefereneceAsFirstLetter {
-            if let result = unsolvedCornerStickers[piece.rawValue] {
-                return result
+        if cornerPermutation.count % 2 == 0 {
+            for piece in userPreference.cornerPrefereneceAsFirstLetter {
+                if let result = unsolvedCornerStickers[piece.rawValue] {
+                    return result
+                }
+            }
+        } else {
+            let firstLetter = cornerPermutation.last!
+            for piece in userPreference.cornerPreferenceAsSecondLetter[firstLetter]! {
+                if let result = unsolvedCornerStickers[piece.rawValue] {
+                    return result
+                }
             }
         }
         return nil

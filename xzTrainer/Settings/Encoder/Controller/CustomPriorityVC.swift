@@ -1,0 +1,146 @@
+//
+//  CustomPriorityVC.swift
+//  xzTrainer
+//
+//  Created by Nelson Zhang on 8/1/18.
+//  Copyright © 2018 Nelson Zhang. All rights reserved.
+//
+
+import UIKit
+
+class CustomPriorityVC: UIViewController {
+    @IBOutlet weak var priorityTable: UITableView!
+    @IBOutlet weak var applySwitch: ThemeSwitch!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        priorityTable.delegate = self
+        priorityTable.dataSource = self
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension CustomPriorityVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return NUM_STICKERS - 2
+        } else {
+            return NUM_STICKERS - 3
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PriorityCell") as! PriorityCell
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let firstLetters = UserSetting.shared.encoder.userPreference.edgePreferenceAsFirstLetter
+                cell.configureCell(
+                    startingLetter: "First",
+                    secondLetters: formatedPieces(
+                        firstLetters,
+                        showInLetters: true
+                    )
+                )
+                return cell
+            }
+            
+            var allRawValues = [Int](0 ..< NUM_STICKERS)
+            for i in 0 ..< NUM_STICKERS {
+                if i / 2 == UserSetting.shared.general.edgeBuffer.rawValue / 2 {
+                    allRawValues.remove(at: i)
+                    allRawValues.remove(at: i)
+                    break
+                }
+            }
+            
+            let edgePreference = UserSetting.shared.encoder.userPreference.edgePreferenceAsSecondLetter
+            let edge = EdgePosition(rawValue: allRawValues[indexPath.row - 1])!
+            cell.configureCell(
+                startingLetter: formatedPieces(
+                    [edge],
+                    showInLetters: true
+                ),
+                secondLetters: formatedPieces(
+                    edgePreference[edge]!,
+                    showInLetters: true
+                )
+            )
+        } else {
+            if indexPath.row == 0 {
+                let firstLetters = UserSetting.shared.encoder.userPreference.cornerPrefereneceAsFirstLetter
+                cell.configureCell(
+                    startingLetter: "First",
+                    secondLetters: formatedPieces(
+                        firstLetters,
+                        showInLetters: true
+                    )
+                )
+                return cell
+            }
+            var allRawValues = [Int](0 ..< NUM_STICKERS)
+            for i in 0 ..< NUM_STICKERS {
+                if i / 3 == UserSetting.shared.general.cornerBuffer.rawValue / 3 {
+                    allRawValues.remove(at: i)
+                    allRawValues.remove(at: i)
+                    allRawValues.remove(at: i)
+                    break
+                }
+            }
+            let cornerPreference = UserSetting.shared.encoder.userPreference.cornerPreferenceAsSecondLetter
+            let corner = CornerPosition(rawValue: allRawValues[indexPath.row - 1])!
+            cell.configureCell(
+                startingLetter: formatedPieces(
+                    [corner],
+                    showInLetters: true
+                ),
+                secondLetters: formatedPieces(
+                    cornerPreference[corner]!,
+                    showInLetters: true
+                )
+            )
+        }
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        let title = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width - 16, height: 30))
+        title.text = section == 0 ? "Edges" : "Corners"
+        title.textColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
+        title.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        headerView.addSubview(title)
+        headerView.backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8705882353, alpha: 1)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
