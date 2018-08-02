@@ -166,6 +166,10 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if !applySwitch.isOn {
+            return
+        }
+        
         if indexPath.section == 0 {
             if indexPath.row > 0 {
                 performSegue(withIdentifier: "toCustomPriority", sender: EdgeSticker(rawValue: indexPath.row - 1))

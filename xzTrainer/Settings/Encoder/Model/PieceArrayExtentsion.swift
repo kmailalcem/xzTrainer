@@ -11,7 +11,7 @@ import Foundation
 extension Array where Element == EdgeSticker {
     public func removeBuffer() -> [EdgeSticker] {
         var result = self
-        for i in count - 1 ... 0 {
+        for i in (0 ..< count).reversed() {
             if result[i].rawValue / 2 == UserSetting.shared.general.edgeBuffer.rawValue / 2 {
                 result.remove(at: i)
             }
@@ -23,7 +23,7 @@ extension Array where Element == EdgeSticker {
 extension Array where Element == CornerSticker {
     public func removeBuffer() -> [CornerSticker] {
         var result = self
-        for i in count - 1 ... 0 {
+        for i in (0 ..< count).reversed() {
             if result[i].rawValue / 3 == UserSetting.shared.general.cornerBuffer.rawValue / 3 {
                 result.remove(at: i)
             }

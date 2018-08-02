@@ -27,8 +27,7 @@ class MemoSettingCell: ThemeCell {
         managedMethod = method
         let memoKey = type(of: managedMethod).memoKey
         settingSwitch.isOn = UserDefaults.standard.object(forKey: memoKey) != nil && UserDefaults.standard.bool(forKey: memoKey)
-        settingSwitch.isEnabled = applicable
-        settingSwitch.isEnabled = !UserSetting.shared.encoder.userCustomizeOrder
+        settingSwitch.isEnabled = applicable && !UserSetting.shared.encoder.userCustomizeOrder
     }
 
 }

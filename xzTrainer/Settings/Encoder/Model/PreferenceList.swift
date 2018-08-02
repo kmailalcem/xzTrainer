@@ -59,11 +59,13 @@ class PreferenceList {
     }
     
     private func move<T: Equatable>(piece: T, in pieces: inout [T], toEnd: Bool) {
-        pieces.remove(at: pieces.index(of: piece)!)
-        if toEnd {
-            pieces.append(piece)
-        } else {
-            pieces.insert(piece, at: 0)
+        if let index = pieces.index(of: piece) {
+            pieces.remove(at: index)
+            if toEnd {
+                pieces.append(piece)
+            } else {
+                pieces.insert(piece, at: 0)
+            }
         }
     }
 
@@ -148,6 +150,8 @@ class PreferenceList {
             basicEdgePreferenceList.append(edge)
             basicCornerPreferenceList.append(corner)
         }
+        basicEdgePreferenceList = basicEdgePreferenceList.removeBuffer()
+        basicCornerPreferenceList = basicCornerPreferenceList.removeBuffer()
         reloadSecondLetters()
     }
 }

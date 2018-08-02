@@ -61,13 +61,13 @@ extension ReorderPriorityVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if targetEdgePiece != nil {
-            return NUM_STICKERS
+            return NUM_STICKERS - 2
         } else if targetCornerPiece != nil {
-            return NUM_STICKERS
+            return NUM_STICKERS - 3
         } else if isEdge {
-            return NUM_STICKERS
+            return NUM_STICKERS - 2
         } else {
-            return NUM_STICKERS
+            return NUM_STICKERS - 3
         }
     }
     

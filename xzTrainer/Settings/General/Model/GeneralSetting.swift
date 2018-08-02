@@ -15,6 +15,7 @@ class GeneralSetting {
     let cornerBufferKey = "Corner Buffer"
     let topColorKey = "Top Color"
     let frontColorKey = "Front Color"
+    let nameKey = "User Name"
     
     var edgeBuffer: EdgePosition = .DF {
         didSet {
@@ -24,6 +25,18 @@ class GeneralSetting {
     var cornerBuffer: CornerPosition = .ULB {
         didSet {
             UserDefaults.standard.set(cornerBuffer.rawValue, forKey: cornerBufferKey)
+        }
+    }
+    var name: String {
+        get {
+            if keyExists(nameKey) {
+                return UserDefaults.standard.string(forKey: nameKey)!
+            } else {
+                return "A Passionate Cuber"
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: nameKey)
         }
     }
     

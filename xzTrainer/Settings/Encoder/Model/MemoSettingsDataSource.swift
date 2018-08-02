@@ -71,7 +71,7 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
         let title = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width - 16, height: 30))
         title.text = method.name
         if (!method.applicable) {
-            title.text = title.text! + " (Requires \(method.requiredBuffer) as buffer)"
+            title.text = title.text! + " (Requires \(method.requiredBuffer) buffer)"
         }
         title.textColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
         title.font = UIFont.systemFont(ofSize: 17, weight: .medium)

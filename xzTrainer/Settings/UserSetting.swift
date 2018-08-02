@@ -10,7 +10,13 @@ import Foundation
 
 class UserSetting {
     var general: GeneralSetting
-    var encoder: EncoderSetting
+    var _encoder: EncoderSetting?
+    var encoder: EncoderSetting {
+        if _encoder == nil {
+            _encoder = EncoderSetting()
+        }
+        return _encoder!
+    }
     
     public static var shared: UserSetting {
         if UserSetting.singleton == nil {
@@ -22,6 +28,6 @@ class UserSetting {
     private static var singleton: UserSetting?
     private init() {
         general = GeneralSetting()
-        encoder = EncoderSetting()
+        
     }
 }

@@ -431,15 +431,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNF-kW-JfK">
                                 <rect key="frame" x="16" y="88" width="343" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current buffer piece does not support this method.  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gob-it-4Zp">
-                                        <rect key="frame" x="8" y="35.5" width="327" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Oik-Js-pKI"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBA-zD-Qk2">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ehs-jl-Kkh">
@@ -448,15 +439,25 @@
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your current buffer piece does not support this method.  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gob-it-4Zp">
+                                        <rect key="frame" x="8" y="8" width="327" height="134"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Oik-Js-pKI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.28235294119999998" green="0.41960784309999999" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Gob-it-4Zp" firstAttribute="leading" secondItem="WNF-kW-JfK" secondAttribute="leading" constant="8" id="7MT-kY-ee6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gob-it-4Zp" secondAttribute="trailing" constant="8" id="7qz-0a-fbD"/>
                                     <constraint firstItem="jBA-zD-Qk2" firstAttribute="leading" secondItem="WNF-kW-JfK" secondAttribute="leading" id="Aq9-U8-XK3"/>
                                     <constraint firstAttribute="bottom" secondItem="jBA-zD-Qk2" secondAttribute="bottom" id="FY2-ou-Cjl"/>
-                                    <constraint firstItem="Gob-it-4Zp" firstAttribute="centerY" secondItem="WNF-kW-JfK" secondAttribute="centerY" id="Lid-aY-Vve"/>
+                                    <constraint firstItem="Gob-it-4Zp" firstAttribute="top" secondItem="WNF-kW-JfK" secondAttribute="top" constant="8" id="KF8-6l-Lql"/>
                                     <constraint firstItem="jBA-zD-Qk2" firstAttribute="top" secondItem="WNF-kW-JfK" secondAttribute="top" id="PHW-1D-YU0"/>
-                                    <constraint firstAttribute="trailing" secondItem="Gob-it-4Zp" secondAttribute="trailing" constant="8" id="U9Z-y3-ZYp"/>
                                     <constraint firstAttribute="trailing" secondItem="jBA-zD-Qk2" secondAttribute="trailing" id="k9o-r7-ucQ"/>
-                                    <constraint firstItem="Gob-it-4Zp" firstAttribute="leading" secondItem="WNF-kW-JfK" secondAttribute="leading" constant="8" id="nay-80-QQR"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gob-it-4Zp" secondAttribute="bottom" constant="8" id="x2K-Je-l8I"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b60-Mv-4mk">
@@ -513,7 +514,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="A, B, C, D, E" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Om-i5-azk">
-                                            <rect key="frame" x="107" y="8" width="194.5" height="33"/>
+                                            <rect key="frame" x="107" y="8" width="228" height="33"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

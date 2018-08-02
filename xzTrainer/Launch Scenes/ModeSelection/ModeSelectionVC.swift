@@ -25,11 +25,10 @@ class ModeSelectionVC:
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var dismissProfileButton: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var smallNameLabel: UILabel!
     
     private var profileViewHiddenTrailingConstraint: NSLayoutConstraint?
     private var profileviewShownTrailingConstraint: NSLayoutConstraint?
-    
-    
     
     var modes: [Mode] = [
         Mode(name: "Execution Trainer", image: #imageLiteral(resourceName: "ExecutionBGImage")),
@@ -89,6 +88,8 @@ class ModeSelectionVC:
             greetingLabel.text = "Good evening,"
         }
         
+        nameLabel.text = UserSetting.shared.general.name + "."
+        smallNameLabel.text = UserSetting.shared.general.name
         layingConstraints()
         dismissProfile()
         
@@ -126,13 +127,9 @@ class ModeSelectionVC:
         profileView.isHidden = false
     }
     
-    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-        
-    }
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -145,6 +142,11 @@ class ModeSelectionVC:
                 GlobalData.shared.currentMode = "casual"
             }
         }
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        nameLabel.text = UserSetting.shared.general.name + "."
+        smallNameLabel.text = UserSetting.shared.general.name
     }
     
 
