@@ -12,27 +12,50 @@ class ReorderCell: UITableViewCell {
     
     @IBOutlet weak var letterLabel: UILabel!
     weak var containerTableView: UITableView!
+    
     var targetEdgeSticker: EdgeSticker?
     var targetCornerSticker: CornerSticker?
+    var index : Int!
+    
+    var isFirst: Bool {
+        return targetEdgeSticker == nil && targetCornerSticker == nil
+    }
+    var isEdge: Bool!
     
     @IBAction func increment() {
-        print("increment")
+        if isEdge {
+                UserSetting.shared.encoder.incrementEdge(at: index, forStarting: targetEdgeSticker)
+        } else {
+           UserSetting.shared.encoder.incrementCorner(at: index, forStarting: targetCornerSticker)
+        }
         containerTableView.reloadData()
         
     }
     
     @IBAction func decrement() {
-        print("decrement")
+        if isEdge {
+            UserSetting.shared.encoder.decrementEdge(at: index, forStarting: targetEdgeSticker)
+        } else {
+            UserSetting.shared.encoder.decrementCorner(at: index, forStarting: targetCornerSticker)
+        }
         containerTableView.reloadData()
     }
     
     @IBAction func top() {
-        print("top")
+        if isEdge {
+            UserSetting.shared.encoder.moveEdgeToTop(atIndex: index, forFirstLetter: targetEdgeSticker)
+        } else {
+            UserSetting.shared.encoder.moveCornerToTop(atIndex: index, forFirstLetter: targetCornerSticker)
+        }
         containerTableView.reloadData()
     }
     
     @IBAction func buttom() {
-        print("buttom")
+        if isEdge {
+            UserSetting.shared.encoder.moveEdgeToBottom(atIndex: index, forFirstLetter: targetEdgeSticker)
+        } else {
+            UserSetting.shared.encoder.moveCornerToBottom(atIndex: index, forFirstLetter: targetCornerSticker)
+        }
         containerTableView.reloadData()
     }
 
@@ -40,15 +63,30 @@ class ReorderCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    func configureCell(forEdge edge: EdgeSticker, in table: UITableView) {
-        targetEdgeSticker = edge
+    func configureCell(withTarget edge1: EdgeSticker?, forEdge edge2: EdgeSticker, in table: UITableView, at i: Int) {
+        isEdge = true
+        targetEdgeSticker = edge1
         containerTableView = table
-        letterLabel.text = UserSetting.shared.general.letterScheme.edgeScheme[targetEdgeSticker!]!
+        let letter = UserSetting.shared.general.letterScheme.edgeScheme[edge2]!
+        if letter.count > 0 {
+            letterLabel.text = letter
+        } else {
+            letterLabel.text = "(buffer)"
+        }
+        
+        index = i
     }
     
-    func configureCell(forCorner corner: CornerSticker, in table: UITableView) {
-        targetCornerSticker = corner
+    func configureCell(withTarget corner1: CornerSticker?, forCorner corner2: CornerSticker, in table: UITableView, at i: Int) {
+        isEdge = false
+        targetCornerSticker = corner1
         containerTableView = table
-        letterLabel.text = UserSetting.shared.general.letterScheme.cornerScheme[targetCornerSticker!]!
+        let letter = UserSetting.shared.general.letterScheme.cornerScheme[corner2]!
+        if letter.count > 0 {
+            letterLabel.text = letter
+        } else {
+            letterLabel.text = "(buffer)"
+        }
+        index = i
     }
 }

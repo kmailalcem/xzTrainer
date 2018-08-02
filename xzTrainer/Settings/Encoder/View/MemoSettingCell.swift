@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemoSettingCell: UITableViewCell {
+class MemoSettingCell: ThemeCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var settingSwitch: ThemeSwitch!
     var managedMethod: MemoPreference!
@@ -28,15 +28,7 @@ class MemoSettingCell: UITableViewCell {
         let memoKey = type(of: managedMethod).memoKey
         settingSwitch.isOn = UserDefaults.standard.object(forKey: memoKey) != nil && UserDefaults.standard.bool(forKey: memoKey)
         settingSwitch.isEnabled = applicable
-    }
-    
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        if highlighted {
-            contentView.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.9137254902, blue: 0.937254902, alpha: 1)
-        } else {
-            contentView.backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8666666667, alpha: 1)
-        }
+        settingSwitch.isEnabled = !UserSetting.shared.encoder.userCustomizeOrder
     }
 
 }

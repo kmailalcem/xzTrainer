@@ -103,14 +103,18 @@ func formatedPieces(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
     var result = ""
     var separated = false
     for piece in pieces {
-        if separated {
-            result += ", "
-        }
-        separated = true
-        if showInLetters {
-            result += UserSetting.shared.general.letterScheme.edgeScheme[piece]!
-        } else {
-            result += toString(piece)
+        let letter = UserSetting.shared.general.letterScheme.edgeScheme[piece]!
+        // do not show anything if user didn't label
+        if letter.count > 0 {
+            if separated {
+                result += ", "
+            }
+            separated = true
+            if showInLetters {
+                result += letter
+            } else {
+                result += toString(piece)
+            }
         }
     }
     return result
@@ -120,14 +124,18 @@ func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
     var result = ""
     var separated = false
     for piece in pieces {
-        if separated {
-            result += ", "
-        }
-        separated = true
-        if showInLetters {
-            result += UserSetting.shared.general.letterScheme.cornerScheme[piece]!
-        } else {
-            result += toString(piece)
+        let letter = UserSetting.shared.general.letterScheme.cornerScheme[piece]!
+        // do not show anything if user didn't label
+        if letter.count > 0 {
+            if separated {
+                result += ", "
+            }
+            separated = true
+            if showInLetters {
+                result += letter
+            } else {
+                result += toString(piece)
+            }
         }
     }
     return result

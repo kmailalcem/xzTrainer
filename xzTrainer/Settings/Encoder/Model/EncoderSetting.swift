@@ -16,9 +16,7 @@ class EncoderSetting {
     
     var userPreference: PreferenceList {
         get {
-            if userCustomizeOrder {
-                readPreferenceList()
-            } else {
+            if !userCustomizeOrder {
                 processMemoStyle()
             }
             return preferenceList
@@ -43,10 +41,11 @@ class EncoderSetting {
             }
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: customizeKey)
-            if newValue {
+            // the first time turning this option on
+            if !keyExists(customizeKey) {
                 savePreferenceList()
             }
+            UserDefaults.standard.set(newValue, forKey: customizeKey)
         }
     }
     
@@ -76,12 +75,18 @@ class EncoderSetting {
         }
     }
     
-    private func savePreferenceList() {
+    public func resetPreferenceList() {
+        preferenceList = PreferenceList()
+        processMemoStyle()
+        savePreferenceList()
+    }
+    
+    public func savePreferenceList() {
         UserDefaults.standard.set(preferenceList.edgePreferenceAsFirstLetter.map({ (piece) -> Int in
             return piece.rawValue
         }), forKey: firstEdgePreferenceKey)
         
-        UserDefaults.standard.set(preferenceList.cornerPrefereneceAsFirstLetter.map({ (piece) -> Int in
+        UserDefaults.standard.set(preferenceList.cornerPreferenceAsFirstLetter.map({ (piece) -> Int in
             return piece.rawValue
         }), forKey: firstCornerPreferenceKey)
         
@@ -99,7 +104,7 @@ class EncoderSetting {
         }
     }
     
-    private func readPreferenceList() {
+    public func readPreferenceList() {
         if keyExists(firstCornerPreferenceKey) {
             let firstEdges = (UserDefaults.standard.object(forKey: firstEdgePreferenceKey) as! [Int]).map { (i) -> EdgeSticker in
                 return EdgeSticker(rawValue: i)!
@@ -108,7 +113,7 @@ class EncoderSetting {
                 return CornerSticker(rawValue: i)!
             }
             preferenceList.edgePreferenceAsFirstLetter = firstEdges
-            preferenceList.cornerPrefereneceAsFirstLetter = firstCorners
+            preferenceList.cornerPreferenceAsFirstLetter = firstCorners
         }
         
         var edgePreference = [EdgeSticker : [EdgeSticker]]()
@@ -131,6 +136,70 @@ class EncoderSetting {
         preferenceList.cornerPreferenceAsSecondLetter = cornerPreference
     }
     
+    public func moveEdgeToTop(atIndex i: Int, forFirstLetter edge: EdgeSticker? = nil) {
+        if edge == nil {
+            preferenceList.prefers([preferenceList.edgePreferenceAsFirstLetter[i]])
+        } else {
+            preferenceList.prefers([preferenceList.edgePreferenceAsSecondLetter[edge!]![i]], forStarting: edge)
+        }
+        //savePreferenceList()
+    }
+    
+    public func moveEdgeToBottom(atIndex i: Int, forFirstLetter edge: EdgeSticker? = nil) {
+        if edge == nil {
+            preferenceList.avoids([preferenceList.edgePreferenceAsFirstLetter[i]])
+        } else {
+            preferenceList.avoids([preferenceList.edgePreferenceAsSecondLetter[edge!]![i]], forStarting: edge)
+        }
+        //savePreferenceList()
+    }
+    
+    public func moveCornerToTop(atIndex i: Int, forFirstLetter corner: CornerSticker? = nil) {
+        if corner == nil {
+            preferenceList.prefers([preferenceList.cornerPreferenceAsFirstLetter[i]])
+        } else {
+            preferenceList.prefers([preferenceList.cornerPreferenceAsSecondLetter[corner!]![i]], forStarting: corner)
+        }
+        //savePreferenceList()
+    }
+    
+    public func moveCornerToBottom(atIndex i: Int, forFirstLetter corner: CornerSticker? = nil) {
+        if corner == nil {
+            preferenceList.avoids([preferenceList.edgePreferenceAsFirstLetter[i]])
+        } else {
+            preferenceList.avoids([preferenceList.cornerPreferenceAsSecondLetter[corner!]![i]], forStarting: corner)
+        }
+        //savePreferenceList()
+    }
+    
+    public func incrementEdge(at index: Int, forStarting edge: EdgeSticker? = nil) {
+        if index > 0 {
+            preferenceList.swap(i: index, j: index - 1, for: edge)
+        }
+        //savePreferenceList()
+    }
+    
+    public func incrementCorner(at index: Int, forStarting corner: CornerSticker? = nil) {
+        if index > 0 {
+            preferenceList.swap(i: index, j: index - 1, for: corner)
+        }
+        //savePreferenceList()
+    }
+    
+    public func decrementEdge(at index: Int, forStarting edge: EdgeSticker? = nil) {
+        if index < NUM_STICKERS - 1 {
+            preferenceList.swap(i: index, j: index + 1, for: edge)
+        }
+        //savePreferenceList()
+    }
+    
+    public func decrementCorner(at index: Int, forStarting corner: CornerSticker? = nil) {
+        if index < NUM_STICKERS - 1 {
+            preferenceList.swap(i: index, j: index + 1, for: corner)
+        }
+        //savePreferenceList()
+    }
+    
     public func activateSetting(_ memoPreference: MemoPreference) {
         let memoKey = type(of: memoPreference).memoKey
         UserDefaults.standard.set(true, forKey: memoKey)
@@ -148,12 +217,16 @@ class EncoderSetting {
         }
     }
     
+    
     init() {
         for style in allMemoStyles {
             let memoKey = type(of: style).memoKey
             if UserDefaults.standard.object(forKey: memoKey) != nil && UserDefaults.standard.bool(forKey: memoKey) {
                 userMemoStyle.append(style)
             }
+        }
+        if userCustomizeOrder {
+            readPreferenceList()
         }
     }
 }

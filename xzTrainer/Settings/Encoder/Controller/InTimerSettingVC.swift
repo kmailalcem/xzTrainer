@@ -29,6 +29,6 @@ class InTimerSettingVC: UIViewController {
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-        
+        settingsTable.reloadData()
     }
 }

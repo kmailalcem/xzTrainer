@@ -29,6 +29,18 @@ class ShowPriorityVC: UIViewController {
     
     @IBAction func toggleApply() {
         UserSetting.shared.encoder.userCustomizeOrder = applySwitch.isOn
+        if applySwitch.isOn {
+            UserSetting.shared.encoder.readPreferenceList()
+        }
+        priorityTable.reloadData()
+    }
+    
+    @IBAction func resetPreferences() {
+        let alert = makeConfirm(message: "This will wipe out your previous ordering and you cannot undo this action.") { (_) in
+            UserSetting.shared.encoder.resetPreferenceList()
+            self.priorityTable.reloadData()
+        }
+        present(alert, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,10 +51,16 @@ class ShowPriorityVC: UIViewController {
             if sender is CornerSticker {
                 destination.targetCornerPiece = (sender as! CornerSticker)
             }
+            if sender is Bool {
+                destination.isEdge = (sender as! Bool)
+            }
         }
     }
-
-
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        UserSetting.shared.encoder.savePreferenceList()
+        priorityTable.reloadData()
+    }
 }
 
 extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
@@ -92,7 +110,7 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
             )
         } else {
             if indexPath.row == 0 {
-                let firstLetters = UserSetting.shared.encoder.userPreference.cornerPrefereneceAsFirstLetter
+                let firstLetters = UserSetting.shared.encoder.userPreference.cornerPreferenceAsFirstLetter
                 cell.configureCell(
                     startingLetter: "First",
                     secondLetters: formatedPieces(
@@ -150,11 +168,15 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
             if indexPath.row > 0 {
-                performSegue(withIdentifier: "toCustomPriority", sender: EdgeSticker(rawValue: indexPath.row))
+                performSegue(withIdentifier: "toCustomPriority", sender: EdgeSticker(rawValue: indexPath.row - 1))
+            } else {
+                performSegue(withIdentifier: "toCustomPriority", sender: true)
             }
         } else {
             if indexPath.row > 0 {
-                performSegue(withIdentifier: "toCustomPriority", sender: CornerSticker(rawValue: indexPath.row))
+                performSegue(withIdentifier: "toCustomPriority", sender: CornerSticker(rawValue: indexPath.row - 1))
+            } else {
+                performSegue(withIdentifier: "toCustomPriority", sender: false)
             }
         }
     }

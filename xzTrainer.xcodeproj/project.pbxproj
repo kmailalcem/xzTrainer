@@ -77,6 +77,7 @@
 		95EB839320B46CDF003ADB37 /* LetterScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB839220B46CDF003ADB37 /* LetterScheme.swift */; };
 		95EB839520B47061003ADB37 /* EncoderSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB839420B47061003ADB37 /* EncoderSetting.swift */; };
 		95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */; };
+		95F886AE2112F082004D4C2C /* PieceArrayExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F886AD2112F082004D4C2C /* PieceArrayExtentsion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		95EB839220B46CDF003ADB37 /* LetterScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterScheme.swift; sourceTree = "<group>"; };
 		95EB839420B47061003ADB37 /* EncoderSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncoderSetting.swift; sourceTree = "<group>"; };
 		95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeFaceView.swift; sourceTree = "<group>"; };
+		95F886AD2112F082004D4C2C /* PieceArrayExtentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceArrayExtentsion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 				9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */,
 				950DF6CD2111640700A329EB /* PriorityCell.swift */,
 				957A5C6F21128064002160A7 /* ReorderCell.swift */,
+				95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -366,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */,
-				95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,6 +416,7 @@
 				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
 				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
 				950DF6CF2111ABD800A329EB /* MethodOptions */,
+				95F886AD2112F082004D4C2C /* PieceArrayExtentsion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */,
 				950E70FA20E9DFCB0080F879 /* FloatingActionButton.swift in Sources */,
 				956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */,
+				95F886AE2112F082004D4C2C /* PieceArrayExtentsion.swift in Sources */,
 				95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */,
 				9583EC54209E3F2C004A4D3E /* PublicLibrary.swift in Sources */,
 				9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */,

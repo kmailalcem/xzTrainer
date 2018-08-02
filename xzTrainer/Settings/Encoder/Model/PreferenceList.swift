@@ -23,7 +23,7 @@ class PreferenceList {
         }
     }
     
-    var cornerPrefereneceAsFirstLetter: [CornerPosition] {
+    var cornerPreferenceAsFirstLetter: [CornerPosition] {
         get {
             return basicCornerPreferenceList
         }
@@ -58,40 +58,31 @@ class PreferenceList {
         }
     }
     
-    private func move(edge: EdgePosition, in edges: inout [EdgePosition], toEnd: Bool) {
-        edges.remove(at: edges.index(of: edge)!)
+    private func move<T: Equatable>(piece: T, in pieces: inout [T], toEnd: Bool) {
+        pieces.remove(at: pieces.index(of: piece)!)
         if toEnd {
-            edges.append(edge)
+            pieces.append(piece)
         } else {
-            edges.insert(edge, at: 0)
-        }
-    }
-    
-    private func move(corner: CornerPosition, in corners: inout [CornerPosition], toEnd: Bool) {
-        corners.remove(at: corners.index(of: corner)!)
-        if toEnd {
-            corners.append(corner)
-        } else {
-            corners.insert(corner, at: 0)
+            pieces.insert(piece, at: 0)
         }
     }
 
     private func move(edge: EdgePosition, forStarting edgePiece: EdgePosition? = nil, toEnd: Bool) {
         if edgePiece == nil {
-            move(edge: edge, in: &basicEdgePreferenceList, toEnd: toEnd)
+            move(piece: edge, in: &basicEdgePreferenceList, toEnd: toEnd)
         } else {
             var target = advancedEdgePreferenceList[edgePiece!]!
-            move(edge: edge, in: &target, toEnd: toEnd)
+            move(piece: edge, in: &target, toEnd: toEnd)
             advancedEdgePreferenceList[edgePiece!] = target
         }
     }
     
     private func move(corner: CornerPosition, forStarting cornerPiece: CornerPosition? = nil, toEnd: Bool) {
         if cornerPiece == nil {
-            move(corner: corner, in: &basicCornerPreferenceList, toEnd: toEnd)
+            move(piece: corner, in: &basicCornerPreferenceList, toEnd: toEnd)
         } else {
             var target = advancedCornerPreferenceList[cornerPiece!]!
-            move(corner: corner, in: &target, toEnd: toEnd)
+            move(piece: corner, in: &target, toEnd: toEnd)
             advancedCornerPreferenceList[cornerPiece!] = target
         }
     }
@@ -118,6 +109,26 @@ class PreferenceList {
     public func avoids(_ corners: [CornerPosition], forStarting cornerPiece: CornerPosition? = nil) {
         for corner in corners.reversed() {
             move(corner: corner, forStarting: cornerPiece, toEnd: true)
+        }
+    }
+    
+    public func swap(i: Int, j: Int, for edge: EdgeSticker? = nil) {
+        if edge == nil {
+            basicEdgePreferenceList.swapAt(i, j)
+        } else {
+            var target = advancedEdgePreferenceList[edge!]!
+            target.swapAt(i, j)
+            advancedEdgePreferenceList[edge!] = target
+        }
+    }
+    
+    public func swap(i: Int, j: Int, for corner: CornerSticker? = nil) {
+        if corner == nil {
+            basicCornerPreferenceList.swapAt(i, j)
+        } else {
+            var target = advancedCornerPreferenceList[corner!]!
+            target.swapAt(i, j)
+            advancedCornerPreferenceList[corner!] = target
         }
     }
     
