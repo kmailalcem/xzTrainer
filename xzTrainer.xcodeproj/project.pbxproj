@@ -13,9 +13,13 @@
 		950D322620F0823F00CA165C /* EditLetterSchemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */; };
 		950D322820F0ABAB00CA165C /* GeneralSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322720F0ABAB00CA165C /* GeneralSetting.swift */; };
 		950D322A20F0ACB600CA165C /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322920F0ACB600CA165C /* UserSetting.swift */; };
-		950DF6C92111620800A329EB /* CustomPriorityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6C82111620800A329EB /* CustomPriorityVC.swift */; };
+		950DF6C92111620800A329EB /* ShowPriorityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6C82111620800A329EB /* ShowPriorityVC.swift */; };
 		950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950DF6CA2111622400A329EB /* CustomPriority.storyboard */; };
 		950DF6CE2111640700A329EB /* PriorityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6CD2111640700A329EB /* PriorityCell.swift */; };
+		950DF6D12111ABFA00A329EB /* MethodOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6D02111ABFA00A329EB /* MethodOptions.swift */; };
+		950DF6D32111AC9F00A329EB /* MemoPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6D22111AC9F00A329EB /* MemoPreference.swift */; };
+		950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6D42111ACEB00A329EB /* AdvancedParity.swift */; };
+		950DF6D72111B2E500A329EB /* ReorderPriorityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950DF6D62111B2E500A329EB /* ReorderPriorityVC.swift */; };
 		950E70FA20E9DFCB0080F879 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E70F920E9DFCB0080F879 /* FloatingActionButton.swift */; };
 		95183BBF210717A1006D2D6F /* AdvancedParityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */; };
 		951A33EB20D260C000A12666 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A33EA20D260C000A12666 /* GradientView.swift */; };
@@ -33,13 +37,15 @@
 		9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457320D9B7DF0086202E /* TimerVCTableManager.swift */; };
 		9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */; };
 		9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575ED5620D90D7A00D9CF81 /* Data.swift */; };
+		957A5C7021128064002160A7 /* ReorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A5C6F21128064002160A7 /* ReorderCell.swift */; };
+		957A5C7221128092002160A7 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A5C7121128092002160A7 /* ThemeCell.swift */; };
 		957E1C8720DA5DC000CC40AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E1C8620DA5DC000CC40AD /* Session.swift */; };
 		958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125BF210EA4F2009C564B /* DropDownTextField.swift */; };
 		958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125C1210EBA91009C564B /* ThemeAlertController.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
 		9583EC43209E0E7C004A4D3E /* VoidCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC41209E0E7C004A4D3E /* VoidCube.swift */; };
 		9583EC4C209E13BF004A4D3E /* xzTrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */; };
-		9583EC54209E3F2C004A4D3E /* PublicEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC53209E3F2C004A4D3E /* PublicEnums.swift */; };
+		9583EC54209E3F2C004A4D3E /* PublicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC53209E3F2C004A4D3E /* PublicLibrary.swift */; };
 		9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19C20DB27B200CFF85D /* TableViewClasses.swift */; };
 		9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19E20DB2D6E00CFF85D /* SessionCell.swift */; };
 		9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */; };
@@ -90,9 +96,13 @@
 		950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLetterSchemeVC.swift; sourceTree = "<group>"; };
 		950D322720F0ABAB00CA165C /* GeneralSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSetting.swift; sourceTree = "<group>"; };
 		950D322920F0ACB600CA165C /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
-		950DF6C82111620800A329EB /* CustomPriorityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPriorityVC.swift; sourceTree = "<group>"; };
+		950DF6C82111620800A329EB /* ShowPriorityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPriorityVC.swift; sourceTree = "<group>"; };
 		950DF6CB2111622400A329EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Settings/Encoder/Controller/xzTrainer/Base.lproj/CustomPriority.storyboard; sourceTree = "<group>"; };
 		950DF6CD2111640700A329EB /* PriorityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityCell.swift; sourceTree = "<group>"; };
+		950DF6D02111ABFA00A329EB /* MethodOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodOptions.swift; sourceTree = "<group>"; };
+		950DF6D22111AC9F00A329EB /* MemoPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoPreference.swift; sourceTree = "<group>"; };
+		950DF6D42111ACEB00A329EB /* AdvancedParity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedParity.swift; sourceTree = "<group>"; };
+		950DF6D62111B2E500A329EB /* ReorderPriorityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderPriorityVC.swift; sourceTree = "<group>"; };
 		950E70F920E9DFCB0080F879 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedParityVC.swift; sourceTree = "<group>"; };
 		951A33EA20D260C000A12666 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -110,6 +120,8 @@
 		9572457320D9B7DF0086202E /* TimerVCTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTableManager.swift; sourceTree = "<group>"; };
 		9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTimerLabel.swift; sourceTree = "<group>"; };
 		9575ED5620D90D7A00D9CF81 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		957A5C6F21128064002160A7 /* ReorderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderCell.swift; sourceTree = "<group>"; };
+		957A5C7121128092002160A7 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		957E1C8620DA5DC000CC40AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		958125BF210EA4F2009C564B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		958125C1210EBA91009C564B /* ThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertController.swift; sourceTree = "<group>"; };
@@ -118,7 +130,7 @@
 		9583EC49209E13BF004A4D3E /* xzTrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xzTrainerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9583EC4B209E13BF004A4D3E /* xzTrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xzTrainerTests.swift; sourceTree = "<group>"; };
 		9583EC4D209E13BF004A4D3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9583EC53209E3F2C004A4D3E /* PublicEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEnums.swift; sourceTree = "<group>"; };
+		9583EC53209E3F2C004A4D3E /* PublicLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicLibrary.swift; sourceTree = "<group>"; };
 		9587E19C20DB27B200CFF85D /* TableViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewClasses.swift; sourceTree = "<group>"; };
 		9587E19E20DB2D6E00CFF85D /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
 		9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCSessionManager.swift; sourceTree = "<group>"; };
@@ -172,6 +184,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		950DF6CF2111ABD800A329EB /* MethodOptions */ = {
+			isa = PBXGroup;
+			children = (
+				950DF6D22111AC9F00A329EB /* MemoPreference.swift */,
+				950DF6D02111ABFA00A329EB /* MethodOptions.swift */,
+				950DF6D42111ACEB00A329EB /* AdvancedParity.swift */,
+			);
+			path = MethodOptions;
+			sourceTree = "<group>";
+		};
 		95183BBC21070D58006D2D6F /* ModeSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +208,7 @@
 			children = (
 				9588BA58211032AE00CE94C0 /* Controller */,
 				9588BA59211032BC00CE94C0 /* Model */,
+				957A5C6E21127FFB002160A7 /* View */,
 			);
 			path = Encoder;
 			sourceTree = "<group>";
@@ -221,8 +244,19 @@
 				958125C1210EBA91009C564B /* ThemeAlertController.swift */,
 				9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */,
 				95D7334920E9BB21009F2708 /* ThemeSegues.swift */,
+				957A5C7121128092002160A7 /* ThemeCell.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		957A5C6E21127FFB002160A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */,
+				950DF6CD2111640700A329EB /* PriorityCell.swift */,
+				957A5C6F21128064002160A7 /* ReorderCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9583EC4A209E13BF004A4D3E /* xzTrainerTests */ = {
@@ -267,8 +301,9 @@
 		9588BA49210FFF1200CE94C0 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				9588BA5A211032EB00CE94C0 /* Model */,
 				9588BA47210FFED300CE94C0 /* Controller */,
+				9588BA5A211032EB00CE94C0 /* Model */,
+				9588BA502110001600CE94C0 /* View */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -332,8 +367,6 @@
 			children = (
 				95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */,
 				95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */,
-				9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */,
-				950DF6CD2111640700A329EB /* PriorityCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,7 +384,7 @@
 		9588BA542110018800CE94C0 /* Projectwise */ = {
 			isa = PBXGroup;
 			children = (
-				9583EC53209E3F2C004A4D3E /* PublicEnums.swift */,
+				9583EC53209E3F2C004A4D3E /* PublicLibrary.swift */,
 				9575ED5620D90D7A00D9CF81 /* Data.swift */,
 				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
 				9539A77B20E5C11F00A3CE20 /* Theme */,
@@ -367,7 +400,8 @@
 				95BF901E20E380B800211563 /* InTimerSettingVC.swift */,
 				9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */,
 				95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */,
-				950DF6C82111620800A329EB /* CustomPriorityVC.swift */,
+				950DF6C82111620800A329EB /* ShowPriorityVC.swift */,
+				950DF6D62111B2E500A329EB /* ReorderPriorityVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -375,9 +409,11 @@
 		9588BA59211032BC00CE94C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
 				9539A78020E5F21000A3CE20 /* MemoMethod.swift */,
 				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
 				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
+				950DF6CF2111ABD800A329EB /* MethodOptions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,10 +421,8 @@
 		9588BA5A211032EB00CE94C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
 				95EB839220B46CDF003ADB37 /* LetterScheme.swift */,
 				95AD0E3720A7447200E36982 /* ColorScheme.swift */,
-				950D322920F0ACB600CA165C /* UserSetting.swift */,
 				950D322720F0ABAB00CA165C /* GeneralSetting.swift */,
 			);
 			path = Model;
@@ -397,9 +431,9 @@
 		95CB543820F303AA0025FB6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				950D322920F0ACB600CA165C /* UserSetting.swift */,
 				95183BBD21070DBD006D2D6F /* Encoder */,
 				9588BA49210FFF1200CE94C0 /* General */,
-				9588BA502110001600CE94C0 /* View */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -556,6 +590,8 @@
 				95BF901F20E380B800211563 /* InTimerSettingVC.swift in Sources */,
 				9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */,
 				95D52C5C20865912004DE650 /* TimerVC.swift in Sources */,
+				950DF6D72111B2E500A329EB /* ReorderPriorityVC.swift in Sources */,
+				950DF6D12111ABFA00A329EB /* MethodOptions.swift in Sources */,
 				950D322820F0ABAB00CA165C /* GeneralSetting.swift in Sources */,
 				95183BBF210717A1006D2D6F /* AdvancedParityVC.swift in Sources */,
 				95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */,
@@ -564,11 +600,13 @@
 				950D322420F06C6800CA165C /* SettingsVC.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
-				950DF6C92111620800A329EB /* CustomPriorityVC.swift in Sources */,
+				950DF6C92111620800A329EB /* ShowPriorityVC.swift in Sources */,
 				958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */,
 				9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */,
+				957A5C7221128092002160A7 /* ThemeCell.swift in Sources */,
 				950D322620F0823F00CA165C /* EditLetterSchemeVC.swift in Sources */,
 				95D7334A20E9BB21009F2708 /* ThemeSegues.swift in Sources */,
+				950DF6D32111AC9F00A329EB /* MemoPreference.swift in Sources */,
 				952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */,
 				950D322A20F0ACB600CA165C /* UserSetting.swift in Sources */,
 				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
@@ -576,6 +614,7 @@
 				9588BA5721100BA500CE94C0 /* ThemeSwitch.swift in Sources */,
 				95EB839320B46CDF003ADB37 /* LetterScheme.swift in Sources */,
 				950DF6CE2111640700A329EB /* PriorityCell.swift in Sources */,
+				957A5C7021128064002160A7 /* ReorderCell.swift in Sources */,
 				9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */,
 				95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */,
 				95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */,
@@ -586,6 +625,7 @@
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
 				95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */,
 				95DB124920E4DD3C007BBAFD /* MemoSettingsDataSource.swift in Sources */,
+				950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */,
@@ -604,7 +644,7 @@
 				950E70FA20E9DFCB0080F879 /* FloatingActionButton.swift in Sources */,
 				956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */,
 				95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */,
-				9583EC54209E3F2C004A4D3E /* PublicEnums.swift in Sources */,
+				9583EC54209E3F2C004A4D3E /* PublicLibrary.swift in Sources */,
 				9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */,
 				95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */,
 			);

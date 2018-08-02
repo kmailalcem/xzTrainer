@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomPriorityVC: UIViewController {
+class ShowPriorityVC: UIViewController {
     @IBOutlet weak var priorityTable: UITableView!
     @IBOutlet weak var applySwitch: ThemeSwitch!
 
@@ -17,6 +17,8 @@ class CustomPriorityVC: UIViewController {
 
         priorityTable.delegate = self
         priorityTable.dataSource = self
+        
+        applySwitch.isOn = UserSetting.shared.encoder.userCustomizeOrder
         // Do any additional setup after loading the view.
     }
 
@@ -25,20 +27,25 @@ class CustomPriorityVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func toggleApply() {
+        UserSetting.shared.encoder.userCustomizeOrder = applySwitch.isOn
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ReorderPriorityVC {
+            if sender is EdgeSticker {
+                destination.targetEdgePiece = (sender as! EdgeSticker)
+            }
+            if sender is CornerSticker {
+                destination.targetCornerPiece = (sender as! CornerSticker)
+            }
+        }
+    }
+
 
 }
 
-extension CustomPriorityVC: UITableViewDelegate, UITableViewDataSource {
+extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return NUM_STICKERS - 2
@@ -117,7 +124,6 @@ extension CustomPriorityVC: UITableViewDelegate, UITableViewDataSource {
                 )
             )
         }
-        
         return cell
     }
     
@@ -142,5 +148,14 @@ extension CustomPriorityVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            if indexPath.row > 0 {
+                performSegue(withIdentifier: "toCustomPriority", sender: EdgeSticker(rawValue: indexPath.row))
+            }
+        } else {
+            if indexPath.row > 0 {
+                performSegue(withIdentifier: "toCustomPriority", sender: CornerSticker(rawValue: indexPath.row))
+            }
+        }
     }
 }

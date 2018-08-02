@@ -18,11 +18,17 @@ class PreferenceList {
         get {
             return basicEdgePreferenceList
         }
+        set {
+            basicEdgePreferenceList = newValue
+        }
     }
     
     var cornerPrefereneceAsFirstLetter: [CornerPosition] {
         get {
             return basicCornerPreferenceList
+        }
+        set {
+            basicCornerPreferenceList = newValue
         }
     }
     
@@ -30,11 +36,25 @@ class PreferenceList {
         get {
             return advancedEdgePreferenceList
         }
+        set {
+            if newValue.count != NUM_STICKERS {
+                print("warning: invalid edge preference list")
+                print(newValue)
+            }
+            advancedEdgePreferenceList = newValue
+        }
     }
     
     var cornerPreferenceAsSecondLetter: [CornerPosition : [CornerPosition]] {
         get {
             return advancedCornerPreferenceList
+        }
+        set {
+            if newValue.count != NUM_STICKERS {
+                print("warning: invalid corner preference list")
+                print(newValue)
+            }
+            advancedCornerPreferenceList = newValue
         }
     }
     

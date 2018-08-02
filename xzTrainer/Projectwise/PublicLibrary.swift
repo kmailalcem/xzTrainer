@@ -6,6 +6,8 @@
 //  Copyright © 2018 Nelson Zhang. All rights reserved.
 //
 
+import UIKit
+
 let NUM_STICKERS = 24
 
 public enum CornerSticker : Int {
@@ -92,3 +94,41 @@ public enum CubeColor: Int {
 public typealias CornerPosition = CornerSticker
 public typealias EdgePosition = EdgeSticker
 
+
+func keyExists(_ key: String) -> Bool {
+    return UserDefaults.standard.object(forKey: key) != nil
+}
+
+func formatedPieces(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
+    var result = ""
+    var separated = false
+    for piece in pieces {
+        if separated {
+            result += ", "
+        }
+        separated = true
+        if showInLetters {
+            result += UserSetting.shared.general.letterScheme.edgeScheme[piece]!
+        } else {
+            result += toString(piece)
+        }
+    }
+    return result
+}
+
+func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
+    var result = ""
+    var separated = false
+    for piece in pieces {
+        if separated {
+            result += ", "
+        }
+        separated = true
+        if showInLetters {
+            result += UserSetting.shared.general.letterScheme.cornerScheme[piece]!
+        } else {
+            result += toString(piece)
+        }
+    }
+    return result
+}

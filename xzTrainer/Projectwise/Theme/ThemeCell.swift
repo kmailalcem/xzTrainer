@@ -1,22 +1,20 @@
 //
-//  PriorityCell.swift
+//  ThemeCell.swift
 //  xzTrainer
 //
-//  Created by Nelson Zhang on 8/1/18.
+//  Created by Nelson Zhang on 8/2/18.
 //  Copyright © 2018 Nelson Zhang. All rights reserved.
 //
 
 import UIKit
 
-class PriorityCell: UITableViewCell {
-    @IBOutlet weak var startingLabel: UILabel!
-    @IBOutlet weak var secondLabel: UILabel!
-    
-    func configureCell(startingLetter: String, secondLetters: String) {
-        startingLabel.text = startingLetter
-        secondLabel.text = secondLetters
+class ThemeCell: UITableViewCell {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
-    
+
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if highlighted {

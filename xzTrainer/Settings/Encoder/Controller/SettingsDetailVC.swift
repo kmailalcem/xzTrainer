@@ -8,39 +8,6 @@
 
 import UIKit
 
-func formatedPieces(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
-    var result = ""
-    var separated = false
-    for piece in pieces {
-        if separated {
-            result += ", "
-        }
-        separated = true
-        if showInLetters {
-            result += UserSetting.shared.general.letterScheme.edgeScheme[piece]!
-        } else {
-            result += toString(piece)
-        }
-    }
-    return result
-}
-
-func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
-    var result = ""
-    var separated = false
-    for piece in pieces {
-        if separated {
-            result += ", "
-        }
-        separated = true
-        if showInLetters {
-            result += UserSetting.shared.general.letterScheme.cornerScheme[piece]!
-        } else {
-            result += toString(piece)
-        }
-    }
-    return result
-}
 
 class SettingsDetailVC: UIViewController {
     
@@ -121,7 +88,7 @@ class SettingsDetailVC: UIViewController {
                 }
 
                 priorityTextField.text = String(priority)
-                print(priority)
+                option.priority = priority
             }
         }
         priorityTextField.resignFirstResponder()
