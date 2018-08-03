@@ -24,7 +24,6 @@
 		95183BBF210717A1006D2D6F /* AdvancedParityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */; };
 		951A33EB20D260C000A12666 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951A33EA20D260C000A12666 /* GradientView.swift */; };
 		9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9526D82720C3AA2800F0E251 /* UIButtonX.swift */; };
-		9529FCA720AB4C9C0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png in Resources */ = {isa = PBXBuildFile; fileRef = 9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */; };
 		952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FAA0820BB1B58007FD671 /* RoundedButton.swift */; };
 		952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952FAA0A20BB1CDA007FD671 /* RoundedView.swift */; };
 		9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533A48F20A8C24D00A5A59E /* CubeView.swift */; };
@@ -70,7 +69,7 @@
 		95D7334A20E9BB21009F2708 /* ThemeSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D7334920E9BB21009F2708 /* ThemeSegues.swift */; };
 		95DB124720E4D6EB007BBAFD /* MemoSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */; };
 		95DB124920E4DD3C007BBAFD /* MemoSettingsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */; };
-		95DB65EA20EF0E900095A778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB65E820EF0E900095A778 /* Main.storyboard */; };
+		95DB65EA20EF0E900095A778 /* ModeSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB65E820EF0E900095A778 /* ModeSelection.storyboard */; };
 		95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0EA0620AF31F90058B87A /* TimerLabel.swift */; };
 		95EB838F20B430E4003ADB37 /* Solve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB838E20B430E4003ADB37 /* Solve.swift */; };
 		95EB839120B43D93003ADB37 /* SolveDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EB839020B43D93003ADB37 /* SolveDetailVC.swift */; };
@@ -109,7 +108,6 @@
 		95183BBE210717A1006D2D6F /* AdvancedParityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedParityVC.swift; sourceTree = "<group>"; };
 		951A33EA20D260C000A12666 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9526D82720C3AA2800F0E251 /* UIButtonX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
-		9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2018-05-15 at 19.12.13.png"; sourceTree = "<group>"; };
 		952FAA0820BB1B58007FD671 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		952FAA0A20BB1CDA007FD671 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		9533A48F20A8C24D00A5A59E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
@@ -159,7 +157,7 @@
 		95D7334920E9BB21009F2708 /* ThemeSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSegues.swift; sourceTree = "<group>"; };
 		95DB124620E4D6EB007BBAFD /* MemoSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingCell.swift; sourceTree = "<group>"; };
 		95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSettingsDataSource.swift; sourceTree = "<group>"; };
-		95DB65E920EF0E900095A778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/View/Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95DB65E920EF0E900095A778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/View/Storyboards/Base.lproj/ModeSelection.storyboard; sourceTree = "<group>"; };
 		95E0EA0620AF31F90058B87A /* TimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerLabel.swift; sourceTree = "<group>"; };
 		95EB838E20B430E4003ADB37 /* Solve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solve.swift; sourceTree = "<group>"; };
 		95EB839020B43D93003ADB37 /* SolveDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveDetailVC.swift; sourceTree = "<group>"; };
@@ -201,7 +199,7 @@
 		95183BBC21070D58006D2D6F /* ModeSelection */ = {
 			isa = PBXGroup;
 			children = (
-				95DB65E820EF0E900095A778 /* Main.storyboard */,
+				95DB65E820EF0E900095A778 /* ModeSelection.storyboard */,
 				95004C2920E771A300380DBB /* ModeSelectionVC.swift */,
 			);
 			path = ModeSelection;
@@ -229,8 +227,8 @@
 		9539A77820E5C0E900A3CE20 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				9588BA4D210FFFA800CE94C0 /* View */,
 				9588BA4C210FFF6E00CE94C0 /* Controller */,
+				9588BA4D210FFFA800CE94C0 /* View */,
 				9588BA4B210FFF6300CE94C0 /* Model */,
 			);
 			path = Timer;
@@ -472,7 +470,6 @@
 				95CB543820F303AA0025FB6E /* Settings */,
 				95D52C5920865912004DE650 /* AppDelegate.swift */,
 				95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */,
-				9529FCA620AB4C9B0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png */,
 				95D52C6520865913004DE650 /* Info.plist */,
 			);
 			path = xzTrainer;
@@ -566,9 +563,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95DB65EA20EF0E900095A778 /* Main.storyboard in Resources */,
+				95DB65EA20EF0E900095A778 /* ModeSelection.storyboard in Resources */,
 				95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */,
-				9529FCA720AB4C9C0068BC96 /* Screen Shot 2018-05-15 at 19.12.13.png in Resources */,
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
 				9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */,
 				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
@@ -701,12 +697,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		95DB65E820EF0E900095A778 /* Main.storyboard */ = {
+		95DB65E820EF0E900095A778 /* ModeSelection.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				95DB65E920EF0E900095A778 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ModeSelection.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -872,13 +868,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5T2XG4K2FJ;
+				DEVELOPMENT_TEAM = 7ZMJTGHCCS;
 				INFOPLIST_FILE = xzTrainer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.random.xzTrainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xuzhi.random.xzTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -892,13 +888,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5T2XG4K2FJ;
+				DEVELOPMENT_TEAM = 7ZMJTGHCCS;
 				INFOPLIST_FILE = xzTrainer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.random.xzTrainer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xuzhi.random.xzTrainer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

@@ -93,13 +93,13 @@ class LetterScheme {
         if UserDefaults.standard.object(forKey: "Edge 0") != nil {
             readEdgeScheme()
         } else {
-             parseEdgeString("A B C D E F G H I J K L M N O P Q R S T W X Y Z")
+             parseEdgeString(LetterScheme.speffzEdgeString)
         }
         
         if UserDefaults.standard.object(forKey: "Corner 0") != nil {
             readCornerScheme()
         } else {
-            parseCornerString("A B C D E F G H I J K L W M N O P Q R S T X Y U")
+            parseCornerString(LetterScheme.speffzCornerString)
         }
     }
     

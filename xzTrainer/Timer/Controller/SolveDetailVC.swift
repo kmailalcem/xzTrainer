@@ -42,7 +42,7 @@ class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        cubeView.layingContraint()
+        cubeView.settingFrame()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,9 +54,6 @@ class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.view.frame = UIScreen.main.bounds
         self.view.layoutIfNeeded()
-    }
-    @IBAction func copyScramble() {
-        UIPasteboard.general.string = scrambleLabel.text!
     }
     
     private func updateAOLabels() {

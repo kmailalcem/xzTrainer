@@ -56,7 +56,7 @@ class CubeView: UIView {
         }
     }
     
-    public func layingContraint() {
+    public func settingFrame() {
         let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
         let spacing = length / 10
         
@@ -82,71 +82,6 @@ class CubeView: UIView {
             addSubview(view)
         }
         updateFaces()
-    }
-    
-    public func layingContraintBackUp() {
-        for view in [backFace, frontFace, leftFace, rightFace, topFace, bottomFace] {
-            view.removeConstraints(view.constraints)
-        }
-        
-        let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
-        
-        var leadingOffset, topOffset: CGFloat
-        
-        if (frame.width / 4.3 < frame.height / 3.2) {
-            // width is limiting, so pin to left and right
-            topOffset = (frame.height - length * 3.2) / 2
-            leadingOffset = 0
-        } else {
-            // height is limiting, so pin to top and bottom
-            topOffset = 0
-            leadingOffset = (frame.width - length * 4.3) / 2
-        }
-        
-        for view in [leftFace, rightFace, frontFace,
-                     backFace, topFace, bottomFace] {
-            addSubview(view)
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.widthAnchor.constraint(
-                equalToConstant: length).isActive = true
-            view.heightAnchor.constraint(
-                equalToConstant: length).isActive = true
-        }
-        
-        leftFace.leadingAnchor.constraint(
-            equalTo: leadingAnchor, constant: leadingOffset).isActive = true
-        leftFace.centerYAnchor.constraint(
-            equalTo: centerYAnchor).isActive = true
-        topFace.topAnchor.constraint(
-            equalTo: topAnchor, constant: topOffset).isActive = true
-        topFace.leadingAnchor.constraint(
-            equalTo: leftFace.trailingAnchor,
-            constant: length / 10).isActive = true
-        
-        var previousView = topFace
-        for view in [frontFace, bottomFace] {
-            view.leadingAnchor.constraint(
-                equalTo: leftFace.trailingAnchor,
-                constant: length / 10).isActive = true
-            view.topAnchor.constraint(
-                equalTo: previousView.bottomAnchor,
-                constant: length / 10).isActive = true
-            previousView = view
-        }
-        
-        previousView = frontFace
-        for view in [rightFace, backFace] {
-            view.leadingAnchor.constraint(
-                equalTo: previousView.trailingAnchor,
-                constant: length / 10).isActive = true
-            view.centerYAnchor.constraint(
-                equalTo: centerYAnchor).isActive = true
-            previousView = view
-        }
-        
-        updateFaces()
-        setNeedsLayout()
-        layoutIfNeeded()
     }
     
     public func updateFaces() {

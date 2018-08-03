@@ -46,6 +46,18 @@ class EditLetterSchemeVC: UIViewController {
         }
         updateLetterScheme()
     }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if isWideEnoughForHorizontalEditing {
+            for view in [leftFace, rightFace, backFace, frontFace, topFace, bottomFace] {
+                view?.transform = CGAffineTransform.init(rotationAngle: -.pi / 2)
+            }
+        } else {
+            for view in [leftFace, rightFace, backFace, frontFace, topFace, bottomFace] {
+                view?.transform = .identity
+            }
+        }
+        updateLetterScheme()
+    }
     
     private func updateLetterScheme() {
         for i in 0 ..< NUM_STICKERS {
@@ -66,6 +78,8 @@ class EditLetterSchemeVC: UIViewController {
         setButtonTextColor(for: edgeButton)
         if isWideEnoughForHorizontalEditing {
             edgeButton.transform = CGAffineTransform.init(rotationAngle: .pi / 2)
+        } else {
+            edgeButton.transform = .identity
         }
     }
     
@@ -81,6 +95,8 @@ class EditLetterSchemeVC: UIViewController {
         setButtonTextColor(for: cornerButton)
         if isWideEnoughForHorizontalEditing {
             cornerButton.transform = CGAffineTransform.init(rotationAngle: .pi / 2)
+        } else {
+            cornerButton.transform = .identity
         }
     }
     

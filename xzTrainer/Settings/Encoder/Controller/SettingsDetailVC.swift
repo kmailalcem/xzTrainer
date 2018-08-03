@@ -109,11 +109,6 @@ class SettingsDetailVC: UIViewController {
             }
             firstLetters.textColor = #colorLiteral(red: 0.6431372549, green: 0, blue: 0.2392156863, alpha: 1)
         }
-        if firstLetters.text?.count == 0 {
-            firstLettersView.removeConstraints(firstLettersView.constraints)
-            firstLettersView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-            firstLettersView.isHidden = true
-        }
         preferenceTable.reloadData()
     }
 

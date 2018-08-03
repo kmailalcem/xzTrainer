@@ -10,6 +10,121 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="QDG-Vs-0Vc">
+            <objects>
+                <exit id="lQp-ht-ZTg" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mc-E4-v27" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="cy2-gC-KJr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zck-vT-5l6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyy-6V-QiL" customClass="FloatingActionButton" customModule="xzTrainer" customModuleProvider="target">
+                                <rect key="frame" x="16" y="40" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GpS-xW-KkN"/>
+                                    <constraint firstAttribute="width" constant="40" id="QtO-gU-cB7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="aYv-v0-IY9"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="yyY-ae-LNQ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Back"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lQp-ht-ZTg" kind="unwind" customClass="SegueLeftToRight" customModule="xzTrainer" customModuleProvider="target" unwindAction="prepareForUnwindWithSegue:" id="CRf-Tx-9CC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About xzTrainer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBc-II-n6F">
+                                <rect key="frame" x="64" y="40" width="295" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="RzC-w6-pxj"/>
+                                    <constraint firstAttribute="height" constant="40" id="sVv-kZ-1RA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.1529411765" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jn-Io-ohf">
+                                <rect key="frame" x="16" y="110" width="92.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="X56-c5-5yq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0 Beta 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IY-uc-Wor">
+                                <rect key="frame" x="183.5" y="110" width="73" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tuf-0H-crf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2018 Xuzhi Zhang. All Rights Reserved." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pv-0R-7Zu">
+                                <rect key="frame" x="16" y="263" width="343" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="h1c-32-MqM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designed and written by Xuzhi Zhang." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2N-AH-oWM">
+                                <rect key="frame" x="16" y="156" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ixj-Mh-4FP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All icons and logos have been designed in Sketch." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79V-j5-Mi0">
+                                <rect key="frame" x="16" y="202" width="343" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ryL-OU-tgf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7843137255" green="0.82745098039999998" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7IY-uc-Wor" firstAttribute="centerY" secondItem="6Jn-Io-ohf" secondAttribute="centerY" id="0fP-AP-Ac5"/>
+                            <constraint firstItem="v3O-aE-7Vh" firstAttribute="trailing" secondItem="tBc-II-n6F" secondAttribute="trailing" constant="16" id="8X8-cB-Lnx"/>
+                            <constraint firstItem="v3O-aE-7Vh" firstAttribute="trailing" secondItem="79V-j5-Mi0" secondAttribute="trailing" constant="16" id="9A6-M3-S3m"/>
+                            <constraint firstItem="Kyy-6V-QiL" firstAttribute="top" secondItem="v3O-aE-7Vh" secondAttribute="top" constant="20" id="AR9-yf-h9B"/>
+                            <constraint firstItem="tBc-II-n6F" firstAttribute="leading" secondItem="Kyy-6V-QiL" secondAttribute="trailing" constant="8" id="BhR-lf-mMc"/>
+                            <constraint firstItem="v3O-aE-7Vh" firstAttribute="trailing" secondItem="i2N-AH-oWM" secondAttribute="trailing" constant="16" id="Fu1-XH-e6W"/>
+                            <constraint firstItem="79V-j5-Mi0" firstAttribute="leading" secondItem="v3O-aE-7Vh" secondAttribute="leading" constant="16" id="HQu-ZL-QT0"/>
+                            <constraint firstItem="tBc-II-n6F" firstAttribute="top" secondItem="v3O-aE-7Vh" secondAttribute="top" constant="20" id="KG6-zS-wv4"/>
+                            <constraint firstItem="6Jn-Io-ohf" firstAttribute="top" secondItem="Kyy-6V-QiL" secondAttribute="bottom" constant="30" id="Nyj-vD-lVQ"/>
+                            <constraint firstItem="tBc-II-n6F" firstAttribute="leading" secondItem="Kyy-6V-QiL" secondAttribute="trailing" constant="8" id="TvV-if-L5e"/>
+                            <constraint firstItem="79V-j5-Mi0" firstAttribute="top" secondItem="i2N-AH-oWM" secondAttribute="bottom" constant="16" id="U57-Wg-3k0"/>
+                            <constraint firstItem="i2N-AH-oWM" firstAttribute="top" secondItem="6Jn-Io-ohf" secondAttribute="bottom" constant="16" id="d34-kT-tzV"/>
+                            <constraint firstItem="7IY-uc-Wor" firstAttribute="leading" secondItem="6Jn-Io-ohf" secondAttribute="trailing" constant="75" id="iW2-LL-KL1"/>
+                            <constraint firstItem="9pv-0R-7Zu" firstAttribute="top" secondItem="79V-j5-Mi0" secondAttribute="bottom" constant="16" id="jFL-Y1-SDE"/>
+                            <constraint firstItem="v3O-aE-7Vh" firstAttribute="trailing" secondItem="9pv-0R-7Zu" secondAttribute="trailing" constant="16" id="l0G-fB-qAP"/>
+                            <constraint firstItem="Kyy-6V-QiL" firstAttribute="leading" secondItem="v3O-aE-7Vh" secondAttribute="leading" constant="16" id="ojV-PY-CUh"/>
+                            <constraint firstItem="6Jn-Io-ohf" firstAttribute="leading" secondItem="v3O-aE-7Vh" secondAttribute="leading" constant="16" id="p8C-Ub-9lT"/>
+                            <constraint firstItem="tBc-II-n6F" firstAttribute="leading" secondItem="Kyy-6V-QiL" secondAttribute="trailing" constant="8" id="qb0-5b-5zf"/>
+                            <constraint firstItem="i2N-AH-oWM" firstAttribute="leading" secondItem="v3O-aE-7Vh" secondAttribute="leading" constant="16" id="wfZ-JD-9d3"/>
+                            <constraint firstItem="9pv-0R-7Zu" firstAttribute="leading" secondItem="v3O-aE-7Vh" secondAttribute="leading" constant="16" id="yKK-9s-has"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v3O-aE-7Vh"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1609" y="478"/>
+        </scene>
         <!--Mode SelectionVC-->
         <scene sceneID="EtP-hh-BaP">
             <objects>
@@ -59,14 +174,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDr-AP-lvF">
-                                            <rect key="frame" x="16" y="0.0" width="635" height="2"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="2"/>
                                             <color key="backgroundColor" red="0.89803921568627454" green="0.9137254901960784" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="MKz-W0-92u"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you feel like doing today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1H0-hZ-25T">
-                                            <rect key="frame" x="16" y="2" width="635" height="42"/>
+                                            <rect key="frame" x="16" y="2" width="343" height="42"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -84,7 +199,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModeSelectionCell" rowHeight="134" id="HCT-dY-f25" customClass="ModeSelectionCell" customModule="xzTrainer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModeSelectionCell" rowHeight="134" id="HCT-dY-f25" customClass="ModeSelectionCell" customModule="xzTrainer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HCT-dY-f25" id="zFG-Eh-fe2">
@@ -318,6 +433,9 @@
                                             <real key="value" value="20"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <segue destination="cy2-gC-KJr" kind="custom" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="AnA-By-WFo"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Passionate Cuber" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROG-qm-kdX">
                                     <rect key="frame" x="8" y="102" width="84" height="61"/>
@@ -405,7 +523,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1080.8" y="44.527736131934034"/>
+            <point key="canvasLocation" x="-1839" y="-564"/>
         </scene>
         <!--Timer-->
         <scene sceneID="4NX-52-s69">

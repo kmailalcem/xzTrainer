@@ -61,9 +61,9 @@ class TimerVC: UIViewController {
     @IBAction func resultTableTriggered(_ sender: UIButtonX) {
         if !resultTableIsShown {
             dismissPopUp(dismissPopUpButton)
-            swipeUpDetected()
+            showResultTable()
         } else {
-            swipeDownDetected()
+            hideResultTable()
         }
     }
     
@@ -72,34 +72,36 @@ class TimerVC: UIViewController {
         memoStack.isHidden = isCasual
         modeTitleLabel.text = isCasual ? "Casual BLD" : "Execution Training"
         
-        cubeView.layingContraint()
+        cubeView.settingFrame()
         setUpInitialLayout()
         assignDelegates()
         resultTable.reloadData()
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.deletedCurrentSession), name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView is ResultTableView {
+            if scrollView.contentOffset.y < -70 {
+                hideResultTable()
+            }
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        hideResultTable()
+    }
+    
     private func setUpInitialLayout() {
         setUpScrambleTexTField()
         setUpSwipeRecognizers()
-        setUpResultTableViewConstraints()
-        setUpSessionTableConstraints()
+        // setUpResultTableViewFrame(withSize: view.frame.size)
+        setUpSessionTableFrames()
         hideFABs()
         updateView()
         swipableView.isUserInteractionEnabled = true
         resultTableView.isUserInteractionEnabled = true
-    }
-    
-    func setUpTimerConstraint() {
-        timerLabel.translatesAutoresizingMaskIntoConstraints = false
-        if isCasual {
-            timerLabel.topAnchor.constraint(equalTo: cubeView.bottomAnchor).isActive = true
-        } else {
-            timerLabel.topAnchor.constraint(equalTo: memoStack.bottomAnchor, constant: 2).isActive = true
-        }
     }
     
     private func assignDelegates() {
@@ -111,17 +113,11 @@ class TimerVC: UIViewController {
         sessionTextField.delegate = self
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.view.frame = UIScreen.main.bounds
-        self.view.layoutIfNeeded()
-    }
-    
-    private func setUpSessionTableConstraints() {
+    private func setUpSessionTableFrames() {
         view.addSubview(sessionTable)
         sessionTable.center = view.center
         sessionTable.transform = CGAffineTransform(translationX: 0, y: view.frame.height + 200)
-
+        sessionTable.isHidden = true
     }
     
     private func setUpScrambleTexTField() {
@@ -140,36 +136,33 @@ class TimerVC: UIViewController {
         swipableView.addGestureRecognizer(swipeDownRecognizer)
     }
     
-    @objc func swipeUpDetected() {
+    @objc func swipeUpDetected(_ sender: UISwipeGestureRecognizer) {
+        showResultTable()
+    }
+    
+    @objc func swipeDownDetected(_ sender: UISwipeGestureRecognizer) {
+        hideResultTable()
+    }
+    
+    private func showResultTable() {
         resultTableIsShown = true
         UIView.animate(withDuration: 0.4) {
-            self.resultTableTriggerButton.transform = CGAffineTransform(rotationAngle: .pi)
+            self.resultTable.transform = CGAffineTransform.init(translationX: 0, y: 25)
+            self.resultTableView.transform = CGAffineTransform.init(translationX: 0, y: -self.resultTableView.frame.minY)
+        }
+    }
+    
+    private func hideResultTable() {
+        resultTableIsShown = false
+        UIView.animate(withDuration: 0.4) {
             self.resultTableView.transform = .identity
             self.resultTable.transform = .identity
         }
     }
     
-    @objc func swipeDownDetected() {
-        resultTableIsShown = false
-        UIView.animate(withDuration: 0.4) {
-            self.resultTableTriggerButton.transform =  CGAffineTransform.init(translationX: 0, y: -28)
-            self.resultTableView.transform = CGAffineTransform.init(translationX: 0, y: self.view.frame.height - 120)
-            self.resultTable.transform = CGAffineTransform.init(translationX: 0, y: -40)
-        }
-    }
-    
-    private func setUpResultTableViewConstraints() {
+    private func setUpResultTableViewFrame(withSize size: CGSize) {
+        resultTableView.frame = CGRect(x: 0, y: size.height - 100, width: size.width, height: size.height)
         view.addSubview(resultTableView)
-        
-        resultTableView.translatesAutoresizingMaskIntoConstraints = false
-        resultTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        resultTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        resultTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        resultTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        resultTableView.transform = CGAffineTransform.init(translationX: 0, y: view.frame.height - 120)
-        resultTableTriggerButton.transform = CGAffineTransform.init(translationX: 0, y: -28)
-        resultTable.transform = CGAffineTransform.init(translationX: 0, y: -40)
     }
     
     func appendNewSolve() {

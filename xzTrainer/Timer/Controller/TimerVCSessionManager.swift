@@ -17,6 +17,7 @@ extension TimerVC {
         
         view.bringSubview(toFront: floatingPlus)
         floatingPlus.transform = CGAffineTransform(translationX: 0, y: 250)
+        sessionTable.isHidden = false
         UIView.animate(withDuration: 0.4) {
             self.dismissPopUpButton.alpha = 0.5
             self.view.insertSubview(self.dismissPopUpButton, belowSubview: self.sessionTable)
@@ -31,6 +32,7 @@ extension TimerVC {
     }
     
     func sessionTablePopOut() {
+        sessionTable.isHidden = true
         UIView.animate(withDuration: 0.2) {
             self.dismissPopUpButton.alpha = 0
             self.sessionTable.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)

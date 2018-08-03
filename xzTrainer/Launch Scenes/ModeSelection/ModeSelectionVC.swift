@@ -32,8 +32,8 @@ class ModeSelectionVC:
     
     var modes: [Mode] = [
         Mode(name: "Execution Trainer", image: #imageLiteral(resourceName: "ExecutionBGImage")),
-        Mode(name: "Casual BLD", image: #imageLiteral(resourceName: "Casual")),
-        Mode(name: "My Alg Sheet", image: #imageLiteral(resourceName: "MyAlgSheet"))
+        Mode(name: "Casual BLD", image: #imageLiteral(resourceName: "Casual"))//,
+        //Mode(name: "My Alg Sheet", image: #imageLiteral(resourceName: "MyAlgSheet"))
     ]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return modes.count
