@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 struct Mode {
     var name: String
@@ -127,7 +128,22 @@ class ModeSelectionVC:
         profileView.isHidden = false
     }
     
+    @IBAction func rateApp() {
+        if #available( iOS 10.3,*){
+            SKStoreReviewController.requestReview()
+        } else {
+            let alert = makeConfirm(title: "Rate This App", message: "Thank you for giving us your feedback! You will be redirected to the App Store.") { (_) in
+                self.openUrl("itms-apps://itunes.apple.com/app/id1421716263")
+            }
+            present(alert, animated: true)
+        }
+        
+    }
     
+    fileprivate func openUrl(_ urlString:String) {
+        let url = URL(string: urlString)!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
