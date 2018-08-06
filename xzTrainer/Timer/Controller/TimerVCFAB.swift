@@ -69,24 +69,32 @@ extension TimerVC {
     }
     
     @IBAction func manualButtonPressed() {
-        let alert = ThemeAlertController(title: "Manually Enter Time", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-            if let timeString = alert.textFields?.first?.text {
-                if let time = self.parseTimeString(timeString) {
-                    self.timerLabel.manuallyEntered(time: time)
-                    self.timerDidFinish(self.timerLabel)
+        if memoIsShown {
+            let alert = ThemeAlertController(title: "Manually Enter Time", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+                if let timeString = alert.textFields?.first?.text {
+                    if let time = self.parseTimeString(timeString) {
+                        self.timerLabel.manuallyEntered(time: time)
+                        self.timerDidFinish(self.timerLabel)
+                    }
                 }
+            }))
+            alert.addAction(UIAlertAction(title:"Cancel", style: .cancel, handler: nil))
+            alert.addTextField { (textField) in
+                textField.placeholder = "Enter your time"
+                textField.keyboardType = UIKeyboardType.decimalPad
             }
-        }))
-        alert.addAction(UIAlertAction(title:"Cancel", style: .cancel, handler: nil))
-        alert.addTextField { (textField) in
-            textField.placeholder = "Enter your time"
-            textField.keyboardType = UIKeyboardType.decimalPad
+            present(alert, animated: true)
+        } else {
+            showMemo()
+            memoIsShown = true
+            DispatchQueue.main.async {
+                self.manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "ManuallyEnterTime")
+            }
         }
-        present(alert, animated: true)
+    
     }
     
-    // TODO: Bug, 0.075 becomes 0.750
     private func parseTimeString(_ timeString: String) -> Double? {
         var components = timeString.split(whereSeparator: { (c) -> Bool in
             return c == ":" || c == "."

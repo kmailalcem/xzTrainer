@@ -57,7 +57,7 @@ class PreferTrivial: MemoPreference {
 
 
 class AvoidMisorientedEdge : MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 50
     
     var isEdgeMethod: Bool = true
     
@@ -73,7 +73,7 @@ class AvoidMisorientedEdge : MemoPreference {
 }
 
 class PreferCornerWithShortSetUp: MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 100
     
     var isEdgeMethod: Bool = false
     
@@ -89,7 +89,7 @@ class PreferCornerWithShortSetUp: MemoPreference {
 }
 
 class UseUFL: MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 30
     
     var isEdgeMethod: Bool = false
     
@@ -105,7 +105,7 @@ class UseUFL: MemoPreference {
 }
 
 class PreferSameOuterLayerCommutator: MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 70
     
     var isEdgeMethod: Bool = true
     
@@ -113,7 +113,7 @@ class PreferSameOuterLayerCommutator: MemoPreference {
     
     static var description: String = "Prefer same layer outer commutator groups"
     
-    static var explanation: String = ""
+    static var explanation: String = "\(edge(.DF)) can be easily inserted to \(edge(.UR)) by U' M2 U, hence pieces interchangeable with \(edge(.UR)) pairs with \(edge(.UR)) to form easy 8 movers. Pieces that are on the right outer layer that are not \(edge(.UR)) can be set up to \(edge(.UR)) to form 9 movers."
     
     static var memoKey: String = "PreferSameOuterLayerCommutator"
     func preferredSecondEdge(for first: EdgePosition) -> [EdgePosition] {
@@ -128,7 +128,7 @@ class PreferSameOuterLayerCommutator: MemoPreference {
 }
 
 class PreferSameInnerLayerCommutator: MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 70
     
     var isEdgeMethod: Bool = true
     
@@ -136,7 +136,7 @@ class PreferSameInnerLayerCommutator: MemoPreference {
     
     static var description: String = "Prefer same inner layer commutator"
     
-    static var explanation: String = ""
+    static var explanation: String = "\(edge(.DF)) can be easily inserted to \(edge(.RU)) by U M' U', hence pieces interchangeable with \(edge(.RU)) pairs with \(edge(.RU)) to form easy 8 movers. Pieces that are on the right inner layer that are not \(edge(.RU)) can be set up to \(edge(.RU)) to form 9 movers."
     
     static var memoKey: String = "PreferSameInnerLayerCommutator"
     
@@ -152,7 +152,7 @@ class PreferSameInnerLayerCommutator: MemoPreference {
 }
 
 class PreferCrossLayerCommutator: MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 90
     
     var isEdgeMethod: Bool = true
     
@@ -160,7 +160,7 @@ class PreferCrossLayerCommutator: MemoPreference {
     
     static var description: String = "Prefer cross layer outer commutator groups"
     
-    static var explanation: String = ""
+    static var explanation: String = "\(edge(.UL)) to \(edge(.UR)) can be solved in 5 moves, U M' U2 M U. Hence pieces from the left outer layer to the right can be solved in at most 9 moves, by setting up to \(edge(.UL)) and \(edge(.UR)), respectively."
     
     static var memoKey: String = "PreferCrossLayerCommutator"
     
@@ -176,7 +176,7 @@ class PreferCrossLayerCommutator: MemoPreference {
 }
 
 class Prefer1MoveSetUp: MemoPreference {
-    var defaultPriority: Int = 0
+    var defaultPriority: Int = 80
     
     var isEdgeMethod: Bool = true
     
@@ -184,7 +184,7 @@ class Prefer1MoveSetUp: MemoPreference {
     
     static var description: String = "Prefer easy setup (no more than 1 move)"
     
-    static var explanation: String = ""
+    static var explanation: String = "Pieces such as \(edge(.DB)), \(edge(.UL)), \(edge(.RB)) can be set up to \(edge(.UB)) in one move, hence perfect target for setting up to 8 move commutator."
     
     static var memoKey: String = "Prefer1MoveSetUp"
     var preferredFirstEdge: [EdgePosition] = [.UB, .UL, .UR, .UF, .RB, .LB, .DB]

@@ -11,11 +11,7 @@ import Foundation
 extension TimerVC: TimerLabelDelegate {
     
     func timerDidStart(_ sender: TimerLabel) {
-        let memorizer = CubePermutationEncoder(
-            forScramble: scrambleTextField.text!)
-        
-        edgeMemoLabel.text = memorizer.formattedEdgeMemo
-        cornerMemoLabel.text = memorizer.formattedCornerMemo
+        showMemo()
         
         if !isCasual {
             cubeView.showAllFaces()
@@ -29,5 +25,13 @@ extension TimerVC: TimerLabelDelegate {
         appendNewSolve()
         updateView()
         resultTable.reloadData()
+    }
+    
+    func showMemo() {
+        let memorizer = CubePermutationEncoder(
+            forScramble: scrambleTextField.text!)
+        
+        edgeMemoLabel.text = memorizer.formattedEdgeMemo
+        cornerMemoLabel.text = memorizer.formattedCornerMemo
     }
 }

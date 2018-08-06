@@ -52,6 +52,8 @@ class TimerVC: UIViewController {
     var sessionTableIsShown: Bool = false
     var floatingPlusIsPressed: Bool = false
     var popUpIsShown: Bool = false
+    var memoIsShown = false
+    
     let data = GlobalData.shared
     
     var currentIndexPath: IndexPath!
@@ -200,6 +202,8 @@ class TimerVC: UIViewController {
         }
         edgeMemoLabel.text = "Reveal memo by starting the timer."
         cornerMemoLabel.text = "You will have 0.5 seconds to react."
+        memoIsShown = false
+        manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "Show")
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
