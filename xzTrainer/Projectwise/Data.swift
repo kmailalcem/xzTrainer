@@ -123,6 +123,7 @@ class GlobalData: NSObject {
             managedObjectContext.delete(userSolves[index])
             saveData()
             userSolves.remove(at: index)
+            updateStatsFromIndex(index)
         }
     }
     

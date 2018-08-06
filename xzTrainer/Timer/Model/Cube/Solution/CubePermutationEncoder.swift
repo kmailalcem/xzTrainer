@@ -96,7 +96,7 @@ class CubePermutationEncoder {
             if !belongsToSamePiece(sticker, edgeBuffer) {
                 edgeMemo.append(letterScheme.edgeScheme[sticker]!)
                 if needInsertSpace {
-                    edgeMemo.append(" ")
+                    edgeMemo.append("  ")
                     needInsertSpace = false
                 } else {
                     needInsertSpace = true
@@ -176,7 +176,7 @@ class CubePermutationEncoder {
                 cornerMemo.append(letterScheme.cornerScheme[sticker]!)
                 
                 if needInsertSpace {
-                    cornerMemo.append(" ")
+                    cornerMemo.append("  ")
                     needInsertSpace = false
                 } else {
                     needInsertSpace = true
