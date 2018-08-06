@@ -17,7 +17,7 @@ extension TimerVC: TimerLabelDelegate {
             cubeView.showAllFaces()
         }
         
-        sender.startTimer(delay: isCasual ? 0 : 0.7)
+        sender.startTimer(delay: (isCasual || memoIsShown) ? 0 : 0.7)
         sender.textColor = TimerLabel.defaultColor
     }
     

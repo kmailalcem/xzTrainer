@@ -88,6 +88,7 @@ extension TimerVC {
         } else {
             showMemo()
             memoIsShown = true
+            cubeView.showAllFaces()
             DispatchQueue.main.async {
                 self.manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "ManuallyEnterTime")
             }
