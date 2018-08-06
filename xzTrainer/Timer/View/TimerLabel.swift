@@ -66,7 +66,7 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
     
     public func startTimer(delay: Double) {
         startTime = Date().timeIntervalSinceReferenceDate + delay
-        timer = Timer.scheduledTimer(timeInterval: 0.053, target: self, selector: #selector(TimerLabel.updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.017, target: self, selector: #selector(TimerLabel.updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc private func timerTaped(sender: UILongPressGestureRecognizer) {
