@@ -19,6 +19,10 @@ with all memo options turned off.
 
 You can change any of these settings by going to the main screen, clicking the upper right icon and go to settings.
 
+
+## Help and FAQs
+Common navigation and other issues should found in the wiki.
+
 ## Why would I want such a timer?
 xzTrainer will provide excellent separation of the memorization stage and the execution stage for 3BLD.
 If you are new to any method of solving the Rubik's blindfolded, you may want to use this app to drill the execution 
