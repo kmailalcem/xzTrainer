@@ -21,7 +21,7 @@ You can change any of these settings by going to the main screen, clicking the u
 
 
 ## Help and FAQs
-Common navigation and other issues should found in the wiki.
+Common navigation and other issues should be found in the wiki.
 
 ## Why would I want such a timer?
 xzTrainer will provide excellent separation of the memorization stage and the execution stage for 3BLD.
