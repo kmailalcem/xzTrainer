@@ -2,8 +2,8 @@
 //  xzTrainerTests.swift
 //  xzTrainerTests
 //
-//  Created by Nelson Zhang on 5/5/18.
-//  Copyright © 2018 Nelson Zhang. All rights reserved.
+//  Created by Xuzhi Zhang on 5/5/18.
+//  Copyright © 2018 Xuzhi Zhang. All rights reserved.
 //
 
 import XCTest
@@ -249,9 +249,9 @@ class xzTrainerTests: XCTestCase {
  */
     
     func testScramble() {
-        print(Scrambler.getRandomScrambleWithLength(from: 20, to: 28))
-        print(Scrambler.getRandomScrambleWithLength(from: 10, to: 15))
-        print(Scrambler.getRandomScrambleWithLength(from: 30, to: 50))
+        print(Scrambler.getRandomScrambleWithLength(from: 20, to: 28, withOrientationMangle: false))
+        print(Scrambler.getRandomScrambleWithLength(from: 10, to: 15, withOrientationMangle: false))
+        print(Scrambler.getRandomScrambleWithLength(from: 30, to: 50, withOrientationMangle: false))
     }
     
     func testMemo() {
@@ -275,7 +275,7 @@ class xzTrainerTests: XCTestCase {
     }
     
     func testSolve() {
-        let scramble = Scrambler.getRandomScrambleWithLength(from: 5, to: 5)
+        let scramble = Scrambler.getRandomScrambleWithLength(from: 5, to: 5, withOrientationMangle: false)
         let cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
         print("Scramble: \(scramble)")
         //self.measure {
