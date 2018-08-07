@@ -7,6 +7,7 @@ such as Old Pochmann for corners and M2 for edges.
 
 ## Installation
 This app is currently under beta testing. 
+If you wish to participate, shoot me an email [here](mailto:xuzhizh@umich.edu).
 In a week or so from today (Aug 7, 2018), xzTrainer will be submitted to the app store.
 You would be able to download it directly from the app store.
 
