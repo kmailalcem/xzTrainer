@@ -39,7 +39,8 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
         text = "Time"
         textAlignment = .center
         textColor = TimerLabel.defaultColor
-        font = font.withSize(50)
+        font = UIFont.init(name: "HelveticaNeue-Light", size: 60)
+        // font = font.withSize(50)
         
         // gesture recognizers
         isUserInteractionEnabled = true
