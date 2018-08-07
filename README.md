@@ -19,3 +19,22 @@ with all memo options turned off.
 
 You can change any of these settings by going to the main screen, clicking the upper right icon and go to settings.
 
+## Why would I want such an app?
+xzTrainer will provide excellent separation of the memorization stage and the execution stage for 3BLD.
+If you are new to any method of solving the 3x3 blindfolded, you may want to use this app to drill the execution 
+and make sure that every aspect of this method became muscle memory.
+There is no need to go through the work of memorizing the cube.
+With this app, your practice routine for BLD execution is just like 3x3.
+
+### But wouldn't this adversely affect my memorization speed?
+If you are just looking to improve your memo, then yes, looking at the memo while solving the cube "blindfolded" isn't going to help you improve your memo.
+
+But in almost every other aspect, this timer will provide excellent assistance.
+
+If you are new to solving the cube blindfolded, it is the most frustrating experience to spend an eternity, revise several times making sure that the memorization is perfect, only to find out that you always forget to swap FU and BD when they appear on even numbered positions.
+
+If you are looking to reduce pauses during execution, xzTrainer will allow you to think as much as you want without the risk of losing memory.
+
+Maybe you are pretty confident with your memo, and are looking to increase your TPS. Then a timer like xzTrainer is your to-go choice.
+
+Last but not least, fast execution is at the heart of fast memorization. If you want to reduce the number of revisions, you must be able to execute fast before you forget.
