@@ -43,3 +43,7 @@ Thumbs.db
 **/*.jpg
 **/*.pdf
 **/*.sketch
+
+# except screen shots #
+#######################
+!screenshots/*
