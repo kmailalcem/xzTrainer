@@ -178,7 +178,7 @@ class EditSpecificLetterVC: UIViewController {
 }
 
 extension EditSpecificLetterVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if let textField = textField as? LetterSetterTextField {
             if textField.text?.count == 0 {
                 textField.text = "Unlabeled"
@@ -202,6 +202,11 @@ extension EditSpecificLetterVC: UITextFieldDelegate {
             
         }
         
+        textField.resignFirstResponder()
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
     }

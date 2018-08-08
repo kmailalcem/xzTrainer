@@ -23,7 +23,6 @@ class EditLetterSchemeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         let colorScheme = UserSetting.shared.general.colorScheme
         let topColor = UserSetting.shared.general.topFaceColor
@@ -158,6 +157,12 @@ class EditLetterSchemeVC: UIViewController {
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         if let destination = segue.destination as? EditLetterSchemeVC {
             if let source = segue.source as? EditSpecificLetterVC {
+                source.face1TextField.resignFirstResponder()
+                source.face2TextField.resignFirstResponder()
+                source.face3TextField.resignFirstResponder()
+                source.piece1TextField.resignFirstResponder()
+                source.piece2TextField.resignFirstResponder()
+                source.stickerTextField.resignFirstResponder()
                 if source.bufferSwitch.isOn {
                     if source.isEdge {
                         UserSetting.shared.general.letterScheme.setLetter(forPiece: source.stickerTextField.managedEdgePosition!, as: "")
