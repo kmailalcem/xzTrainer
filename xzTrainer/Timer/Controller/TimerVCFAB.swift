@@ -69,7 +69,7 @@ extension TimerVC {
     }
     
     @IBAction func manualButtonPressed() {
-        if memoIsShown {
+        if memoIsShown || isCasual {
             let alert = ThemeAlertController(title: "Manually Enter Time", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
                 if let timeString = alert.textFields?.first?.text {

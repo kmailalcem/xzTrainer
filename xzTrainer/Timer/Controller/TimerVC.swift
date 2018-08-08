@@ -203,7 +203,9 @@ class TimerVC: UIViewController {
         edgeMemoLabel.text = "Reveal memo by starting the timer."
         cornerMemoLabel.text = "You will have 0.5 seconds to react."
         memoIsShown = false
-        manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "Show")
+        if !isCasual {
+            manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "Show")
+        }
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {

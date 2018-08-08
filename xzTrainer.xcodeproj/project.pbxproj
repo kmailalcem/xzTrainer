@@ -50,6 +50,7 @@
 		9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */; };
 		9588BA5721100BA500CE94C0 /* ThemeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */; };
 		9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */; };
+		959260AA211A9D9B00AE9030 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959260A9211A9D9B00AE9030 /* HelpVC.swift */; };
 		95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0E3720A7447200E36982 /* ColorScheme.swift */; };
 		95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B5265920E23C5000C54F45 /* PreferenceList.swift */; };
 		95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9838120B1F73000CE5908 /* ResultCell.swift */; };
@@ -136,6 +137,7 @@
 		9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCSessionManager.swift; sourceTree = "<group>"; };
 		9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitch.swift; sourceTree = "<group>"; };
 		9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCell.swift; sourceTree = "<group>"; };
+		959260A9211A9D9B00AE9030 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		95AD0E3720A7447200E36982 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		95B5265920E23C5000C54F45 /* PreferenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceList.swift; sourceTree = "<group>"; };
 		95B9838120B1F73000CE5908 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				95183BBC21070D58006D2D6F /* ModeSelection */,
 				95004C2B20E7739800380DBB /* ModeSelectionCell.swift */,
 				95F886AF2112FF5C004D4C2C /* NameVC.swift */,
+				959260A9211A9D9B00AE9030 /* HelpVC.swift */,
 			);
 			path = "Launch Scenes";
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				950D322820F0ABAB00CA165C /* GeneralSetting.swift in Sources */,
 				95183BBF210717A1006D2D6F /* AdvancedParityVC.swift in Sources */,
 				95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */,
+				959260AA211A9D9B00AE9030 /* HelpVC.swift in Sources */,
 				95DB124720E4D6EB007BBAFD /* MemoSettingCell.swift in Sources */,
 				951A33EB20D260C000A12666 /* GradientView.swift in Sources */,
 				950D322420F06C6800CA165C /* SettingsVC.swift in Sources */,
