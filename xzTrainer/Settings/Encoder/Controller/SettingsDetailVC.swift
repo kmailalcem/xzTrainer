@@ -61,7 +61,7 @@ class SettingsDetailVC: UIViewController {
         } else {
             showInLetterSchemeSwitch.isOn = false
             showInLetterSchemeSwitch.isEnabled = false
-            nAMessage.text = "This method does not apply to your choice of \(methodIsEdge ? "edge" : "corner") buffer."
+            nAMessage.text = "This method does not apply to your choice of \(methodIsEdge ? "edge" : "corner") buffer, or you chose to order your own cycle break order."
         }
         loadSecondLetters()
         updateLetters()
