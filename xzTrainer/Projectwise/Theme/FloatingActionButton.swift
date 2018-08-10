@@ -30,7 +30,6 @@ class FloatingActionButton: UIButton {
         layer.shadowRadius = 3
         layer.shadowOpacity = 0.25
         layer.shadowOffset = CGSize(width: 0, height: 0)
-        imageView?.image = imageView?.image!.withRenderingMode(.alwaysTemplate)
     }
     
     

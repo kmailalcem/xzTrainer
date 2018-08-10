@@ -28,6 +28,7 @@ class EditSpecificLetterVC: UIViewController {
     
     var selectedEdgePiece: EdgePosition? = nil
     var selectedCornerPiece: CornerPosition? = nil
+    
     var overwideTextFieldCount: Int = 0 {
         didSet {
             warningLabel.isHidden = overwideTextFieldCount == 0
@@ -212,6 +213,7 @@ extension EditSpecificLetterVC: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         if let textField = textField as? LetterSetterTextField {
             textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
         }

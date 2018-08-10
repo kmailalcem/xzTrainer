@@ -46,7 +46,6 @@ class SettingsDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         settingsTitle.text = methodDescription
         explanation.text = methodExplanation
@@ -66,8 +65,25 @@ class SettingsDetailVC: UIViewController {
         }
         loadSecondLetters()
         updateLetters()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    @objc func keyboardWillShow(notification: Notification) {
+        var keyboardHeight: CGFloat = 0
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            keyboardHeight = keyboardRectangle.height
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = CGAffineTransform.init(translationX: 0, y: -max(min(self.priorityTextField.frame.minY - keyboardHeight, keyboardHeight), 0))
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        view.transform = .identity
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

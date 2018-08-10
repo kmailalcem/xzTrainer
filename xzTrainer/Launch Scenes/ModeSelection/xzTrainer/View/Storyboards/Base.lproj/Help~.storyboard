@@ -57,8 +57,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0 Beta 7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IY-uc-Wor">
-                                <rect key="frame" x="183.5" y="110" width="74.5" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0 Beta 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IY-uc-Wor">
+                                <rect key="frame" x="183.5" y="110" width="76" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="tuf-0H-crf"/>
                                 </constraints>
@@ -498,7 +498,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <segue destination="e1N-6E-6Zj" kind="custom" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="f1L-HJ-CQS"/>
+                                        <segue destination="Aj5-eq-czD" kind="custom" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="f1L-HJ-CQS"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -559,6 +559,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mF8-qV-kcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-202" y="-509"/>
+        </scene>
+        <!--HelpVC-->
+        <scene sceneID="c8x-6f-o21">
+            <objects>
+                <viewController id="Aj5-eq-czD" customClass="HelpVC" customModule="xzTrainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nhg-fU-xGi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-Js-Xij" customClass="FloatingActionButton" customModule="xzTrainer" customModuleProvider="target">
+                                <rect key="frame" x="16" y="40" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="9LS-Ji-4UR"/>
+                                    <constraint firstAttribute="width" constant="40" id="JKX-cw-UYc"/>
+                                    <constraint firstAttribute="height" constant="40" id="NWy-00-sVy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Qga-w5-p9G"/>
+                                </constraints>
+                                <color key="tintColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Back"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="1Gz-rX-0rE" kind="unwind" customClass="SegueLeftToRight" customModule="xzTrainer" customModuleProvider="target" unwindAction="prepareForUnwindWithSegue:" id="hmB-fY-EAp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydp-tt-dyj">
+                                <rect key="frame" x="64" y="40" width="295" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="7we-yy-ujg"/>
+                                    <constraint firstAttribute="height" constant="40" id="9Hh-8J-fUw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.1529411765" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For the most up-to-date help, FAQs and documentation, please visit our GitHub wiki page:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caJ-XD-kDc">
+                                <rect key="frame" x="16" y="110" width="343" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="PPu-s7-Z58"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTc-Lw-FNt">
+                                <rect key="frame" x="16" y="188" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IMb-n5-ajo"/>
+                                </constraints>
+                                <state key="normal" title="xzTrainer Wiki"/>
+                                <connections>
+                                    <action selector="goToWiki" destination="Aj5-eq-czD" eventType="touchUpInside" id="YcV-YT-m9l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78431372549019607" green="0.82745098039215681" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ydp-tt-dyj" firstAttribute="leading" secondItem="PNL-Js-Xij" secondAttribute="trailing" constant="8" id="6Jh-Rp-oxV"/>
+                            <constraint firstItem="PNL-Js-Xij" firstAttribute="top" secondItem="Gmf-D4-UwV" secondAttribute="top" constant="20" id="6ZT-rb-Aby"/>
+                            <constraint firstItem="ZTc-Lw-FNt" firstAttribute="leading" secondItem="Gmf-D4-UwV" secondAttribute="leading" constant="16" id="9Mm-Pd-YB3"/>
+                            <constraint firstItem="ZTc-Lw-FNt" firstAttribute="top" secondItem="caJ-XD-kDc" secondAttribute="bottom" constant="8" id="KUy-3H-rBd"/>
+                            <constraint firstItem="caJ-XD-kDc" firstAttribute="top" secondItem="PNL-Js-Xij" secondAttribute="bottom" constant="30" id="KZ9-4N-0MD"/>
+                            <constraint firstItem="Gmf-D4-UwV" firstAttribute="trailing" secondItem="ZTc-Lw-FNt" secondAttribute="trailing" constant="16" id="Nlb-sK-u4w"/>
+                            <constraint firstItem="Ydp-tt-dyj" firstAttribute="top" secondItem="Gmf-D4-UwV" secondAttribute="top" constant="20" id="QzT-Yx-um2"/>
+                            <constraint firstItem="PNL-Js-Xij" firstAttribute="leading" secondItem="Gmf-D4-UwV" secondAttribute="leading" constant="16" id="R5b-CP-v34"/>
+                            <constraint firstItem="Ydp-tt-dyj" firstAttribute="leading" secondItem="PNL-Js-Xij" secondAttribute="trailing" constant="8" id="bZe-YS-e61"/>
+                            <constraint firstItem="Gmf-D4-UwV" firstAttribute="trailing" secondItem="caJ-XD-kDc" secondAttribute="trailing" constant="16" id="c2S-PU-0cI"/>
+                            <constraint firstItem="caJ-XD-kDc" firstAttribute="leading" secondItem="Gmf-D4-UwV" secondAttribute="leading" constant="16" id="fTY-Ot-CNp"/>
+                            <constraint firstItem="Gmf-D4-UwV" firstAttribute="trailing" secondItem="Ydp-tt-dyj" secondAttribute="trailing" constant="16" id="xCV-U7-u3C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gmf-D4-UwV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imh-U4-WAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1Gz-rX-0rE" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1199.2" y="-1278.7106446776613"/>
         </scene>
         <!--NameVC-->
         <scene sceneID="aVf-Ht-tUL">
@@ -647,14 +728,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6S-xu-QyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-202.40000000000001" y="-563.56821589205401"/>
-        </scene>
-        <!--Help-->
-        <scene sceneID="Rhx-bh-Geb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Help" id="e1N-6E-6Zj" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OmI-3l-F9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1199.2" y="-1278.7106446776613"/>
         </scene>
     </scenes>
     <resources>

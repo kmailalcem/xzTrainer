@@ -43,13 +43,13 @@ class GeneralSetting {
     var letterScheme = LetterScheme()
     var colorScheme = ColorScheme()
     
-    var topFaceColor: CubeColor = .WHITE {
+    var topFaceColor: CubeColor = .YELLOW {
         didSet {
             UserDefaults.standard.set(topFaceColor.rawValue, forKey: topColorKey)
         }
     }
     
-    var frontFaceColor: CubeColor = .GREEN {
+    var frontFaceColor: CubeColor = .RED {
         didSet {
             UserDefaults.standard.set(frontFaceColor.rawValue, forKey: frontColorKey)
         }

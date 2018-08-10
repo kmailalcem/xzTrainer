@@ -182,13 +182,17 @@ class TimerVC: UIViewController {
     
     
     private func updateCube (withScramble scramble: String) {
-        let topColor = UserSetting.shared.general.topFaceColor
-        let frontColor = UserSetting.shared.general.frontFaceColor
-        let cube = Cube(top: topColor, front: frontColor, scramble: scramble)
+        let cube: Cube
+        if UserSetting.shared.encoder.scrambleInWCAOrientation {
+            cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
+        } else {
+            let topColor = UserSetting.shared.general.topFaceColor
+            let frontColor = UserSetting.shared.general.frontFaceColor
+            cube = Cube(top: topColor, front: frontColor, scramble: scramble)
+        }
         cubeView.cube = cube
         cubeView.updateFaces()
     }
-    
     
     @IBAction func updateView() {
         scrambleTextField.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22, withOrientationMangle: !isCasual)
@@ -209,7 +213,7 @@ class TimerVC: UIViewController {
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-        
+        updateView()
     }
     
 }

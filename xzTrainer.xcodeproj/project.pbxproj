@@ -30,6 +30,9 @@
 		9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */; };
 		9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78020E5F21000A3CE20 /* MemoMethod.swift */; };
 		9539A78520E62E1400A3CE20 /* SettingsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */; };
+		953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953F41F6211BD0C800EBC194 /* Help.storyboard */; };
+		953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F41FA211BD44F00EBC194 /* HelpCell.swift */; };
+		953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F41FC211BD5E400EBC194 /* HelpedIcon.swift */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
 		9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457120D9B6D30086202E /* TimerVCPopUp.swift */; };
@@ -115,6 +118,9 @@
 		9539A77D20E5F0E800A3CE20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Base.lproj/InTimerSetting.storyboard; sourceTree = "<group>"; };
 		9539A78020E5F21000A3CE20 /* MemoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoMethod.swift; sourceTree = "<group>"; };
 		9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailVC.swift; sourceTree = "<group>"; };
+		953F41F7211BD0C800EBC194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "xzTrainer/Launch Scenes/ModeSelection/xzTrainer/View/Storyboards/Base.lproj/Help.storyboard"; sourceTree = "<group>"; };
+		953F41FA211BD44F00EBC194 /* HelpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCell.swift; sourceTree = "<group>"; };
+		953F41FC211BD5E400EBC194 /* HelpedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpedIcon.swift; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
 		9572457120D9B6D30086202E /* TimerVCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCPopUp.swift; sourceTree = "<group>"; };
@@ -253,6 +259,17 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		953F41F9211BD0D300EBC194 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				953F41F6211BD0C800EBC194 /* Help.storyboard */,
+				959260A9211A9D9B00AE9030 /* HelpVC.swift */,
+				953F41FA211BD44F00EBC194 /* HelpCell.swift */,
+				953F41FC211BD5E400EBC194 /* HelpedIcon.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		957A5C6E21127FFB002160A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,10 +396,10 @@
 			isa = PBXGroup;
 			children = (
 				95D52C6220865913004DE650 /* LaunchScreen.storyboard */,
+				95F886AF2112FF5C004D4C2C /* NameVC.swift */,
+				953F41F9211BD0D300EBC194 /* Help */,
 				95183BBC21070D58006D2D6F /* ModeSelection */,
 				95004C2B20E7739800380DBB /* ModeSelectionCell.swift */,
-				95F886AF2112FF5C004D4C2C /* NameVC.swift */,
-				959260A9211A9D9B00AE9030 /* HelpVC.swift */,
 			);
 			path = "Launch Scenes";
 			sourceTree = "<group>";
@@ -415,10 +432,10 @@
 		9588BA59211032BC00CE94C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
 				95B5265920E23C5000C54F45 /* PreferenceList.swift */,
 				9539A78020E5F21000A3CE20 /* MemoMethod.swift */,
 				95DB124820E4DD3C007BBAFD /* MemoSettingsDataSource.swift */,
-				95EB839420B47061003ADB37 /* EncoderSetting.swift */,
 				950DF6CF2111ABD800A329EB /* MethodOptions */,
 				95F886AD2112F082004D4C2C /* PieceArrayExtentsion.swift */,
 			);
@@ -573,6 +590,7 @@
 				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
 				95CB543C20F30E800025FB6E /* Settings.storyboard in Resources */,
+				953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +645,7 @@
 				95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */,
 				958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */,
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
+				953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
@@ -635,6 +654,7 @@
 				950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
+				953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */,
 				9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */,
 				95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */,
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
@@ -683,6 +703,14 @@
 				9539A77D20E5F0E800A3CE20 /* Base */,
 			);
 			name = InTimerSetting.storyboard;
+			sourceTree = "<group>";
+		};
+		953F41F6211BD0C800EBC194 /* Help.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				953F41F7211BD0C800EBC194 /* Base */,
+			);
+			name = Help.storyboard;
 			sourceTree = "<group>";
 		};
 		95D52C5D20865912004DE650 /* Timer.storyboard */ = {

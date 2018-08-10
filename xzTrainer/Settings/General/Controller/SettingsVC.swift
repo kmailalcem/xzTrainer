@@ -22,6 +22,8 @@ class SettingsVC:
     @IBOutlet weak var topColorPickerTrigger: UITextField!
     @IBOutlet weak var frontColorPickerTrigger: UITextField!
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var wcaSwitch: ThemeSwitch!
+    
     
     var availableTopColor = CubeColor.allValues
     var availableFrontColor = CubeColor.allValues
@@ -31,6 +33,9 @@ class SettingsVC:
         dismissButton.alpha = 0
     }
     
+    @IBAction func toggleScrambleOrientation() {
+        UserSetting.shared.encoder.scrambleInWCAOrientation = wcaSwitch.isOn
+    }
     private func resignAll() {
         edgePickerTrigger.resignFirstResponder()
         cornerPickerTrigger.resignFirstResponder()
@@ -50,9 +55,11 @@ class SettingsVC:
         updateBufferTriggerUI()
         eliminateInvalidTopColors()
         eliminateInvalidFrontColors()
-
+        
         dismissButton.alpha = 0
+        wcaSwitch.isOn = UserSetting.shared.encoder.scrambleInWCAOrientation
     }
+
     
     func setUpInputViews() {
         cornerPickerTrigger.inputView = cornerBufferPickerView

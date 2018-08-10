@@ -11,12 +11,18 @@ import UIKit
 class InTimerSettingVC: UIViewController {
     @IBOutlet weak var backButton: UIButtonX!
     @IBOutlet weak var settingsTable: SettingsTableView!
+    @IBOutlet weak var wcaSwitch: ThemeSwitch!
+    @IBAction func toggleScrambleOrientation() {
+        UserSetting.shared.encoder.scrambleInWCAOrientation = wcaSwitch.isOn
+    }
+    
     var memoSettingsDataSource: MemoSettingsDataSource = MemoSettingsDataSource()
     
     override func viewDidLoad() {
         settingsTable.delegate = memoSettingsDataSource
         settingsTable.dataSource = memoSettingsDataSource
         settingsTable.containerViewController = self
+        wcaSwitch.isOn = UserSetting.shared.encoder.scrambleInWCAOrientation
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,6 +33,7 @@ class InTimerSettingVC: UIViewController {
             }
         }
     }
+    
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         settingsTable.reloadData()

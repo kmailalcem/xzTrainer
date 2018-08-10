@@ -26,11 +26,27 @@ class EncoderSetting {
     var advancedParity = AdvancedParity()
     var userMemoStyle: [MemoPreference] = []
     
+    
+    
     private let customizeKey = "UserCustomizeOrder"
     private let firstEdgePreferenceKey = "firstEdges"
     private let firstCornerPreferenceKey = "firstCorners"
     private let secondEdgePreferenceKey = "secondEdges"
     private let secondCornerPreferenceKey = "secondCorners"
+    private let wcaOrientationKey = "WCAOrientation"
+    
+    var scrambleInWCAOrientation: Bool {
+        get {
+            if keyExists(wcaOrientationKey) {
+                return UserDefaults.standard.bool(forKey: wcaOrientationKey)
+            } else {
+                return false
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: wcaOrientationKey)
+        }
+    }
     
     var userCustomizeOrder: Bool {
         get {
