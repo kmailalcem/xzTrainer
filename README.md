@@ -15,12 +15,12 @@ You would be able to download it directly from the app store.
 
 ## Set up
 The default setups for the cube and the memo are 
-- white top, green front
+- yellow top, red front
 - DF for edge buffer, ULB for corner buffer
 - Speffz letter scheme
-with all memo options turned off.
+with all memo options turned off, and without scrambling in WCA orientation.
 
-You can change any of these settings by going to the main screen, clicking the upper right icon and go to settings.
+You can change any of these settings except the memo options by going to the main screen, clicking the upper right icon and go to settings. The memo options can be found from timer > + > gear.
 
 
 ## Help and FAQs
