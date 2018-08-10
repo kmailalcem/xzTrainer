@@ -5,7 +5,7 @@ You can also customize your own style of cycle breaks, and the most common begin
 However, you do have to use a method that solves the orientation and permutation at the same time, 
 such as Old Pochmann for corners and M2 for edges.
 
-<img src="https://github.com/kmailalcem/xzTrainer/blob/master/screenshots/welcome.png" height=500>
+<img src="https://github.com/kmailalcem/xzTrainerPrivate/blob/master/screenshots/welcome.png" height=500>
 
 ## Installation
 This app is currently under beta testing. 
