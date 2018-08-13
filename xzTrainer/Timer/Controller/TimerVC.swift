@@ -8,6 +8,14 @@
 
 import UIKit
 
+func toString(_ rotations: [Rotation]) -> String {
+    var result = ""
+    for rotation in rotations {
+        result += rotation.rawValue + " "
+    }
+    return result;
+}
+
 class TimerVC: UIViewController {
     
     var isCasual: Bool = true
@@ -170,7 +178,7 @@ class TimerVC: UIViewController {
     func appendNewSolve() {
         let currentSolve = data.requestSolve()
         currentSolve.time = timerLabel.time
-        currentSolve.scramble = scrambleTextField.text!
+        currentSolve.scramble = scrambleFilter + scrambleTextField.text!
         currentSolve.edgeMemo = edgeMemoLabel.text!
         currentSolve.cornerMemo = cornerMemoLabel.text!
         currentSolve.edgeFlips = ""
@@ -180,17 +188,22 @@ class TimerVC: UIViewController {
         data.append(solve: currentSolve)
     }
     
+    private var scrambleFilter: String {
+        if isCasual || UserSetting.shared.encoder.scrambleInWCAOrientation {
+            return ""
+        }
+        let tempCube = Cube()
+        return toString(tempCube.rotate(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor))
+    }
     
     private func updateCube (withScramble scramble: String) {
-        let cube: Cube
-        if UserSetting.shared.encoder.scrambleInWCAOrientation {
-            cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
+        let topColor = UserSetting.shared.general.topFaceColor
+        let frontColor = UserSetting.shared.general.frontFaceColor
+        if isCasual || UserSetting.shared.encoder.scrambleInWCAOrientation {
+            cubeView.cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
         } else {
-            let topColor = UserSetting.shared.general.topFaceColor
-            let frontColor = UserSetting.shared.general.frontFaceColor
-            cube = Cube(top: topColor, front: frontColor, scramble: scramble)
+            cubeView.cube = Cube(top: topColor, front: frontColor, scramble: scramble)
         }
-        cubeView.cube = cube
         cubeView.updateFaces()
     }
     

@@ -19,7 +19,7 @@ class Scrambler {
     }
     
     private static let faceTurnNotations
-        = [["L", "R"], ["F", "B"], ["U", "D"]]
+        = [["R", "L"], ["F", "B"], ["U", "D"]]
     
     private static var occupancyStatusSoFar : [Occupancy]
         = [.EMPTY, .EMPTY, .EMPTY]
@@ -44,22 +44,20 @@ class Scrambler {
         var movesWithoutDirections: [String] = []
         
         let mangleSize = withOrientationMangle ? 0 : randomIntInRange(start: 1, end: 3)
-        for i in 0 ..< scrambleLength {
-            movesWithoutDirections.append(getRandomMoveWithoutConflict(withOrientationMangle: i >= scrambleLength - mangleSize))
+        for _ in 0 ..< scrambleLength - mangleSize {
+            movesWithoutDirections.append(getRandomMoveWithoutConflict())
+        }
+        for move in obtainManglingMovesWithoutDirections(ofSize: mangleSize) {
+            movesWithoutDirections.append(move)
         }
         
         return movesWithoutDirections
     }
     
-    private static func getRandomMoveWithoutConflict(withOrientationMangle: Bool) -> String {
+    private static func getRandomMoveWithoutConflict() -> String {
         let (faceClass, faceWithinClass) = obtainMoveWithoutRepetition()
         updateOccupancyStatus(takenClass: faceClass, takenFace: faceWithinClass)
-        let moveBase = faceTurnNotations[faceClass][faceWithinClass.rawValue]
-        if withOrientationMangle {
-            return moveBase + "w"
-        } else {
-            return moveBase
-        }
+        return faceTurnNotations[faceClass][faceWithinClass.rawValue]
     }
     
     private static func updateOccupancyStatus(takenClass: Int,
@@ -99,6 +97,26 @@ class Scrambler {
             status: occupancyStatusSoFar[faceClass], input: faceWithinClass)
         
         return (faceClass, faceWithinClass)
+    }
+    
+    private static func obtainManglingMovesWithoutDirections(ofSize size: Int) -> [String] {
+        if size == 0 {
+            return []
+        }
+        
+        var resultInt = [randomIntInRange(start: 0, end: size)]
+        while resultInt.count < size {
+            let randomMove = randomIntInRange(start: 0, end: size)
+            if randomMove != resultInt.last! {
+                resultInt.append(randomMove)
+            }
+        }
+        
+        var result = [String]()
+        for i in resultInt {
+            result.append(faceTurnNotations[resultInt[i]][0] + "w")
+        }
+        return result
     }
     
     private static func willResultInRepetition(

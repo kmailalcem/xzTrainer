@@ -273,13 +273,4 @@ class xzTrainerTests: XCTestCase {
         XCTAssert(inverse(of: .LPrime) == .L)
         XCTAssert(inverse(of: .B2) == .B2)
     }
-    
-    func testSolve() {
-        let scramble = Scrambler.getRandomScrambleWithLength(from: 5, to: 5, withOrientationMangle: false)
-        let cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
-        print("Scramble: \(scramble)")
-        //self.measure {
-            print("Solution: \(cube.solution)")
-        //}
-    }
 }

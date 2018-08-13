@@ -53,8 +53,9 @@ class CubePermutationEncoder {
     }
     
     init(forScramble scramble: String) {
+        cube = Cube()
         cube.scrambleCube(scramble)
-        cube.rotate(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor)
+        cube.rotate(top: .WHITE, front: .GREEN)
     }
     
     var edgeMemo: String {

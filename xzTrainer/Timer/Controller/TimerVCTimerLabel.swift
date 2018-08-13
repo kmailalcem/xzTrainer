@@ -28,8 +28,16 @@ extension TimerVC: TimerLabelDelegate {
     }
     
     func showMemo() {
+        let scrambleFilter: String
+        if isCasual || UserSetting.shared.encoder.scrambleInWCAOrientation {
+            let helperCube = Cube(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor, scramble: "")
+            scrambleFilter = toString(helperCube.rotate(top: .WHITE, front: .GREEN))
+        } else {
+            scrambleFilter = ""
+        }
+        
         let memorizer = CubePermutationEncoder(
-            forScramble: scrambleTextField.text!)
+            forScramble: scrambleFilter + scrambleTextField.text!)
         
         edgeMemoLabel.text = memorizer.formattedEdgeMemo
         cornerMemoLabel.text = memorizer.formattedCornerMemo

@@ -216,30 +216,40 @@ public class Cube : Equatable {
         }
     }
     
-    public func rotate (top: CubeColor, front: CubeColor) {
+    public func rotate (top: CubeColor, front: CubeColor) -> [Rotation] {
+        var result = [Rotation]()
         if top == currentOrientation.front {
             rotate(.x)
+            result.append(.x)
         } else if top == oppositeColor(currentOrientation.front) {
             rotate(.xPrime)
+            result.append(.xPrime)
         } else if top == oppositeColor(currentOrientation.top) {
             rotate(.x2)
+            result.append(.x2)
         } else if top ==
             rightSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.zPrime)
+            result.append(.zPrime)
         } else if top ==
             leftSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.z)
+            result.append(.z)
         }
         
         if front == oppositeColor(currentOrientation.front) {
             rotate(.y2)
+            result.append(.y2)
         } else if front ==
             rightSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.y)
+            result.append(.y)
         } else if
             front == leftSideColor(top: currentOrientation.top, front: currentOrientation.front) {
             rotate(.yPrime)
+            result.append(.yPrime)
         }
+        return result
     }
     
     // check if under the same orientation the cubes are the same
@@ -255,43 +265,6 @@ public class Cube : Equatable {
     
     public func at(_ pos: EdgePosition) -> EdgeSticker {
         return permutation.at(pos)
-    }
-    
-    private var solutionSoFar: [Turn] = []
-    public var solution: String {
-        solveHelper()
-        var solution = ""
-        for turn in solutionSoFar {
-            solution += turn.rawValue + " "
-        }
-        return solution
-    }
-    
-    // returns true if the cube is solved
-    private func solveHelper() -> Bool {
-        if solved() {
-            return true
-        }
-        for turn in Turn.regularTurns {
-            if solutionSoFar.isEmpty || solutionSoFar.last! != turn {
-                if !promising() {
-                    return false
-                }
-                
-                solutionSoFar.append(turn)
-                self.turn(turn)
-                if solveHelper() {
-                    return true
-                }
-                solutionSoFar.remove(at: solutionSoFar.count - 1)
-                self.turn(inverse(of: turn))
-            }
-        }
-        return false
-    }
-    
-    private func promising() -> Bool {
-        return solutionSoFar.count < 5
     }
     
     private func rotateXPrime() {

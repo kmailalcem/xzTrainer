@@ -14,7 +14,7 @@ let cornerSchemeKey = "Corner Scheme"
 class LetterScheme {
     static let speffzCornerString = "D I F A E R B Q N C M J U G L X S H W O T V K P"
     static let speffzEdgeString = "C I D E A Q B M U K X G W S V O J P L F R H T N"
-    static let traditionalCornerString = "A B C D E F G H I J K L W M N O P Q R S T X Y U"
+    static let traditionalCornerString = "A B C D E F G H I J K L W M N O P Q R S T X Y Z"
     static let traditionalEdgeString = "A B C D E F G H I J K L M N O P Q R S T W X Y Z"
     
     var edgeScheme: Dictionary<EdgeSticker, String> {
