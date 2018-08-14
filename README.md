@@ -8,10 +8,7 @@ such as Old Pochmann for corners and M2 for edges.
 <img src="https://github.com/kmailalcem/xzTrainer/blob/master/screenshots/welcome.png" height=500>
 
 ## Installation
-This app is currently under beta testing. 
-If you wish to participate, shoot me an email [here](mailto:xuzhizh@umich.edu).
-In a week or so from today (Aug 7, 2018), xzTrainer will be submitted to the app store.
-You would be able to download it directly from the app store.
+[<img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png" width=200>](https://itunes.apple.com/us/app/xztrainer/id1421716263?ls=1&mt=8)
 
 ## Set up
 The default setups for the cube and the memo are 
