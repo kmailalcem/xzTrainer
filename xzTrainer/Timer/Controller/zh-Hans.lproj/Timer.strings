@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "Default"; ObjectID = "0bM-RX-6Px"; */
+"0bM-RX-6Px.text" = "Default";
+
+/* Class = "UILabel"; text = "22.23"; ObjectID = "0nz-h6-Mli"; */
+"0nz-h6-Mli.text" = "22.23";
+
+/* Class = "UILabel"; text = "AB CD EF GH IJ (R' T' S' K G)"; ObjectID = "2KZ-dK-n2S"; */
+"2KZ-dK-n2S.text" = "AB CD EF GH IJ (R' T' S' K G)";
+
+/* Class = "UILabel"; text = "Execution Trainer"; ObjectID = "3U3-Yd-RSv"; */
+"3U3-Yd-RSv.text" = "手法训练";
+
+/* Class = "UILabel"; text = "mo3:"; ObjectID = "4Pl-OT-OaA"; */
+"4Pl-OT-OaA.text" = "mo3:";
+
+/* Class = "UILabel"; text = "AB CD EF GH IJ KL MN PQ (R T S K)"; ObjectID = "5OD-km-a7N"; */
+"5OD-km-a7N.text" = "AB CD EF GH IJ KL MN PQ (R T S K)";
+
+/* Class = "UILabel"; text = "mo3"; ObjectID = "65I-Wd-JGa"; */
+"65I-Wd-JGa.text" = "mo3";
+
+/* Class = "UITextField"; text = "default"; ObjectID = "8YJ-oV-u7p"; */
+"8YJ-oV-u7p.text" = "default";
+
+/* Class = "UILabel"; text = "ao5: 22.355"; ObjectID = "8ux-o3-ao2"; */
+"8ux-o3-ao2.text" = "ao5: 22.355";
+
+/* Class = "UILabel"; text = "22.987"; ObjectID = "Am2-OG-mz3"; */
+"Am2-OG-mz3.text" = "22.987";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "D5X-7C-lpw"; */
+"D5X-7C-lpw.text" = "1";
+
+/* Class = "UILabel"; text = "22.23"; ObjectID = "ECx-3x-jLF"; */
+"ECx-3x-jLF.text" = "22.23";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "ENm-6r-hhw"; */
+"ENm-6r-hhw.text" = "???";
+
+/* Class = "UILabel"; text = "ao12: 27.983"; ObjectID = "Erm-yY-s00"; */
+"Erm-yY-s00.text" = "ao12: 27.983";
+
+/* Class = "UILabel"; text = "Timer"; ObjectID = "I7E-lC-plr"; */
+"I7E-lC-plr.text" = "计时器";
+
+/* Class = "UILabel"; text = "22.23"; ObjectID = "JaS-Hz-kon"; */
+"JaS-Hz-kon.text" = "22.23";
+
+/* Class = "UILabel"; text = "(2017-8-28)"; ObjectID = "Jm4-dD-hkR"; */
+"Jm4-dD-hkR.text" = "(2017-8-28)";
+
+/* Class = "UILabel"; text = "22.23"; ObjectID = "L24-ob-yE5"; */
+"L24-ob-yE5.text" = "22.23";
+
+/* Class = "UIButton"; normalTitle = "DNF"; ObjectID = "Pk0-jG-GfJ"; */
+"Pk0-jG-GfJ.normalTitle" = "DNF";
+
+/* Class = "UILabel"; text = "23.33"; ObjectID = "VqI-2J-zwO"; */
+"VqI-2J-zwO.text" = "23.33";
+
+/* Class = "UILabel"; text = "???"; ObjectID = "Xu8-wX-Rd8"; */
+"Xu8-wX-Rd8.text" = "???";
+
+/* Class = "UILabel"; text = "ao12:"; ObjectID = "YJF-9N-ioi"; */
+"YJF-9N-ioi.text" = "ao12:";
+
+/* Class = "UILabel"; text = "22.23"; ObjectID = "Z99-wB-Ndi"; */
+"Z99-wB-Ndi.text" = "22.23";
+
+/* Class = "UILabel"; text = "best: "; ObjectID = "ZHE-k9-Yxx"; */
+"ZHE-k9-Yxx.text" = "best: ";
+
+/* Class = "UILabel"; text = "24.015"; ObjectID = "ZMD-mT-CXq"; */
+"ZMD-mT-CXq.text" = "24.015";
+
+/* Class = "UILabel"; text = "ao5"; ObjectID = "aIO-ST-zw5"; */
+"aIO-ST-zw5.text" = "ao5";
+
+/* Class = "UILabel"; text = "ao5:"; ObjectID = "bl4-f0-kXH"; */
+"bl4-f0-kXH.text" = "ao5:";
+
+/* Class = "UIButton"; normalTitle = "+2"; ObjectID = "dt2-Va-uE9"; */
+"dt2-Va-uE9.normalTitle" = "+2";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "e7S-Qx-34S"; */
+"e7S-Qx-34S.normalTitle" = "返回";
+
+/* Class = "UILabel"; text = "21.738"; ObjectID = "eZh-tb-zXh"; */
+"eZh-tb-zXh.text" = "21.738";
+
+/* Class = "UILabel"; text = "23.333"; ObjectID = "gWr-FK-F1r"; */
+"gWr-FK-F1r.text" = "23.333";
+
+/* Class = "UILabel"; text = "25.337"; ObjectID = "gpB-bX-3PU"; */
+"gpB-bX-3PU.text" = "25.337";
+
+/* Class = "UIButton"; normalTitle = "Show Detail"; ObjectID = "hYY-VL-hBu"; */
+"hYY-VL-hBu.normalTitle" = "详细";
+
+/* Class = "UILabel"; text = "ao100:"; ObjectID = "jZH-YC-oaT"; */
+"jZH-YC-oaT.text" = "ao100:";
+
+/* Class = "UILabel"; text = "R U R' U'"; ObjectID = "kDC-af-MVj"; */
+"kDC-af-MVj.text" = "R U R' U'";
+
+/* Class = "UILabel"; text = "R U R' U'"; ObjectID = "oGM-Ug-vCO"; */
+"oGM-Ug-vCO.text" = "R U R' U'";
+
+/* Class = "UILabel"; text = "22.23"; ObjectID = "ofh-2b-V26"; */
+"ofh-2b-V26.text" = "22.23";
+
+/* Class = "UILabel"; text = "Session"; ObjectID = "qab-Uv-Uxc"; */
+"qab-Uv-Uxc.text" = "分组";
+
+/* Class = "UILabel"; text = "R U R' U' R U R U R F L B D2 F2 L2 R2 Rw2 x2 y' F2"; ObjectID = "uLc-ZQ-UbN"; */
+"uLc-ZQ-UbN.text" = "R U R' U' R U R U R F L B D2 F2 L2 R2 Rw2 x2 y' F2";
+
+/* Class = "UILabel"; text = "ao1000:"; ObjectID = "xUT-ED-cUp"; */
+"xUT-ED-cUp.text" = "ao1000:";
+
+/* Class = "UILabel"; text = "ao12"; ObjectID = "xY0-ye-eP9"; */
+"xY0-ye-eP9.text" = "ao12";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "xez-Ir-VGH"; */
+"xez-Ir-VGH.normalTitle" = "OK";

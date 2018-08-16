@@ -1,0 +1,84 @@
+
+/* Class = "UILabel"; text = "Custom"; ObjectID = "0sb-AJ-5Ew"; */
+"0sb-AJ-5Ew.text" = "自定义";
+
+/* Class = "UILabel"; text = "Memo Generation Settings"; ObjectID = "1MF-L5-iUO"; */
+"1MF-L5-iUO.text" = "小循环风格设定";
+
+/* Class = "UILabel"; text = "Scramble in WCA Orientation"; ObjectID = "26g-1e-5Yd"; */
+"26g-1e-5Yd.text" = "使用WCA坐标系打乱";
+
+/* Class = "UILabel"; text = "A, B, C, D, E"; ObjectID = "2Om-i5-azk"; */
+"2Om-i5-azk.text" = "A, B, C, D, E";
+
+/* Class = "UILabel"; text = "Enabled:"; ObjectID = "8VZ-dx-qNt"; */
+"8VZ-dx-qNt.text" = "使用中:";
+
+/* Class = "UILabel"; text = "B, C, D"; ObjectID = "DTx-y3-iH3"; */
+"DTx-y3-iH3.text" = "B, C, D";
+
+/* Class = "UILabel"; text = "Your current buffer piece does not support this method.  "; ObjectID = "Gob-it-4Zp"; */
+"Gob-it-4Zp.text" = "Your current buffer piece does not support this method.  ";
+
+/* Class = "UIButton"; normalTitle = "Order Priority Myself"; ObjectID = "LKP-4i-E5D"; */
+"LKP-4i-E5D.normalTitle" = "自定义小循环顺序";
+
+/* Class = "UITextField"; text = "UB"; ObjectID = "Oxe-FC-2zZ"; */
+"Oxe-FC-2zZ.text" = "UB";
+
+/* Class = "UILabel"; text = "and"; ObjectID = "P6h-vC-eTw"; */
+"P6h-vC-eTw.text" = "and";
+
+/* Class = "UILabel"; text = "A"; ObjectID = "QiB-n8-8PC"; */
+"QiB-n8-8PC.text" = "A";
+
+/* Class = "UITextView"; text = "Turn on everything if you want to be fast."; ObjectID = "SMT-iu-vUo"; */
+"SMT-iu-vUo.text" = "Turn on everything if you want to be fast.";
+
+/* Class = "UILabel"; text = "Show in my letter scheme"; ObjectID = "TeT-T3-6lj"; */
+"TeT-T3-6lj.text" = "显示我的编码";
+
+/* Class = "UILabel"; text = "Advanced Parity"; ObjectID = "TfW-VL-8fm"; */
+"TfW-VL-8fm.text" = "进阶奇偶";
+
+/* Class = "UILabel"; text = "Affected Pieces"; ObjectID = "W6E-qe-rMY"; */
+"W6E-qe-rMY.text" = "影响贴片";
+
+/* Class = "UILabel"; text = "Use short setup"; ObjectID = "aRC-2D-9ae"; */
+"aRC-2D-9ae.text" = "Use short setup";
+
+/* Class = "UILabel"; text = "Priority"; ObjectID = "b60-Mv-4mk"; */
+"b60-Mv-4mk.text" = "优先级";
+
+/* Class = "UILabel"; text = "These settings will affect how cycles are broken (probably without you even noticing)."; ObjectID = "biH-pk-JAr"; */
+"biH-pk-JAr.text" = "这些设定会影响下一个小循环的顺序。";
+
+/* Class = "UIButton"; normalTitle = "Advanced Parity"; ObjectID = "gyE-fu-9nF"; */
+"gyE-fu-9nF.normalTitle" = "Advanced Parity";
+
+/* Class = "UILabel"; text = "Pseudo-solves the edges with the pieces involving parity swapped, so that there is no need for a parity algorithm. Specify the pieces involved in your last algorithm."; ObjectID = "hLk-oC-nd3"; */
+"hLk-oC-nd3.text" = "生成的编码会使得棱块还原后指定的两棱块互换，无需奇偶公式。请在下方指定需要互换的棱块。";
+
+/* Class = "UILabel"; text = "Use short setup"; ObjectID = "qlj-lI-J1B"; */
+"qlj-lI-J1B.text" = "Use short setup";
+
+/* Class = "UILabel"; text = "Warning: Advanced Parity will not take effect unless the two stickers are different."; ObjectID = "qzo-S4-x2X"; */
+"qzo-S4-x2X.text" = "Warning: Advanced Parity will not take effect unless the two stickers are different.";
+
+/* Class = "UIButton"; normalTitle = "Set"; ObjectID = "x56-y5-eaU"; */
+"x56-y5-eaU.normalTitle" = "Set";
+
+/* Class = "UITextField"; text = "UL"; ObjectID = "x7d-6L-jAK"; */
+"x7d-6L-jAK.text" = "UL";
+
+/* Class = "UILabel"; text = "Parity Pieces:"; ObjectID = "x7t-oZ-PDu"; */
+"x7t-oZ-PDu.text" = "Parity Pieces:";
+
+/* Class = "UILabel"; text = "First letter"; ObjectID = "xKT-XB-CFw"; */
+"xKT-XB-CFw.text" = "First letter";
+
+/* Class = "UILabel"; text = "General"; ObjectID = "xeB-MV-IRl"; */
+"xeB-MV-IRl.text" = "General";
+
+/* Class = "UILabel"; text = "Make sure you know what they do before you turn them on!"; ObjectID = "zoJ-Wv-EBZ"; */
+"zoJ-Wv-EBZ.text" = "由于日常使用中不容易察觉，建议详细了解对应风格后再使用。";

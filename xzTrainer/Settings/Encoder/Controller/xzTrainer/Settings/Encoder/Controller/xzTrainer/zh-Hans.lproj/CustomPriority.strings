@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "Custom Priority"; ObjectID = "0Kn-nq-Q75"; */
+"0Kn-nq-Q75.text" = "自定义小循环顺序";
+
+/* Class = "UIButton"; normalTitle = "Down"; ObjectID = "7tN-QC-Eep"; */
+"7tN-QC-Eep.normalTitle" = "Down";
+
+/* Class = "UILabel"; text = "B, C, D"; ObjectID = "99x-Az-cCq"; */
+"99x-Az-cCq.text" = "B, C, D";
+
+/* Class = "UIButton"; normalTitle = "Top"; ObjectID = "GMh-E3-0b4"; */
+"GMh-E3-0b4.normalTitle" = "Top";
+
+/* Class = "UIButton"; normalTitle = "Up"; ObjectID = "Ohq-w6-4zP"; */
+"Ohq-w6-4zP.normalTitle" = "Up";
+
+/* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "PCV-bD-Ipw"; */
+"PCV-bD-Ipw.normalTitle" = "Reset";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Zh9-QH-4aq"; */
+"Zh9-QH-4aq.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "A"; ObjectID = "c5c-I7-9B5"; */
+"c5c-I7-9B5.text" = "A";
+
+/* Class = "UILabel"; text = "Apply"; ObjectID = "jJ9-KT-Ppq"; */
+"jJ9-KT-Ppq.text" = "Apply";
+
+/* Class = "UILabel"; text = "Setting custom priorities will disable any method-dependent options. You will also not be able to switch your buffer pieces until you deselect this option."; ObjectID = "l4C-zl-0h6"; */
+"l4C-zl-0h6.text" = "自定义小循环顺序将会锁定小循环风格设定和缓冲块。";
+
+/* Class = "UILabel"; text = "Edge A"; ObjectID = "lMH-2r-ujR"; */
+"lMH-2r-ujR.text" = "Edge A";
+
+/* Class = "UILabel"; text = "B"; ObjectID = "qHc-5I-Lgz"; */
+"qHc-5I-Lgz.text" = "B";

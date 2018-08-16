@@ -97,6 +97,12 @@
 /* Begin PBXFileReference section */
 		95004C2920E771A300380DBB /* ModeSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectionVC.swift; sourceTree = "<group>"; };
 		95004C2B20E7739800380DBB /* ModeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectionCell.swift; sourceTree = "<group>"; };
+		95034E6F21251A730096E40B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		95034E7021251A740096E40B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "xzTrainer/Launch Scenes/ModeSelection/xzTrainer/View/Storyboards/zh-Hans.lproj/Help.strings"; sourceTree = "<group>"; };
+		95034E7121251A740096E40B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "xzTrainer/View/Storyboards/zh-Hans.lproj/ModeSelection.strings"; sourceTree = "<group>"; };
+		95034E7221251A740096E40B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Timer.strings"; sourceTree = "<group>"; };
+		95034E7321251A740096E40B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "xzTrainer/Settings/Encoder/Controller/xzTrainer/zh-Hans.lproj/CustomPriority.strings"; sourceTree = "<group>"; };
+		95034E7421251A740096E40B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "xzTrainer/zh-Hans.lproj/InTimerSetting.strings"; sourceTree = "<group>"; };
 		950D322320F06C6800CA165C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLetterSchemeVC.swift; sourceTree = "<group>"; };
 		950D322720F0ABAB00CA165C /* GeneralSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSetting.swift; sourceTree = "<group>"; };
@@ -693,6 +699,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				950DF6CB2111622400A329EB /* Base */,
+				95034E7321251A740096E40B /* zh-Hans */,
 			);
 			name = CustomPriority.storyboard;
 			sourceTree = "<group>";
@@ -701,6 +708,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9539A77D20E5F0E800A3CE20 /* Base */,
+				95034E7421251A740096E40B /* zh-Hans */,
 			);
 			name = InTimerSetting.storyboard;
 			sourceTree = "<group>";
@@ -709,6 +717,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				953F41F7211BD0C800EBC194 /* Base */,
+				95034E7021251A740096E40B /* zh-Hans */,
 			);
 			name = Help.storyboard;
 			sourceTree = "<group>";
@@ -717,6 +726,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				95D52C5E20865912004DE650 /* Base */,
+				95034E7221251A740096E40B /* zh-Hans */,
 			);
 			name = Timer.storyboard;
 			sourceTree = "<group>";
@@ -725,6 +735,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				95D52C6320865913004DE650 /* Base */,
+				95034E6F21251A730096E40B /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -733,6 +744,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				95DB65E920EF0E900095A778 /* Base */,
+				95034E7121251A740096E40B /* zh-Hans */,
 			);
 			name = ModeSelection.storyboard;
 			sourceTree = "<group>";
@@ -784,6 +796,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -844,6 +857,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

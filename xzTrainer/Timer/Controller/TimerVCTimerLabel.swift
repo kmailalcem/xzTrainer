@@ -6,12 +6,13 @@
 //  Copyright © 2018 Xuzhi Zhang. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension TimerVC: TimerLabelDelegate {
     
     func timerDidStart(_ sender: TimerLabel) {
         showMemo()
+        UIApplication.shared.isIdleTimerDisabled = true;
         
         if !isCasual {
             cubeView.showAllFaces()
@@ -22,6 +23,7 @@ extension TimerVC: TimerLabelDelegate {
     }
     
     func timerDidFinish(_ sender: TimerLabel) {
+        UIApplication.shared.isIdleTimerDisabled = false;
         appendNewSolve()
         updateView()
         resultTable.reloadData()

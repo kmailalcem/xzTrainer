@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "What do you feel like doing today?"; ObjectID = "1H0-hZ-25T"; */
+"1H0-hZ-25T.text" = "What do you feel like doing today?";
+
+/* Class = "UILabel"; text = "App Version"; ObjectID = "6Jn-Io-ohf"; */
+"6Jn-Io-ohf.text" = "App Version";
+
+/* Class = "UILabel"; text = "All icons and logos have been designed in Sketch."; ObjectID = "79V-j5-Mi0"; */
+"79V-j5-Mi0.text" = "All icons and logos have been designed in Sketch.";
+
+/* Class = "UILabel"; text = "1.0"; ObjectID = "7IY-uc-Wor"; */
+"7IY-uc-Wor.text" = "1.0";
+
+/* Class = "UILabel"; text = "Copyright © 2018 Xuzhi Zhang. All Rights Reserved."; ObjectID = "9pv-0R-7Zu"; */
+"9pv-0R-7Zu.text" = "Copyright © 2018 Xuzhi Zhang. All Rights Reserved.";
+
+/* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "FKX-FQ-KAU"; */
+"FKX-FQ-KAU.normalTitle" = "Rate App";
+
+/* Class = "UILabel"; text = "Execution Training"; ObjectID = "L8w-y6-3SM"; */
+"L8w-y6-3SM.text" = "Execution Training";
+
+/* Class = "UILabel"; text = "A Passionate Cuber"; ObjectID = "ROG-qm-kdX"; */
+"ROG-qm-kdX.text" = "A Passionate Cuber";
+
+/* Class = "UITextField"; placeholder = "Enter your name here"; ObjectID = "Uhg-Ah-fAv"; */
+"Uhg-Ah-fAv.placeholder" = "Enter your name here";
+
+/* Class = "UILabel"; text = "Good morning,"; ObjectID = "ent-87-HRb"; */
+"ent-87-HRb.text" = "Good morning,";
+
+/* Class = "UILabel"; text = "A Passionate Cuber."; ObjectID = "f4X-us-FVb"; */
+"f4X-us-FVb.text" = "A Passionate Cuber.";
+
+/* Class = "UILabel"; text = "What's your name?"; ObjectID = "fmb-Z8-1ZP"; */
+"fmb-Z8-1ZP.text" = "What's your name?";
+
+/* Class = "UIButton"; normalTitle = "Help"; ObjectID = "gyZ-iz-sfv"; */
+"gyZ-iz-sfv.normalTitle" = "Help";
+
+/* Class = "UILabel"; text = "Designed and written by Xuzhi Zhang."; ObjectID = "i2N-AH-oWM"; */
+"i2N-AH-oWM.text" = "Designed and written by Xuzhi Zhang.";
+
+/* Class = "UIButton"; normalTitle = "About"; ObjectID = "j1r-jE-64J"; */
+"j1r-jE-64J.normalTitle" = "About";
+
+/* Class = "UILabel"; text = "How should we best address you?"; ObjectID = "jXU-Ic-zDb"; */
+"jXU-Ic-zDb.text" = "How should we best address you?";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "kz6-rs-QW1"; */
+"kz6-rs-QW1.normalTitle" = "Settings";
+
+/* Class = "UILabel"; text = "About xzTrainer"; ObjectID = "tBc-II-n6F"; */
+"tBc-II-n6F.text" = "About xzTrainer";

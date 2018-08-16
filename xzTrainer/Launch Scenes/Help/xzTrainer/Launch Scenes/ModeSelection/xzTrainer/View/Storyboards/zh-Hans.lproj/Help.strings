@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Help"; ObjectID = "Ydp-tt-dyj"; */
+"Ydp-tt-dyj.text" = "Help";
+
+/* Class = "UIButton"; normalTitle = "xzTrainer Wiki"; ObjectID = "ZTc-Lw-FNt"; */
+"ZTc-Lw-FNt.normalTitle" = "xzTrainer Wiki";
+
+/* Class = "UILabel"; text = "Reveal scrambles and memo. You won't have a reaction time after you reveal the memo."; ObjectID = "bgY-kJ-g4O"; */
+"bgY-kJ-g4O.text" = "Reveal scrambles and memo. You won't have a reaction time after you reveal the memo.";
+
+/* Class = "UILabel"; text = "Show"; ObjectID = "bhX-sY-fpA"; */
+"bhX-sY-fpA.text" = "Show";
+
+/* Class = "UILabel"; text = "For the most up-to-date help, FAQs and documentation, please visit our GitHub wiki page:"; ObjectID = "caJ-XD-kDc"; */
+"caJ-XD-kDc.text" = "For the most up-to-date help, FAQs and documentation, please visit our GitHub wiki page:";
+
+/* Class = "UILabel"; text = "Icons"; ObjectID = "xwV-9d-aL9"; */
+"xwV-9d-aL9.text" = "Icons";
