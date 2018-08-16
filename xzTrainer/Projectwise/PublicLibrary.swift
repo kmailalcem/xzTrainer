@@ -10,7 +10,20 @@ import UIKit
 
 let NUM_STICKERS = 24
 
-public enum CornerSticker : Int {
+protocol PieceType: RawRepresentable {
+    var faceNumber: Int { get }
+    static var allValues: [Self] { get }
+}
+
+public enum CornerSticker : Int, PieceType {
+    static var allValues: [CornerSticker] {
+        return [.UFL, .FLU, .LUF, .ULB, .LBU, .BUL, .UBR, .BRU, .RUB, .URF, .RFU, .FUR, .DLF, .LFD, .FDL, .DBL, .BLD, .LDB, .DRB, .RBD, .BDR, .DFR, .FRD, .RDF]
+    }
+    
+    var faceNumber: Int {
+        return 3
+    }
+    
     case UFL = 0, FLU, LUF  // ABC
     case ULB, LBU, BUL      // DEF
     case UBR, BRU, RUB      // GHI
@@ -21,7 +34,16 @@ public enum CornerSticker : Int {
     case DFR, FRD, RDF      // XYZ
 }
 
-public enum EdgeSticker : Int {
+public enum EdgeSticker : Int, PieceType {
+    static var allValues: [EdgeSticker] {
+        return [UF, FU, UL, LU, UB, BU, UR, RU, DF, FD, DL, LD, DB, BD, DR, RD, FR, RF, FL, LF, BL, LB, BR, RB]
+    }
+    
+    
+    var faceNumber: Int {
+        return 2
+    }
+    
     case UF = 0, FU = 1     // AB
     case UL = 2, LU = 3     // CD
     case UB = 4, BU = 5     // EF

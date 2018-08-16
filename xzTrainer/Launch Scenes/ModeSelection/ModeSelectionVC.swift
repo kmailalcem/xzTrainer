@@ -95,7 +95,7 @@ class ModeSelectionVC:
             greetingLabel.text = LocalizationGeneral.eveningGreeting.localized + ","
         }
         
-        nameLabel.text = UserSetting.shared.general.name + "."
+        nameLabel.text = UserSetting.shared.general.name + ".".localized()
         smallNameLabel.text = UserSetting.shared.general.name
         layingConstraints()
         dismissProfile()

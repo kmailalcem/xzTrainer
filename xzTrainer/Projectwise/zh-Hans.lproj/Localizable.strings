@@ -6,6 +6,8 @@
   Copyright © 2018 Xuzhi Zhang. All rights reserved.
 */
 
+"." = "。";
+
 "timer didn't start message 1" = "编码将在计时开始后显示。";
 
 "timer didn't start message 2" = "您将有0.5秒反应时间。";
@@ -16,7 +18,7 @@
 
 "evening greeting" = "晚上好";
 
-"default user name" = "热心魔友";
+"default user name" = "热情魔友";
 
 "first in letter pair" = "首位";
 

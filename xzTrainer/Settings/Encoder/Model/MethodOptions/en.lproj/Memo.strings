@@ -1,0 +1,36 @@
+/* 
+  Memo.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 8/16/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+
+"m2 edges" = ""
+"old pochmann corners" = ""
+"advanced m2" = ""
+
+"prefer trivial title" = "";
+"prefer trivial description" = "";
+
+"avoid misoriented edge title" = ""
+"avoid misoriented edge description" = ""
+
+"prefer corner with short setup title" = ""
+"prefer corner with short setup description" = ""
+
+"use UFL title" = ""
+"use UFL description" = ""
+
+"prefer same outer layer commutator title" = ""
+"prefer same outer layer commutator description" = ""
+
+"prefer same inner layer commutator title" = ""
+"prefer same inner layer commutator description" = ""
+
+"prefer cross layer commutator title" = ""
+"prefer cross layer commutator description" = ""
+
+"prefer 1 move setup title" = ""
+"prefer 1 move setup description" = ""
+

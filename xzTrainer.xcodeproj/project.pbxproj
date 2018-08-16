@@ -39,6 +39,8 @@
 		955E0E052125428700B2B1E3 /* LocalizationGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E042125428700B2B1E3 /* LocalizationGeneral.swift */; };
 		955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E06212545FE00B2B1E3 /* LocalizableMode.swift */; };
 		955E0E0A2125464A00B2B1E3 /* Mode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E0C2125464A00B2B1E3 /* Mode.strings */; };
+		955E0E10212578F100B2B1E3 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E12212578F100B2B1E3 /* Memo.strings */; };
+		955E0E1821257CDA00B2B1E3 /* LocalizationMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E1721257CDA00B2B1E3 /* LocalizationMemo.swift */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
 		9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457120D9B6D30086202E /* TimerVCPopUp.swift */; };
@@ -136,11 +138,14 @@
 		955E0DFB2125394C00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
 		955E0DFE21253E8C00B2B1E3 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
 		955E0E01212541AA00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		955E0E03212541AF00B2B1E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		955E0E042125428700B2B1E3 /* LocalizationGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationGeneral.swift; sourceTree = "<group>"; };
 		955E0E06212545FE00B2B1E3 /* LocalizableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableMode.swift; sourceTree = "<group>"; };
 		955E0E0B2125464A00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Mode.strings"; sourceTree = "<group>"; };
-		955E0E0D2125464C00B2B1E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Mode.strings; sourceTree = "<group>"; };
+		955E0E11212578F100B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Memo.strings"; sourceTree = "<group>"; };
+		955E0E142125797100B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		955E0E152125798800B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Mode.strings; sourceTree = "<group>"; };
+		955E0E16212579B800B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Memo.strings; sourceTree = "<group>"; };
+		955E0E1721257CDA00B2B1E3 /* LocalizationMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationMemo.swift; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
 		9572457120D9B6D30086202E /* TimerVCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCPopUp.swift; sourceTree = "<group>"; };
@@ -219,6 +224,8 @@
 				950DF6D22111AC9F00A329EB /* MemoPreference.swift */,
 				950DF6D02111ABFA00A329EB /* MethodOptions.swift */,
 				950DF6D42111ACEB00A329EB /* AdvancedParity.swift */,
+				955E0E12212578F100B2B1E3 /* Memo.strings */,
+				955E0E1721257CDA00B2B1E3 /* LocalizationMemo.swift */,
 			);
 			path = MethodOptions;
 			sourceTree = "<group>";
@@ -615,6 +622,7 @@
 				955E0E00212541AA00B2B1E3 /* Localizable.strings in Resources */,
 				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
+				955E0E10212578F100B2B1E3 /* Memo.strings in Resources */,
 				955E0DF72125394800B2B1E3 /* Settings.storyboard in Resources */,
 				955E0E0A2125464A00B2B1E3 /* Mode.strings in Resources */,
 				953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */,
@@ -652,6 +660,7 @@
 				95F886B02112FF5C004D4C2C /* NameVC.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
 				955E0E052125428700B2B1E3 /* LocalizationGeneral.swift in Sources */,
+				955E0E1821257CDA00B2B1E3 /* LocalizationMemo.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
 				950DF6C92111620800A329EB /* ShowPriorityVC.swift in Sources */,
 				958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */,
@@ -759,7 +768,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				955E0E01212541AA00B2B1E3 /* zh-Hans */,
-				955E0E03212541AF00B2B1E3 /* en */,
+				955E0E142125797100B2B1E3 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -768,9 +777,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				955E0E0B2125464A00B2B1E3 /* zh-Hans */,
-				955E0E0D2125464C00B2B1E3 /* en */,
+				955E0E152125798800B2B1E3 /* Base */,
 			);
 			name = Mode.strings;
+			sourceTree = "<group>";
+		};
+		955E0E12212578F100B2B1E3 /* Memo.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				955E0E11212578F100B2B1E3 /* zh-Hans */,
+				955E0E16212579B800B2B1E3 /* Base */,
+			);
+			name = Memo.strings;
 			sourceTree = "<group>";
 		};
 		95D52C5D20865912004DE650 /* Timer.storyboard */ = {

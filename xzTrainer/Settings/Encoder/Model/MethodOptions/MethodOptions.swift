@@ -40,7 +40,7 @@ class PreferTrivial: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Prefer easy edge stickers (\(edge(.UB)), \(edge(.UF)), \(edge(.DB)))"
+    static var description: String = LocalizableMemo.preferTrivialTitle.localized + " (\(edge(.UB)), \(edge(.UF)), \(edge(.DB)))"
     
     static var explanation: String = "\(edge(.UB)) can be solved in only 1 move. \(edge(.UF)), \(edge(.DB)) can be solved in 4 moves by U2 M' U2 M' or M U2 M U2. Turn on this switch so that these pieces are chosen as cycle break over others."
     
@@ -63,7 +63,7 @@ class AvoidMisorientedEdge : MemoPreference {
     
     var isPreferringMethod: Bool = false
     
-    static var description: String = "Avoid Misoriented Edges"
+    static var description: String = LocalizableMemo.avoidMisorientedEdgesTitle.localized
     
     static var explanation: String = "Misoriented edges are more difficult to solve, due to ugly algorithms or cube rotation. Turn on this switch so that these pieces will be chosen as cycle break after others."
     
@@ -79,7 +79,7 @@ class PreferCornerWithShortSetUp: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Prefer corner with short setup"
+    static var description: String = LocalizableMemo.preferCornerWithShortSetUpTitle.localized
     
     static var explanation: String = "Turn on this switch break cycles at corner pieces with one move setup."
     
@@ -95,7 +95,7 @@ class UseUFL: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Use \(corner(.UFL)) as a target"
+    static var description: String = LocalizableMemo.useUFLTitle.localized
     
     static var explanation: String = "\(corner(.UFL)) target can be solved in shorter moves than \(corner(.RDF)) by U2 [J-Perm] U. Turn on this switch so that one move setups to \(corner(.UFL)) is considered equivalently to that of \(corner(.RDF))."
     
@@ -111,7 +111,7 @@ class PreferSameOuterLayerCommutator: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Prefer same layer outer commutator groups"
+    static var description: String = LocalizableMemo.preferSameOuterLayerCommutatorTitle.localized
     
     static var explanation: String = "\(edge(.DF)) can be easily inserted to \(edge(.UR)) by U' M2 U, hence pieces interchangeable with \(edge(.UR)) pairs with \(edge(.UR)) to form easy 8 movers. Pieces that are on the right outer layer that are not \(edge(.UR)) can be set up to \(edge(.UR)) to form 9 movers."
     
@@ -134,7 +134,7 @@ class PreferSameInnerLayerCommutator: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Prefer same inner layer commutator"
+    static var description: String = LocalizableMemo.preferSameInnerLayerCommutatorTitle.localized
     
     static var explanation: String = "\(edge(.DF)) can be easily inserted to \(edge(.RU)) by U M' U', hence pieces interchangeable with \(edge(.RU)) pairs with \(edge(.RU)) to form easy 8 movers. Pieces that are on the right inner layer that are not \(edge(.RU)) can be set up to \(edge(.RU)) to form 9 movers."
     
@@ -158,7 +158,7 @@ class PreferCrossLayerCommutator: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Prefer cross layer outer commutator groups"
+    static var description: String = LocalizableMemo.preferCrossOuterLayerCommutatorTitle.localized
     
     static var explanation: String = "\(edge(.UL)) to \(edge(.UR)) can be solved in 5 moves, U M' U2 M U. Hence pieces from the left outer layer to the right can be solved in at most 9 moves, by setting up to \(edge(.UL)) and \(edge(.UR)), respectively."
     
@@ -182,7 +182,7 @@ class Prefer1MoveSetUp: MemoPreference {
     
     var isPreferringMethod: Bool = true
     
-    static var description: String = "Prefer easy setup (no more than 1 move)"
+    static var description: String = LocalizableMemo.prefer1MoveSetupTitle.localized
     
     static var explanation: String = "Pieces such as \(edge(.DB)), \(edge(.UL)), \(edge(.RB)) can be set up to \(edge(.UB)) in one move, hence perfect target for setting up to 8 move commutator."
     

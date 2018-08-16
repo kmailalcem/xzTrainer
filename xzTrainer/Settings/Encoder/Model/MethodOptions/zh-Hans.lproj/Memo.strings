@@ -1,0 +1,36 @@
+/* 
+  Memo.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 8/16/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+
+"m2 edges" = "M2棱块";
+"old pochmann corners" = "Old Pochmann角块";
+"advanced m2" = "进阶M2";
+
+"prefer trivial title" = "优先考虑方便set up的棱块";
+"prefer trivial description" = "";
+
+"avoid misoriented edge title" = "避免朝向错误的棱块";
+"avoid misoriented edge description" = "";
+
+"prefer corner with short setup title" = "优先考虑方便set up的角块";
+"prefer corner with short setup description" = "";
+
+"use UFL title" = "允许set up到UFL";
+"use UFL description" = "";
+
+"prefer same outer layer commutator title" = "使用外层同层转换机组";
+"prefer same outer layer commutator description" = "";
+
+"prefer same inner layer commutator title" = "使用内层同层转换机组";
+"prefer same inner layer commutator description" = "";
+
+"prefer cross layer commutator title" = "使用外层跨层转换机组";
+"prefer cross layer commutator description" = "";
+
+"prefer 1 move setup title" = "优先考虑方便set up的棱块";
+"prefer 1 move setup description" = "";
+

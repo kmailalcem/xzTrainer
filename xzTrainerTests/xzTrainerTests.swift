@@ -273,4 +273,11 @@ class xzTrainerTests: XCTestCase {
         XCTAssert(inverse(of: .LPrime) == .L)
         XCTAssert(inverse(of: .B2) == .B2)
     }
+    
+    func testAllValues() {
+        for i in 0 ..< NUM_STICKERS {
+            XCTAssert(EdgeSticker.allValues[i].rawValue == i)
+            XCTAssert(CornerSticker.allValues[i].rawValue == i)
+        }
+    }
 }

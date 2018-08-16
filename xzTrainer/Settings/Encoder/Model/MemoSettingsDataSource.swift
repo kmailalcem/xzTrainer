@@ -25,21 +25,21 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
     
     
     var methods = [
-        MemoMethod(name: "M2 Edges",
+        MemoMethod(name: LocalizableMemo.m2Edges.localized,
                    requiredEdgeBuffer: .DF,
                    requiredCornerBuffer: nil,
                    options: [
                     PreferTrivial(),
                     AvoidMisorientedEdge()
             ]),
-        MemoMethod(name: "Old Pochman corners",
+        MemoMethod(name: LocalizableMemo.opCorners.localized,
                    requiredEdgeBuffer: nil,
                    requiredCornerBuffer: .ULB,
                    options: [
                     PreferCornerWithShortSetUp(),
                     UseUFL()
             ]),
-        MemoMethod(name: "Advanced M2",
+        MemoMethod(name: LocalizableMemo.advancedM2.localized,
                    requiredEdgeBuffer: .DF,
                    requiredCornerBuffer: nil,
                    options: [
