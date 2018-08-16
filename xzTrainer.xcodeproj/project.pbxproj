@@ -33,6 +33,12 @@
 		953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953F41F6211BD0C800EBC194 /* Help.storyboard */; };
 		953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F41FA211BD44F00EBC194 /* HelpCell.swift */; };
 		953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F41FC211BD5E400EBC194 /* HelpedIcon.swift */; };
+		955E0DF72125394800B2B1E3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955E0DF92125394800B2B1E3 /* Settings.storyboard */; };
+		955E0DFF21253E8C00B2B1E3 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0DFE21253E8C00B2B1E3 /* LocalizationHelper.swift */; };
+		955E0E00212541AA00B2B1E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E02212541AA00B2B1E3 /* Localizable.strings */; };
+		955E0E052125428700B2B1E3 /* LocalizationGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E042125428700B2B1E3 /* LocalizationGeneral.swift */; };
+		955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E06212545FE00B2B1E3 /* LocalizableMode.swift */; };
+		955E0E0A2125464A00B2B1E3 /* Mode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E0C2125464A00B2B1E3 /* Mode.strings */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
 		9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457120D9B6D30086202E /* TimerVCPopUp.swift */; };
@@ -62,7 +68,6 @@
 		95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */; };
 		95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4C220B35286003D8D28 /* Scrambler.swift */; };
 		95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */; };
-		95CB543C20F30E800025FB6E /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CB543B20F30E800025FB6E /* Settings.storyboard */; };
 		95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */; };
 		95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */; };
 		95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5920865912004DE650 /* AppDelegate.swift */; };
@@ -127,6 +132,15 @@
 		953F41F7211BD0C800EBC194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "xzTrainer/Launch Scenes/ModeSelection/xzTrainer/View/Storyboards/Base.lproj/Help.storyboard"; sourceTree = "<group>"; };
 		953F41FA211BD44F00EBC194 /* HelpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCell.swift; sourceTree = "<group>"; };
 		953F41FC211BD5E400EBC194 /* HelpedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpedIcon.swift; sourceTree = "<group>"; };
+		955E0DF82125394800B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		955E0DFB2125394C00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
+		955E0DFE21253E8C00B2B1E3 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
+		955E0E01212541AA00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		955E0E03212541AF00B2B1E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		955E0E042125428700B2B1E3 /* LocalizationGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationGeneral.swift; sourceTree = "<group>"; };
+		955E0E06212545FE00B2B1E3 /* LocalizableMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableMode.swift; sourceTree = "<group>"; };
+		955E0E0B2125464A00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Mode.strings"; sourceTree = "<group>"; };
+		955E0E0D2125464C00B2B1E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Mode.strings; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
 		9572457120D9B6D30086202E /* TimerVCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCPopUp.swift; sourceTree = "<group>"; };
@@ -158,7 +172,6 @@
 		95C6A4C020B32973003D8D28 /* xzTrainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = xzTrainer.xcdatamodel; sourceTree = "<group>"; };
 		95C6A4C220B35286003D8D28 /* Scrambler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrambler.swift; sourceTree = "<group>"; };
 		95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCPicker.swift; sourceTree = "<group>"; };
-		95CB543B20F30E800025FB6E /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpecificLetterVC.swift; sourceTree = "<group>"; };
 		95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSetterTextField.swift; sourceTree = "<group>"; };
 		95D52C5620865912004DE650 /* xzTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xzTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +228,8 @@
 			children = (
 				95DB65E820EF0E900095A778 /* ModeSelection.storyboard */,
 				95004C2920E771A300380DBB /* ModeSelectionVC.swift */,
+				955E0E06212545FE00B2B1E3 /* LocalizableMode.swift */,
+				955E0E0C2125464A00B2B1E3 /* Mode.strings */,
 			);
 			path = ModeSelection;
 			sourceTree = "<group>";
@@ -317,7 +332,7 @@
 		9588BA47210FFED300CE94C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				95CB543B20F30E800025FB6E /* Settings.storyboard */,
+				955E0DF92125394800B2B1E3 /* Settings.storyboard */,
 				950D322320F06C6800CA165C /* SettingsVC.swift */,
 				95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */,
 				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
@@ -413,6 +428,9 @@
 		9588BA542110018800CE94C0 /* Projectwise */ = {
 			isa = PBXGroup;
 			children = (
+				955E0E02212541AA00B2B1E3 /* Localizable.strings */,
+				955E0DFE21253E8C00B2B1E3 /* LocalizationHelper.swift */,
+				955E0E042125428700B2B1E3 /* LocalizationGeneral.swift */,
 				9583EC53209E3F2C004A4D3E /* PublicLibrary.swift */,
 				9575ED5620D90D7A00D9CF81 /* Data.swift */,
 				9587E19C20DB27B200CFF85D /* TableViewClasses.swift */,
@@ -565,6 +583,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 95D52C4D20865912004DE650;
 			productRefGroup = 95D52C5720865912004DE650 /* Products */;
@@ -593,9 +612,11 @@
 				95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */,
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
 				9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */,
+				955E0E00212541AA00B2B1E3 /* Localizable.strings in Resources */,
 				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
-				95CB543C20F30E800025FB6E /* Settings.storyboard in Resources */,
+				955E0DF72125394800B2B1E3 /* Settings.storyboard in Resources */,
+				955E0E0A2125464A00B2B1E3 /* Mode.strings in Resources */,
 				953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +651,7 @@
 				950D322420F06C6800CA165C /* SettingsVC.swift in Sources */,
 				95F886B02112FF5C004D4C2C /* NameVC.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
+				955E0E052125428700B2B1E3 /* LocalizationGeneral.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
 				950DF6C92111620800A329EB /* ShowPriorityVC.swift in Sources */,
 				958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */,
@@ -666,6 +688,7 @@
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
 				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,
 				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,
+				955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */,
 				95004C2C20E7739800380DBB /* ModeSelectionCell.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
 				95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */,
@@ -677,6 +700,7 @@
 				950E70FA20E9DFCB0080F879 /* FloatingActionButton.swift in Sources */,
 				956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */,
 				95F886AE2112F082004D4C2C /* PieceArrayExtentsion.swift in Sources */,
+				955E0DFF21253E8C00B2B1E3 /* LocalizationHelper.swift in Sources */,
 				95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */,
 				9583EC54209E3F2C004A4D3E /* PublicLibrary.swift in Sources */,
 				9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */,
@@ -720,6 +744,33 @@
 				95034E7021251A740096E40B /* zh-Hans */,
 			);
 			name = Help.storyboard;
+			sourceTree = "<group>";
+		};
+		955E0DF92125394800B2B1E3 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				955E0DF82125394800B2B1E3 /* Base */,
+				955E0DFB2125394C00B2B1E3 /* zh-Hans */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		955E0E02212541AA00B2B1E3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				955E0E01212541AA00B2B1E3 /* zh-Hans */,
+				955E0E03212541AF00B2B1E3 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		955E0E0C2125464A00B2B1E3 /* Mode.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				955E0E0B2125464A00B2B1E3 /* zh-Hans */,
+				955E0E0D2125464C00B2B1E3 /* en */,
+			);
+			name = Mode.strings;
 			sourceTree = "<group>";
 		};
 		95D52C5D20865912004DE650 /* Timer.storyboard */ = {

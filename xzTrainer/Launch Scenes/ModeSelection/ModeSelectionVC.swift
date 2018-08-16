@@ -37,10 +37,11 @@ class ModeSelectionVC:
     private var profileviewShownTrailingConstraint: NSLayoutConstraint?
     
     var modes: [Mode] = [
-        Mode(name: "Execution Trainer", image: #imageLiteral(resourceName: "ExecutionBGImage")),
-        Mode(name: "Casual BLD", image: #imageLiteral(resourceName: "Casual"))//,
+        Mode(name: LocalizableMode.executionTraining.localized, image: #imageLiteral(resourceName: "ExecutionBGImage")),
+        Mode(name: LocalizableMode.casualBLD.localized, image: #imageLiteral(resourceName: "Casual"))//,
         //Mode(name: "My Alg Sheet", image: #imageLiteral(resourceName: "MyAlgSheet"))
     ]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return modes.count
     }
@@ -87,11 +88,11 @@ class ModeSelectionVC:
         let hour = NSCalendar.current.component(.hour, from: Date())
         switch(hour) {
         case 6...11:
-            greetingLabel.text = "Good morning,"
+            greetingLabel.text = LocalizationGeneral.morningGreeting.localized + ","
         case 12...18:
-            greetingLabel.text = "Good afternoon,"
+            greetingLabel.text = LocalizationGeneral.afternoonGreeting.localized + ","
         default:
-            greetingLabel.text = "Good evening,"
+            greetingLabel.text = LocalizationGeneral.eveningGreeting.localized + ","
         }
         
         nameLabel.text = UserSetting.shared.general.name + "."

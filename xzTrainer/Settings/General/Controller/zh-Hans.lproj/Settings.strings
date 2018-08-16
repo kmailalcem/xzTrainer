@@ -1,0 +1,237 @@
+
+/* Class = "UILabel"; text = "Edge Buffer"; ObjectID = "0I8-ou-OJB"; */
+"0I8-ou-OJB.text" = "棱块缓冲块";
+
+/* Class = "UIButton"; normalTitle = "N"; ObjectID = "1T2-Pn-ScT"; */
+"1T2-Pn-ScT.normalTitle" = "N";
+
+/* Class = "UIButton"; normalTitle = "K"; ObjectID = "1Wi-py-IIY"; */
+"1Wi-py-IIY.normalTitle" = "K";
+
+/* Class = "UILabel"; text = "Scramble with white top and green front regardless of solving orientation"; ObjectID = "27B-5D-k5k"; */
+"27B-5D-k5k.text" = "总是使用白顶绿前打乱";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "2dJ-bt-PRu"; */
+"2dJ-bt-PRu.normalTitle" = "X";
+
+/* Class = "UIButton"; normalTitle = "O"; ObjectID = "2pR-DQ-vSy"; */
+"2pR-DQ-vSy.normalTitle" = "O";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "3nE-Pi-OGz"; */
+"3nE-Pi-OGz.text" = "设置";
+
+/* Class = "UIButton"; normalTitle = "G"; ObjectID = "4Ls-I4-WGk"; */
+"4Ls-I4-WGk.normalTitle" = "G";
+
+/* Class = "UILabel"; text = "Top:"; ObjectID = "6nP-LO-YbR"; */
+"6nP-LO-YbR.text" = "顶面颜色:";
+
+/* Class = "UIButton"; normalTitle = "H"; ObjectID = "6xX-oT-lee"; */
+"6xX-oT-lee.normalTitle" = "H";
+
+/* Class = "UILabel"; text = "Tap individual sticker to edit that sticker"; ObjectID = "7Qy-bZ-Ao4"; */
+"7Qy-bZ-Ao4.text" = "点击贴片编辑";
+
+/* Class = "UIButton"; normalTitle = "T"; ObjectID = "849-dX-gFQ"; */
+"849-dX-gFQ.normalTitle" = "T";
+
+/* Class = "UILabel"; text = "FUR"; ObjectID = "8XT-US-LdP"; */
+"8XT-US-LdP.text" = "FUR";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "8uu-UU-2t1"; */
+"8uu-UU-2t1.normalTitle" = "编辑";
+
+/* Class = "UIButton"; normalTitle = "O"; ObjectID = "96s-ta-N5k"; */
+"96s-ta-N5k.normalTitle" = "O";
+
+/* Class = "UIButton"; normalTitle = "？"; ObjectID = "9yn-BU-opk"; */
+"9yn-BU-opk.normalTitle" = "？";
+
+/* Class = "UIButton"; normalTitle = "？"; ObjectID = "At1-ml-g7W"; */
+"At1-ml-g7W.normalTitle" = "？";
+
+/* Class = "UIButton"; normalTitle = "F"; ObjectID = "Cog-I8-TVp"; */
+"Cog-I8-TVp.normalTitle" = "F";
+
+/* Class = "UILabel"; text = "Scramble in WCA Orientation"; ObjectID = "Dar-T4-Rol"; */
+"Dar-T4-Rol.text" = "使用WCA坐标系打乱";
+
+/* Class = "UIButton"; normalTitle = "Y"; ObjectID = "DzT-2F-ERc"; */
+"DzT-2F-ERc.normalTitle" = "Y";
+
+/* Class = "UILabel"; text = "On the same face"; ObjectID = "E01-AS-rqv"; */
+"E01-AS-rqv.text" = "同一面上的贴片";
+
+/* Class = "UIButton"; normalTitle = "Y"; ObjectID = "E9r-uw-ccz"; */
+"E9r-uw-ccz.normalTitle" = "Y";
+
+/* Class = "UIButton"; normalTitle = " Traditional"; ObjectID = "ECD-5v-8pS"; */
+"ECD-5v-8pS.normalTitle" = " 魔方吧";
+
+/* Class = "UILabel"; text = "Buffers"; ObjectID = "EMI-fX-16k"; */
+"EMI-fX-16k.text" = "缓冲块";
+
+/* Class = "UIButton"; normalTitle = "L"; ObjectID = "Exx-MO-1Tw"; */
+"Exx-MO-1Tw.normalTitle" = "L";
+
+/* Class = "UILabel"; text = "Turn on this switch ONLY if you do not want to label the sticker"; ObjectID = "GCi-K4-ZyJ"; */
+"GCi-K4-ZyJ.text" = "请只在不需标注的时候开启";
+
+/* Class = "UILabel"; text = "UFL"; ObjectID = "GSF-wz-qjv"; */
+"GSF-wz-qjv.text" = "UFL";
+
+/* Class = "UIButton"; normalTitle = "B"; ObjectID = "HEN-rT-GEb"; */
+"HEN-rT-GEb.normalTitle" = "B";
+
+/* Class = "UILabel"; text = "Front:"; ObjectID = "HbP-fS-r8H"; */
+"HbP-fS-r8H.text" = "前面颜色:";
+
+/* Class = "UIButton"; normalTitle = "T"; ObjectID = "Iub-V0-TRX"; */
+"Iub-V0-TRX.normalTitle" = "T";
+
+/* Class = "UIButton"; normalTitle = "L"; ObjectID = "KTt-8X-XIe"; */
+"KTt-8X-XIe.normalTitle" = "L";
+
+/* Class = "UILabel"; text = "URF"; ObjectID = "Kgh-26-Btt"; */
+"Kgh-26-Btt.text" = "URF";
+
+/* Class = "UIButton"; normalTitle = "I"; ObjectID = "M9e-Jf-w4I"; */
+"M9e-Jf-w4I.normalTitle" = "I";
+
+/* Class = "UIButton"; normalTitle = "J"; ObjectID = "MTO-tB-P3w"; */
+"MTO-tB-P3w.normalTitle" = "J";
+
+/* Class = "UILabel"; text = "URF"; ObjectID = "MW0-os-aTS"; */
+"MW0-os-aTS.text" = "URF";
+
+/* Class = "UIButton"; normalTitle = "Z"; ObjectID = "Mxl-IT-Iiw"; */
+"Mxl-IT-Iiw.normalTitle" = "Z";
+
+/* Class = "UIButton"; normalTitle = "D"; ObjectID = "PZK-7k-8Ck"; */
+"PZK-7k-8Ck.normalTitle" = "D";
+
+/* Class = "UILabel"; text = "On the same piece"; ObjectID = "QBk-qJ-ify"; */
+"QBk-qJ-ify.text" = "同一块上的贴片";
+
+/* Class = "UITextField"; text = "White"; ObjectID = "QZw-bR-OE9"; */
+"QZw-bR-OE9.text" = "White";
+
+/* Class = "UILabel"; text = "Edit Letter Scheme"; ObjectID = "QkA-6K-BDf"; */
+"QkA-6K-BDf.text" = "编辑编码系统";
+
+/* Class = "UILabel"; text = "Orientation"; ObjectID = "R6s-Pv-mTE"; */
+"R6s-Pv-mTE.text" = "坐标系";
+
+/* Class = "UIButton"; normalTitle = "K"; ObjectID = "RTx-FH-oGc"; */
+"RTx-FH-oGc.normalTitle" = "K";
+
+/* Class = "UIButton"; normalTitle = "P"; ObjectID = "RaX-uF-oTg"; */
+"RaX-uF-oTg.normalTitle" = "P";
+
+/* Class = "UILabel"; text = "Warning: Letters wider than 3 characters might not be displayed properly."; ObjectID = "RzO-y0-SNJ"; */
+"RzO-y0-SNJ.text" = "注意：宽于3个英文字符的编码或许不能正常显示";
+
+/* Class = "UILabel"; text = "RFU"; ObjectID = "SUm-qu-zpi"; */
+"SUm-qu-zpi.text" = "RFU";
+
+/* Class = "UIButton"; normalTitle = "J"; ObjectID = "UOu-Jz-lIg"; */
+"UOu-Jz-lIg.normalTitle" = "J";
+
+/* Class = "UIButton"; normalTitle = "Q"; ObjectID = "VnR-5t-m7j"; */
+"VnR-5t-m7j.normalTitle" = "Q";
+
+/* Class = "UIButton"; normalTitle = "Q"; ObjectID = "WGa-sa-pSj"; */
+"WGa-sa-pSj.normalTitle" = "Q";
+
+/* Class = "UIButton"; normalTitle = "Z"; ObjectID = "YPR-vK-DbN"; */
+"YPR-vK-DbN.normalTitle" = "Z";
+
+/* Class = "UIButton"; normalTitle = "H"; ObjectID = "YYm-cn-Fp0"; */
+"YYm-cn-Fp0.normalTitle" = "H";
+
+/* Class = "UIButton"; normalTitle = "？"; ObjectID = "caQ-5s-LwU"; */
+"caQ-5s-LwU.normalTitle" = "？";
+
+/* Class = "UILabel"; text = "Set as buffer without label"; ObjectID = "cn6-vZ-liG"; */
+"cn6-vZ-liG.text" = "不标注缓冲块";
+
+/* Class = "UIButton"; normalTitle = "F"; ObjectID = "e4p-5e-FKc"; */
+"e4p-5e-FKc.normalTitle" = "F";
+
+/* Class = "UIButton"; normalTitle = "B"; ObjectID = "fia-zD-tsd"; */
+"fia-zD-tsd.normalTitle" = "B";
+
+/* Class = "UIButton"; normalTitle = "E"; ObjectID = "ftt-L3-e1c"; */
+"ftt-L3-e1c.normalTitle" = "E";
+
+/* Class = "UIButton"; normalTitle = "？"; ObjectID = "g9W-Od-wha"; */
+"g9W-Od-wha.normalTitle" = "？";
+
+/* Class = "UILabel"; text = "Letter Scheme"; ObjectID = "i2g-Xv-bF9"; */
+"i2g-Xv-bF9.text" = "编码系统";
+
+/* Class = "UIButton"; normalTitle = "R"; ObjectID = "iW2-kk-3Y7"; */
+"iW2-kk-3Y7.normalTitle" = "R";
+
+/* Class = "UIButton"; normalTitle = "S"; ObjectID = "jIj-nr-G0B"; */
+"jIj-nr-G0B.normalTitle" = "S";
+
+/* Class = "UIButton"; normalTitle = "E"; ObjectID = "kUT-eE-K22"; */
+"kUT-eE-K22.normalTitle" = "E";
+
+/* Class = "UIButton"; normalTitle = "Speffz"; ObjectID = "lG2-UJ-h9M"; */
+"lG2-UJ-h9M.normalTitle" = "Speffz";
+
+/* Class = "UIButton"; normalTitle = "A"; ObjectID = "nIZ-mS-OhN"; */
+"nIZ-mS-OhN.normalTitle" = "A";
+
+/* Class = "UIButton"; normalTitle = "I"; ObjectID = "nsa-Jn-gk6"; */
+"nsa-Jn-gk6.normalTitle" = "I";
+
+/* Class = "UIButton"; normalTitle = "C"; ObjectID = "oLl-Ab-hla"; */
+"oLl-Ab-hla.normalTitle" = "C";
+
+/* Class = "UIButton"; normalTitle = "N"; ObjectID = "pMt-vV-9vi"; */
+"pMt-vV-9vi.normalTitle" = "N";
+
+/* Class = "UIButton"; normalTitle = "M"; ObjectID = "pk7-Us-avt"; */
+"pk7-Us-avt.normalTitle" = "M";
+
+/* Class = "UIButton"; normalTitle = "C"; ObjectID = "qnO-BZ-h0Y"; */
+"qnO-BZ-h0Y.normalTitle" = "C";
+
+/* Class = "UITextField"; text = "UFL"; ObjectID = "rFP-Ko-3Gm"; */
+"rFP-Ko-3Gm.text" = "UFL";
+
+/* Class = "UIButton"; normalTitle = "W"; ObjectID = "rmF-E8-n55"; */
+"rmF-E8-n55.normalTitle" = "W";
+
+/* Class = "UITextField"; text = "DF"; ObjectID = "rmK-Gp-6qb"; */
+"rmK-Gp-6qb.text" = "DF";
+
+/* Class = "UILabel"; text = "ULB"; ObjectID = "seo-3x-qzX"; */
+"seo-3x-qzX.text" = "ULB";
+
+/* Class = "UIButton"; normalTitle = "P"; ObjectID = "sjs-VX-qtF"; */
+"sjs-VX-qtF.normalTitle" = "P";
+
+/* Class = "UILabel"; text = "Corner Buffer"; ObjectID = "th5-4X-aRA"; */
+"th5-4X-aRA.text" = "角块缓冲块";
+
+/* Class = "UILabel"; text = "UBR"; ObjectID = "uxo-V5-zRd"; */
+"uxo-V5-zRd.text" = "UBR";
+
+/* Class = "UIButton"; normalTitle = "R"; ObjectID = "w5C-Ut-L0N"; */
+"w5C-Ut-L0N.normalTitle" = "R";
+
+/* Class = "UIButton"; normalTitle = "G"; ObjectID = "wco-Ut-J9D"; */
+"wco-Ut-J9D.normalTitle" = "G";
+
+/* Class = "UITextField"; text = "Green"; ObjectID = "zcn-9h-etI"; */
+"zcn-9h-etI.text" = "Green";
+
+/* Class = "UIButton"; normalTitle = "M"; ObjectID = "zmE-2K-dLw"; */
+"zmE-2K-dLw.normalTitle" = "M";
+
+/* Class = "UIButton"; normalTitle = "D"; ObjectID = "zy0-3f-Pqh"; */
+"zy0-3f-Pqh.normalTitle" = "D";

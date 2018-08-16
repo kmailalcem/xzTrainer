@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 8/16/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+
+"timer didn't start message 1" = "Reveal memo by starting the timer.";
+
+"timer didn't start message 2" = "You will have 0.5 seconds to react.";
+
+"morning greeting" = "Good morning";
+
+"afternoon greeting" = "Good afternoon";
+
+"evening greeting" = "Good evening";
+
+"default user name" = "A Passionate Cuber";
+
+"first in letter pair" = "First";
+
+"Edges" = "Edges";
+
+"Corners" = "Corners";
+
+"Edge" = "Edge";
+
+"Corner" = "Corner";
+
+"First Edge Letter" = "First Edge Letter";
+
+"First Corner Letter" = "First Corner Letter";
+
+

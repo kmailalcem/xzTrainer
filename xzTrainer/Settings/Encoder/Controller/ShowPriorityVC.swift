@@ -19,7 +19,9 @@ class ShowPriorityVC: UIViewController {
         priorityTable.dataSource = self
         
         applySwitch.isOn = UserSetting.shared.encoder.userCustomizeOrder
-        // Do any additional setup after loading the view.
+        
+        // priorityTable.estimatedRowHeight = 60
+        priorityTable.rowHeight = 55
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +80,7 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 let firstLetters = UserSetting.shared.encoder.userPreference.edgePreferenceAsFirstLetter
                 cell.configureCell(
-                    startingLetter: "First",
+                    startingLetter: LocalizationGeneral.firstLetter.localized,
                     secondLetters: formatedPieces(
                         firstLetters,
                         showInLetters: true
@@ -112,7 +114,7 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 let firstLetters = UserSetting.shared.encoder.userPreference.cornerPreferenceAsFirstLetter
                 cell.configureCell(
-                    startingLetter: "First",
+                    startingLetter: LocalizationGeneral.firstLetter.localized,
                     secondLetters: formatedPieces(
                         firstLetters,
                         showInLetters: true
@@ -152,16 +154,12 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
         let title = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width - 16, height: 30))
-        title.text = section == 0 ? "Edges" : "Corners"
+        title.text = section == 0 ? "Edges".localized() : "Corners".localized()
         title.textColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
         title.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         headerView.addSubview(title)
         headerView.backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8705882353, alpha: 1)
         return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

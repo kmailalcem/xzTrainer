@@ -27,7 +27,7 @@
 "Oxe-FC-2zZ.text" = "UB";
 
 /* Class = "UILabel"; text = "and"; ObjectID = "P6h-vC-eTw"; */
-"P6h-vC-eTw.text" = "and";
+"P6h-vC-eTw.text" = "和";
 
 /* Class = "UILabel"; text = "A"; ObjectID = "QiB-n8-8PC"; */
 "QiB-n8-8PC.text" = "A";
@@ -51,34 +51,34 @@
 "b60-Mv-4mk.text" = "优先级";
 
 /* Class = "UILabel"; text = "These settings will affect how cycles are broken (probably without you even noticing)."; ObjectID = "biH-pk-JAr"; */
-"biH-pk-JAr.text" = "这些设定会影响下一个小循环的顺序。";
+"biH-pk-JAr.text" = "这些设定会影响下一个小循环的选择。";
 
 /* Class = "UIButton"; normalTitle = "Advanced Parity"; ObjectID = "gyE-fu-9nF"; */
-"gyE-fu-9nF.normalTitle" = "Advanced Parity";
+"gyE-fu-9nF.normalTitle" = "进阶奇偶";
 
 /* Class = "UILabel"; text = "Pseudo-solves the edges with the pieces involving parity swapped, so that there is no need for a parity algorithm. Specify the pieces involved in your last algorithm."; ObjectID = "hLk-oC-nd3"; */
-"hLk-oC-nd3.text" = "生成的编码会使得棱块还原后指定的两棱块互换，无需奇偶公式。请在下方指定需要互换的棱块。";
+"hLk-oC-nd3.text" = "生成的编码会使得棱块还原后指定的两棱块互换，从而无需奇偶公式。请在下方指定需要互换的棱块。";
 
 /* Class = "UILabel"; text = "Use short setup"; ObjectID = "qlj-lI-J1B"; */
 "qlj-lI-J1B.text" = "Use short setup";
 
 /* Class = "UILabel"; text = "Warning: Advanced Parity will not take effect unless the two stickers are different."; ObjectID = "qzo-S4-x2X"; */
-"qzo-S4-x2X.text" = "Warning: Advanced Parity will not take effect unless the two stickers are different.";
+"qzo-S4-x2X.text" = "注意：两贴片相同时进阶奇偶不会生效。";
 
 /* Class = "UIButton"; normalTitle = "Set"; ObjectID = "x56-y5-eaU"; */
-"x56-y5-eaU.normalTitle" = "Set";
+"x56-y5-eaU.normalTitle" = "确定";
 
 /* Class = "UITextField"; text = "UL"; ObjectID = "x7d-6L-jAK"; */
 "x7d-6L-jAK.text" = "UL";
 
 /* Class = "UILabel"; text = "Parity Pieces:"; ObjectID = "x7t-oZ-PDu"; */
-"x7t-oZ-PDu.text" = "Parity Pieces:";
+"x7t-oZ-PDu.text" = "奇偶贴片:";
 
 /* Class = "UILabel"; text = "First letter"; ObjectID = "xKT-XB-CFw"; */
-"xKT-XB-CFw.text" = "First letter";
+"xKT-XB-CFw.text" =  "首编码";
 
 /* Class = "UILabel"; text = "General"; ObjectID = "xeB-MV-IRl"; */
-"xeB-MV-IRl.text" = "General";
+"xeB-MV-IRl.text" = "通用";
 
 /* Class = "UILabel"; text = "Make sure you know what they do before you turn them on!"; ObjectID = "zoJ-Wv-EBZ"; */
 "zoJ-Wv-EBZ.text" = "由于日常使用中不容易察觉，建议详细了解对应风格后再使用。";

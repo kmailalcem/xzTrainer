@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 8/16/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+
+"timer didn't start message 1" = "编码将在计时开始后显示。";
+
+"timer didn't start message 2" = "您将有0.5秒反应时间。";
+
+"morning greeting" = "早上好";
+
+"afternoon greeting" = "下午好";
+
+"evening greeting" = "晚上好";
+
+"default user name" = "热心魔友";
+
+"first in letter pair" = "首位";
+
+"Edges" = "棱块";
+
+"Corners" = "角块";
+
+"Edge" = "棱块";
+
+"Corner" = "角块";
+
+"First Edge Letter" = "棱块首编码";
+
+"First Corner Letter" = "角块首编码";
+

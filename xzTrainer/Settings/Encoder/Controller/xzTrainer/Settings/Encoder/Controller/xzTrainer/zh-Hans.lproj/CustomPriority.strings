@@ -15,7 +15,7 @@
 "Ohq-w6-4zP.normalTitle" = "Up";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "PCV-bD-Ipw"; */
-"PCV-bD-Ipw.normalTitle" = "Reset";
+"PCV-bD-Ipw.normalTitle" = "重置";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Zh9-QH-4aq"; */
 "Zh9-QH-4aq.normalTitle" = "Button";
@@ -24,7 +24,7 @@
 "c5c-I7-9B5.text" = "A";
 
 /* Class = "UILabel"; text = "Apply"; ObjectID = "jJ9-KT-Ppq"; */
-"jJ9-KT-Ppq.text" = "Apply";
+"jJ9-KT-Ppq.text" = "应用中";
 
 /* Class = "UILabel"; text = "Setting custom priorities will disable any method-dependent options. You will also not be able to switch your buffer pieces until you deselect this option."; ObjectID = "l4C-zl-0h6"; */
 "l4C-zl-0h6.text" = "自定义小循环顺序将会锁定小循环风格设定和缓冲块。";

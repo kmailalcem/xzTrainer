@@ -32,7 +32,7 @@ class GeneralSetting {
             if keyExists(nameKey) {
                 return UserDefaults.standard.string(forKey: nameKey)!
             } else {
-                return "A Passionate Cuber"
+                return LocalizationGeneral.defaultUserName.localized
             }
         }
         set {

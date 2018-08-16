@@ -80,7 +80,7 @@ class TimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         memoStack.isHidden = isCasual
-        modeTitleLabel.text = isCasual ? "Casual BLD" : "Execution Training"
+        modeTitleLabel.text = isCasual ? LocalizableMode.casualBLD.localized : LocalizableMode.executionTraining.localized
         
         cubeView.settingFrame()
         setUpInitialLayout()
@@ -217,8 +217,8 @@ class TimerVC: UIViewController {
                 self.cubeView.hideFacesExceptTop()
             }
         }
-        edgeMemoLabel.text = "Reveal memo by starting the timer."
-        cornerMemoLabel.text = "You will have 0.5 seconds to react."
+        edgeMemoLabel.text = LocalizationGeneral.timerMessage1.localized
+        cornerMemoLabel.text = LocalizationGeneral.timerMessage2.localized
         memoIsShown = false
         if !isCasual {
             manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "Show")
