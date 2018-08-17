@@ -24,9 +24,9 @@ class ReorderPriorityVC: UIViewController {
         priorityTable.dataSource = self
         
         if targetCornerPiece != nil {
-            titleLabel.text = "\("Corner".localized()) \(UserSetting.shared.general.letterScheme.cornerScheme[targetCornerPiece!]!)"
+            titleLabel.text = "\("Corner".localized()) \(UserSetting.shared.general.letterScheme[targetCornerPiece!])"
         } else if targetEdgePiece != nil {
-            titleLabel.text = "\("Edge".localized()) \(UserSetting.shared.general.letterScheme.edgeScheme[targetEdgePiece!]!)"
+            titleLabel.text = "\("Edge".localized()) \(UserSetting.shared.general.letterScheme[targetEdgePiece!])"
         } else if isEdge {
             titleLabel.text = "First Edge Letter".localized()
         } else {

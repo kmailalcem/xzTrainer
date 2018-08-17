@@ -68,7 +68,7 @@ class EditLetterSchemeVC: UIViewController {
     private func configureEdgeButton(WithCorrespondingRawValue i: Int) {
         let letterScheme = UserSetting.shared.general.letterScheme
         let edgeButton = view.viewWithTag(i + 1) as! UIButton
-        let edgeLetter = letterScheme.edgeScheme[EdgePosition(rawValue: i)!]!
+        let edgeLetter = letterScheme[EdgePosition(rawValue: i)!]
         if edgeLetter == "Unlabeled" {
             edgeButton.setTitle("UNL", for: .normal)
         } else {
@@ -85,7 +85,7 @@ class EditLetterSchemeVC: UIViewController {
     private func configureCornerButton(WithCorrespondingRawValue i: Int) {
         let letterScheme = UserSetting.shared.general.letterScheme
         let cornerButton = view.viewWithTag(i + 1 + NUM_STICKERS) as! UIButton
-        let cornerLetter = letterScheme.cornerScheme[CornerPosition(rawValue: i)!]!
+        let cornerLetter = letterScheme[CornerPosition(rawValue: i)!]
         if cornerLetter == "Unlabeled" {
             cornerButton.setTitle("UNL", for: .normal)
         } else {
@@ -165,12 +165,12 @@ class EditLetterSchemeVC: UIViewController {
                 source.stickerTextField.resignFirstResponder()
                 if source.bufferSwitch.isOn {
                     if source.isEdge {
-                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.stickerTextField.managedEdgePosition!, as: "")
-                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.piece1TextField.managedEdgePosition!, as: "")
+                        UserSetting.shared.general.letterScheme[source.stickerTextField.managedEdgePosition!] = ""
+                        UserSetting.shared.general.letterScheme[source.piece1TextField.managedEdgePosition!] = ""
                     } else {
-                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.stickerTextField.managedCornerPosition!, as: "")
-                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.piece1TextField.managedCornerPosition!, as: "")
-                        UserSetting.shared.general.letterScheme.setLetter(forPiece: source.piece2TextField.managedCornerPosition!, as: "")
+                        UserSetting.shared.general.letterScheme[source.stickerTextField.managedCornerPosition!] = ""
+                        UserSetting.shared.general.letterScheme[source.piece1TextField.managedCornerPosition!] = ""
+                        UserSetting.shared.general.letterScheme[source.piece2TextField.managedCornerPosition!] = ""
                     }
                 }
             }

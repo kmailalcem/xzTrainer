@@ -8,17 +8,17 @@
 
 import UIKit
 fileprivate func edge(_ piece: EdgeSticker) -> String {
-    if UserSetting.shared.general.letterScheme.edgeScheme[piece]!.count == 0 {
+    if UserSetting.shared.general.letterScheme[piece].count == 0 {
         return toString(piece)
     }
-    return toString(piece) + "/\(UserSetting.shared.general.letterScheme.edgeScheme[piece]!)"
+    return toString(piece) + "/\(UserSetting.shared.general.letterScheme[piece])"
 }
 
 fileprivate func corner(_ piece: CornerSticker) -> String {
-    if UserSetting.shared.general.letterScheme.cornerScheme[piece]!.count == 0 {
+    if UserSetting.shared.general.letterScheme[piece].count == 0 {
         return toString(piece)
     }
-    return toString(piece) + "/\(UserSetting.shared.general.letterScheme.cornerScheme[piece]!)"
+    return toString(piece) + "/\(UserSetting.shared.general.letterScheme[piece])"
 }
 
 class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {

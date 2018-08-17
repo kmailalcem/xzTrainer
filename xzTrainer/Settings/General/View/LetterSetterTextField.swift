@@ -13,13 +13,13 @@ class LetterSetterTextField: UITextField {
     var isOverwide: Bool = false
     var managedEdgePosition: EdgePosition? = nil {
         didSet {
-            text = UserSetting.shared.general.letterScheme.edgeScheme[managedEdgePosition!]
+            text = UserSetting.shared.general.letterScheme[managedEdgePosition!]
         }
     }
     
     var managedCornerPosition: CornerPosition? = nil {
         didSet {
-            text = UserSetting.shared.general.letterScheme.cornerScheme[managedCornerPosition!]
+            text = UserSetting.shared.general.letterScheme[managedCornerPosition!]
         }
     }
     

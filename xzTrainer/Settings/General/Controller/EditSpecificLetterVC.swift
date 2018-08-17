@@ -89,11 +89,11 @@ class EditSpecificLetterVC: UIViewController {
         piece1Label.text = toString(piece1)
         piece1TextField.managedEdgePosition = piece1
         
-        bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme.edgeScheme[UserSetting.shared.general.edgeBuffer]?.count == 0) || selectedEdgePiece == UserSetting.shared.general.edgeBuffer
+        bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme[UserSetting.shared.general.edgeBuffer].count == 0) || selectedEdgePiece == UserSetting.shared.general.edgeBuffer
         
         // the switch is on if and only if the piece is buffer
         // and there is no label on it
-        bufferSwitch.isOn = (UserSetting.shared.general.letterScheme.edgeScheme[UserSetting.shared.general.edgeBuffer]?.count == 0) && selectedEdgePiece == UserSetting.shared.general.edgeBuffer
+        bufferSwitch.isOn = (UserSetting.shared.general.letterScheme[UserSetting.shared.general.edgeBuffer].count == 0) && selectedEdgePiece == UserSetting.shared.general.edgeBuffer
     }
     
     private func setUpForCorner() {
@@ -120,11 +120,11 @@ class EditSpecificLetterVC: UIViewController {
         let piece2 = getAdjacentPosition(piece1)
         piece2Label.text = toString(piece2)
         piece2TextField.managedCornerPosition = piece2
-        bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme.cornerScheme[UserSetting.shared.general.cornerBuffer]?.count == 0) || selectedCornerPiece == UserSetting.shared.general.cornerBuffer
+        bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme[UserSetting.shared.general.cornerBuffer].count == 0) || selectedCornerPiece == UserSetting.shared.general.cornerBuffer
         
         // the switch is on if and only if the piece is buffer
         // and there is no label on it
-        bufferSwitch.isOn = (UserSetting.shared.general.letterScheme.cornerScheme[UserSetting.shared.general.cornerBuffer]?.count == 0) && selectedCornerPiece == UserSetting.shared.general.cornerBuffer
+        bufferSwitch.isOn = (UserSetting.shared.general.letterScheme[UserSetting.shared.general.cornerBuffer].count == 0) && selectedCornerPiece == UserSetting.shared.general.cornerBuffer
         
     }
     
@@ -196,9 +196,9 @@ extension EditSpecificLetterVC: UITextFieldDelegate {
             }
             
             if textField.managedCornerPosition != nil {
-                UserSetting.shared.general.letterScheme.setLetter(forPiece: textField.managedCornerPosition!, as: textField.text!)
+                UserSetting.shared.general.letterScheme[textField.managedCornerPosition!] = textField.text!
             } else {
-                UserSetting.shared.general.letterScheme.setLetter(forPiece: textField.managedEdgePosition!, as: textField.text!)
+                UserSetting.shared.general.letterScheme[textField.managedEdgePosition!] = textField.text!
             }
             
         }

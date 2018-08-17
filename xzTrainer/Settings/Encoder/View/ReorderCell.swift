@@ -67,7 +67,7 @@ class ReorderCell: UITableViewCell {
         isEdge = true
         targetEdgeSticker = edge1
         containerTableView = table
-        let letter = UserSetting.shared.general.letterScheme.edgeScheme[edge2]!
+        let letter = UserSetting.shared.general.letterScheme[edge2]
         if letter.count > 0 {
             letterLabel.text = letter
         } else {
@@ -81,7 +81,7 @@ class ReorderCell: UITableViewCell {
         isEdge = false
         targetCornerSticker = corner1
         containerTableView = table
-        let letter = UserSetting.shared.general.letterScheme.cornerScheme[corner2]!
+        let letter = UserSetting.shared.general.letterScheme[corner2]
         if letter.count > 0 {
             letterLabel.text = letter
         } else {

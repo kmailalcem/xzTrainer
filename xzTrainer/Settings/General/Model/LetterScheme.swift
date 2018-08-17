@@ -17,7 +17,7 @@ class LetterScheme {
     static let traditionalCornerString = "A B C D E F G H I J K L W M N O P Q R S T X Y Z"
     static let traditionalEdgeString = "A B C D E F G H I J K L M N O P Q R S T W X Y Z"
     
-    var edgeScheme: Dictionary<EdgeSticker, String> {
+    private var edgeScheme: Dictionary<EdgeSticker, String> {
         didSet {
             for i in 0 ..< edgeScheme.count {
                 let edgeKey = "Edge \(i)"
@@ -26,7 +26,7 @@ class LetterScheme {
         }
     }
     
-    var cornerScheme: Dictionary<CornerSticker, String> {
+    private var cornerScheme: Dictionary<CornerSticker, String> {
         didSet {
             for i in 0 ..< cornerScheme.count {
                 let cornerKey = "Corner \(i)"
@@ -121,11 +121,4 @@ class LetterScheme {
         }
     }
     
-    func setLetter(forPiece piece: EdgePosition, as char: String) {
-        edgeScheme[piece] = char
-    }
-    
-    func setLetter(forPiece piece: CornerPosition, as char: String) {
-        cornerScheme[piece] = char
-    }
 }

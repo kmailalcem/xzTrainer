@@ -126,8 +126,8 @@ class SettingsVC:
     func updateBufferTriggerUI() {
         edgePickerTrigger.text = toString(UserSetting.shared.general.edgeBuffer)
         cornerPickerTrigger.text = toString(UserSetting.shared.general.cornerBuffer)
-        edgePickerTrigger.isEnabled = !(UserSetting.shared.general.letterScheme.edgeScheme[UserSetting.shared.general.edgeBuffer]!.count == 0) && !UserSetting.shared.encoder.userCustomizeOrder
-        cornerPickerTrigger.isEnabled = !(UserSetting.shared.general.letterScheme.cornerScheme[UserSetting.shared.general.cornerBuffer]!.count == 0) && !UserSetting.shared.encoder.userCustomizeOrder
+        edgePickerTrigger.isEnabled = !(UserSetting.shared.general.letterScheme[UserSetting.shared.general.edgeBuffer].count == 0) && !UserSetting.shared.encoder.userCustomizeOrder
+        cornerPickerTrigger.isEnabled = !(UserSetting.shared.general.letterScheme[UserSetting.shared.general.cornerBuffer].count == 0) && !UserSetting.shared.encoder.userCustomizeOrder
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

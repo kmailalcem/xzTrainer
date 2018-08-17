@@ -95,7 +95,7 @@ class CubePermutationEncoder {
         var needInsertSpace = false
         for sticker in edgePermutation {
             if !belongsToSamePiece(sticker, edgeBuffer) {
-                edgeMemo.append(letterScheme.edgeScheme[sticker]!)
+                edgeMemo.append(letterScheme[sticker])
                 if needInsertSpace {
                     edgeMemo.append("  ")
                     needInsertSpace = false
@@ -174,7 +174,7 @@ class CubePermutationEncoder {
         var needInsertSpace = false
         for sticker in cornerPermutation {
             if !belongsToSamePiece(sticker, cornerBuffer) {
-                cornerMemo.append(letterScheme.cornerScheme[sticker]!)
+                cornerMemo.append(letterScheme[sticker])
                 
                 if needInsertSpace {
                     cornerMemo.append("  ")
@@ -307,7 +307,7 @@ class CubePermutationEncoder {
     private func translateEdgeFlipsToMemoCode() -> String {
         var result = ""
         for sticker in edgeFlipsInAbsolutePosition {
-            result.append(letterScheme.edgeScheme[sticker]!)
+            result.append(letterScheme[sticker])
             result.append(" ")
         }
         return result
@@ -316,7 +316,7 @@ class CubePermutationEncoder {
     private func translateCornerTwistsToMemoCode() -> String {
         var result = ""
         for sticker in cornerTwistsInAbsolutePosition {
-            result.append(letterScheme.cornerScheme[sticker]!)
+            result.append(letterScheme[sticker])
             result.append(cornerTwistDirection(sticker))
             result.append(" ")
         }

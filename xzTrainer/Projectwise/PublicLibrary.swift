@@ -125,7 +125,7 @@ func formatedPieces(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
     var result = ""
     var separated = false
     for piece in pieces {
-        let letter = UserSetting.shared.general.letterScheme.edgeScheme[piece]!
+        let letter = UserSetting.shared.general.letterScheme[piece]
         // do not show anything if user didn't label
         if letter.count > 0 {
             if separated {
@@ -146,7 +146,7 @@ func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
     var result = ""
     var separated = false
     for piece in pieces {
-        let letter = UserSetting.shared.general.letterScheme.cornerScheme[piece]!
+        let letter = UserSetting.shared.general.letterScheme[piece]
         // do not show anything if user didn't label
         if letter.count > 0 {
             if separated {
