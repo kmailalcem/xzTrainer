@@ -32,12 +32,8 @@ public class Cube : Equatable {
         scrambleCube(scramble)
     }
     
-    public func getColor(at sticker: CornerSticker) -> CubeColor {
-        return getColor(for: at(sticker))
-    }
-    
-    public func getColor(at sticker: EdgeSticker) -> CubeColor {
-        return getColor(for: at(sticker))
+    public func getColor<T: CubePiece>(at sticker: T) -> CubeColor {
+        return getColor(for: self[sticker])
     }
     
     public func colorLeft() -> CubeColor {
@@ -259,14 +255,10 @@ public class Cube : Equatable {
         return self == cube
     }
     
-    public func at(_ pos: CornerPosition) -> CornerSticker {
-        return permutation.at(pos)
+    subscript<T: CubePiece>(_ pos: T) -> T {
+        return permutation[pos]
     }
-    
-    public func at(_ pos: EdgePosition) -> EdgeSticker {
-        return permutation.at(pos)
-    }
-    
+   
     private func rotateXPrime() {
         permutation.turn(.RPrime)
         permutation.turn(.M)
@@ -288,39 +280,40 @@ public class Cube : Equatable {
         currentOrientation.rotateZPrime()
     }
     
-    private func getColor(for sticker: CornerSticker) -> CubeColor {
-        switch sticker {
-        case .UBR, .URF, .UFL, .ULB:
-            return colorTop()
-        case .RBD, .RDF, .RFU, .RUB:
-            return colorRight()
-        case .LBU, .LUF, .LFD, .LDB:
-            return colorLeft()
-        case .BDR, .BRU, .BUL, .BLD:
-            return colorBack()
-        case .DBL, .DLF, .DFR, .DRB:
-            return colorBottom()
-        case .FDL, .FLU, .FUR, .FRD:
-            return colorFront()
+    private func getColor<T: CubePiece>(for sticker: T) -> CubeColor {
+        if sticker is CornerSticker {
+            switch sticker as! CornerSticker {
+            case .UBR, .URF, .UFL, .ULB:
+                return colorTop()
+            case .RBD, .RDF, .RFU, .RUB:
+                return colorRight()
+            case .LBU, .LUF, .LFD, .LDB:
+                return colorLeft()
+            case .BDR, .BRU, .BUL, .BLD:
+                return colorBack()
+            case .DBL, .DLF, .DFR, .DRB:
+                return colorBottom()
+            case .FDL, .FLU, .FUR, .FRD:
+                return colorFront()
+            }
+        } else {
+            switch sticker as! EdgeSticker {
+            case .UF, .UR, .UB, .UL:
+                return colorTop()
+            case .RB, .RD, .RF, .RU:
+                return colorRight()
+            case .LB, .LU, .LF, .LD:
+                return colorLeft()
+            case .BD, .BR, .BU, .BL:
+                return colorBack()
+            case .DB, .DL, .DF, .DR:
+                return colorBottom()
+            case .FD, .FL, .FU, .FR:
+                return colorFront()
+            }
         }
     }
     
-    private func getColor(for sticker: EdgeSticker) -> CubeColor {
-        switch sticker {
-        case .UF, .UR, .UB, .UL:
-            return colorTop()
-        case .RB, .RD, .RF, .RU:
-            return colorRight()
-        case .LB, .LU, .LF, .LD:
-            return colorLeft()
-        case .BD, .BR, .BU, .BL:
-            return colorBack()
-        case .DB, .DL, .DF, .DR:
-            return colorBottom()
-        case .FD, .FL, .FU, .FR:
-            return colorFront()
-        }
-    }
     
     private var permutation : VoidCube
     private let originalOrientation : CentreCore

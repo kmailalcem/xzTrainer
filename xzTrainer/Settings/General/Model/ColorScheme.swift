@@ -26,120 +26,120 @@ public struct ColorScheme {
 func backCornerColors (of cube: Cube,
                        withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .BRU)]!,
-        scheme.scheme[cube.getColor(at: .BUL)]!,
-        scheme.scheme[cube.getColor(at: .BDR)]!,
-        scheme.scheme[cube.getColor(at: .BLD)]!
+        scheme.scheme[cube.getColor(at: CornerSticker.BRU)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.BUL)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.BDR)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.BLD)]!
     ]
 }
 
 func backEdgeColors (of cube: Cube,
                      withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .BU)]!,
-        scheme.scheme[cube.getColor(at: .BR)]!,
-        scheme.scheme[cube.getColor(at: .BL)]!,
-        scheme.scheme[cube.getColor(at: .BD)]!
+        scheme.scheme[cube.getColor(at: EdgeSticker.BU)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.BR)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.BL)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.BD)]!
     ]
 }
 
 func frontCornerColors (of cube: Cube,
                         withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .FLU)]!,
-        scheme.scheme[cube.getColor(at: .FUR)]!,
-        scheme.scheme[cube.getColor(at: .FDL)]!,
-        scheme.scheme[cube.getColor(at: .FRD)]!
+        scheme.scheme[cube.getColor(at: CornerSticker.FLU)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.FUR)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.FDL)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.FRD)]!
     ]
 }
 
 func frontEdgeColors (of cube: Cube,
                      withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .FU)]!,
-        scheme.scheme[cube.getColor(at: .FL)]!,
-        scheme.scheme[cube.getColor(at: .FR)]!,
-        scheme.scheme[cube.getColor(at: .FD)]!
+        scheme.scheme[cube.getColor(at: EdgeSticker.FU)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.FL)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.FR)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.FD)]!
     ]
 }
 
 func topCornerColors (of cube: Cube,
                     withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .ULB)]!,
-        scheme.scheme[cube.getColor(at: .UBR)]!,
-        scheme.scheme[cube.getColor(at: .UFL)]!,
-        scheme.scheme[cube.getColor(at: .URF)]!
+        scheme.scheme[cube.getColor(at: CornerSticker.ULB)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.UBR)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.UFL)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.URF)]!
     ]
 }
 
 func topEdgeColors (of cube: Cube,
                     withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .UB)]!,
-        scheme.scheme[cube.getColor(at: .UL)]!,
-        scheme.scheme[cube.getColor(at: .UR)]!,
-        scheme.scheme[cube.getColor(at: .UF)]!
+        scheme.scheme[cube.getColor(at: EdgeSticker.UB)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.UL)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.UR)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.UF)]!
     ]
 }
 
 func bottomCornerColors (of cube: Cube,
                          withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .DLF)]!,
-        scheme.scheme[cube.getColor(at: .DFR)]!,
-        scheme.scheme[cube.getColor(at: .DBL)]!,
-        scheme.scheme[cube.getColor(at: .DRB)]!
+        scheme.scheme[cube.getColor(at: CornerSticker.DLF)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.DFR)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.DBL)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.DRB)]!
     ]
 }
 
 func bottomEdgeColors (of cube: Cube,
                       withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .DF)]!,
-        scheme.scheme[cube.getColor(at: .DL)]!,
-        scheme.scheme[cube.getColor(at: .DR)]!,
-        scheme.scheme[cube.getColor(at: .DB)]!
+        scheme.scheme[cube.getColor(at: EdgeSticker.DF)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.DL)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.DR)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.DB)]!
     ]
 }
 
 func leftCornerColors (of cube: Cube,
                       withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .LBU)]!,
-        scheme.scheme[cube.getColor(at: .LUF)]!,
-        scheme.scheme[cube.getColor(at: .LDB)]!,
-        scheme.scheme[cube.getColor(at: .LFD)]!
+        scheme.scheme[cube.getColor(at: CornerSticker.LBU)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.LUF)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.LDB)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.LFD)]!
     ]
 }
 
 func leftEdgeColors (of cube: Cube,
                      withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .LU)]!,
-        scheme.scheme[cube.getColor(at: .LB)]!,
-        scheme.scheme[cube.getColor(at: .LF)]!,
-        scheme.scheme[cube.getColor(at: .LD)]!
+        scheme.scheme[cube.getColor(at: EdgeSticker.LU)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.LB)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.LF)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.LD)]!
     ]
 }
 
 func rightCornerColors (of cube: Cube,
                         withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .RFU)]!,
-        scheme.scheme[cube.getColor(at: .RUB)]!,
-        scheme.scheme[cube.getColor(at: .RDF)]!,
-        scheme.scheme[cube.getColor(at: .RBD)]!
+        scheme.scheme[cube.getColor(at: CornerSticker.RFU)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.RUB)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.RDF)]!,
+        scheme.scheme[cube.getColor(at: CornerSticker.RBD)]!
     ]
 }
 
 func rightEdgeColors (of cube: Cube,
                       withScheme scheme: ColorScheme) -> [CGColor] {
     return [
-        scheme.scheme[cube.getColor(at: .RU)]!,
-        scheme.scheme[cube.getColor(at: .RF)]!,
-        scheme.scheme[cube.getColor(at: .RB)]!,
-        scheme.scheme[cube.getColor(at: .RD)]!
+        scheme.scheme[cube.getColor(at: EdgeSticker.RU)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.RF)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.RB)]!,
+        scheme.scheme[cube.getColor(at: EdgeSticker.RD)]!
     ]
 }
 

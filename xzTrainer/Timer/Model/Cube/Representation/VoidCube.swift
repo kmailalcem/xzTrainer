@@ -22,16 +22,8 @@ public class VoidCube : Equatable {
     // initializing to a solved cube, white top, green front
     // traditional letter schemes
     public init() {
-        edges = Array(repeating: .UF, count: NUM_STICKERS)
-        corners = Array(repeating: .UFL, count: NUM_STICKERS)
-        
-        for i in 0 ..< NUM_STICKERS {
-            edges[i] = EdgePosition(rawValue: i)!
-            corners[i] = CornerPosition(rawValue: i)!
-        }
-        
-        cornerLetterScheme = "ABCDEFGHIJKLWMNOPQRSTXYZ"
-        edgeLetterScheme = "ABCDEFGHIJKLMNOPQRSTWXYZ"
+        edges = EdgeSticker.allValues
+        corners = CornerSticker.allValues
     }
     
     public func scrambleCube(_ scramble: String) {
@@ -45,14 +37,6 @@ public class VoidCube : Equatable {
                 exit(1)
             }
         }
-    }
-    
-    public func getSticker(at pos: EdgePosition) -> EdgeSticker {
-        return edges[pos.rawValue]
-    }
-    
-    public func getSticker(at pos: CornerPosition) -> CornerSticker {
-        return corners[pos.rawValue]
     }
     
     public func turn(_ turning: Turn) {
@@ -141,12 +125,14 @@ public class VoidCube : Equatable {
         }
     }
     
-    public func at(_ pos: CornerPosition) -> CornerSticker {
-        return corners[pos.rawValue]
-    }
-    
-    public func at(_ pos: EdgePosition) -> EdgeSticker {
-        return edges[pos.rawValue]
+    subscript<T: CubePiece>(_ pos: T) -> T {
+        get {
+            if pos is CornerSticker {
+                return corners[pos.rawValue] as! T
+            } else {
+                return edges[pos.rawValue] as! T
+            }
+        }
     }
     
     private func rotateRPrime () {
@@ -252,22 +238,12 @@ public class VoidCube : Equatable {
         return true
     }
     
-    private func getAdjacentPosition (_ sticker: EdgePosition)
-        -> EdgePosition
-    {
-        let firstPart = sticker.rawValue / 2 * 2
-        let secondPart = (sticker.rawValue + 1) % 2
-        return  EdgeSticker(rawValue: firstPart + secondPart)!
+    private func getAdjacentPosition<T: CubePiece> (_ sticker: T) -> T {
+        let firstPart = sticker.rawValue / T.faceNumber * T.faceNumber
+        let secondPart = (sticker.rawValue + 1) % T.faceNumber
+        return  T(rawValue: firstPart + secondPart)!
     }
-
-    private func getAdjacentPosition (_ sticker: CornerPosition)
-        -> CornerPosition
-    {
-        let firstPart = sticker.rawValue / 3 * 3
-        let secondPart = (sticker.rawValue + 1) % 3
-        return  CornerSticker(rawValue: firstPart + secondPart)!
-    }
-
+    
     private func movePieceWithOrientation (from source: EdgePosition,
                                            to target: EdgePosition) {
         edges.swapAt(source.rawValue, target.rawValue)
@@ -289,7 +265,5 @@ public class VoidCube : Equatable {
 
     private var edges : [EdgeSticker]
     private var corners : [CornerSticker]
-    private var cornerLetterScheme : String!
-    private var edgeLetterScheme : String!
     
 }

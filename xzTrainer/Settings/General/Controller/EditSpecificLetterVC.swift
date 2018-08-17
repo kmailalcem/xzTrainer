@@ -151,14 +151,14 @@ class EditSpecificLetterVC: UIViewController {
         let cube = Cube()
         let string = toString(piece)
         cube.scrambleCube(String(string[...string.startIndex]))
-        return cube.at(piece)
+        return cube[piece]
     }
     
     func getNextPieceOnFaceAntiClockwise(_ piece: CornerPosition) -> CornerPosition {
         let cube = Cube()
         let string = toString(piece)
         cube.scrambleCube(String(string[...string.startIndex]))
-        return cube.at(piece)
+        return cube[piece]
     }
     
     private func getAdjacentPosition (_ sticker: EdgePosition)

@@ -25,11 +25,29 @@ class LetterScheme {
             }
         }
     }
+    
     var cornerScheme: Dictionary<CornerSticker, String> {
         didSet {
             for i in 0 ..< cornerScheme.count {
                 let cornerKey = "Corner \(i)"
                 UserDefaults.standard.set(cornerScheme[CornerPosition(rawValue: i)!]!, forKey: cornerKey)
+            }
+        }
+    }
+    
+    subscript<T: CubePiece>(_ pos: T) -> String {
+        get {
+            if pos is CornerSticker {
+                return cornerScheme[pos as! CornerSticker]!
+            } else {
+                return edgeScheme[pos as! EdgeSticker]!
+            }
+        }
+        set {
+            if pos is CornerSticker {
+                cornerScheme[pos as! CornerSticker] = newValue
+            } else {
+                edgeScheme[pos as! EdgeSticker] = newValue
             }
         }
     }

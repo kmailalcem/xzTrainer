@@ -10,17 +10,17 @@ import UIKit
 
 let NUM_STICKERS = 24
 
-protocol PieceType: RawRepresentable {
-    var faceNumber: Int { get }
+public protocol CubePiece: RawRepresentable where RawValue == Int {
+    static var faceNumber: Int { get }
     static var allValues: [Self] { get }
 }
 
-public enum CornerSticker : Int, PieceType {
-    static var allValues: [CornerSticker] {
+public enum CornerSticker : Int, CubePiece {
+    public static var allValues: [CornerSticker] {
         return [.UFL, .FLU, .LUF, .ULB, .LBU, .BUL, .UBR, .BRU, .RUB, .URF, .RFU, .FUR, .DLF, .LFD, .FDL, .DBL, .BLD, .LDB, .DRB, .RBD, .BDR, .DFR, .FRD, .RDF]
     }
     
-    var faceNumber: Int {
+    public static var faceNumber: Int {
         return 3
     }
     
@@ -34,13 +34,13 @@ public enum CornerSticker : Int, PieceType {
     case DFR, FRD, RDF      // XYZ
 }
 
-public enum EdgeSticker : Int, PieceType {
-    static var allValues: [EdgeSticker] {
+public enum EdgeSticker : Int, CubePiece {
+    public static var allValues: [EdgeSticker] {
         return [UF, FU, UL, LU, UB, BU, UR, RU, DF, FD, DL, LD, DB, BD, DR, RD, FR, RF, FL, LF, BL, LB, BR, RB]
     }
     
     
-    var faceNumber: Int {
+    public static var faceNumber: Int {
         return 2
     }
     
@@ -74,7 +74,7 @@ public enum Turn : String {
     case S = "S", SPrime = "S'", S2 = "S2"
     case E = "E", EPrime = "E'", E2 = "E2"
     
-    static let regularTurns = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2]
+    static let allValues = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2]
 }
 
 public func inverse(of turn: Turn) -> Turn {

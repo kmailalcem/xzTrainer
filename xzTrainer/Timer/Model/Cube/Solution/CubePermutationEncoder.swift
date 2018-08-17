@@ -12,14 +12,14 @@ extension Cube {
     func at(_ pos: EdgePosition, parityFilter: AdvancedParity) -> EdgeSticker {
         let parityPiece1 = parityFilter.parityEdgePiece1.rawValue / 2
         let parityPiece2 = parityFilter.parityEdgePiece2.rawValue / 2
-        let targetPiece = at(pos).rawValue / 2
-        let pieceOffset = at(pos).rawValue % 2
+        let targetPiece = self[pos].rawValue / 2
+        let pieceOffset = self[pos].rawValue % 2
         if parityFilter.isActivated && targetPiece == parityPiece2 {
             return EdgeSticker(rawValue: parityPiece1 * 2 + pieceOffset)!
         } else if parityFilter.isActivated && targetPiece == parityPiece1 {
             return EdgeSticker(rawValue: parityPiece2 * 2 + pieceOffset)!
         } else {
-            return at(pos)
+            return self[pos]
         }
     }
     
@@ -126,7 +126,7 @@ class CubePermutationEncoder {
         }
     }
     
-    private  func isInPlace(piece: EdgePosition) -> Bool {
+    private  func isInPlace (piece: EdgeSticker) -> Bool {
         return piece.rawValue / 2 == cube.at(piece, parityFilter:
             encoderSetting.advancedParity).rawValue / 2
     }
@@ -207,15 +207,15 @@ class CubePermutationEncoder {
     }
     
     private  func isInPlace(piece: CornerPosition) -> Bool {
-        return piece.rawValue / 3 == cube.at(piece).rawValue / 3
+        return piece.rawValue / 3 == cube[piece].rawValue / 3
     }
     
     private func appendCornerCycle() {
         appendAndSolve(cornerCycleStartingSticker!)
-        cornerStickerTracker = cube.at(cornerCycleStartingSticker!)
+        cornerStickerTracker = cube[cornerCycleStartingSticker!] as CornerPosition
         while !requiresCornerCycleBreak() {
             appendAndSolve(cornerStickerTracker)
-            cornerStickerTracker = cube.at(cornerStickerTracker)
+            cornerStickerTracker = cube[cornerStickerTracker]
         }
         appendAndSolve(cornerStickerTracker)
     }
@@ -301,7 +301,7 @@ class CubePermutationEncoder {
     }
     
     private func pieceIsSolved(corner: CornerPosition) -> Bool {
-        return corner == cube.at(corner)
+        return corner == cube[corner]
     }
     
     private func translateEdgeFlipsToMemoCode() -> String {
@@ -324,7 +324,7 @@ class CubePermutationEncoder {
     }
     
     private func cornerTwistDirection(_ corner: CornerPosition) -> String {
-        if cube.at(corner).rawValue == corner.rawValue + 1 {
+        if cube[corner].rawValue == corner.rawValue + 1 {
             return ""
         } else {
             return "'"
