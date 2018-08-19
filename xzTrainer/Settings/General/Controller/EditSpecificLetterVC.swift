@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditSpecificLetterVC: UIViewController {
+class EditSpecificLetterVC: ThemeViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var stickerLabel: UILabel!
@@ -26,17 +26,19 @@ class EditSpecificLetterVC: UIViewController {
     @IBOutlet weak var bufferSwitch: ThemeSwitch!
     @IBOutlet weak var warningLabel: UILabel!
     
-    var selectedEdgePiece: EdgePosition? = nil
-    var selectedCornerPiece: CornerPosition? = nil
+    // var selectedEdgePiece: EdgePosition?
+    // var selectedCornerPiece: CornerPosition?
+    
+    var selectedPiece: CubePiece!
+    
+    var isEdge: Bool {
+        return selectedPiece is EdgeSticker
+    }
     
     var overwideTextFieldCount: Int = 0 {
         didSet {
             warningLabel.isHidden = overwideTextFieldCount == 0
         }
-    }
-
-    var isEdge: Bool {
-        return selectedEdgePiece != nil
     }
     
     override func viewDidLoad() {
@@ -46,11 +48,7 @@ class EditSpecificLetterVC: UIViewController {
         
         assignDelegates()
         
-        if isEdge {
-            setUpForEdge()
-        } else {
-            setUpForCorner()
-        }
+        setUpForPiece()
         
         stickerTextField.isEnabled = !bufferSwitch.isOn
         piece1TextField.isEnabled = !bufferSwitch.isOn
@@ -66,66 +64,48 @@ class EditSpecificLetterVC: UIViewController {
         piece2TextField.delegate = self
     }
     
-    private func setUpForEdge() {
-        piece2Label.isHidden = true
-        piece2TextField.isHidden = true
-        titleLabel.text = "Edge " + toString(selectedEdgePiece!)
-        stickerLabel.text = toString(selectedEdgePiece!)
-        stickerTextField.managedEdgePosition = selectedEdgePiece!
+    private func setUpForPiece() {
+        piece2Label.isHidden = isEdge
+        piece2TextField.isHidden = isEdge
+        titleLabel.text = type(of: selectedPiece).pieceName + " " + selectedPiece.string
+        stickerLabel.text = selectedPiece.string
+        stickerTextField.managedPiece = selectedPiece
         
-        let face3 = getNextPieceOnFaceAntiClockwise(selectedEdgePiece!)
+        let face3 = getNextPieceOnFaceAntiClockwise(selectedPiece)
         let face2 = getNextPieceOnFaceAntiClockwise(face3)
         let face1 = getNextPieceOnFaceAntiClockwise(face2)
         
-        face1Label.text = toString(face1)
-        face2Label.text = toString(face2)
-        face3Label.text = toString(face3)
+        face1Label.text = face1.string
+        face2Label.text = face2.string
+        face3Label.text = face3.string
         
-        face1TextField.managedEdgePosition = face1
-        face2TextField.managedEdgePosition = face2
-        face3TextField.managedEdgePosition = face3
+        face1TextField.managedPiece = face1
+        face2TextField.managedPiece = face2
+        face3TextField.managedPiece = face3
         
-        let piece1 = getAdjacentPosition(selectedEdgePiece!)
-        piece1Label.text = toString(piece1)
-        piece1TextField.managedEdgePosition = piece1
+        let piece1 = getAdjacentPosition(selectedPiece)
+        piece1Label.text = piece1.string
+        piece1TextField.managedPiece = piece1
         
-        bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme[UserSetting.shared.general.edgeBuffer].count == 0) || selectedEdgePiece == UserSetting.shared.general.edgeBuffer
+        if !isEdge {
+            let piece2 = getAdjacentPosition(piece1)
+            piece2Label.text = piece2.string
+            piece2TextField.managedPiece = piece2
+        }
         
-        // the switch is on if and only if the piece is buffer
-        // and there is no label on it
-        bufferSwitch.isOn = (UserSetting.shared.general.letterScheme[UserSetting.shared.general.edgeBuffer].count == 0) && selectedEdgePiece == UserSetting.shared.general.edgeBuffer
-    }
-    
-    private func setUpForCorner() {
-        titleLabel.text = "Corner " + toString(selectedCornerPiece!)
-        stickerLabel.text = toString(selectedCornerPiece!)
-        stickerTextField.managedCornerPosition = selectedCornerPiece!
-        
-        let face3 = getNextPieceOnFaceAntiClockwise(selectedCornerPiece!)
-        let face2 = getNextPieceOnFaceAntiClockwise(face3)
-        let face1 = getNextPieceOnFaceAntiClockwise(face2)
-        
-        face1Label.text = toString(face1)
-        face2Label.text = toString(face2)
-        face3Label.text = toString(face3)
-        
-        face1TextField.managedCornerPosition = face1
-        face2TextField.managedCornerPosition = face2
-        face3TextField.managedCornerPosition = face3
-        
-        let piece1 = getAdjacentPosition(selectedCornerPiece!)
-        piece1Label.text = toString(piece1)
-        piece1TextField.managedCornerPosition = piece1
-        
-        let piece2 = getAdjacentPosition(piece1)
-        piece2Label.text = toString(piece2)
-        piece2TextField.managedCornerPosition = piece2
-        bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme[UserSetting.shared.general.cornerBuffer].count == 0) || selectedCornerPiece == UserSetting.shared.general.cornerBuffer
-        
-        // the switch is on if and only if the piece is buffer
-        // and there is no label on it
-        bufferSwitch.isOn = (UserSetting.shared.general.letterScheme[UserSetting.shared.general.cornerBuffer].count == 0) && selectedCornerPiece == UserSetting.shared.general.cornerBuffer
-        
+        if let edge = selectedPiece as? EdgeSticker {
+            let edgeBuffer = UserSetting.shared.general.edgeBuffer
+            bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme[edgeBuffer].count == 0) || edge == edgeBuffer
+            // the switch is on if and only if the piece is buffer
+            // and there is no label on it
+            bufferSwitch.isOn = (UserSetting.shared.general.letterScheme[edgeBuffer].count == 0) && edge == edgeBuffer
+        } else if let corner = selectedPiece as? CornerSticker {
+            let cornerBuffer = UserSetting.shared.general.cornerBuffer
+            bufferSwitch.isEnabled = !(UserSetting.shared.general.letterScheme[corner].count == 0) || corner == cornerBuffer
+            // the switch is on if and only if the piece is buffer
+            // and there is no label on it
+            bufferSwitch.isOn = (UserSetting.shared.general.letterScheme[cornerBuffer].count == 0) && corner == cornerBuffer
+        }
     }
     
     @IBAction func toggleBufferSwitch(_ sender: UISwitch) {
@@ -141,40 +121,24 @@ class EditSpecificLetterVC: UIViewController {
         }
         
         if isEdge {
-            UserSetting.shared.general.edgeBuffer = selectedEdgePiece!
+            UserSetting.shared.general.edgeBuffer = selectedPiece as! EdgeSticker
         } else {
-            UserSetting.shared.general.cornerBuffer = selectedCornerPiece!
+            UserSetting.shared.general.cornerBuffer = selectedPiece as! CornerSticker
         }
     }
     
-    func getNextPieceOnFaceAntiClockwise(_ piece: EdgePosition) -> EdgePosition {
+    func getNextPieceOnFaceAntiClockwise(_ piece: CubePiece) -> CubePiece {
         let cube = Cube()
-        let string = toString(piece)
+        let string = piece.string
         cube.scrambleCube(String(string[...string.startIndex]))
         return cube[piece]
     }
     
-    func getNextPieceOnFaceAntiClockwise(_ piece: CornerPosition) -> CornerPosition {
-        let cube = Cube()
-        let string = toString(piece)
-        cube.scrambleCube(String(string[...string.startIndex]))
-        return cube[piece]
-    }
-    
-    private func getAdjacentPosition (_ sticker: EdgePosition)
-        -> EdgePosition
-    {
-        let firstPart = sticker.rawValue / 2 * 2
-        let secondPart = (sticker.rawValue + 1) % 2
-        return  EdgeSticker(rawValue: firstPart + secondPart)!
-    }
-    
-    private func getAdjacentPosition (_ sticker: CornerPosition)
-        -> CornerPosition
-    {
-        let firstPart = sticker.rawValue / 3 * 3
-        let secondPart = (sticker.rawValue + 1) % 3
-        return  CornerSticker(rawValue: firstPart + secondPart)!
+    private func getAdjacentPosition (_ sticker: CubePiece) -> CubePiece {
+        let faceCount = type(of: sticker).faceCount
+        let firstPart = sticker.rawValue / faceCount * faceCount
+        let secondPart = (sticker.rawValue + 1) % faceCount
+        return  type(of: sticker).init(rawValue: firstPart + secondPart)!
     }
 }
 
@@ -195,11 +159,7 @@ extension EditSpecificLetterVC: UITextFieldDelegate {
                 }
             }
             
-            if textField.managedCornerPosition != nil {
-                UserSetting.shared.general.letterScheme[textField.managedCornerPosition!] = textField.text!
-            } else {
-                UserSetting.shared.general.letterScheme[textField.managedEdgePosition!] = textField.text!
-            }
+            UserSetting.shared.general.letterScheme[textField.managedPiece] = textField.text!
             
         }
         

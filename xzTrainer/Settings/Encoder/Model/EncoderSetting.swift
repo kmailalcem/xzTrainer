@@ -37,11 +37,7 @@ class EncoderSetting {
     
     var scrambleInWCAOrientation: Bool {
         get {
-            if keyExists(wcaOrientationKey) {
-                return UserDefaults.standard.bool(forKey: wcaOrientationKey)
-            } else {
-                return false
-            }
+            return storedValue(forKey: wcaOrientationKey, defaultValue: false)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: wcaOrientationKey)
@@ -50,11 +46,7 @@ class EncoderSetting {
     
     var userCustomizeOrder: Bool {
         get {
-            if keyExists(customizeKey) {
-                return UserDefaults.standard.bool(forKey: customizeKey)
-            } else {
-                return false
-            }
+            return storedValue(forKey: customizeKey, defaultValue: false)
         }
         set {
             // the first time turning this option on

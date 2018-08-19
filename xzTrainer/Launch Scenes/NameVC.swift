@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameVC: UIViewController, UITextFieldDelegate {
+class NameVC: ThemeViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

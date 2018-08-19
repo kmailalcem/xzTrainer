@@ -36,7 +36,7 @@ enum LocalizableMemo: String, Localizable {
     case preferSameInnerLayerCommutatorTitle = "prefer same inner layer commutator title"
     case preferSameInnerLayerCommutatorDescription = "prefer same inner layer commutator description"
     
-    case preferCrossOuterLayerCommutatorTitle = "prefer cross layer commutator title"
+    case preferCrossOuterLayerCommutatorTitle = "prefer cross outer layer commutator title"
     case preferCrossOuterLayerCommutatorDescription = "prefer cross outer layer commutator description"
     
     case prefer1MoveSetupTitle = "prefer 1 move setup title"

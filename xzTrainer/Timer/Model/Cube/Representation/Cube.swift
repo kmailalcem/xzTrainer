@@ -258,6 +258,14 @@ public class Cube : Equatable {
     subscript<T: CubePiece>(_ pos: T) -> T {
         return permutation[pos]
     }
+    
+    subscript(_ pos: CubePiece) -> CubePiece {
+        if pos is EdgeSticker {
+            return permutation[pos as! EdgeSticker]
+        } else {
+            return permutation[pos as! CornerSticker]
+        }
+    }
    
     private func rotateXPrime() {
         permutation.turn(.RPrime)

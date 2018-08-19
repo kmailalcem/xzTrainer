@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
+class SolveDetailVC: ThemeViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var pbLabel: UILabel!
@@ -37,7 +37,7 @@ class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateAOLabels()
+        updateView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,25 +45,23 @@ class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
         cubeView.settingFrame()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.view.frame = UIScreen.main.bounds
-        self.view.layoutIfNeeded()
+    
+    
+    private func updateView() {
+        updateGeneralInfo()
+        updateAOLabels()
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        self.view.frame = UIScreen.main.bounds
-        self.view.layoutIfNeeded()
-    }
-    
-    private func updateAOLabels() {
+    fileprivate func updateGeneralInfo() {
         currentTimeLabel.text = convertTimeDoubleToString(
             currentSolve.timeIncludingPenalty)
         scrambleLabel.text = currentSolve.scramble
         cubeView.showScramble(currentSolve.scramble!)
         edgeMemoLabel.text = currentSolve.edgeMemo
         cornerMemoLabel.text = currentSolve.cornerMemo
-        
+    }
+    
+    fileprivate func updateAOLabels() {
         let (best, mo3, ao5, ao12, ao100, ao1000) =
             (currentSolve.best, currentSolve.mo3, currentSolve.ao5,
              currentSolve.ao12, currentSolve.ao100,
@@ -76,4 +74,5 @@ class SolveDetailVC: UIViewController, UIGestureRecognizerDelegate {
         ao100Label.text = convertTimeDoubleToString(ao100)
         ao1000Label.text = convertTimeDoubleToString(ao1000)
     }
+
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowPriorityVC: UIViewController {
+class ShowPriorityVC: ThemeViewController {
     @IBOutlet weak var priorityTable: UITableView!
     @IBOutlet weak var applySwitch: ThemeSwitch!
 

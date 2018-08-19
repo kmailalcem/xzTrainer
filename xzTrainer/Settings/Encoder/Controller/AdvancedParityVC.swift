@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdvancedParityVC: UIViewController, UITextFieldDelegate {
+class AdvancedParityVC: ThemeViewController, UITextFieldDelegate {
     
 
     @IBOutlet weak var enableSwitch: ThemeSwitch!
@@ -50,8 +50,8 @@ class AdvancedParityVC: UIViewController, UITextFieldDelegate {
         dismissPickerButton.alpha = 0
         
         enableSwitch.isOn = UserSetting.shared.encoder.advancedParity.isEnabled
-        firstPieceTextField.text = toString(UserSetting.shared.encoder.advancedParity.parityEdgePiece1)
-        secondPieceTextField.text = toString(UserSetting.shared.encoder.advancedParity.parityEdgePiece2)
+        firstPieceTextField.text = UserSetting.shared.encoder.advancedParity.parityEdgePiece1.string
+        secondPieceTextField.text = UserSetting.shared.encoder.advancedParity.parityEdgePiece2.string
         warningLabel.isHidden = firstPieceTextField.text != secondPieceTextField.text
     }
 
@@ -70,16 +70,16 @@ extension AdvancedParityVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return toString(EdgeSticker(rawValue: row)!)
+        return EdgeSticker(rawValue: row)!.string
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let edge = EdgeSticker(rawValue: row)!
         if pickerView == firstPiecePicker {
-            firstPieceTextField.text = toString(edge)
+            firstPieceTextField.text = edge.string
             UserSetting.shared.encoder.advancedParity.parityEdgePiece1 = edge
         } else {
-            secondPieceTextField.text = toString(EdgeSticker(rawValue: row)!)
+            secondPieceTextField.text = EdgeSticker(rawValue: row)!.string
             UserSetting.shared.encoder.advancedParity.parityEdgePiece2 = edge
         }
         

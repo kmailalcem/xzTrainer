@@ -1,0 +1,26 @@
+/* 
+  IconExplanations.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 8/19/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+"+" = "计时器：显示选项。\n选择分组：新分组。";
+
+"show" = "显示打乱和编码。显示后反应时间将清零。" ;
+
+"numpad" = "手动输入成绩。在手法训练时显示打乱后才能手动输入成绩。";
+
+"arrow" = "下一组打乱。";
+
+"gear" = "小循环风格设置。";
+
+"back" = "返回。";
+
+"top" = "自定义小循环顺序时将编码置顶。";
+
+"up" = "自定义小循环顺序时将编码提前一位。";
+
+"down" = "自定义小循环顺序时将编码延后一位。";
+
+"bottom" = "自定义小循环顺序时将编码垫底。";

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReorderPriorityVC: UIViewController {
+class ReorderPriorityVC: ThemeViewController {
 
     @IBOutlet weak var priorityTable: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,6 +16,7 @@ class ReorderPriorityVC: UIViewController {
     var targetEdgePiece: EdgeSticker?
     var targetCornerPiece: CornerSticker?
     
+    var targetedPiece: CubePiece?
     var isEdge: Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,6 @@ class ReorderPriorityVC: UIViewController {
             titleLabel.text = "First Corner Letter".localized()
         }
         
-      
     }
 
 

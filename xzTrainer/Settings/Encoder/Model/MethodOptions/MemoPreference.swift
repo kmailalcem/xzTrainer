@@ -29,10 +29,7 @@ protocol MemoPreference {
 extension MemoPreference {
     var priority: Int {
         get {
-            if keyExists(Self.memoKey + "Priority") {
-                return UserDefaults.standard.integer(forKey: Self.memoKey + "Priority")
-            }
-            return defaultPriority
+            return storedValue(forKey: Self.memoKey + "Priority", defaultValue: defaultPriority)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Self.memoKey + "Priority")

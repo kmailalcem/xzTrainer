@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SettingsDetailVC: UIViewController {
+class SettingsDetailVC: ThemeViewController {
     
     @IBOutlet weak var settingsTitle: UILabel!
     @IBOutlet weak var explanation: UITextView!

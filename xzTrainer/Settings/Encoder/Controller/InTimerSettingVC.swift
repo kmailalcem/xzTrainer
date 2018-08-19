@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InTimerSettingVC: UIViewController {
+class InTimerSettingVC: ThemeViewController {
     @IBOutlet weak var backButton: UIButtonX!
     @IBOutlet weak var settingsTable: SettingsTableView!
     @IBOutlet weak var wcaSwitch: ThemeSwitch!
@@ -19,6 +19,7 @@ class InTimerSettingVC: UIViewController {
     var memoSettingsDataSource: MemoSettingsDataSource = MemoSettingsDataSource()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         settingsTable.delegate = memoSettingsDataSource
         settingsTable.dataSource = memoSettingsDataSource
         settingsTable.containerViewController = self

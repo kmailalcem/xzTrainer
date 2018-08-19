@@ -1,0 +1,26 @@
+/* 
+  IconExplanations.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 8/19/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+"+" = "In timer: show more options.\nSelecting sessions: new session.";
+
+"show" = "Reveal scrambles and memo. You won't have a reaction time after you reveal the memo." ;
+
+"numpad" = "Manually enter time. In execution training, only shown after revealed memo and scramble. '.' means ':' for minutes, but please don't go to hours.";
+
+"arrow" = "Next Scramble";
+
+"gear" = "Show memo generation settings.";
+
+"back" = "Go back to the previous screen.";
+
+"top" = "Send to the front of cycle break priority list.";
+
+"up" = "Move letter one position forward in cycle break priority list.";
+
+"down" = "Move letter one position backward in cycle break priority list.";
+
+"bottom" = "Send to the back of cycle break priority list.";

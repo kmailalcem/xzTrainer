@@ -20,7 +20,7 @@ struct Mode {
 }
 
 class ModeSelectionVC:
-    UIViewController,
+    ThemeViewController,
     UITableViewDelegate,
     UITableViewDataSource
 {

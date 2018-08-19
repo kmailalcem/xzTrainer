@@ -27,6 +27,7 @@ class ResultCell: UITableViewCell {
         ao12Label.text = String(format: "ao12: \(convertTimeDoubleToString(currentSolve.ao12))")
         
         scramble = currentSolve.scramble!
+        roundedView.shadowOpacity = 0.125
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

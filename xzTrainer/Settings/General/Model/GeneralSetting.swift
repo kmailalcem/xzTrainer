@@ -22,18 +22,16 @@ class GeneralSetting {
             UserDefaults.standard.set(edgeBuffer.rawValue, forKey: edgeBufferKey)
         }
     }
+    
     var cornerBuffer: CornerPosition = .ULB {
         didSet {
             UserDefaults.standard.set(cornerBuffer.rawValue, forKey: cornerBufferKey)
         }
     }
+    
     var name: String {
         get {
-            if keyExists(nameKey) {
-                return UserDefaults.standard.string(forKey: nameKey)!
-            } else {
-                return LocalizationGeneral.defaultUserName.localized
-            }
+            return storedValue(forKey: nameKey, defaultValue: LocalizationGeneral.defaultUserName.localized)
         }
         set {
             UserDefaults.standard.set(newValue, forKey: nameKey)

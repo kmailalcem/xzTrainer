@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditLetterSchemeVC: UIViewController {
+class EditLetterSchemeVC: ThemeViewController {
     
     @IBOutlet weak var leftFace: UIView!
     @IBOutlet weak var rightFace: UIView!
@@ -146,10 +146,10 @@ class EditLetterSchemeVC: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EditSpecificLetterVC {
-            if let sender = sender as? CornerPosition {
-                destination.selectedCornerPiece = sender
-            } else if let sender = sender as? EdgePosition {
-                destination.selectedEdgePiece = sender
+            if sender is EdgeSticker {
+                destination.selectedPiece = sender as! EdgeSticker
+            } else {
+                destination.selectedPiece = sender as! CornerSticker
             }
         }
     }
@@ -164,13 +164,11 @@ class EditLetterSchemeVC: UIViewController {
                 source.piece2TextField.resignFirstResponder()
                 source.stickerTextField.resignFirstResponder()
                 if source.bufferSwitch.isOn {
-                    if source.isEdge {
-                        UserSetting.shared.general.letterScheme[source.stickerTextField.managedEdgePosition!] = ""
-                        UserSetting.shared.general.letterScheme[source.piece1TextField.managedEdgePosition!] = ""
-                    } else {
-                        UserSetting.shared.general.letterScheme[source.stickerTextField.managedCornerPosition!] = ""
-                        UserSetting.shared.general.letterScheme[source.piece1TextField.managedCornerPosition!] = ""
-                        UserSetting.shared.general.letterScheme[source.piece2TextField.managedCornerPosition!] = ""
+                    UserSetting.shared.general.letterScheme[source.stickerTextField.managedPiece] = ""
+                    UserSetting.shared.general.letterScheme[source.piece1TextField.managedPiece] = ""
+                    if !source.isEdge {
+                        
+                        UserSetting.shared.general.letterScheme[source.piece2TextField.managedPiece] = ""
                     }
                 }
             }

@@ -28,7 +28,7 @@ class FloatingActionButton: UIButton {
     
     private func commonInit() {
         layer.shadowRadius = 3
-        layer.shadowOpacity = 0.25
+        layer.shadowOpacity = 0.083
         layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     

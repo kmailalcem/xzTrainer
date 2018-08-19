@@ -70,25 +70,35 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
         timer = Timer.scheduledTimer(timeInterval: 0.017, target: self, selector: #selector(TimerLabel.updateTimer), userInfo: nil, repeats: true)
     }
     
+   
+    
     @objc private func timerTaped(sender: UILongPressGestureRecognizer) {
         if (!isTiming) {
-            if sender.state == .began {
-                textColor = TimerLabel.beginTappingColor
-            } else if sender.state == .ended {
-                textColor = TimerLabel.defaultColor
-            }
+            handleTimerTappedWhileNotTiming(sender)
         } else {
-            if sender.state == .began {
-                timer?.invalidate()
-                updateTimer()
-                textColor = TimerLabel.defaultColor
-                isTiming = false
-                endTime = Date.timeIntervalSinceReferenceDate
-                delegate?.timerDidFinish(self)
-            }
+            handleTimerTappedWhileTiming(sender)
         }
     }
-
+    
+    fileprivate func handleTimerTappedWhileNotTiming(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            textColor = TimerLabel.beginTappingColor
+        } else if sender.state == .ended {
+            textColor = TimerLabel.defaultColor
+        }
+    }
+    
+    fileprivate func handleTimerTappedWhileTiming(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            timer?.invalidate()
+            updateTimer()
+            textColor = TimerLabel.defaultColor
+            isTiming = false
+            endTime = Date.timeIntervalSinceReferenceDate
+            delegate?.timerDidFinish(self)
+        }
+    }
+    
     @objc func timerReady(sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             delegate?.timerWillStart(self)

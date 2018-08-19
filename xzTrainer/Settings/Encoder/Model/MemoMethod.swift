@@ -38,9 +38,9 @@ class MemoMethod {
     
     var requiredBuffer: String {
         if _edgeBuffer != nil {
-            return toString(_edgeBuffer!)
+            return _edgeBuffer!.string
         } else if _cornerBuffer != nil {
-            return toString(_cornerBuffer!)
+            return _cornerBuffer!.string
         } else {
             return "none"
         }

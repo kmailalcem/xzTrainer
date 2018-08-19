@@ -16,7 +16,7 @@ func toString(_ rotations: [Rotation]) -> String {
     return result;
 }
 
-class TimerVC: UIViewController {
+class TimerVC: ThemeViewController {
     
     var isCasual: Bool = true
     @IBOutlet weak var scrambleTextField: UILabel!
@@ -112,6 +112,8 @@ class TimerVC: UIViewController {
         updateView()
         swipableView.isUserInteractionEnabled = true
         resultTableView.isUserInteractionEnabled = true
+        swipableView.shadowRadius = 8
+        swipableView.shadowOpacity = 0.125
     }
     
     private func assignDelegates() {

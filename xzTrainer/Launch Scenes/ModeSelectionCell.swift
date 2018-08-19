@@ -26,6 +26,8 @@ class ModeSelectionCell: UITableViewCell {
         layer.frame = gradientMask.frame
         layer.cornerRadius = 15
         gradientMask.layer.addSublayer(layer)
+        
+        roundedView.shadowOpacity = 0.25
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

@@ -11,26 +11,26 @@
 "advanced m2" = "Advanced M2";
 
 "prefer trivial title" = "Prefer easy edge stickers";
-"prefer trivial description" = "";
+"prefer trivial description" = "%@ can be solved in only 1 move. %@, %@ can be solved in 4 moves by U2 M' U2 M' or M U2 M U2.";
 
 "avoid misoriented edge title" = "Avoid misoriented edges";
-"avoid misoriented edge description" = "";
+"avoid misoriented edge description" = "Misoriented edges are more difficult to solve, due to ugly algorithms or cube rotation.";
 
 "prefer corner with short setup title" = "prefer corner with short setup";
-"prefer corner with short setup description" = "";
+"prefer corner with short setup description" = "Break cycles at corner pieces with none or one move setup.";
 
-"use UFL title" = "Use UFL as a target";
-"use UFL description" = "";
+"use UFL title" = "Use %@ as a target";
+"use UFL description" = "%s target can be solved in shorter moves than %s by U2 [J-Perm] U. Turn on this switch so that one move setups to %s is considered equivalently to that of %s.";
 
 "prefer same outer layer commutator title" = "Prefer same layer outer commutator groups ";
-"prefer same outer layer commutator description" = "";
+"prefer same outer layer commutator description" = "%@ can be easily inserted to %@ by U' M2 U, hence pieces interchangeable with %@ pairs with %@ to form easy 8 movers. Pieces that are on the right outer layer that are not %@ can be set up to \%@ to form 9 movers.";
 
 "prefer same inner layer commutator title" = "Prefer same layer inner commutator groups";
-"prefer same inner layer commutator description" = "";
+"prefer same inner layer commutator description" = "%@ can be easily inserted to %@ by U M' U', hence pieces interchangeable with %@ pairs with %@ to form easy 8 movers. Pieces that are on the right outer layer that are not %@ can be set up to \%@ to form 9 movers.";
 
-"prefer cross layer commutator title" = "Prefer cross layer outer commutator groups";
-"prefer cross layer commutator description" = "";
+"prefer cross outer layer commutator title" = "Prefer cross layer outer commutator groups";
+"prefer cross outer layer commutator description" = "%@ to %@ can be solved in 5 moves, U M' U2 M U. Hence pieces from the left outer layer to the right can be solved in at most 9 moves, by setting up to %@ and %@, respectively.";
 
 "prefer 1 move setup title" = "Prefer easy setup (no more than 1 move)";
-"prefer 1 move setup description" = "";
+"prefer 1 move setup description" = "Pieces such as %@, %@, %@ can be set up to %@ in one move, hence perfect target for setting up to an 8/9/10 move commutator.";
 

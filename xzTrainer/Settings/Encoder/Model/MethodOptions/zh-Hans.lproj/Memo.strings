@@ -11,26 +11,26 @@
 "advanced m2" = "进阶M2";
 
 "prefer trivial title" = "优先考虑方便set up的棱块";
-"prefer trivial description" = "";
+"prefer trivial description" = "%@可以被一步还原。 %@, %@可以由U2 M' U2 M'或 M U2 M U2四步还原。";
 
 "avoid misoriented edge title" = "避免朝向错误的棱块";
-"avoid misoriented edge description" = "";
+"avoid misoriented edge description" = "朝向错误的棱块通常公式较长或较不顺手。";
 
 "prefer corner with short setup title" = "优先考虑方便set up的角块";
-"prefer corner with short setup description" = "";
+"prefer corner with short setup description" = "无需set up或一步set up的角块会被优先考虑。";
 
-"use UFL title" = "允许set up到UFL";
-"use UFL description" = "";
+"use UFL title" = "允许set up到%@";
+"use UFL description" = "U2 [J-Perm] U能够还原%@，且步数比%@短。使用风格后无需或一步set up至%@的贴片将与无需或一步set up到%@的贴片地位同等。";
 
 "prefer same outer layer commutator title" = "使用外层同层转换机组";
-"prefer same outer layer commutator description" = "";
+"prefer same outer layer commutator description" = "%@可以由U' M2 U插入到%@， 所以可与%@交换的贴片会和%@组成8步转换机。非%@的外层贴片可以set up到\%@，形成9步转换机。";
 
 "prefer same inner layer commutator title" = "使用内层同层转换机组";
-"prefer same inner layer commutator description" = "";
+"prefer same inner layer commutator description" = "%@可以由U M‘ U’插入到%@， 所以可与%@交换的贴片会和%@组成8步转换机。非%@的外层贴片可以set up到\%@，形成9步转换机。";
 
-"prefer cross layer commutator title" = "使用外层跨层转换机组";
-"prefer cross layer commutator description" = "";
+"prefer cross outer layer commutator title" = "使用外层跨层转换机组";
+"prefer cross outer layer commutator description" = "%@到%@可以由U M' U2 M U 5步还原，所以将左右外层贴片set up到%@和%@将能够在9步内还原这两贴片。";
 
 "prefer 1 move setup title" = "优先考虑方便set up的棱块";
-"prefer 1 move setup description" = "";
+"prefer 1 move setup description" = "像%@, %@, %@这样的贴片能够一步set up至%@，组成8/9/10步转换机。";
 

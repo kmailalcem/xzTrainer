@@ -35,7 +35,7 @@ class LetterScheme {
         }
     }
     
-    subscript<T: CubePiece>(_ pos: T) -> String {
+    subscript(_ pos: CubePiece) -> String {
         get {
             if pos is CornerSticker {
                 return cornerScheme[pos as! CornerSticker]!

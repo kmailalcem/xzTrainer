@@ -9,16 +9,16 @@
 import UIKit
 fileprivate func edge(_ piece: EdgeSticker) -> String {
     if UserSetting.shared.general.letterScheme[piece].count == 0 {
-        return toString(piece)
+        return piece.string
     }
-    return toString(piece) + "/\(UserSetting.shared.general.letterScheme[piece])"
+    return piece.string + "/\(UserSetting.shared.general.letterScheme[piece])"
 }
 
 fileprivate func corner(_ piece: CornerSticker) -> String {
     if UserSetting.shared.general.letterScheme[piece].count == 0 {
-        return toString(piece)
+        return piece.string
     }
-    return toString(piece) + "/\(UserSetting.shared.general.letterScheme[piece])"
+    return piece.string + "/\(UserSetting.shared.general.letterScheme[piece])"
 }
 
 class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {

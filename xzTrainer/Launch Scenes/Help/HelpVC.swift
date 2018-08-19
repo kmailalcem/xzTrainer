@@ -8,19 +8,19 @@
 
 import UIKit
 
-class HelpVC: UIViewController {
+class HelpVC: ThemeViewController {
 
     let icons: [HelpedIcon] = [
-        HelpedIcon(image: #imageLiteral(resourceName: "Plus"), wikiName: "+", explanation: "In timer: show more options.\nSelecting sessions: new session."),
-        HelpedIcon(image: #imageLiteral(resourceName: "Show"), wikiName: "show", explanation: "Reveal scrambles and memo. You won't have a reaction time after you reveal the memo." ),
-        HelpedIcon(image: #imageLiteral(resourceName: "ManuallyEnterTime"), wikiName: "numpad", explanation: "Manually enter time. In execution training, only shown after revealed memo and scramble. '.' means ':' for minutes, but please don't go to hours."),
-        HelpedIcon(image: #imageLiteral(resourceName: "NextScramble"), wikiName: "arrow", explanation: "Next Scramble"),
-        HelpedIcon(image: #imageLiteral(resourceName: "Settings"), wikiName: "gear", explanation: "Show memo generation settings."),
-        HelpedIcon(image: #imageLiteral(resourceName: "Back"), wikiName: "back", explanation: "Go back to the previous screen."),
-        HelpedIcon(image: #imageLiteral(resourceName: "Top"), wikiName: "top", explanation: "Send to the front of cycle break priority list."),
-        HelpedIcon(image: #imageLiteral(resourceName: "Up"), wikiName: "up", explanation: "Move letter one position forward in cycle break priority list."),
-        HelpedIcon(image: #imageLiteral(resourceName: "Down"), wikiName: "down", explanation: "Move letter one position backward in cycle break priority list."),
-        HelpedIcon(image: #imageLiteral(resourceName: "Bottom"), wikiName: "bottom", explanation: "Send to the back of cycle break priority list.")
+        HelpedIcon(image: #imageLiteral(resourceName: "Plus"), wikiName: "+", explanation: LocalizationHelp.plus.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Show"), wikiName: "show", explanation: LocalizationHelp.show.localized ),
+        HelpedIcon(image: #imageLiteral(resourceName: "ManuallyEnterTime"), wikiName: "numpad", explanation: LocalizationHelp.numpad.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "NextScramble"), wikiName: "arrow", explanation: LocalizationHelp.arrow.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Settings"), wikiName: "gear", explanation: LocalizationHelp.gear.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Back"), wikiName: "back", explanation: LocalizationHelp.back.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Top"), wikiName: "top", explanation: LocalizationHelp.top.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Up"), wikiName: "up", explanation: LocalizationHelp.up.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Down"), wikiName: "down", explanation: LocalizationHelp.down.localized),
+        HelpedIcon(image: #imageLiteral(resourceName: "Bottom"), wikiName: "bottom", explanation: LocalizationHelp.bottom.localized)
     ]
     
     @IBOutlet weak var helpTable: UITableView!

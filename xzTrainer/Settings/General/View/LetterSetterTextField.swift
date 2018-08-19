@@ -11,15 +11,9 @@ import UIKit
 class LetterSetterTextField: UITextField {
 
     var isOverwide: Bool = false
-    var managedEdgePosition: EdgePosition? = nil {
+    var managedPiece: CubePiece! {
         didSet {
-            text = UserSetting.shared.general.letterScheme[managedEdgePosition!]
-        }
-    }
-    
-    var managedCornerPosition: CornerPosition? = nil {
-        didSet {
-            text = UserSetting.shared.general.letterScheme[managedCornerPosition!]
+            text = UserSetting.shared.general.letterScheme[managedPiece]
         }
     }
     

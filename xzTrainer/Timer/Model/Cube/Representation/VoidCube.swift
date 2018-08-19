@@ -239,8 +239,8 @@ public class VoidCube : Equatable {
     }
     
     private func getAdjacentPosition<T: CubePiece> (_ sticker: T) -> T {
-        let firstPart = sticker.rawValue / T.faceNumber * T.faceNumber
-        let secondPart = (sticker.rawValue + 1) % T.faceNumber
+        let firstPart = sticker.rawValue / T.faceCount * T.faceCount
+        let secondPart = (sticker.rawValue + 1) % T.faceCount
         return  T(rawValue: firstPart + secondPart)!
     }
     

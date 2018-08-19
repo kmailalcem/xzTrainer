@@ -12,11 +12,11 @@ extension SettingsVC: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == edgeBufferPickerView {
             let edge = EdgePosition(rawValue: row)!
-            edgePickerTrigger.text = toString(edge)
+            edgePickerTrigger.text = edge.string
             UserSetting.shared.general.edgeBuffer = edge
         } else if pickerView == cornerBufferPickerView {
             let corner = CornerPosition(rawValue: row)!
-            cornerPickerTrigger.text = toString(corner)
+            cornerPickerTrigger.text = corner.string
             UserSetting.shared.general.cornerBuffer = corner
         } else if pickerView == topColorPicker {
             UserSetting.shared.general.topFaceColor = availableTopColor[row]
@@ -45,13 +45,13 @@ extension SettingsVC: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == edgeBufferPickerView {
-            return toString(EdgePosition(rawValue: row)!)
+            return EdgePosition(rawValue: row)!.string
         }  else if pickerView == cornerBufferPickerView {
-            return toString(CornerPosition(rawValue: row)!)
+            return CornerPosition(rawValue: row)!.string
         } else if pickerView == frontColorPicker {
-            return toString(availableFrontColor[row])
+            return availableFrontColor[row].string
         } else if pickerView == topColorPicker {
-            return toString(availableTopColor[row])
+            return availableTopColor[row].string
         }
         return "white"
     }
