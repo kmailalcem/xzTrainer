@@ -25,7 +25,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="GtU-LF-EhD">
                                     <rect key="frame" x="0.0" y="0.0" width="268" height="96.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R U R' U' R U R U R F L B D2 F2 L2 R2 Rw2 x2 y' F2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REB-3M-KW0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R U R' U' R U R U R F L B D2 F2 L2 R2 Rw2 x2 y' F2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REB-3M-KW0">
                                             <rect key="frame" x="0.0" y="0.0" width="268" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -118,6 +118,9 @@
                                                             <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="okay" destination="iN0-l3-epB" eventType="touchUpInside" id="IiF-WX-mUh"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFX-rF-g2z" customClass="RoundedButton" customModule="xzTrainer" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="0.0" width="86" height="30"/>
@@ -135,6 +138,9 @@
                                                             <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="plusTwo" destination="iN0-l3-epB" eventType="touchUpInside" id="EaY-kC-vua"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTg-VA-5zg" customClass="RoundedButton" customModule="xzTrainer" customModuleProvider="target">
                                                     <rect key="frame" x="182" y="0.0" width="86" height="30"/>
@@ -152,6 +158,9 @@
                                                             <real key="value" value="10"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="dnf" destination="iN0-l3-epB" eventType="touchUpInside" id="3gb-Db-ioJ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -167,6 +176,9 @@
                                                     <real key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="showDetail" destination="iN0-l3-epB" eventType="touchUpInside" id="W9p-jK-yVj"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -191,7 +203,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Aol-gS-w0K" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="b7R-YU-MOh"/>
                 <constraint firstItem="Aol-gS-w0K" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mqD-Yo-9Nm"/>
@@ -200,6 +212,17 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="ao12Label" destination="5qj-1U-BOG" id="BUv-yf-C2D"/>
+                <outlet property="ao5Label" destination="RFl-he-9il" id="70v-lo-qoT"/>
+                <outlet property="dateLabel" destination="Lcf-bd-m3E" id="xk9-f2-Mas"/>
+                <outlet property="dnfButton" destination="yTg-VA-5zg" id="VdP-VO-Qzg"/>
+                <outlet property="mo3Label" destination="HAM-82-wjX" id="Ns8-Gj-YmW"/>
+                <outlet property="okButton" destination="Rhc-RL-DGd" id="Q6s-sX-a1r"/>
+                <outlet property="plusTwoButtion" destination="dFX-rF-g2z" id="wDq-SU-VZv"/>
+                <outlet property="scrambleLabel" destination="REB-3M-KW0" id="aEM-Sg-4gf"/>
+                <outlet property="timeLabel" destination="MV8-Jm-AqR" id="ZD3-GU-JJb"/>
+            </connections>
             <point key="canvasLocation" x="129" y="190"/>
         </view>
     </objects>

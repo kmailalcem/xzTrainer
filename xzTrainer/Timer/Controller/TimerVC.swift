@@ -19,6 +19,8 @@ func toString(_ rotations: [Rotation]) -> String {
 class TimerVC: ThemeViewController {
     
     var isCasual: Bool = true
+    
+    @IBOutlet weak var dismissPopUpButton: UIButton!
     @IBOutlet weak var scrambleTextField: UILabel!
     @IBOutlet weak var cubeView: CubeView!
     @IBOutlet weak var timerLabel: TimerLabel!
@@ -30,9 +32,6 @@ class TimerVC: ThemeViewController {
     @IBOutlet weak var resultTableTriggerButton: UIButtonX!
     @IBOutlet weak var memoStack: UIStackView!
     @IBOutlet weak var modeTitleLabel: UILabel!
-    @IBAction func back() {
-        dismiss(animated: true, completion: nil)
-    }
     
     // Floating Action Buttons
     @IBOutlet weak var floatingPlus: FloatingActionButton!
@@ -41,17 +40,8 @@ class TimerVC: ThemeViewController {
     @IBOutlet weak var manuallyEnterTimeButton: FloatingActionButton!
     
     // Pop up window
-    @IBOutlet weak var popUpDetailView: RoundedView!
-    @IBOutlet weak var dismissPopUpButton: UIButton!
-    @IBOutlet weak var puScrambleLabel: UILabel!
-    @IBOutlet weak var puTimeLabel: UILabel!
-    @IBOutlet weak var puMo3Label: UILabel!
-    @IBOutlet weak var puAo5Label: UILabel!
-    @IBOutlet weak var puAo12Label: UILabel!
-    @IBOutlet weak var puDateLabel: UILabel!
-    @IBOutlet weak var plusTwoButtion: RoundedButton!
-    @IBOutlet weak var okButton: RoundedButton!
-    @IBOutlet weak var dnfButton: RoundedButton!
+    
+    var popUpDetailView = Bundle.main.loadNibNamed("ResultPopUpView", owner: self, options: nil)?.first as! ResultPopUpView
     
     // session picker
     @IBOutlet weak var sessionTable: SessionTableView!
@@ -86,9 +76,15 @@ class TimerVC: ThemeViewController {
         setUpInitialLayout()
         assignDelegates()
         resultTable.reloadData()
+        popUpDetailView.rootViewController = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.deletedCurrentSession), name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.reloadTable), name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
+    }
+    
+    @objc func reloadTable(_ notification: NSNotification) {
+        resultTable.reloadData()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

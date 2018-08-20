@@ -26,7 +26,7 @@ extension TimerVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if tableView is ResultTableView {
-            configurePopUp(indexPath: indexPath)
+            popUpDetailView.configurePopUp(indexPath: indexPath)
             animatePopUpIn()
             return
         }

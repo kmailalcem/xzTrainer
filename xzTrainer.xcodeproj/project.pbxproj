@@ -52,6 +52,10 @@
 		9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */; };
 		9575E62A212A304B005F6872 /* ResultPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575E629212A304B005F6872 /* ResultPopUpView.swift */; };
 		9575E62C212A305C005F6872 /* ResultPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9575E62B212A305C005F6872 /* ResultPopUpView.xib */; };
+		9575E630212A402F005F6872 /* ResultTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575E62F212A402F005F6872 /* ResultTableView.swift */; };
+		9575E632212A404B005F6872 /* ResultTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9575E631212A404B005F6872 /* ResultTableView.xib */; };
+		9575E635212A4161005F6872 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575E634212A4161005F6872 /* SessionView.swift */; };
+		9575E637212A416B005F6872 /* SessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9575E636212A416B005F6872 /* SessionView.xib */; };
 		9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575ED5620D90D7A00D9CF81 /* Data.swift */; };
 		957A5C7021128064002160A7 /* ReorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A5C6F21128064002160A7 /* ReorderCell.swift */; };
 		957A5C7221128092002160A7 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A5C7121128092002160A7 /* ThemeCell.swift */; };
@@ -167,6 +171,10 @@
 		9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCTimerLabel.swift; sourceTree = "<group>"; };
 		9575E629212A304B005F6872 /* ResultPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPopUpView.swift; sourceTree = "<group>"; };
 		9575E62B212A305C005F6872 /* ResultPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultPopUpView.xib; sourceTree = "<group>"; };
+		9575E62F212A402F005F6872 /* ResultTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableView.swift; sourceTree = "<group>"; };
+		9575E631212A404B005F6872 /* ResultTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableView.xib; sourceTree = "<group>"; };
+		9575E634212A4161005F6872 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		9575E636212A416B005F6872 /* SessionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionView.xib; sourceTree = "<group>"; };
 		9575ED5620D90D7A00D9CF81 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		957A5C6F21128064002160A7 /* ReorderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderCell.swift; sourceTree = "<group>"; };
 		957A5C7121128092002160A7 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
@@ -331,6 +339,34 @@
 			path = Help;
 			sourceTree = "<group>";
 		};
+		9575E62D212A3F26005F6872 /* ResutPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				9575E629212A304B005F6872 /* ResultPopUpView.swift */,
+				9575E62B212A305C005F6872 /* ResultPopUpView.xib */,
+			);
+			path = ResutPopUpView;
+			sourceTree = "<group>";
+		};
+		9575E62E212A401A005F6872 /* ResultTableView */ = {
+			isa = PBXGroup;
+			children = (
+				9575E62F212A402F005F6872 /* ResultTableView.swift */,
+				9575E631212A404B005F6872 /* ResultTableView.xib */,
+			);
+			path = ResultTableView;
+			sourceTree = "<group>";
+		};
+		9575E633212A4153005F6872 /* SessionView */ = {
+			isa = PBXGroup;
+			children = (
+				9587E19E20DB2D6E00CFF85D /* SessionCell.swift */,
+				9575E634212A4161005F6872 /* SessionView.swift */,
+				9575E636212A416B005F6872 /* SessionView.xib */,
+			);
+			path = SessionView;
+			sourceTree = "<group>";
+		};
 		957A5C6E21127FFB002160A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,9 +456,10 @@
 		9588BA4D210FFFA800CE94C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9575E633212A4153005F6872 /* SessionView */,
+				9575E62E212A401A005F6872 /* ResultTableView */,
 				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
-				9575E629212A304B005F6872 /* ResultPopUpView.swift */,
-				9575E62B212A305C005F6872 /* ResultPopUpView.xib */,
+				9575E62D212A3F26005F6872 /* ResutPopUpView */,
 				9588BA4F210FFFF500CE94C0 /* Cells */,
 				9588BA4E210FFFE700CE94C0 /* Cube Visualization */,
 			);
@@ -441,7 +478,6 @@
 		9588BA4F210FFFF500CE94C0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				9587E19E20DB2D6E00CFF85D /* SessionCell.swift */,
 				95B9838120B1F73000CE5908 /* ResultCell.swift */,
 			);
 			path = Cells;
@@ -671,7 +707,9 @@
 				955E0E00212541AA00B2B1E3 /* Localizable.strings in Resources */,
 				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
+				9575E637212A416B005F6872 /* SessionView.xib in Resources */,
 				955E0E10212578F100B2B1E3 /* Memo.strings in Resources */,
+				9575E632212A404B005F6872 /* ResultTableView.xib in Resources */,
 				955E0DF72125394800B2B1E3 /* Settings.storyboard in Resources */,
 				955E0E0A2125464A00B2B1E3 /* Mode.strings in Resources */,
 				953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */,
@@ -704,6 +742,7 @@
 				9509144F2126C12900EDB4B3 /* TurnsAndRotations.swift in Sources */,
 				95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */,
 				959260AA211A9D9B00AE9030 /* HelpVC.swift in Sources */,
+				9575E635212A4161005F6872 /* SessionView.swift in Sources */,
 				95DB124720E4D6EB007BBAFD /* MemoSettingCell.swift in Sources */,
 				9509144B2126B37F00EDB4B3 /* CubePieces.swift in Sources */,
 				951A33EB20D260C000A12666 /* GradientView.swift in Sources */,
@@ -734,6 +773,7 @@
 				95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */,
 				958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */,
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
+				9575E630212A402F005F6872 /* ResultTableView.swift in Sources */,
 				9509144D2126B4B700EDB4B3 /* StringRepresentable.swift in Sources */,
 				953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,

@@ -39,18 +39,27 @@ class GlobalData: NSObject {
                 userSolves[i] = currentSolve
             }
         }
+        NotificationCenter.default.post(Notification(name: NSNotification.Name(rawValue: "TimeUpdated")))
     }
     
     public func plusTwo(forSolveAt index: Int) {
         userSolves[index].penalty = 2
+        timeUpdated(at: index)
     }
     
     public func dnf(forSolveAt index: Int) {
         userSolves[index].penalty = Double.infinity
+        timeUpdated(at: index)
     }
     
     public func okay(forSolveAt index: Int) {
         userSolves[index].penalty = 0
+        timeUpdated(at: index)
+    }
+    
+    private func timeUpdated(at index: Int) {
+        updateStatsFromIndex(index)
+        saveData()
     }
     
     public func penalty(forSolveAt index: Int) -> Double {
@@ -82,9 +91,7 @@ class GlobalData: NSObject {
         currentSession.solve?.adding(solve)
         userSolves.append(solve)
         userSolves[count - 1].best = userSolves.min()!.time
-        updateStatsFromIndex(count - 1)
-        
-        saveData()
+        timeUpdated(at: count - 1)
     }
     
     // Every instance of Session outside this class is provided by one of these

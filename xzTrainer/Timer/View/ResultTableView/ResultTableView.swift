@@ -1,5 +1,5 @@
 //
-//  ResultPopUpView.swift
+//  ResultTableView.swift
 //  xzTrainer
 //
 //  Created by Nelson Zhang on 8/20/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultPopUpView: UIView {
+class ResultTableViewNew: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.

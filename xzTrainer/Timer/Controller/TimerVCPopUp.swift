@@ -8,9 +8,6 @@
 
 import UIKit
 
-fileprivate func doubleEqual(_ d1: Double, _ d2: Double) -> Bool {
-    return abs(d1 - d2) < 0.001
-}
 
 // managing popup view
 extension TimerVC {
@@ -27,63 +24,6 @@ extension TimerVC {
         if sessionTableIsShown {
             sessionTablePopOut()
         }
-    }
-    
-    @IBAction func plusTwo() {
-        plusTwoButtion.isSelected = !plusTwoButtion.isSelected
-        okButton.isSelected = false
-        dnfButton.isSelected = false
-        let index = data.backIndex(currentIndexPath.row)
-        if plusTwoButtion.isSelected {
-            data.plusTwo(forSolveAt: index)
-        } else {
-            data.okay(forSolveAt: index)
-        }
-        cleanUpForPenaltyUpdate()
-    }
-    
-    @IBAction func okay() {
-        plusTwoButtion.isSelected = false
-        dnfButton.isSelected = false
-        let index = data.backIndex(currentIndexPath.row)
-        data.okay(forSolveAt: index)
-        cleanUpForPenaltyUpdate()
-    }
-    
-    @IBAction func dnf() {
-        plusTwoButtion.isSelected = false
-        okButton.isSelected = false
-        dnfButton.isSelected = !dnfButton.isSelected
-        let index = data.backIndex(currentIndexPath.row)
-        if dnfButton.isSelected {
-            data.dnf(forSolveAt: index)
-        } else {
-            data.okay(forSolveAt: index)
-        }
-        cleanUpForPenaltyUpdate()
-    }
-    
-    private func cleanUpForPenaltyUpdate() {
-        
-        data.updateStatsFromIndex(data.count - currentIndexPath.row - 1)
-        data.saveData()
-        resultTable.reloadData()
-        configurePopUp(indexPath: currentIndexPath)
-    }
-    
-    func configurePopUp(indexPath: IndexPath) {
-        currentIndexPath = indexPath
-        let solve = data.requestSolve(at: data.backIndex(indexPath.row))
-        puScrambleLabel.text = solve.scramble
-        puTimeLabel.text = convertTimeDoubleToString(solve.timeIncludingPenalty)
-        puMo3Label.text = convertTimeDoubleToString(solve.mo3)
-        puAo5Label.text = convertTimeDoubleToString(solve.ao5)
-        puAo12Label.text = convertTimeDoubleToString(solve.ao12)
-        let chineseDateFormatter = DateFormatter()
-        chineseDateFormatter.dateFormat = "(yyyy-MM-dd HH:mm:ss)"
-        puDateLabel.text = chineseDateFormatter.string(from: solve.date!)
-        plusTwoButtion.isSelected = doubleEqual(solve.penalty, 2)
-        dnfButton.isSelected = solve.penalty == Double.infinity
     }
     
     func animatePopUpIn() {
@@ -112,15 +52,10 @@ extension TimerVC {
         popUpIsShown = false
     }
     
-    @IBAction func showDetail() {
-        performSegue(withIdentifier: "toSolveDetail", sender: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SolveDetailVC {
-            destination.currentSolve = data.requestSolve(at: data.backIndex(currentIndexPath.row))
+            destination.currentSolve = data.requestSolve(at: sender as! Int)
         }
     }
-    
 }
 
