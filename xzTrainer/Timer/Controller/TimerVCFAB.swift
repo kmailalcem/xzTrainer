@@ -12,18 +12,16 @@ import UIKit
 extension TimerVC {
     
     @IBAction func floatingPlusPressed (_ sender: UIButton) {
-        if !resultTableIsShown {
-            if floatingPlus.transform == .identity {
-                UIView.animate(withDuration: 0.2) {
-                    self.showFABs()
-                }
-                floatingPlus.isSelected = true
-            } else {
-                UIView.animate(withDuration: 0.15) {
-                    self.hideFABs()
-                }
-                floatingPlus.isSelected = false
+        if floatingPlus.transform == .identity {
+            UIView.animate(withDuration: 0.2) {
+                self.showFABs()
             }
+            floatingPlus.isSelected = true
+        } else {
+            UIView.animate(withDuration: 0.15) {
+                self.hideFABs()
+            }
+            floatingPlus.isSelected = false
         }
     }
         
@@ -37,7 +35,7 @@ extension TimerVC {
     }
     
     func showFABs() {
-        dismissPopUpButton.alpha = 0.05
+        dismissPopUpButton.alpha = 1
         view.insertSubview(dismissPopUpButton, aboveSubview: timerLabel)
         inTimerSettingButton.transform = .identity
         nextScrambleButton.transform = .identity

@@ -253,17 +253,16 @@ extension GlobalData: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let tableView = tableView as? ResultTableView {
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: "ResultCell", for: indexPath)
-            if let resultCell = cell as? ResultCell {
-                resultCell.configureCell(index: backIndex(indexPath.row),
-                                         solveStats: userSolves)
-                let newView = UIView()
-                newView.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
-                resultCell.selectedBackgroundView? = newView
-                return resultCell
-            }
+        if tableView is ResultTableView {
+            let cell = Bundle.main.loadNibNamed("ResultCell", owner: self, options: nil)?.first as! ResultCell
+            
+            cell.configureCell(index: backIndex(indexPath.row), solveStats: userSolves)
+            // TODO: Move into cell class
+            let newView = UIView()
+            newView.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
+            cell.selectedBackgroundView? = newView
+            return cell
+            
         }
         
         if tableView is SessionTableView {

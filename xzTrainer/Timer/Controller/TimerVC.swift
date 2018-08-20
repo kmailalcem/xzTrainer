@@ -17,54 +17,39 @@ func toString(_ rotations: [Rotation]) -> String {
 }
 
 class TimerVC: ThemeViewController {
-    
+    // determines the mode of the timer
     var isCasual: Bool = true
     
+    // what is seen on the screen
     @IBOutlet weak var dismissPopUpButton: UIButton!
     @IBOutlet weak var scrambleTextField: UILabel!
     @IBOutlet weak var cubeView: CubeView!
     @IBOutlet weak var timerLabel: TimerLabel!
     @IBOutlet weak var edgeMemoLabel: UILabel!
     @IBOutlet weak var cornerMemoLabel: UILabel!
-    @IBOutlet weak var resultTableView: UIView!
-    @IBOutlet weak var resultTable: ResultTableView!
-    @IBOutlet weak var swipableView: RoundedView!
-    @IBOutlet weak var resultTableTriggerButton: UIButtonX!
     @IBOutlet weak var memoStack: UIStackView!
     @IBOutlet weak var modeTitleLabel: UILabel!
     
+    // the table that swipes up and down
+    var resultTableView = Bundle.main.loadNibNamed("ResultView", owner: self, options: nil)?.first as! ResultView
+
     // Floating Action Buttons
     @IBOutlet weak var floatingPlus: FloatingActionButton!
     @IBOutlet weak var inTimerSettingButton: FloatingActionButton!
     @IBOutlet weak var nextScrambleButton: FloatingActionButton!
     @IBOutlet weak var manuallyEnterTimeButton: FloatingActionButton!
     
-    // Pop up window
+    // result/penalty pop up view
     var popUpDetailView = Bundle.main.loadNibNamed("ResultPopUpView", owner: self, options: nil)?.first as! ResultPopUpView
     
-    // session picker
+    // select sessions
     var sessionTable: SessionView!
-    @IBOutlet weak var sessionTextField: UITextField!
     
-    var sessionTableIsShown: Bool = false
+    // booleans to track UI
     var floatingPlusIsPressed: Bool = false
-    var popUpIsShown: Bool = false
     var memoIsShown = false
     
     let data = GlobalData.shared
-    
-    var currentIndexPath: IndexPath!
-    
-    var resultTableIsShown: Bool = false
-    
-    @IBAction func resultTableTriggered(_ sender: UIButtonX) {
-        if !resultTableIsShown {
-            dismissPopUp(dismissPopUpButton)
-            showResultTable()
-        } else {
-            hideResultTable()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,25 +59,19 @@ class TimerVC: ThemeViewController {
         cubeView.settingFrame()
         setUpInitialLayout()
         assignDelegates()
-        resultTable.reloadData()
+    
+        view.addSubview(resultTableView)
+        resultTableView.commonInit(owner: self)
+        resultTableView.resultTable.reloadData()
         popUpDetailView.rootViewController = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.reloadTable), name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
     }
     
     @objc func reloadTable(_ notification: NSNotification) {
-        resultTable.reloadData()
+        resultTableView.resultTable.reloadData()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView is ResultTableView {
-            if scrollView.contentOffset.y < -70 {
-                hideResultTable()
-            }
-        }
-    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         hideResultTable()
@@ -100,21 +79,17 @@ class TimerVC: ThemeViewController {
     
     private func setUpInitialLayout() {
         setUpScrambleTexTField()
-        setUpSwipeRecognizers()
+        // setUpSwipeRecognizers()
         setUpSessionTableFrames()
         hideFABs()
         updateView()
-        swipableView.isUserInteractionEnabled = true
+        
         resultTableView.isUserInteractionEnabled = true
-        swipableView.shadowRadius = 8
-        swipableView.shadowOpacity = 0.125
+        
     }
     
     private func assignDelegates() {
         timerLabel.delegate = self
-        resultTable.delegate = self
-        resultTable.dataSource = data
-        sessionTextField.delegate = self
     }
     
     private func setUpSessionTableFrames() {
@@ -135,8 +110,8 @@ class TimerVC: ThemeViewController {
         swipeUpRecognizer.cancelsTouchesInView = false
         swipeDownRecognizer.direction = .down
         swipeDownRecognizer.cancelsTouchesInView = false
-        swipableView.addGestureRecognizer(swipeUpRecognizer)
-        swipableView.addGestureRecognizer(swipeDownRecognizer)
+        // swipableView.addGestureRecognizer(swipeUpRecognizer)
+        // swipableView.addGestureRecognizer(swipeDownRecognizer)
     }
     
     @objc func swipeUpDetected(_ sender: UISwipeGestureRecognizer) {
@@ -148,19 +123,11 @@ class TimerVC: ThemeViewController {
     }
     
     private func showResultTable() {
-        resultTableIsShown = true
-        UIView.animate(withDuration: 0.4) {
-            self.resultTable.transform = CGAffineTransform.init(translationX: 0, y: 25)
-            self.resultTableView.transform = CGAffineTransform.init(translationX: 0, y: -self.resultTableView.frame.minY)
-        }
+        resultTableView.showResultTable()
     }
     
     private func hideResultTable() {
-        resultTableIsShown = false
-        UIView.animate(withDuration: 0.4) {
-            self.resultTableView.transform = .identity
-            self.resultTable.transform = .identity
-        }
+        resultTableView.hideResultTable()
     }
     
     func appendNewSolve() {
@@ -219,13 +186,7 @@ class TimerVC: ThemeViewController {
     
 }
 
-extension TimerVC: UITextFieldDelegate, UIGestureRecognizerDelegate {
-    
-    @IBAction func didTapScreen(_ sender: Any) {
-        if scrambleTextField.isFirstResponder {
-            scrambleTextField.resignFirstResponder()
-        }
-    }
+extension TimerVC: UIGestureRecognizerDelegate {
     
     public func gestureRecognizer(
         _ gestureRecognizer: UIGestureRecognizer,
@@ -234,19 +195,4 @@ extension TimerVC: UITextFieldDelegate, UIGestureRecognizerDelegate {
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == scrambleTextField {
-            scrambleTextField.resignFirstResponder()
-            updateCube(withScramble: scrambleTextField.text!)
-        }
-        return false
-    }
-
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == sessionTextField {
-            sessionTablePopIn()
-            return false
-        }
-        return true
-    }
 }

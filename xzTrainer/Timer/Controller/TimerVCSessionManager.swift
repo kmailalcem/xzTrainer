@@ -9,19 +9,12 @@
 import UIKit
 
 extension TimerVC {
-    @objc func sessionSelected (_ notification: NSNotification) {
-        resultTable.reloadData()
-        if let sessionName = notification.userInfo?["selectedSessionName"] as? String {
-            sessionTextField.text = sessionName
-        }
-    }
     
-    func sessionTablePopIn() {
+    @objc func sessionTablePopIn() {
         view.addSubview(sessionTable)
         sessionTable.center = view.center
         UIView.animate(withDuration: 0.2) {
             self.sessionTable.alpha = 1
         }
-        sessionTableIsShown = true
     }
 }

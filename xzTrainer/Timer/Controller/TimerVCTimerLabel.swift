@@ -26,7 +26,7 @@ extension TimerVC: TimerLabelDelegate {
         UIApplication.shared.isIdleTimerDisabled = false;
         appendNewSolve()
         updateView()
-        resultTable.reloadData()
+        resultTableView.resultTable.reloadData()
     }
     
     func showMemo() {

@@ -18,6 +18,7 @@ class ResultCell: UITableViewCell {
     var scramble: String = ""
     
     func configureCell(index: Int, solveStats: [Solve]) {
+        selectionStyle = .none
         let currentSolve = solveStats[index]
         indexLabel.text = String(index + 1)
         timeLabel.text = convertTimeDoubleToString(currentSolve.timeIncludingPenalty)
@@ -27,7 +28,10 @@ class ResultCell: UITableViewCell {
         ao12Label.text = String(format: "ao12: \(convertTimeDoubleToString(currentSolve.ao12))")
         
         scramble = currentSolve.scramble!
+        backgroundColor = .clear
+        roundedView.backgroundColor = #colorLiteral(red: 0.1342299879, green: 0.4006600678, blue: 0.5895091891, alpha: 1)
         roundedView.shadowOpacity = 0.125
+        roundedView.shadowRadius = 3
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

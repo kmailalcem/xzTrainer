@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ResultCell" customModule="xzTrainer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MzI-NK-MyM" customClass="RoundedView" customModule="xzTrainer" customModuleProvider="target">
+                    <rect key="frame" x="8" y="5" width="359" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lq-5i-x3C">
+                            <rect key="frame" x="0.0" y="0.0" width="72" height="49.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="bnj-3f-2eP"/>
+                                <constraint firstAttribute="width" constant="72" id="eet-qU-Nu3"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="72" id="oEJ-Az-KQY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pq1-LP-L7I">
+                            <rect key="frame" x="72" y="0.0" width="287" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="25.337" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfw-eo-sjp">
+                                    <rect key="frame" x="0.0" y="0.0" width="143.5" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2ql-uY-Xlf">
+                                    <rect key="frame" x="143.5" y="0.0" width="143.5" height="50"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="ao5: 22.355" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhF-vb-CCp">
+                                            <rect key="frame" x="0.0" y="0.0" width="143.5" height="25"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ao12: 27.983" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nS-n6-vLX">
+                                            <rect key="frame" x="0.0" y="25" width="143.5" height="25"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="pq1-LP-L7I" firstAttribute="top" secondItem="MzI-NK-MyM" secondAttribute="top" id="0Rf-7c-Asg"/>
+                        <constraint firstItem="pq1-LP-L7I" firstAttribute="leading" secondItem="2lq-5i-x3C" secondAttribute="trailing" id="6aj-LV-7bC"/>
+                        <constraint firstAttribute="trailing" secondItem="pq1-LP-L7I" secondAttribute="trailing" id="Be1-TS-HNn"/>
+                        <constraint firstItem="pq1-LP-L7I" firstAttribute="leading" secondItem="2lq-5i-x3C" secondAttribute="trailing" id="Nrq-Vg-xbf"/>
+                        <constraint firstAttribute="bottom" secondItem="pq1-LP-L7I" secondAttribute="bottom" id="SHN-gU-N28"/>
+                        <constraint firstItem="2lq-5i-x3C" firstAttribute="top" secondItem="MzI-NK-MyM" secondAttribute="top" id="a13-9E-yUe"/>
+                        <constraint firstItem="pq1-LP-L7I" firstAttribute="leading" secondItem="2lq-5i-x3C" secondAttribute="trailing" id="beQ-jY-4ug"/>
+                        <constraint firstItem="2lq-5i-x3C" firstAttribute="leading" secondItem="MzI-NK-MyM" secondAttribute="leading" id="dFJ-iy-6bc"/>
+                        <constraint firstAttribute="bottom" secondItem="2lq-5i-x3C" secondAttribute="bottom" id="f8k-Ms-P8P"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MzI-NK-MyM" secondAttribute="trailing" constant="8" id="IMf-bZ-gK9"/>
+                <constraint firstItem="MzI-NK-MyM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="eaI-Vi-0Cj"/>
+                <constraint firstItem="MzI-NK-MyM" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-5" id="fif-XO-d62"/>
+                <constraint firstItem="MzI-NK-MyM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="ihk-eM-Z3i"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="ao12Label" destination="8nS-n6-vLX" id="EuV-q3-i26"/>
+                <outlet property="ao5Label" destination="VhF-vb-CCp" id="VlU-Os-IVX"/>
+                <outlet property="indexLabel" destination="2lq-5i-x3C" id="hkK-yZ-Tzu"/>
+                <outlet property="roundedView" destination="MzI-NK-MyM" id="qFS-8L-bLh"/>
+                <outlet property="timeLabel" destination="dfw-eo-sjp" id="YgZ-g9-dO2"/>
+            </connections>
+        </view>
+    </objects>
+</document>

@@ -12,8 +12,9 @@ fileprivate func doubleEqual(_ d1: Double, _ d2: Double) -> Bool {
     return abs(d1 - d2) < 0.001
 }
 
-class ResultPopUpView: RoundedView {
+class ResultPopUpView: UIView {
 
+    @IBOutlet weak var containerView: RoundedView!
     @IBOutlet weak var scrambleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mo3Label: UILabel!
@@ -25,7 +26,11 @@ class ResultPopUpView: RoundedView {
     @IBOutlet weak var dnfButton: RoundedButton!
     
     var currentIndexPath: IndexPath!
-    var rootViewController: TimerVC!
+    var rootViewController: TimerVC! {
+        didSet {
+            frame = rootViewController.view.frame
+        }
+    }
     
     let data = GlobalData.shared
     
@@ -69,8 +74,8 @@ class ResultPopUpView: RoundedView {
     }
     
     func configurePopUp(indexPath: IndexPath) {
-        shadowRadius = 8
-        shadowOpacity = 0.125
+        containerView.shadowRadius = 8
+        containerView.shadowOpacity = 0.125
         currentIndexPath = indexPath
         let solve = data.requestSolve(at: data.backIndex(indexPath.row))
         scrambleLabel.text = solve.scramble
@@ -88,6 +93,15 @@ class ResultPopUpView: RoundedView {
     
     @IBAction func showDetail() {
         rootViewController.performSegue(withIdentifier: "toSolveDetail", sender: data.backIndex(currentIndexPath.row))
+    }
+    
+    @IBAction func dismiss() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.alpha = 0
+        }, completion: {success in
+            self.removeFromSuperview()
+        })
     }
     
 }
