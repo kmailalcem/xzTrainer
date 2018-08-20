@@ -27,6 +27,8 @@ class FloatingActionButton: UIButton {
     }
     
     private func commonInit() {
+        backgroundColor = .white
+        tintColor = #colorLiteral(red: 0.1490196078, green: 0.4039215686, blue: 0.5803921569, alpha: 1)
         layer.shadowRadius = 3
         layer.shadowOpacity = 0.083
         layer.shadowOffset = CGSize(width: 0, height: 0)

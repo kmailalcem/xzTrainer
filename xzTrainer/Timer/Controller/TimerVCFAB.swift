@@ -24,31 +24,9 @@ extension TimerVC {
                 }
                 floatingPlus.isSelected = false
             }
-        } else {
-            newSession()
         }
     }
-    
-    private func newSession() {
-        let alert = ThemeAlertController(title: "New Session", message: "Please name your new session: ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-            var sessionName = alert.textFields?.first?.placeholder
-            if alert.textFields?.first?.text! != "" {
-                sessionName = alert.textFields?.first?.text
-            }
-            let session = self.data.requestSession()
-            session.name = sessionName
-            session.id = Int32(Date().timeIntervalSince1970)
-            self.data.append(session: session)
-            self.sessionTable.reloadData()
-        }))
-        alert.addAction(UIAlertAction(title:"Cancel", style: .cancel, handler: nil))
-        alert.addTextField { (textField) in
-            textField.placeholder = Date().description
-        }
-        present(alert, animated: true)
-    }
-    
+        
     func hideFABs() {
         dismissPopUpButton.alpha = 0
         inTimerSettingButton.transform = CGAffineTransform(translationX: 0, y: 78)

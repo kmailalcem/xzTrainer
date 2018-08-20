@@ -414,52 +414,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Obq-d3-AOg" customClass="SessionTableView" customModule="xzTrainer" customModuleProvider="target">
-                                <rect key="frame" x="50" y="70" width="275" height="547"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionCell" id="8zv-Ox-ZSK" customClass="SessionCell" customModule="xzTrainer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="275" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8zv-Ox-ZSK" id="rMm-hr-0t4">
-                                            <rect key="frame" x="0.0" y="0.0" width="275" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSD-zh-IoT" customClass="RoundedView" customModule="xzTrainer" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="5" width="275" height="34"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="25"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-RX-6Px">
-                                                    <rect key="frame" x="8" y="0.0" width="259" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                                    <color key="textColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="pSD-zh-IoT" firstAttribute="top" secondItem="rMm-hr-0t4" secondAttribute="top" constant="5" id="1B3-h6-0Qh"/>
-                                                <constraint firstAttribute="bottom" secondItem="0bM-RX-6Px" secondAttribute="bottom" id="5NK-5k-bp3"/>
-                                                <constraint firstAttribute="trailing" secondItem="pSD-zh-IoT" secondAttribute="trailing" id="HOB-0s-IYf"/>
-                                                <constraint firstItem="0bM-RX-6Px" firstAttribute="leading" secondItem="rMm-hr-0t4" secondAttribute="leading" constant="8" id="QxJ-VF-jE8"/>
-                                                <constraint firstItem="pSD-zh-IoT" firstAttribute="leading" secondItem="rMm-hr-0t4" secondAttribute="leading" id="ae7-sP-NUK"/>
-                                                <constraint firstAttribute="bottom" secondItem="pSD-zh-IoT" secondAttribute="bottom" constant="5" id="igc-t3-9Cw"/>
-                                                <constraint firstAttribute="trailing" secondItem="0bM-RX-6Px" secondAttribute="trailing" constant="8" id="keq-9q-cbN"/>
-                                                <constraint firstItem="0bM-RX-6Px" firstAttribute="top" secondItem="rMm-hr-0t4" secondAttribute="top" id="qt9-AQ-9xn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="cellBackground" destination="pSD-zh-IoT" id="ZQ1-Bw-Jcf"/>
-                                            <outlet property="sessionNameLabel" destination="0bM-RX-6Px" id="bwD-qz-PAU"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.73725490199999999" green="0.78823529410000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -469,11 +423,9 @@
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="Zut-ID-YX0" firstAttribute="centerX" secondItem="hfF-nR-IKH" secondAttribute="centerX" id="3Di-Dq-n2y"/>
-                            <constraint firstItem="Obq-d3-AOg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="4vD-Ih-HrV"/>
                             <constraint firstItem="uPV-kq-iFy" firstAttribute="top" secondItem="PAZ-Xt-92r" secondAttribute="bottom" constant="8" id="4zZ-vu-5cW"/>
                             <constraint firstAttribute="bottom" secondItem="I7E-lC-plr" secondAttribute="bottom" id="9OE-Ku-r26"/>
                             <constraint firstItem="hfF-nR-IKH" firstAttribute="centerX" secondItem="vXp-Sz-taf" secondAttribute="centerX" id="BYF-Vr-YPM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Obq-d3-AOg" secondAttribute="bottom" constant="50" id="BaU-fh-mjY"/>
                             <constraint firstItem="uPV-kq-iFy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Cyu-96-AGv"/>
                             <constraint firstItem="oGM-Ug-vCO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="DXU-Yv-6Km"/>
                             <constraint firstItem="3U3-Yd-RSv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HUx-tQ-7Gi">
@@ -483,8 +435,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oGM-Ug-vCO" secondAttribute="trailing" constant="8" id="LiE-cF-V9M"/>
                             <constraint firstItem="PAZ-Xt-92r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NQa-lO-giB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3U3-Yd-RSv" secondAttribute="trailing" constant="24" id="Olh-Yc-ElG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Obq-d3-AOg" secondAttribute="trailing" constant="50" id="P4e-m7-Gr3"/>
-                            <constraint firstItem="Obq-d3-AOg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="QJO-HG-K4C"/>
                             <constraint firstItem="khT-v8-cfb" firstAttribute="centerX" secondItem="Zut-ID-YX0" secondAttribute="centerX" id="QOD-J9-iAe"/>
                             <constraint firstItem="PAZ-Xt-92r" firstAttribute="leading" secondItem="oGM-Ug-vCO" secondAttribute="trailing" constant="71" id="Qw2-LC-AaT">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -601,7 +551,6 @@
                         <outlet property="resultTableTriggerButton" destination="aNK-uT-zGC" id="T7U-6a-bsE"/>
                         <outlet property="resultTableView" destination="0xV-in-Zcj" id="fqS-jL-slu"/>
                         <outlet property="scrambleTextField" destination="oGM-Ug-vCO" id="zWO-Mm-pgX"/>
-                        <outlet property="sessionTable" destination="Obq-d3-AOg" id="Sbd-Mw-viD"/>
                         <outlet property="sessionTextField" destination="8YJ-oV-u7p" id="wXO-kP-xtC"/>
                         <outlet property="swipableView" destination="pzI-ff-EX6" id="ulT-Gb-PhI"/>
                         <outlet property="timerLabel" destination="I7E-lC-plr" id="QmA-GQ-039"/>

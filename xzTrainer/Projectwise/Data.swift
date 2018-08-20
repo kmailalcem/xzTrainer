@@ -165,7 +165,7 @@ class GlobalData: NSObject {
     public func reloadSolve(forSessionAtIndex index: Int) {
         currentSession = sessions[index]
         userSolves = requestSolves(forSessionAtIndex: index)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: self)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: nil, userInfo: ["selectedSessionName": currentSession.name ?? "nil"])
     }
     
     private func requestSolves(forSessionAtIndex index: Int) -> [Solve] {
@@ -267,32 +267,11 @@ extension GlobalData: UITableViewDataSource {
         }
         
         if tableView is SessionTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath)
-            if let sessionCell = cell as? SessionCell {
-                sessionCell.sessionNameLabel.text = sessions[indexPath.row].name!
-            }
+            let cell = Bundle.main.loadNibNamed("SessionCell", owner: self, options: nil)?.first as! SessionCell
+            cell.sessionNameLabel.text = sessions[indexPath.row].name!
             return cell
         }
         return UITableViewCell()
     }
 }
 
-extension GlobalData: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sessions.count
-    }
-}
-
-extension GlobalData: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sessions[row].name!
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: self, userInfo: ["session": sessions[row]])
-    }
-}

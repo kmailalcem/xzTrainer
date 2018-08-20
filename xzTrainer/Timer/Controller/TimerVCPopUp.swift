@@ -20,10 +20,6 @@ extension TimerVC {
         if popUpIsShown {
             animatePopUpOut()
         }
-        
-        if sessionTableIsShown {
-            sessionTablePopOut()
-        }
     }
     
     func animatePopUpIn() {

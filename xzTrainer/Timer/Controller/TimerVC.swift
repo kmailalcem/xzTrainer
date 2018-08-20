@@ -40,11 +40,10 @@ class TimerVC: ThemeViewController {
     @IBOutlet weak var manuallyEnterTimeButton: FloatingActionButton!
     
     // Pop up window
-    
     var popUpDetailView = Bundle.main.loadNibNamed("ResultPopUpView", owner: self, options: nil)?.first as! ResultPopUpView
     
     // session picker
-    @IBOutlet weak var sessionTable: SessionTableView!
+    var sessionTable: SessionView!
     @IBOutlet weak var sessionTextField: UITextField!
     
     var sessionTableIsShown: Bool = false
@@ -79,7 +78,7 @@ class TimerVC: ThemeViewController {
         popUpDetailView.rootViewController = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.deletedCurrentSession), name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.reloadTable), name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
     }
     
@@ -102,7 +101,6 @@ class TimerVC: ThemeViewController {
     private func setUpInitialLayout() {
         setUpScrambleTexTField()
         setUpSwipeRecognizers()
-        // setUpResultTableViewFrame(withSize: view.frame.size)
         setUpSessionTableFrames()
         hideFABs()
         updateView()
@@ -116,16 +114,13 @@ class TimerVC: ThemeViewController {
         timerLabel.delegate = self
         resultTable.delegate = self
         resultTable.dataSource = data
-        sessionTable.delegate = self
-        sessionTable.dataSource = data
         sessionTextField.delegate = self
     }
     
     private func setUpSessionTableFrames() {
-        view.addSubview(sessionTable)
-        sessionTable.center = view.center
-        sessionTable.transform = CGAffineTransform(translationX: 0, y: view.frame.height + 200)
-        sessionTable.isHidden = true
+        sessionTable = SessionView(frame: view.frame)
+        sessionTable.alpha = 0
+        sessionTable.rootViewController = self
     }
     
     private func setUpScrambleTexTField() {
@@ -166,11 +161,6 @@ class TimerVC: ThemeViewController {
             self.resultTableView.transform = .identity
             self.resultTable.transform = .identity
         }
-    }
-    
-    private func setUpResultTableViewFrame(withSize size: CGSize) {
-        resultTableView.frame = CGRect(x: 0, y: size.height - 100, width: size.width, height: size.height)
-        view.addSubview(resultTableView)
     }
     
     func appendNewSolve() {
