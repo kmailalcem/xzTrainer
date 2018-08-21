@@ -16,6 +16,7 @@ class ResultView: UIView {
     var tableIsShown = false
     
     func commonInit(owner: TimerVC) {
+        isUserInteractionEnabled = true
         sessionSelectionButton.setTitle("default", for: .normal)
         backgroundColor = .clear
         resultTable.backgroundColor = .clear

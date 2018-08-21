@@ -68,9 +68,10 @@
 		9583EC54209E3F2C004A4D3E /* PublicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC53209E3F2C004A4D3E /* PublicLibrary.swift */; };
 		9587E19D20DB27B200CFF85D /* TableViewClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19C20DB27B200CFF85D /* TableViewClasses.swift */; };
 		9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19E20DB2D6E00CFF85D /* SessionCell.swift */; };
-		9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */; };
 		9588BA5721100BA500CE94C0 /* ThemeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */; };
 		9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */; };
+		958FDCE6212BB3C300AB1E0A /* DetailCubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FDCE5212BB3C300AB1E0A /* DetailCubeView.swift */; };
+		958FDCE8212BB3D500AB1E0A /* DetailCubeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958FDCE7212BB3D500AB1E0A /* DetailCubeView.xib */; };
 		959260AA211A9D9B00AE9030 /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959260A9211A9D9B00AE9030 /* HelpVC.swift */; };
 		95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0E3720A7447200E36982 /* ColorScheme.swift */; };
 		95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B5265920E23C5000C54F45 /* PreferenceList.swift */; };
@@ -190,9 +191,10 @@
 		9583EC53209E3F2C004A4D3E /* PublicLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicLibrary.swift; sourceTree = "<group>"; };
 		9587E19C20DB27B200CFF85D /* TableViewClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewClasses.swift; sourceTree = "<group>"; };
 		9587E19E20DB2D6E00CFF85D /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
-		9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCSessionManager.swift; sourceTree = "<group>"; };
 		9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitch.swift; sourceTree = "<group>"; };
 		9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCell.swift; sourceTree = "<group>"; };
+		958FDCE5212BB3C300AB1E0A /* DetailCubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCubeView.swift; sourceTree = "<group>"; };
+		958FDCE7212BB3D500AB1E0A /* DetailCubeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCubeView.xib; sourceTree = "<group>"; };
 		959260A9211A9D9B00AE9030 /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		95AD0E3720A7447200E36982 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		95B5265920E23C5000C54F45 /* PreferenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceList.swift; sourceTree = "<group>"; };
@@ -451,7 +453,6 @@
 				9572457120D9B6D30086202E /* TimerVCPopUp.swift */,
 				9572457320D9B7DF0086202E /* TimerVCTableManager.swift */,
 				9572457520D9B8CC0086202E /* TimerVCTimerLabel.swift */,
-				9587E1A020DB8FDD00CFF85D /* TimerVCSessionManager.swift */,
 				95EB839020B43D93003ADB37 /* SolveDetailVC.swift */,
 			);
 			path = Controller;
@@ -460,6 +461,7 @@
 		9588BA4D210FFFA800CE94C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				958FDCE4212BB39A00AB1E0A /* DetailCubeView */,
 				9575E633212A4153005F6872 /* SessionView */,
 				9575E62E212A401A005F6872 /* ResultTableView */,
 				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
@@ -548,6 +550,15 @@
 				950D322720F0ABAB00CA165C /* GeneralSetting.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		958FDCE4212BB39A00AB1E0A /* DetailCubeView */ = {
+			isa = PBXGroup;
+			children = (
+				958FDCE5212BB3C300AB1E0A /* DetailCubeView.swift */,
+				958FDCE7212BB3D500AB1E0A /* DetailCubeView.xib */,
+			);
+			path = DetailCubeView;
 			sourceTree = "<group>";
 		};
 		95CB543820F303AA0025FB6E /* Settings */ = {
@@ -697,6 +708,7 @@
 				9575E62C212A305C005F6872 /* ResultPopUpView.xib in Resources */,
 				95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */,
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
+				958FDCE8212BB3D500AB1E0A /* DetailCubeView.xib in Resources */,
 				9575E639212A4366005F6872 /* SessionCell.xib in Resources */,
 				95E1FB3E21291163002717FC /* IconExplanations.strings in Resources */,
 				9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */,
@@ -771,6 +783,7 @@
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
 				9575E630212A402F005F6872 /* ResultView.swift in Sources */,
 				9509144D2126B4B700EDB4B3 /* StringRepresentable.swift in Sources */,
+				958FDCE6212BB3C300AB1E0A /* DetailCubeView.swift in Sources */,
 				953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
@@ -782,7 +795,6 @@
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */,
-				9587E1A120DB8FDD00CFF85D /* TimerVCSessionManager.swift in Sources */,
 				95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */,
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
 				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,

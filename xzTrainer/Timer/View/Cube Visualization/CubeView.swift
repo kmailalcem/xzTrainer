@@ -37,6 +37,14 @@ class CubeView: UIView {
         super.init(coder: aDecoder)
     }
     
+    override var frame: CGRect {
+        didSet {
+            DispatchQueue.main.async {
+                self.settingFrame()
+            }
+        }
+    }
+    
     var cube : Cube {
         get {
             return _cube
@@ -57,6 +65,10 @@ class CubeView: UIView {
     }
     
     public func settingFrame() {
+        for view in [frontFace, backFace, topFace, bottomFace, leftFace, rightFace] {
+            view.removeFromSuperview()
+        }
+        
         let length: CGFloat = min(frame.width / 4.3, frame.height / 3.2)
         let spacing = length / 10
         

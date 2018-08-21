@@ -8,12 +8,6 @@
 
 import UIKit
 
-func makeConfirm(title: String = "Are you sure?" , message: String, handler: @escaping (UIAlertAction) -> Void) -> ThemeAlertController {
-    let alert = ThemeAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: handler))
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-    return alert
-}
 
 extension TimerVC: UITableViewDelegate {
     

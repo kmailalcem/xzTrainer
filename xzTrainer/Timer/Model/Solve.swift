@@ -20,9 +20,7 @@ extension Solve: NSCopying {
         copy.scramble = self.scramble
         copy.date = self.date
         copy.cornerMemo = self.cornerMemo
-        copy.cornerTwists = self.cornerTwists
         copy.edgeMemo = self.edgeMemo
-        copy.edgeFlips = self.edgeFlips
         copy.penalty = self.penalty
         copy.time = self.time
         return copy
@@ -38,9 +36,7 @@ extension Solve: NSCopying {
         self.scramble = copy.scramble
         self.date = copy.date
         self.cornerMemo = copy.cornerMemo
-        self.cornerTwists = copy.cornerTwists
         self.edgeMemo = copy.edgeMemo
-        self.edgeFlips = copy.edgeFlips
         self.penalty = copy.penalty
         self.time = copy.time
     }

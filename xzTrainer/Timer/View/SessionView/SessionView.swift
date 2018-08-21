@@ -53,7 +53,9 @@ class SessionView: UIView, UITableViewDelegate {
     @objc func dismiss() {
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 0
+            self.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         }) { (success) in
+            self.transform = .identity
             self.removeFromSuperview()
         }
     }
@@ -91,8 +93,7 @@ class SessionView: UIView, UITableViewDelegate {
     private func clearSession(_: UITableViewRowAction, indexPath: IndexPath) {
         let alert = makeConfirm(message: "This will clear all the solves in this session.", handler: { (_) in
             self.data.clearSession(atIndex: indexPath.row)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
-            self.sessionTable.reloadData()
+            self.postDataUpdate()
         })
         self.rootViewController.present(alert, animated: true)
     }
@@ -100,14 +101,18 @@ class SessionView: UIView, UITableViewDelegate {
     private func deleteSession(_: UITableViewRowAction, indexPath: IndexPath) {
         let alert = makeConfirm(message: "This will clear all the solves in this session and delete this session.", handler: { (_) in
             self.data.deleteSession(atIndex: indexPath.row)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
-            self.sessionTable.reloadData()
+            self.postDataUpdate()
         })
         self.rootViewController.present(alert, animated: true)
     }
     
+    private func postDataUpdate() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
+        self.sessionTable.reloadData()
+    }
+    
     private func renameSession(_: UITableViewRowAction, indexPath: IndexPath) {
-        let alert = ThemeAlertController(title: "Rename Session", message: "Enter the new name for this session.", preferredStyle: .alert)
+        let alert = ThemeAlertController(title: "Rename Session", message: "Enter a new name for this session.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             let newName = alert.textFields?.first?.text!
             if newName != nil && newName != "" {
@@ -147,4 +152,11 @@ class SessionView: UIView, UITableViewDelegate {
         tableView(sessionTable, didSelectRowAt: IndexPath(row: 0, section: 0))
     }
     
+}
+
+func makeConfirm(title: String = "Are you sure?" , message: String, handler: @escaping (UIAlertAction) -> Void) -> ThemeAlertController {
+    let alert = ThemeAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: handler))
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    return alert
 }

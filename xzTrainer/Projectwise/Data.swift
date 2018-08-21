@@ -235,7 +235,6 @@ class GlobalData: NSObject {
             sessions.append(session)
             
         }
-        
         reloadSolve(forSessionAtIndex: 0)
     }
     
@@ -257,10 +256,6 @@ extension GlobalData: UITableViewDataSource {
             let cell = Bundle.main.loadNibNamed("ResultCell", owner: self, options: nil)?.first as! ResultCell
             
             cell.configureCell(index: backIndex(indexPath.row), solveStats: userSolves)
-            // TODO: Move into cell class
-            let newView = UIView()
-            newView.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
-            cell.selectedBackgroundView? = newView
             return cell
             
         }
