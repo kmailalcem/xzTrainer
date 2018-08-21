@@ -44,31 +44,48 @@ extension TimerVC {
         floatingPlusIsPressed = true
     }
     
+   
+    
     @IBAction func manualButtonPressed() {
-        if memoIsShown || isCasual {
-            let alert = ThemeAlertController(title: "Manually Enter Time", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-                if let timeString = alert.textFields?.first?.text {
-                    if let time = self.parseTimeString(timeString) {
-                        self.timerLabel.manuallyEntered(time: time)
-                        self.timerDidFinish(self.timerLabel)
-                    }
-                }
-            }))
-            alert.addAction(UIAlertAction(title:"Cancel", style: .cancel, handler: nil))
-            alert.addTextField { (textField) in
-                textField.placeholder = "Enter your time"
-                textField.keyboardType = UIKeyboardType.decimalPad
-            }
-            present(alert, animated: true)
+        if shouldManuallyEnterTime {
+            presentManualAlert()
         } else {
-            // TODO: make this nicer
             detailCubeView.memoDisplayMode = .shown
             DispatchQueue.main.async {
                 self.manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "ManuallyEnterTime")
             }
         }
+    }
     
+    private var shouldManuallyEnterTime: Bool {
+        return detailCubeView.memoDisplayMode == .shown || isCasual
+    }
+    
+    private func presentManualAlert() {
+        let manuallyEnterTimeAlert =
+            ThemeAlertController(
+                title: LocalizationGeneral.manuallyEnterTime.localized,
+                message: "",
+                preferredStyle: .alert)
+        
+        let doneEnteringAction =
+            UIAlertAction(
+                title: LocalizationGeneral.done.localized,
+                style: .default, handler: { (_) in
+                    guard
+                        let timeString = manuallyEnterTimeAlert.textFields?.first?.text,
+                        let time = self.parseTimeString(timeString)
+                        else { return }
+                    self.timerLabel.manuallyEntered(time: time)
+                    self.timerDidFinish(self.timerLabel)
+            })
+        manuallyEnterTimeAlert.addAction(doneEnteringAction)
+        manuallyEnterTimeAlert.addAction(cancelAction())
+        manuallyEnterTimeAlert.addTextField { (textField) in
+            textField.placeholder = LocalizationGeneral.enterYourTime.localized
+            textField.keyboardType = UIKeyboardType.decimalPad
+        }
+        present(manuallyEnterTimeAlert, animated: true)
     }
     
     private func parseTimeString(_ timeString: String) -> Double? {

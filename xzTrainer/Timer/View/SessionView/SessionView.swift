@@ -74,13 +74,13 @@ class SessionView: UIView, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .normal, title: "Delete", handler: deleteSession)
+        let delete = UITableViewRowAction(style: .normal, title: LocalizationGeneral.delete.localized, handler: deleteSession)
         delete.backgroundColor = #colorLiteral(red: 0.6431372549, green: 0, blue: 0.2392156863, alpha: 1)
         
-        let clear = UITableViewRowAction(style: .normal, title: "Clear", handler: clearSession)
+        let clear = UITableViewRowAction(style: .normal, title: LocalizationGeneral.clear.localized, handler: clearSession)
         clear.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.7882352941, blue: 0.8470588235, alpha: 1)
         
-        let rename = UITableViewRowAction(style: .normal, title: "Rename", handler: renameSession)
+        let rename = UITableViewRowAction(style: .normal, title: LocalizationGeneral.rename.localized, handler: renameSession)
         rename.backgroundColor = #colorLiteral(red: 0.1176470588, green: 0.2941176471, blue: 0.4352941176, alpha: 1)
         
         if indexPath.row > 0 {
@@ -91,7 +91,7 @@ class SessionView: UIView, UITableViewDelegate {
     }
     
     private func clearSession(_: UITableViewRowAction, indexPath: IndexPath) {
-        let alert = makeConfirm(message: "This will clear all the solves in this session.", handler: { (_) in
+        let alert = makeConfirm(message: LocalizationGeneral.clearWarning.localized, handler: { (_) in
             self.data.clearSession(atIndex: indexPath.row)
             self.postDataUpdate()
         })
@@ -99,7 +99,7 @@ class SessionView: UIView, UITableViewDelegate {
     }
     
     private func deleteSession(_: UITableViewRowAction, indexPath: IndexPath) {
-        let alert = makeConfirm(message: "This will clear all the solves in this session and delete this session.", handler: { (_) in
+        let alert = makeConfirm(message: LocalizationGeneral.deleteWarning.localized, handler: { (_) in
             self.data.deleteSession(atIndex: indexPath.row)
             self.postDataUpdate()
         })
@@ -112,8 +112,9 @@ class SessionView: UIView, UITableViewDelegate {
     }
     
     private func renameSession(_: UITableViewRowAction, indexPath: IndexPath) {
-        let alert = ThemeAlertController(title: "Rename Session", message: "Enter a new name for this session.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+        let alert = ThemeAlertController(title: LocalizationGeneral.renameSession.localized, message: LocalizationGeneral.newSessionMessage.localized, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: LocalizationGeneral.done.localized, style: .default, handler: { (_) in
             let newName = alert.textFields?.first?.text!
             if newName != nil && newName != "" {
                 self.data.renameSession(atIndex: indexPath.row, to: newName!)
@@ -121,16 +122,16 @@ class SessionView: UIView, UITableViewDelegate {
             }
             self.sessionTable.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(cancelAction())
         alert.addTextField { (textField) in
-            textField.placeholder = "New name"
+            textField.placeholder = LocalizationGeneral.newName.localized
         }
         self.rootViewController.present(alert, animated: true)
     }
     
     @objc private func newSession() {
-        let alert = ThemeAlertController(title: "New Session", message: "Please name your new session: ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+        let alert = ThemeAlertController(title: LocalizationGeneral.newSession.localized, message: LocalizationGeneral.renameSessionMessage.localized, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: LocalizationGeneral.done.localized, style: .default, handler: { (_) in
             var sessionName = alert.textFields?.first?.placeholder
             if alert.textFields?.first?.text! != "" {
                 sessionName = alert.textFields?.first?.text
@@ -141,7 +142,7 @@ class SessionView: UIView, UITableViewDelegate {
             self.data.append(session: session)
             self.sessionTable.reloadData()
         }))
-        alert.addAction(UIAlertAction(title:"Cancel", style: .cancel, handler: nil))
+        alert.addAction(cancelAction())
         alert.addTextField { (textField) in
             textField.placeholder = Date().description
         }
@@ -154,9 +155,13 @@ class SessionView: UIView, UITableViewDelegate {
     
 }
 
-func makeConfirm(title: String = "Are you sure?" , message: String, handler: @escaping (UIAlertAction) -> Void) -> ThemeAlertController {
+func makeConfirm(title: String = LocalizationGeneral.areYouSure.localized , message: String, handler: @escaping (UIAlertAction) -> Void) -> ThemeAlertController {
     let alert = ThemeAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: handler))
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: LocalizationGeneral.yes.localized, style: .default, handler: handler))
+    alert.addAction(UIAlertAction(title: LocalizationGeneral.cancel.localized, style: .cancel, handler: nil))
     return alert
+}
+
+func cancelAction() -> UIAlertAction {
+    return UIAlertAction(title: LocalizationGeneral.cancel.localized, style: .cancel, handler: nil)
 }

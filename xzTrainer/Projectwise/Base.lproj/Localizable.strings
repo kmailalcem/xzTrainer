@@ -23,6 +23,40 @@
 
 "first in letter pair" = "First";
 
+"manually enter time" = "Manually Enter Time";
+
+"cancel" = "Cancel";
+
+"done" = "Done";
+
+"enter your time" = "Enter your time";
+
+"delete" = "Delete";
+
+"clear" = "Clear";
+
+"rename" = "Rename";
+
+"yes" = "Yes";
+
+"are you sure" = "Are you sure?";
+
+"default" = "Default";
+
+"new name" = "New name";
+
+"new session" = "New Session";
+
+"rename session" = "Rename Session";
+
+"delete warning" = "This will clear all the solves in this session and delete this session. You cannot undo this action.";
+
+"clear warning" = "This will clear all the solves in this session. You cannot undo this action.";
+
+"rename session message" = "Enter a new name for this session.";
+
+"new session message" = "Please name your new session: ";
+
 "Edges" = "Edges";
 
 "Corners" = "Corners";

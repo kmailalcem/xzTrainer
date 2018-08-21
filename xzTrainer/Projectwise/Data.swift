@@ -229,7 +229,7 @@ class GlobalData: NSObject {
             let  session = Session(context: managedObjectContext)
             session.id = Int32(Date().timeIntervalSince1970)
             session.mode = currentMode
-            session.name = "default"
+            session.name = LocalizationGeneral.defaultt.localized
             
             saveData()
             sessions.append(session)

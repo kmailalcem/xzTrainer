@@ -22,6 +22,40 @@
 
 "first in letter pair" = "首位";
 
+"manually enter time" = "手动输入成绩";
+
+"enter your time" = "输入成绩";
+
+"cancel" = "取消";
+
+"clear" = "清空";
+
+"rename" = "重命名";
+
+"done" = "确定";
+
+"delete" = "删除";
+
+"yes" = "确定";
+
+"are you sure" = "确定?";
+
+"default" = "默认";
+
+"new name" = "新名字";
+
+"new session" = "新分组";
+
+"rename session" = "分组重命名";
+
+"delete warning" = "分组将被删除。这项操作无法撤回。";
+
+"clear warning" = "分组将被清空。这项操作无法撤回。";
+
+"rename session message" = "请输入分组的新名字。";
+
+"new session message" = "请命名新分组： ";
+
 "Edges" = "棱块";
 
 "Corners" = "角块";

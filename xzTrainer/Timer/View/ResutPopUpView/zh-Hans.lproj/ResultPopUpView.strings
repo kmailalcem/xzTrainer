@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "24.015"; ObjectID = "5qj-1U-BOG"; */
+"5qj-1U-BOG.text" = "24.015";
+
+/* Class = "UILabel"; text = "21.738"; ObjectID = "HAM-82-wjX"; */
+"HAM-82-wjX.text" = "21.738";
+
+/* Class = "UILabel"; text = "(2017-8-28)"; ObjectID = "Lcf-bd-m3E"; */
+"Lcf-bd-m3E.text" = "(2017-8-28)";
+
+/* Class = "UILabel"; text = "22.987"; ObjectID = "MV8-Jm-AqR"; */
+"MV8-Jm-AqR.text" = "22.987";
+
+/* Class = "UILabel"; text = "R U R' U' R U R U R F L B D2 F2 L2 R2 Rw2 x2 y' F2"; ObjectID = "REB-3M-KW0"; */
+"REB-3M-KW0.text" = "R U R' U' R U R U R F L B D2 F2 L2 R2 Rw2 x2 y' F2";
+
+/* Class = "UILabel"; text = "23.333"; ObjectID = "RFl-he-9il"; */
+"RFl-he-9il.text" = "23.333";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "Rhc-RL-DGd"; */
+"Rhc-RL-DGd.normalTitle" = "OK";
+
+/* Class = "UIButton"; normalTitle = "+2"; ObjectID = "dFX-rF-g2z"; */
+"dFX-rF-g2z.normalTitle" = "+2";
+
+/* Class = "UILabel"; text = "ao12"; ObjectID = "fxP-B5-2Zk"; */
+"fxP-B5-2Zk.text" = "ao12";
+
+/* Class = "UILabel"; text = "ao5"; ObjectID = "mK9-Ix-RTs"; */
+"mK9-Ix-RTs.text" = "ao5";
+
+/* Class = "UILabel"; text = "mo3"; ObjectID = "qwR-H3-66R"; */
+"qwR-H3-66R.text" = "mo3";
+
+/* Class = "UIButton"; normalTitle = "Show Detail"; ObjectID = "umL-Sh-V9q"; */
+"umL-Sh-V9q.normalTitle" = "详细";
+
+/* Class = "UIButton"; normalTitle = "DNF"; ObjectID = "yTg-VA-5zg"; */
+"yTg-VA-5zg.normalTitle" = "DNF";

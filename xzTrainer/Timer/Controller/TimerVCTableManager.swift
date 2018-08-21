@@ -34,7 +34,7 @@ extension TimerVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .normal, title: "Delete") {_,_ in
+        let delete = UITableViewRowAction(style: .normal, title: LocalizationGeneral.delete.localized) {_,_ in
             self.data.deleteSolve(atIndex: self.data.backIndex(indexPath.row))
             self.resultTableView.resultTable.reloadData()
         }
