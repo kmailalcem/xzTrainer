@@ -17,13 +17,7 @@ class SolveDetailVC: ThemeViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var ao12Label: UILabel!
     @IBOutlet weak var ao100Label: UILabel!
     @IBOutlet weak var ao1000Label: UILabel!
-    @IBOutlet weak var scrambleLabel: UILabel!
-    
-    @IBOutlet weak var cubeView: CubeView!
-    
-    @IBOutlet weak var edgeMemoLabel: UILabel!
-    @IBOutlet weak var cornerMemoLabel: UILabel!
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var detailCubeView: DetailCubeView!
     
     var currentSolve: Solve!
     
@@ -37,31 +31,18 @@ class SolveDetailVC: ThemeViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateView()
+        setUpDetailView()
+        updateTimeLabels()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        cubeView.settingFrame()
+    fileprivate func setUpDetailView() {
+        detailCubeView.forceScrambleInStandardOrientation = true
+        detailCubeView.updateCube(withScramble: currentSolve.scramble!)
+        detailCubeView.memoDisplayMode = .shown
     }
     
-    
-    
-    private func updateView() {
-        updateGeneralInfo()
-        updateAOLabels()
-    }
-    
-    fileprivate func updateGeneralInfo() {
-        currentTimeLabel.text = convertTimeDoubleToString(
-            currentSolve.timeIncludingPenalty)
-        scrambleLabel.text = currentSolve.scramble
-        cubeView.showScramble(currentSolve.scramble!)
-        edgeMemoLabel.text = currentSolve.edgeMemo
-        cornerMemoLabel.text = currentSolve.cornerMemo
-    }
-    
-    fileprivate func updateAOLabels() {
+    fileprivate func updateTimeLabels() {
+        currentTimeLabel.text = convertTimeDoubleToString(currentSolve.timeIncludingPenalty)
         let (best, mo3, ao5, ao12, ao100, ao1000) =
             (currentSolve.best, currentSolve.mo3, currentSolve.ao5,
              currentSolve.ao12, currentSolve.ao100,

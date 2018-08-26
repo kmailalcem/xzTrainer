@@ -21,11 +21,8 @@ extension TimerVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if tableView is ResultTableView {
-            popUpDetailView.configurePopUp(indexPath: indexPath)
-            animatePopUpIn()
-            return
-        }
+        popUpDetailView.configurePopUp(indexPath: indexPath)
+        animatePopUpIn()
     }
     
     func tableView(_ tableView: UITableView,

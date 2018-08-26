@@ -36,6 +36,20 @@ class DetailCubeView: UIView {
         }
     }
     
+    public func updateCube (withScramble scramble: String) {
+        scrambleLabel.text = scramble
+        let topColor = UserSetting.shared.general.topFaceColor
+        let frontColor = UserSetting.shared.general.frontFaceColor
+        if needsToScrambleInStandardOrientation {
+            cubeView.cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
+        } else {
+            cubeView.cube = Cube(top: topColor, front: frontColor, scramble: scramble)
+        }
+        cubeView.updateFaces()
+    }
+    
+    var forceScrambleInStandardOrientation: Bool = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -54,19 +68,9 @@ class DetailCubeView: UIView {
         cubeView.settingFrame()
     }
     
-    private func updateCube (withScramble scramble: String) {
-        let topColor = UserSetting.shared.general.topFaceColor
-        let frontColor = UserSetting.shared.general.frontFaceColor
-        if needsToScrambleInStandardOrientatin {
-            cubeView.cube = Cube(top: .WHITE, front: .GREEN, scramble: scramble)
-        } else {
-            cubeView.cube = Cube(top: topColor, front: frontColor, scramble: scramble)
-        }
-        cubeView.updateFaces()
-    }
     
-    private var needsToScrambleInStandardOrientatin: Bool {
-        return memoDisplayMode == .none || UserSetting.shared.encoder.scrambleInWCAOrientation
+    private var needsToScrambleInStandardOrientation: Bool {
+        return memoDisplayMode == .none || UserSetting.shared.encoder.scrambleInWCAOrientation || forceScrambleInStandardOrientation
     }
     
     private func updateView() {
@@ -90,7 +94,7 @@ class DetailCubeView: UIView {
     private func showMemo() {
         cubeView.showAllFaces()
         let scrambleFilter: String
-        if needsToScrambleInStandardOrientatin {
+        if needsToScrambleInStandardOrientation {
             let helperCube = Cube(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor, scramble: "")
             scrambleFilter = toString(helperCube.rotate(top: .WHITE, front: .GREEN))
         } else {

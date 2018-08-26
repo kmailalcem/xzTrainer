@@ -471,6 +471,7 @@
                         <outlet property="ao12Label" destination="ofh-2b-V26" id="4yR-mD-JZu"/>
                         <outlet property="ao5Label" destination="ECx-3x-jLF" id="Rrx-WL-5wX"/>
                         <outlet property="currentTimeLabel" destination="VqI-2J-zwO" id="qug-Zu-PWf"/>
+                        <outlet property="detailCubeView" destination="5AX-4N-MV7" id="aXC-Ub-0aG"/>
                         <outlet property="mo3Label" destination="L24-ob-yE5" id="ZXo-K3-3R2"/>
                         <outlet property="pbLabel" destination="Z99-wB-Ndi" id="SZ9-mx-PKy"/>
                     </connections>
