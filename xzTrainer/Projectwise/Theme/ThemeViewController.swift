@@ -12,8 +12,8 @@ class ThemeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8745098039, alpha: 1)
-        view.tintColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
+        view.backgroundColor = Theme.current.backgroundColor
+        view.tintColor = Theme.current.backgroundTintColor
         // Do any additional setup after loading the view.
     }
 

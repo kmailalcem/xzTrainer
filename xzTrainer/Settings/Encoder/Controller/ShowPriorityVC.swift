@@ -155,10 +155,10 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
         let title = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width - 16, height: 30))
         title.text = section == 0 ? "Edges".localized() : "Corners".localized()
-        title.textColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
+        title.textColor = Theme.current.headerTextColor
         title.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         headerView.addSubview(title)
-        headerView.backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8705882353, alpha: 1)
+        headerView.backgroundColor = Theme.current.backgroundColor
         return headerView
     }
     

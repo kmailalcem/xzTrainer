@@ -13,6 +13,9 @@
 		9509144D2126B4B700EDB4B3 /* StringRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509144C2126B4B700EDB4B3 /* StringRepresentable.swift */; };
 		9509144F2126C12900EDB4B3 /* TurnsAndRotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509144E2126C12900EDB4B3 /* TurnsAndRotations.swift */; };
 		950914512126C1A200EDB4B3 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950914502126C1A200EDB4B3 /* UserDefaultsHandler.swift */; };
+		950BC9E1212E8C7A00A4E5A6 /* ThemeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950BC9E0212E8C7A00A4E5A6 /* ThemeText.swift */; };
+		950BC9E3212E8C9C00A4E5A6 /* ThemeHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950BC9E2212E8C9C00A4E5A6 /* ThemeHeaders.swift */; };
+		950BC9E5212E8EA000A4E5A6 /* ThemeSubtext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950BC9E4212E8EA000A4E5A6 /* ThemeSubtext.swift */; };
 		950D322420F06C6800CA165C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322320F06C6800CA165C /* SettingsVC.swift */; };
 		950D322620F0823F00CA165C /* EditLetterSchemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */; };
 		950D322820F0ABAB00CA165C /* GeneralSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950D322720F0ABAB00CA165C /* GeneralSetting.swift */; };
@@ -68,6 +71,9 @@
 		9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587E19E20DB2D6E00CFF85D /* SessionCell.swift */; };
 		9588BA5721100BA500CE94C0 /* ThemeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */; };
 		9588BA5C21104DD000CE94C0 /* PreferenceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */; };
+		958C548821331BF00021D595 /* ThemeTimeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C548721331BF00021D595 /* ThemeTimeText.swift */; };
+		958C548A21331D2F0021D595 /* ThemeLightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C548921331D2F0021D595 /* ThemeLightText.swift */; };
+		958C548C21331E350021D595 /* ThemeWarningText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958C548B21331E350021D595 /* ThemeWarningText.swift */; };
 		958FDCE6212BB3C300AB1E0A /* DetailCubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958FDCE5212BB3C300AB1E0A /* DetailCubeView.swift */; };
 		958FDCE9212BE91F00AB1E0A /* DetailCubeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958FDCEB212BE91F00AB1E0A /* DetailCubeView.xib */; };
 		958FDCEF212BE9AC00AB1E0A /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 958FDCF1212BE9AC00AB1E0A /* ResultView.xib */; };
@@ -130,6 +136,9 @@
 		9509144C2126B4B700EDB4B3 /* StringRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringRepresentable.swift; sourceTree = "<group>"; };
 		9509144E2126C12900EDB4B3 /* TurnsAndRotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnsAndRotations.swift; sourceTree = "<group>"; };
 		950914502126C1A200EDB4B3 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
+		950BC9E0212E8C7A00A4E5A6 /* ThemeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeText.swift; sourceTree = "<group>"; };
+		950BC9E2212E8C9C00A4E5A6 /* ThemeHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeHeaders.swift; sourceTree = "<group>"; };
+		950BC9E4212E8EA000A4E5A6 /* ThemeSubtext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSubtext.swift; sourceTree = "<group>"; };
 		950D322320F06C6800CA165C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLetterSchemeVC.swift; sourceTree = "<group>"; };
 		950D322720F0ABAB00CA165C /* GeneralSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSetting.swift; sourceTree = "<group>"; };
@@ -191,6 +200,9 @@
 		9587E19E20DB2D6E00CFF85D /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
 		9588BA5621100BA500CE94C0 /* ThemeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitch.swift; sourceTree = "<group>"; };
 		9588BA5B21104DD000CE94C0 /* PreferenceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCell.swift; sourceTree = "<group>"; };
+		958C548721331BF00021D595 /* ThemeTimeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTimeText.swift; sourceTree = "<group>"; };
+		958C548921331D2F0021D595 /* ThemeLightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeLightText.swift; sourceTree = "<group>"; };
+		958C548B21331E350021D595 /* ThemeWarningText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeWarningText.swift; sourceTree = "<group>"; };
 		958FDCE5212BB3C300AB1E0A /* DetailCubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCubeView.swift; sourceTree = "<group>"; };
 		958FDCEC212BE92300AB1E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailCubeView.xib; sourceTree = "<group>"; };
 		958FDCF2212BE9B200AB1E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ResultView.xib; sourceTree = "<group>"; };
@@ -329,6 +341,12 @@
 				95D7334920E9BB21009F2708 /* ThemeSegues.swift */,
 				957A5C7121128092002160A7 /* ThemeCell.swift */,
 				95E1FB4421293D51002717FC /* ThemeViewController.swift */,
+				950BC9E0212E8C7A00A4E5A6 /* ThemeText.swift */,
+				950BC9E2212E8C9C00A4E5A6 /* ThemeHeaders.swift */,
+				950BC9E4212E8EA000A4E5A6 /* ThemeSubtext.swift */,
+				958C548721331BF00021D595 /* ThemeTimeText.swift */,
+				958C548921331D2F0021D595 /* ThemeLightText.swift */,
+				958C548B21331E350021D595 /* ThemeWarningText.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -464,10 +482,10 @@
 		9588BA4D210FFFA800CE94C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
 				958FDCE4212BB39A00AB1E0A /* DetailCubeView */,
 				9575E633212A4153005F6872 /* SessionView */,
 				9575E62E212A401A005F6872 /* ResultTableView */,
-				95E0EA0620AF31F90058B87A /* TimerLabel.swift */,
 				9575E62D212A3F26005F6872 /* ResutPopUpView */,
 				9588BA4E210FFFE700CE94C0 /* Cube Visualization */,
 			);
@@ -759,6 +777,7 @@
 				950D322420F06C6800CA165C /* SettingsVC.swift in Sources */,
 				95F886B02112FF5C004D4C2C /* NameVC.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
+				950BC9E5212E8EA000A4E5A6 /* ThemeSubtext.swift in Sources */,
 				955E0E052125428700B2B1E3 /* LocalizationGeneral.swift in Sources */,
 				955E0E1821257CDA00B2B1E3 /* LocalizationMemo.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
@@ -779,6 +798,7 @@
 				950DF6CE2111640700A329EB /* PriorityCell.swift in Sources */,
 				957A5C7021128064002160A7 /* ReorderCell.swift in Sources */,
 				9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */,
+				958C548C21331E350021D595 /* ThemeWarningText.swift in Sources */,
 				95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */,
 				95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */,
 				958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */,
@@ -789,15 +809,19 @@
 				953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
+				950BC9E1212E8C7A00A4E5A6 /* ThemeText.swift in Sources */,
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
 				95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */,
 				95DB124920E4DD3C007BBAFD /* MemoSettingsDataSource.swift in Sources */,
+				958C548821331BF00021D595 /* ThemeTimeText.swift in Sources */,
 				95E1FB4A212948B2002717FC /* Theme.swift in Sources */,
 				950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
+				958C548A21331D2F0021D595 /* ThemeLightText.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */,
 				95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */,
+				950BC9E3212E8C9C00A4E5A6 /* ThemeHeaders.swift in Sources */,
 				9572457620D9B8CC0086202E /* TimerVCTimerLabel.swift in Sources */,
 				9575ED5720D90D7A00D9CF81 /* Data.swift in Sources */,
 				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,

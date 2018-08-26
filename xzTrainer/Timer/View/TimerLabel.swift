@@ -10,8 +10,9 @@ import UIKit
 
 public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
 
-    static let defaultColor = #colorLiteral(red: 0.003921568627, green: 0.2196078431, blue: 0.3921568627, alpha: 1)
-    static let beginTappingColor = #colorLiteral(red: 0.4078431373, green: 0.5176470588, blue: 0.6431372549, alpha: 1)
+    static let defaultColor = Theme.current.headerTextColor
+    static var beginTappingColor = TimerLabel.defaultColor.withAlphaComponent(0.25)
+    
     static let readyColor: UIColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     
     var timer: Timer?

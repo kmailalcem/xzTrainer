@@ -10,15 +10,14 @@ import UIKit
 
 // manages floating action button
 extension TimerVC {
-    
-    @IBAction func floatingPlusPressed (_ sender: UIButton) {
+    @IBAction func floatingPlusPressed () {
         if floatingPlus.transform == .identity {
             UIView.animate(withDuration: 0.2) {
                 self.showFABs()
             }
             floatingPlus.isSelected = true
         } else {
-            UIView.animate(withDuration: 0.15) {
+            UIView.animate(withDuration: 0.2) {
                 self.hideFABs()
             }
             floatingPlus.isSelected = false
@@ -31,7 +30,6 @@ extension TimerVC {
         nextScrambleButton.transform = CGAffineTransform(translationX: 0, y: 133)
         manuallyEnterTimeButton.transform = CGAffineTransform(translationX: 0, y: 188)
         floatingPlus.transform = .identity
-        floatingPlusIsPressed = false
     }
     
     func showFABs() {
@@ -41,7 +39,6 @@ extension TimerVC {
         nextScrambleButton.transform = .identity
         manuallyEnterTimeButton.transform = .identity
         floatingPlus.transform = CGAffineTransform(rotationAngle: 3 * .pi / 4)
-        floatingPlusIsPressed = true
     }
     
    

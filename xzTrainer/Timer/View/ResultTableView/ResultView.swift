@@ -19,6 +19,7 @@ class ResultView: UIView {
         isUserInteractionEnabled = true
         sessionSelectionButton.setTitle("default", for: .normal)
         backgroundColor = .clear
+        tintColor = Theme.current.backgroundTintColor
         resultTable.backgroundColor = .clear
         
         // TimerVC manages all the views; not this one.
@@ -31,6 +32,7 @@ class ResultView: UIView {
         frame = CGRect(x: 0, y: superFrame.maxY - 100, width: superFrame.width, height: superFrame.height)
         NotificationCenter.default.addObserver(self, selector: #selector(ResultView.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
         swipableView.isUserInteractionEnabled = true
+        swipableView.backgroundColor = Theme.current.darkerBackgroundColor
         swipableView.shadowRadius = 8
         swipableView.shadowOpacity = 0.125
     }

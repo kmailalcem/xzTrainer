@@ -29,7 +29,7 @@ class ResultCell: UITableViewCell {
         
         scramble = currentSolve.scramble!
         backgroundColor = .clear
-        roundedView.backgroundColor = #colorLiteral(red: 0.1342299879, green: 0.4006600678, blue: 0.5895091891, alpha: 1)
+        roundedView.backgroundColor = Theme.current.invertedBackgroundColor
         roundedView.shadowOpacity = 0.125
         roundedView.shadowRadius = 3
     }
@@ -37,12 +37,9 @@ class ResultCell: UITableViewCell {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if highlighted {
-            roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
-            ao5Label.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 0.7882352941, alpha: 1)
-            ao12Label.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 0.7882352941, alpha: 1)
-            indexLabel.textColor = #colorLiteral(red: 0.5843137255, green: 0.7176470588, blue: 0.7882352941, alpha: 1)
+            roundedView.backgroundColor = Theme.current.darkerBackgroundColor
         } else {
-            roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.3289608657, blue: 0.5148260593, alpha: 1)
+            roundedView.backgroundColor = Theme.current.invertedBackgroundColor
         }
         
     }

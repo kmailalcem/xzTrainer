@@ -21,8 +21,8 @@ class ThemeSwitch: UISwitch {
     }
     
     private func commonInit() {
-        onTintColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
-        tintColor = #colorLiteral(red: 0.6352941176, green: 0.7803921569, blue: 0.9882352941, alpha: 1)
+        onTintColor = Theme.current.backgroundTintColor
+        tintColor = Theme.current.darkerBackgroundColor
     }
     
 

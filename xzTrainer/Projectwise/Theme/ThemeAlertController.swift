@@ -15,11 +15,11 @@ class ThemeAlertController: UIAlertController {
         let firstSubview = view.subviews.first
         let alertContentView = firstSubview?.subviews.first
         for subview in (alertContentView?.subviews)! {
-            subview.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            subview.backgroundColor = Theme.current.alertBackgroundColor
         }
-        view.tintColor = #colorLiteral(red: 0.3254901961, green: 0.4549019608, blue: 0.5843137255, alpha: 1)
-        setValue(NSAttributedString(string: title!, attributes: [NSAttributedStringKey.foregroundColor : #colorLiteral(red: 0, green: 0.1529411765, blue: 0.2980392157, alpha: 1)]), forKey: "attributedTitle")
-        setValue(NSAttributedString(string: message!, attributes: [NSAttributedStringKey.foregroundColor : #colorLiteral(red: 0, green: 0.1529411765, blue: 0.2980392157, alpha: 1)]), forKey: "attributedMessage")
+        view.tintColor = Theme.current.backgroundTintColor
+        setValue(NSAttributedString(string: title!, attributes: [NSAttributedStringKey.foregroundColor : Theme.current.headerTextColor]), forKey: "attributedTitle")
+        setValue(NSAttributedString(string: message!, attributes: [NSAttributedStringKey.foregroundColor : Theme.current.normalTextColor]), forKey: "attributedMessage")
     }
 
 }

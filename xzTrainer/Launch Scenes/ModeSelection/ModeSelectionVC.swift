@@ -84,6 +84,8 @@ class ModeSelectionVC:
         modeSelectionTable.delegate = self
         modeSelectionTable.dataSource = self
         
+        profileView.backgroundColor = Theme.current.backgroundColor
+        profileView.tintColor = Theme.current.backgroundTintColor
         
         let hour = NSCalendar.current.component(.hour, from: Date())
         switch(hour) {
@@ -94,8 +96,9 @@ class ModeSelectionVC:
         default:
             greetingLabel.text = LocalizationGeneral.eveningGreeting.localized + ","
         }
-        
+        greetingLabel.textColor = Theme.current.headerTextColor
         nameLabel.text = UserSetting.shared.general.name + ".".localized()
+        nameLabel.textColor = Theme.current.darkerLightTextColor
         smallNameLabel.text = UserSetting.shared.general.name
         layingConstraints()
         dismissProfile()

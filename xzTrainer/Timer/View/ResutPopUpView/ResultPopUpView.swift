@@ -74,6 +74,8 @@ class ResultPopUpView: UIView {
     }
     
     func configurePopUp(indexPath: IndexPath) {
+        containerView.backgroundColor = Theme.current.backgroundColor
+        containerView.tintColor = Theme.current.backgroundTintColor
         containerView.shadowRadius = 8
         containerView.shadowOpacity = 0.125
         currentIndexPath = indexPath

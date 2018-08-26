@@ -87,10 +87,10 @@ class SettingsVC:
     }
     
     func setUpBackgroundColors() {
-        edgeBufferPickerView.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.7882352941, blue: 0.8470588235, alpha: 1)
-        cornerBufferPickerView.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.7882352941, blue: 0.8470588235, alpha: 1)
-        topColorPicker.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.7882352941, blue: 0.8470588235, alpha: 1)
-        frontColorPicker.backgroundColor = #colorLiteral(red: 0.737254902, green: 0.7882352941, blue: 0.8470588235, alpha: 1)
+        edgeBufferPickerView.backgroundColor = Theme.current.backgroundColor
+        cornerBufferPickerView.backgroundColor = Theme.current.backgroundColor
+        topColorPicker.backgroundColor = Theme.current.backgroundColor
+        frontColorPicker.backgroundColor = Theme.current.backgroundColor
     }
     
     func eliminateInvalidTopColors() {

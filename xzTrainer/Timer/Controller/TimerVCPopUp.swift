@@ -12,12 +12,6 @@ import UIKit
 // managing popup view
 extension TimerVC {
     
-    @IBAction func dismissPopUp(_ sender: UIButton) {
-        if floatingPlusIsPressed {
-            floatingPlusPressed(floatingPlus)
-        }
-    }
-    
     func animatePopUpIn() {
         self.view.addSubview(popUpDetailView)
         popUpDetailView.alpha = 0

@@ -9,6 +9,22 @@
 import UIKit
 
 class RoundedButton: UIButton {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        themeSetUp()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        themeSetUp()
+    }
+    
+    func themeSetUp() {
+        backgroundColor = Theme.current.invertedBackgroundColor
+        setTitleColor(Theme.current.invertedTexTColor, for: .highlighted)
+        setTitleColor(Theme.current.invertedTexTColor, for: .normal)
+        setTitleColor(Theme.current.invertedTexTColor, for: .selected)
+    }
 
     @IBInspectable var cornerRadious: CGFloat = 0 {
         didSet {
@@ -19,10 +35,11 @@ class RoundedButton: UIButton {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.backgroundColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
+                self.backgroundColor = Theme.current.fabHighlightedColor
             } else {
-                self.backgroundColor = #colorLiteral(red: 0, green: 0.1529411765, blue: 0.2980392157, alpha: 0.9)
+                self.backgroundColor = Theme.current.invertedBackgroundColor
             }
         }
     }
+
 }

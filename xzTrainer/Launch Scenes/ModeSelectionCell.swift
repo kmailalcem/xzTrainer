@@ -17,27 +17,20 @@ class ModeSelectionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        let layer = CAGradientLayer()
         
-        layer.colors = [#colorLiteral(red: 0.03529411765, green: 0.3333333333, blue: 0.5058823529, alpha: 0.3479773116).cgColor, #colorLiteral(red: 0.03424261117, green: 0.3302167863, blue: 0.5046529747, alpha: 1).cgColor]
-        layer.startPoint = CGPoint(x: 0, y: 0.5)
-        layer.endPoint = CGPoint(x:1, y: 0.5)
-        layer.frame = gradientMask.frame
-        layer.cornerRadius = 15
-        gradientMask.layer.addSublayer(layer)
-        
+        gradientMask.backgroundColor = Theme.current.invertedBackgroundColor.withAlphaComponent(0.75)
+        roundedView.backgroundColor = Theme.current.invertedBackgroundColor
         roundedView.shadowOpacity = 0.25
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if highlighted {
-            roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.208977282, blue: 0.3710498214, alpha: 1)
+            roundedView.backgroundColor = Theme.current.invertedBackgroundColor.withAlphaComponent(0.5)
             gradientMask.isHidden = true
             bgImage.isHidden = true
         } else {
-            roundedView.backgroundColor = #colorLiteral(red: 0, green: 0.3289608657, blue: 0.5148260593, alpha: 1)
+            roundedView.backgroundColor = Theme.current.invertedBackgroundColor
             gradientMask.isHidden = false
             bgImage.isHidden = false
         }

@@ -12,8 +12,8 @@ class HelpCell: UITableViewCell {
 
     @IBOutlet weak var explainedFAB: UIImageView!
     @IBOutlet weak var fabContainerView: UIView!
-    @IBOutlet weak var wikiName: UILabel!
-    @IBOutlet weak var explanation: UILabel!
+    @IBOutlet weak var wikiName: ThemeSubtext!
+    @IBOutlet weak var explanation: ThemeText!
     
     func configureCell(helpedIcon: HelpedIcon) {
         explainedFAB.image = helpedIcon.image

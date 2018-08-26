@@ -27,8 +27,8 @@ class FloatingActionButton: UIButton {
     }
     
     private func commonInit() {
-        backgroundColor = .white
-        tintColor = #colorLiteral(red: 0.1490196078, green: 0.4039215686, blue: 0.5803921569, alpha: 1)
+        backgroundColor = Theme.current.fabBackgroundColor
+        tintColor = Theme.current.fabTintColor
         layer.shadowRadius = 3
         layer.shadowOpacity = 0.083
         layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -38,11 +38,11 @@ class FloatingActionButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
-                backgroundColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8705882353, alpha: 1)
+                backgroundColor = Theme.current.fabHighlightedColor
             } else {
                 if !isSelected {
-                    backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                    tintColor = #colorLiteral(red: 0.1490196078, green: 0.4039215686, blue: 0.5803921569, alpha: 1)
+                    backgroundColor = Theme.current.fabBackgroundColor
+                    tintColor = Theme.current.fabTintColor
                 }
             }
         }
@@ -51,11 +51,11 @@ class FloatingActionButton: UIButton {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                backgroundColor = #colorLiteral(red: 0.1342299879, green: 0.4006600678, blue: 0.5895091891, alpha: 1)
+                tintColor = Theme.current.fabBackgroundColor
+                backgroundColor = Theme.current.fabSelectedColor
             } else {
-                backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                tintColor = #colorLiteral(red: 0.1342299879, green: 0.4006600678, blue: 0.5895091891, alpha: 1)
+                backgroundColor = Theme.current.fabBackgroundColor
+                tintColor = Theme.current.fabTintColor
             }
         }
     }

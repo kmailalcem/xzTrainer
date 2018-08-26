@@ -52,7 +52,6 @@ class SettingsDetailVC: ThemeViewController {
         priorityTextField.delegate = self
         preferenceTable.delegate = self
         preferenceTable.dataSource = self
-        
         priorityTextField.text = String(option.priority)
         
         
@@ -123,7 +122,7 @@ class SettingsDetailVC: ThemeViewController {
             } else {
                 firstLetters.text = formatedPieces(option.avoidedFirstCorner, showInLetters: showInLetterSchemeSwitch.isOn)
             }
-            firstLetters.textColor = #colorLiteral(red: 0.6431372549, green: 0, blue: 0.2392156863, alpha: 1)
+            firstLetters.textColor = Theme.current.warningTextColor
         }
         preferenceTable.reloadData()
     }
@@ -165,7 +164,7 @@ class SettingsDetailVC: ThemeViewController {
                     }
                 }
             }
-            firstLetters.textColor = #colorLiteral(red: 0.6431372549, green: 0, blue: 0.2392156863, alpha: 1)
+            firstLetters.textColor = Theme.current.warningTextColor
         }
     }
 }
