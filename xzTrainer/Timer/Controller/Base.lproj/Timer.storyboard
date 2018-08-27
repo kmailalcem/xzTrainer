@@ -52,6 +52,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="uNR-fI-mY6"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uNR-fI-mY6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="uNR-fI-mY6"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HlS-ZJ-2o1">
                                 <rect key="frame" x="-50" y="-50" width="475" height="767"/>
@@ -149,6 +159,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sSN-g3-gz5" secondAttribute="trailing" constant="8" id="6MV-kT-sDL"/>
                             <constraint firstAttribute="bottom" secondItem="I7E-lC-plr" secondAttribute="bottom" id="9OE-Ku-r26"/>
                             <constraint firstItem="hfF-nR-IKH" firstAttribute="centerX" secondItem="vXp-Sz-taf" secondAttribute="centerX" id="BYF-Vr-YPM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerX" secondItem="sSN-g3-gz5" secondAttribute="trailing" constant="8" id="CWS-Pn-tOy"/>
                             <constraint firstItem="3U3-Yd-RSv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HUx-tQ-7Gi">
                                 <variation key="widthClass=compact" constant="16"/>
                             </constraint>
@@ -163,9 +174,17 @@
                             </constraint>
                             <constraint firstItem="vXp-Sz-taf" firstAttribute="top" secondItem="hfF-nR-IKH" secondAttribute="bottom" constant="30" id="SaX-kR-gy6"/>
                             <constraint firstItem="I7E-lC-plr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Szh-DI-8tH"/>
+                            <constraint firstItem="I7E-lC-plr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="593.5" id="Txe-8s-tiz">
+                                <variation key="heightClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vXp-Sz-taf" secondAttribute="trailing" constant="16" id="VWm-RP-3xb"/>
                             <constraint firstItem="3U3-Yd-RSv" firstAttribute="leading" secondItem="X9n-RK-J0Y" secondAttribute="trailing" constant="8" id="Wp1-6Z-h9g"/>
                             <constraint firstItem="Zut-ID-YX0" firstAttribute="top" secondItem="khT-v8-cfb" secondAttribute="bottom" constant="15" id="YNJ-7C-Mqy"/>
+                            <constraint firstItem="I7E-lC-plr" firstAttribute="top" secondItem="3U3-Yd-RSv" secondAttribute="bottom" constant="283" id="aWm-da-Dqp">
+                                <variation key="heightClass=compact" constant="8"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" secondItem="sSN-g3-gz5" secondAttribute="bottom" constant="30" id="ctN-ao-O6S"/>
+                            <constraint firstItem="I7E-lC-plr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eNZ-Dc-snF"/>
                             <constraint firstItem="X9n-RK-J0Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="gQ2-6O-ArP"/>
                             <constraint firstItem="HlS-ZJ-2o1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-50" id="lCf-ws-kqQ"/>
                             <constraint firstAttribute="trailing" secondItem="HlS-ZJ-2o1" secondAttribute="trailing" constant="-50" id="nCR-wQ-r0D"/>
@@ -174,6 +193,34 @@
                             <constraint firstItem="I7E-lC-plr" firstAttribute="top" secondItem="sSN-g3-gz5" secondAttribute="bottom" constant="-100" id="zD2-9f-jgX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6MV-kT-sDL"/>
+                                <exclude reference="CWS-Pn-tOy"/>
+                                <exclude reference="ctN-ao-O6S"/>
+                                <exclude reference="Szh-DI-8tH"/>
+                                <exclude reference="Txe-8s-tiz"/>
+                                <exclude reference="aWm-da-Dqp"/>
+                                <exclude reference="eNZ-Dc-snF"/>
+                                <exclude reference="zD2-9f-jgX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="CWS-Pn-tOy"/>
+                                <include reference="ctN-ao-O6S"/>
+                                <include reference="Txe-8s-tiz"/>
+                                <include reference="aWm-da-Dqp"/>
+                                <include reference="eNZ-Dc-snF"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <include reference="6MV-kT-sDL"/>
+                                <include reference="Szh-DI-8tH"/>
+                                <include reference="zD2-9f-jgX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="detailCubeView" destination="sSN-g3-gz5" id="s2g-E3-HUi"/>
@@ -221,25 +268,6 @@
                                             <action selector="didTapScreen:" destination="EqX-FT-Ta2" eventType="touchUpInside" id="F1K-e7-00C"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-2J-zwO" customClass="ThemeTimeText" customModule="xzTrainer" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="411" width="359" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="2sX-Se-iOc"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="41"/>
-                                        <color key="textColor" red="0.14901960780000001" green="0.4039215686" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="2sX-Se-iOc"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="2sX-Se-iOc"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="epy-T9-zD3">
                                         <rect key="frame" x="8" y="479" width="359" height="80"/>
                                         <subviews>
@@ -272,19 +300,19 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOc-YF-KAH">
                                                         <rect key="frame" x="97" y="0.0" width="82.5" height="80"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z99-wB-Ndi">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z99-wB-Ndi" customClass="ThemeText" customModule="xzTrainer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="82.5" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L24-ob-yE5">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L24-ob-yE5" customClass="ThemeText" customModule="xzTrainer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="30" width="82.5" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECx-3x-jLF">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECx-3x-jLF" customClass="ThemeText" customModule="xzTrainer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="60" width="82.5" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -339,19 +367,19 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NMZ-ck-Cxz">
                                                         <rect key="frame" x="97" y="0.0" width="82.5" height="80"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofh-2b-V26">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofh-2b-V26" customClass="ThemeText" customModule="xzTrainer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="82.5" height="26.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-Hz-kon">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-Hz-kon" customClass="ThemeText" customModule="xzTrainer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="26.5" width="82.5" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nz-h6-Mli">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nz-h6-Mli" customClass="ThemeText" customModule="xzTrainer" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="53.5" width="82.5" height="26.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -394,7 +422,36 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="375" id="WQY-Yd-BYd"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="WQY-Yd-BYd"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="WQY-Yd-BYd"/>
+                                            </mask>
+                                        </variation>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23.33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-2J-zwO" customClass="ThemeTimeText" customModule="xzTrainer" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="411" width="359" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="2sX-Se-iOc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="41"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.4039215686" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2sX-Se-iOc"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular">
+                                            <mask key="constraints">
+                                                <include reference="2sX-Se-iOc"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -406,9 +463,15 @@
                                     <constraint firstItem="epy-T9-zD3" firstAttribute="leading" secondItem="gfC-LO-Vee" secondAttribute="leading" constant="8" id="AFN-Wq-J5x"/>
                                     <constraint firstItem="5AX-4N-MV7" firstAttribute="top" secondItem="gfC-LO-Vee" secondAttribute="top" constant="28" id="CMi-z3-r0H"/>
                                     <constraint firstItem="epy-T9-zD3" firstAttribute="leading" secondItem="gfC-LO-Vee" secondAttribute="centerX" id="DtK-w7-Dsh"/>
+                                    <constraint firstAttribute="centerX" secondItem="5AX-4N-MV7" secondAttribute="trailing" constant="8" id="HEZ-Q3-5aa"/>
                                     <constraint firstItem="e7S-Qx-34S" firstAttribute="leading" secondItem="gfC-LO-Vee" secondAttribute="leading" constant="8" id="Res-hP-tZf"/>
-                                    <constraint firstItem="VqI-2J-zwO" firstAttribute="leading" secondItem="gfC-LO-Vee" secondAttribute="leading" constant="8" id="UYX-yU-rmz"/>
+                                    <constraint firstItem="e7S-Qx-34S" firstAttribute="top" secondItem="5AX-4N-MV7" secondAttribute="bottom" constant="8" id="SCh-18-NsR"/>
+                                    <constraint firstItem="VqI-2J-zwO" firstAttribute="leading" secondItem="gfC-LO-Vee" secondAttribute="centerX" constant="8" id="UYX-yU-rmz"/>
+                                    <constraint firstAttribute="trailing" secondItem="VqI-2J-zwO" secondAttribute="trailing" constant="16" id="bVw-tC-3my">
+                                        <variation key="heightClass=compact" constant="8"/>
+                                    </constraint>
                                     <constraint firstItem="epy-T9-zD3" firstAttribute="top" secondItem="VqI-2J-zwO" secondAttribute="bottom" constant="8" id="boJ-5o-Uar"/>
+                                    <constraint firstItem="epy-T9-zD3" firstAttribute="top" secondItem="VqI-2J-zwO" secondAttribute="bottom" constant="30" id="hQW-tR-jnW"/>
                                     <constraint firstAttribute="centerX" secondItem="VqI-2J-zwO" secondAttribute="trailing" constant="447.5" id="ifr-Y9-zuZ">
                                         <variation key="heightClass=compact" constant="0.0"/>
                                     </constraint>
@@ -423,33 +486,44 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="HEZ-Q3-5aa"/>
+                                        <exclude reference="zfI-QX-qmV"/>
                                         <exclude reference="1Rr-6n-qKf"/>
                                         <exclude reference="UYX-yU-rmz"/>
+                                        <exclude reference="bVw-tC-3my"/>
                                         <exclude reference="ifr-Y9-zuZ"/>
                                         <exclude reference="prB-oi-MOD"/>
+                                        <exclude reference="zaC-Cv-goG"/>
                                         <exclude reference="0yb-Ga-baO"/>
                                         <exclude reference="AFN-Wq-J5x"/>
                                         <exclude reference="DtK-w7-Dsh"/>
                                         <exclude reference="boJ-5o-Uar"/>
+                                        <exclude reference="hQW-tR-jnW"/>
                                         <exclude reference="sBs-e4-uPl"/>
                                         <exclude reference="2Pn-Os-Kbp"/>
+                                        <exclude reference="SCh-18-NsR"/>
                                         <exclude reference="ub7-eX-vN3"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
+                                        <include reference="HEZ-Q3-5aa"/>
                                         <include reference="UYX-yU-rmz"/>
-                                        <include reference="ifr-Y9-zuZ"/>
+                                        <include reference="bVw-tC-3my"/>
+                                        <exclude reference="ifr-Y9-zuZ"/>
                                         <include reference="0yb-Ga-baO"/>
                                         <include reference="DtK-w7-Dsh"/>
+                                        <include reference="hQW-tR-jnW"/>
                                         <include reference="2Pn-Os-Kbp"/>
-                                        <include reference="ub7-eX-vN3"/>
+                                        <include reference="SCh-18-NsR"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular">
                                     <mask key="constraints">
+                                        <include reference="zfI-QX-qmV"/>
                                         <include reference="1Rr-6n-qKf"/>
                                         <include reference="prB-oi-MOD"/>
+                                        <include reference="zaC-Cv-goG"/>
                                         <include reference="AFN-Wq-J5x"/>
                                         <include reference="boJ-5o-Uar"/>
                                         <include reference="sBs-e4-uPl"/>

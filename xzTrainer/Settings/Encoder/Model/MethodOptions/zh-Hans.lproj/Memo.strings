@@ -9,6 +9,7 @@
 "m2 edges" = "M2棱块";
 "old pochmann corners" = "Old Pochmann角块";
 "advanced m2" = "进阶M2";
+"3-style" = "彳亍";
 
 "prefer trivial title" = "优先考虑方便set up的棱块";
 "prefer trivial description" = "%@可以被一步还原。 %@, %@可以由U2 M' U2 M'或 M U2 M U2四步还原。";
@@ -33,4 +34,10 @@
 
 "prefer 1 move setup title" = "优先考虑方便set up的棱块";
 "prefer 1 move setup description" = "像%@, %@, %@这样的贴片能够一步set up至%@，组成8/9/10步转换机。";
+
+"prefer interchangeable corners title" = "优先考虑可交换的角块";
+"prefer interchangeable corners description" = "优先考虑在可与上一角块交换的角块上开始新循环。";
+
+"prefer interchangeable edges title" = "优先考虑可交换的棱块";
+"prefer interchangeable edges description" = "优先考虑在可与上一棱块交换的棱块上开始新循环。";
 

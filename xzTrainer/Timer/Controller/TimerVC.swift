@@ -56,7 +56,6 @@ class TimerVC: ThemeViewController {
         assignDelegates()
     
         popUpDetailView.rootViewController = self
-        // dismissPopUpButton.addTarget(self, action: #selector(TimerVC.floatingPlusPressed), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.reloadTable), name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
     }

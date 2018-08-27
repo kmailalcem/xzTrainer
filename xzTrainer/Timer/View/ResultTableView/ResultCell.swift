@@ -30,7 +30,7 @@ class ResultCell: UITableViewCell {
         scramble = currentSolve.scramble!
         backgroundColor = .clear
         roundedView.backgroundColor = Theme.current.invertedBackgroundColor
-        roundedView.shadowOpacity = 0.125
+        roundedView.shadowOpacity = Float(Theme.current.shadowOpacity / 2)
         roundedView.shadowRadius = 3
     }
     

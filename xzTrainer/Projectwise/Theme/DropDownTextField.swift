@@ -27,7 +27,7 @@ class DropDownTextField: UITextField {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
         view.addSubview(imageView)
         rightView = view
-        imageView.tintColor = #colorLiteral(red: 0.2823529412, green: 0.4196078431, blue: 0.568627451, alpha: 1)
+        imageView.tintColor = Theme.current.backgroundTintColor
         tintColor = .clear
     }
     

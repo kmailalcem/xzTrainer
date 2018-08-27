@@ -9,6 +9,7 @@
 "m2 edges" = "M2 Edges";
 "old pochmann corners" = "Old Pochmann Corners";
 "advanced m2" = "Advanced M2";
+"3-style" = "3-style";
 
 "prefer trivial title" = "Prefer easy edge stickers";
 "prefer trivial description" = "%@ can be solved in only 1 move. %@, %@ can be solved in 4 moves by U2 M' U2 M' or M U2 M U2.";
@@ -33,4 +34,10 @@
 
 "prefer 1 move setup title" = "Prefer easy setup (no more than 1 move)";
 "prefer 1 move setup description" = "Pieces such as %@, %@, %@ can be set up to %@ in one move, hence perfect target for setting up to an 8/9/10 move commutator.";
+
+"prefer interchangeable corners title" = "Prefer Interchangeable Corners";
+"prefer interchangeable corners description" = "Cycles will break at corners interchangeable with the previous corner.";
+
+"prefer interchangeable edges title" = "Prefer Interchangeable Edges";
+"prefer interchangeable edges description" = "Cycles will break at edges interchangeable with the previous edge.";
 

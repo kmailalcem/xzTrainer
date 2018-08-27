@@ -11,62 +11,36 @@ import UIKit
 @IBDesignable
 class CubeFaceView: UIView {
     
-    //@IBInspectable
     var cornerColors: [CGColor] = [CGColor](repeating: UIColor.red.cgColor, count: 4)
-    //@IBInspectable
     var edgeColors: [CGColor] = [CGColor](repeating: UIColor.yellow.cgColor, count: 4)
-    //@IBInspectable
     var centerColor: CGColor = UIColor.red.cgColor
 
-    /*
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }*/
-    
     func setColors(cornerColors: [CGColor],
                    edgeColors: [CGColor], centerColor: CGColor) {
         self.cornerColors = cornerColors
         self.edgeColors = edgeColors
         self.centerColor = centerColor
+        commonInit(frame: frame)
     }
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-        let context = UIGraphicsGetCurrentContext()!
-        context.addRect(CGRect(x: rect.minX, y: rect.minY, width: rect.width, height: rect.height))
-        context.setStrokeColor(red:0, green:0, blue:0, alpha:1)
-        context.setLineWidth(2)
-        //context.strokePath()
-        showFaceFillView(context: context, frame: rect)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit(frame: frame)
     }
     
-    func drawRectWithoutBorder(context: CGContext, x: CGFloat, y:CGFloat,
-                               width: CGFloat, height: CGFloat, color: CGColor)
-    {
-        context.addRect(CGRect(x: x, y: y,
-                               width: width, height: height))
-        context.setFillColor(color)
-        context.fillPath()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit(frame: frame)
     }
     
-    func drawBorder(context: CGContext, x: CGFloat, y:CGFloat,
-                  width: CGFloat, height: CGFloat)
-    {
-        context.addRect(CGRect(x: x, y: y,
-                               width: width, height: height))
-        context.setStrokeColor(UIColor.black.cgColor)
-        context.strokePath()
-    }
-    
-    func showFaceFillView(context: CGContext, frame: CGRect)
-    {
-        let sideLength = frame.width / 3
+    private func commonInit(frame: CGRect) {
         for i in 0 ..< 3 {
-            for j in 0 ..< 3{
-                let startX = frame.minX + CGFloat(i) * sideLength
-                let startY = frame.minY + CGFloat(j) * sideLength
+            for j in 0 ..< 3 {
+                let length = min(frame.width / 3, frame.height / 3)
+                let cubieFrame = CGRect(x: CGFloat(i) * length, y: CGFloat(j) * length, width: length, height: length)
+                let view = UIView(frame: cubieFrame)
+                view.layer.borderWidth = 1
+                view.layer.borderColor = UIColor.black.cgColor
                 let color : CGColor
                 switch (i, j) {
                 case (0, 0):
@@ -91,11 +65,8 @@ class CubeFaceView: UIView {
                     print("more than 3x3 color")
                     exit(1)
                 }
-                drawRectWithoutBorder(context: context, x: startX, y: startY,
-                                      width: sideLength, height: sideLength,
-                                      color: color)
-                drawBorder(context: context, x: startX, y: startY,
-                           width: sideLength, height: sideLength)
+                view.backgroundColor = UIColor(cgColor: color)
+                addSubview(view)
             }
         }
     }

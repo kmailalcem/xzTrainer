@@ -77,7 +77,7 @@ class ResultPopUpView: UIView {
         containerView.backgroundColor = Theme.current.backgroundColor
         containerView.tintColor = Theme.current.backgroundTintColor
         containerView.shadowRadius = 8
-        containerView.shadowOpacity = 0.125
+        containerView.shadowOpacity = Float(Theme.current.shadowOpacity / 2)
         currentIndexPath = indexPath
         let solve = data.requestSolve(at: data.backIndex(indexPath.row))
         scrambleLabel.text = solve.scramble

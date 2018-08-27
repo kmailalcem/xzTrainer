@@ -43,6 +43,7 @@ class UIButtonX: UIButton {
     @IBInspectable var borderWidth: CGFloat = 0 {
         didSet {
             layer.borderWidth = borderWidth
+            layer.borderColor = Theme.current.backgroundTintColor.cgColor
         }
     }
 }

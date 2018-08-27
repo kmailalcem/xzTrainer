@@ -603,7 +603,7 @@
                                                 <constraint firstItem="QiB-n8-8PC" firstAttribute="leading" secondItem="1N4-Bq-QAE" secondAttribute="leadingMargin" id="yhM-qB-QB7"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.73725490199999999" green="0.78823529410000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="secondLabel" destination="DTx-y3-iH3" id="BeM-sc-rti"/>
                                             <outlet property="startingLabel" destination="QiB-n8-8PC" id="QSt-m9-03Q"/>

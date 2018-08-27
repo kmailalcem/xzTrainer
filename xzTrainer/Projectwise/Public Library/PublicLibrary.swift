@@ -70,3 +70,14 @@ func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
     }
     return result
 }
+
+func areInerchangeable<T: CubePiece>(_ piece1: T, _ piece2: T) -> Bool {
+    for turn in Turn.allValues {
+        let cube = Cube()
+        cube.turn(turn)
+        if (cube[piece1] as! T).rawValue == piece2.rawValue || (cube[piece2] as! T).rawValue == piece1.rawValue {
+            return true
+        }
+    }
+    return false
+}

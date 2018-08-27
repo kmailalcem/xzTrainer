@@ -41,4 +41,10 @@ enum LocalizableMemo: String, Localizable {
     
     case prefer1MoveSetupTitle = "prefer 1 move setup title"
     case prefer1MoveSetupDescription = "prefer 1 move setup description"
+    
+    case preferInterchangeableCornersTitle = "prefer interchangeable corners title"
+    case preferInterchangeableCornersDescription = "prefer interchangeable corners description"
+    
+    case preferInterchangeableEdgesTitle = "prefer interchangeable edges title"
+    case preferInterchangeableEdgesDescription = "prefer interchangeable edges description"
 }

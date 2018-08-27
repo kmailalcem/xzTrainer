@@ -68,7 +68,6 @@ class SessionView: UIView, UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: indexPath.row)
         data.reloadSolve(forSessionAtIndex: indexPath.row)
         dismiss()
     }
@@ -118,7 +117,7 @@ class SessionView: UIView, UITableViewDelegate {
             let newName = alert.textFields?.first?.text!
             if newName != nil && newName != "" {
                 self.data.renameSession(atIndex: indexPath.row, to: newName!)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: indexPath.row)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: nil, userInfo: ["name" : newName ?? "New Session"])
             }
             self.sessionTable.reloadData()
         }))

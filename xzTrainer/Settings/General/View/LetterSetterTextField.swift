@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LetterSetterTextField: UITextField {
+class LetterSetterTextField: DoneTextField {
 
     var isOverwide: Bool = false
     var managedPiece: CubePiece! {

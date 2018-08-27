@@ -12,7 +12,7 @@ import UIKit
 extension TimerVC: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView is ResultTableView {
+        if scrollView == resultTableView.resultTable {
             if scrollView.contentOffset.y < -70 {
                 resultTableView.hideResultTable()
             }

@@ -19,7 +19,9 @@ public enum Turn : String {
     case S = "S", SPrime = "S'", S2 = "S2"
     case E = "E", EPrime = "E'", E2 = "E2"
     
-    static let allValues = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2]
+    static let allValues = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2, M, MPrime, M2, S, SPrime, S2, E, EPrime, E2]
+    
+    static let allStandardValues = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2]
 }
 
 public enum WideTurn : String {

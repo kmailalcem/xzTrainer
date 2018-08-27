@@ -31,10 +31,11 @@ class ResultView: UIView {
         let superFrame = superview!.frame
         frame = CGRect(x: 0, y: superFrame.maxY - 100, width: superFrame.width, height: superFrame.height)
         NotificationCenter.default.addObserver(self, selector: #selector(ResultView.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ResultView.updateSessionName), name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: nil)
         swipableView.isUserInteractionEnabled = true
         swipableView.backgroundColor = Theme.current.darkerBackgroundColor
         swipableView.shadowRadius = 8
-        swipableView.shadowOpacity = 0.125
+        swipableView.shadowOpacity = Float(Theme.current.shadowOpacity / 2)
     }
     
     @IBAction func resultTableTriggered() {
@@ -64,6 +65,12 @@ class ResultView: UIView {
     @objc func sessionSelected (_ notification: NSNotification) {
         resultTable.reloadData()
         if let sessionName = notification.userInfo?["selectedSessionName"] as? String {
+            sessionSelectionButton.setTitle(sessionName, for: .normal)
+        }
+    }
+    
+    @objc func updateSessionName (_ notification: NSNotification) {
+        if let sessionName = notification.userInfo?["name"] as? String {
             sessionSelectionButton.setTitle(sessionName, for: .normal)
         }
     }

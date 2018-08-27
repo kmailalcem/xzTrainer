@@ -18,7 +18,7 @@ class SessionCell: UITableViewCell {
         // Initialization code
         backgroundColor = .clear
         cellBackground.shadowRadius = 6
-        cellBackground.shadowOpacity = 0.083
+        cellBackground.shadowOpacity = Float(Theme.current.shadowOpacity / 3)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

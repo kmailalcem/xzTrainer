@@ -25,6 +25,11 @@ class SolveDetailVC: ThemeViewController, UIGestureRecognizerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        detailCubeView.cubeView.settingFrame()
+    }
+    
     @IBAction func backToTableButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
@@ -33,6 +38,11 @@ class SolveDetailVC: ThemeViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         setUpDetailView()
         updateTimeLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     fileprivate func setUpDetailView() {

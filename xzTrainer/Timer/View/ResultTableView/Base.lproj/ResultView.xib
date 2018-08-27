@@ -44,9 +44,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="aUK-iH-M6v"/>
                             </constraints>
-                            <state key="normal" title="Button">
-                                <color key="titleColor" red="0.0" green="0.1529411765" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
+                            <state key="normal" title="Button"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
                                     <real key="value" value="5"/>

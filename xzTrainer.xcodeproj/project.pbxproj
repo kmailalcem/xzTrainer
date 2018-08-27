@@ -47,7 +47,7 @@
 		955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E06212545FE00B2B1E3 /* LocalizableMode.swift */; };
 		955E0E0A2125464A00B2B1E3 /* Mode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E0C2125464A00B2B1E3 /* Mode.strings */; };
 		955E0E10212578F100B2B1E3 /* Memo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E12212578F100B2B1E3 /* Memo.strings */; };
-		955E0E1821257CDA00B2B1E3 /* LocalizationMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E1721257CDA00B2B1E3 /* LocalizationMemo.swift */; };
+		955E0E1821257CDA00B2B1E3 /* LocalizableMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0E1721257CDA00B2B1E3 /* LocalizableMemo.swift */; };
 		956C5CDC20A0D2230036D80A /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDB20A0D2230036D80A /* Cube.swift */; };
 		956C5CDE20A0DCC00036D80A /* CubePermutationEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */; };
 		9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572457120D9B6D30086202E /* TimerVCPopUp.swift */; };
@@ -84,6 +84,7 @@
 		95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9838120B1F73000CE5908 /* ResultCell.swift */; };
 		95BF901F20E380B800211563 /* InTimerSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF901E20E380B800211563 /* InTimerSettingVC.swift */; };
 		95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF902020E38FF500211563 /* TimerVCFAB.swift */; };
+		95C4A1072134AF85008C85A0 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4A1062134AF85008C85A0 /* DoneTextField.swift */; };
 		95C6A4C120B32973003D8D28 /* xzTrainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4BF20B32973003D8D28 /* xzTrainer.xcdatamodeld */; };
 		95C6A4C320B35286003D8D28 /* Scrambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6A4C220B35286003D8D28 /* Scrambler.swift */; };
 		95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */; };
@@ -174,7 +175,7 @@
 		955E0E142125797100B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		955E0E152125798800B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Mode.strings; sourceTree = "<group>"; };
 		955E0E16212579B800B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Memo.strings; sourceTree = "<group>"; };
-		955E0E1721257CDA00B2B1E3 /* LocalizationMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationMemo.swift; sourceTree = "<group>"; };
+		955E0E1721257CDA00B2B1E3 /* LocalizableMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableMemo.swift; sourceTree = "<group>"; };
 		956C5CDB20A0D2230036D80A /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		956C5CDD20A0DCC00036D80A /* CubePermutationEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubePermutationEncoder.swift; sourceTree = "<group>"; };
 		9572457120D9B6D30086202E /* TimerVCPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCPopUp.swift; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 		95B9838120B1F73000CE5908 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		95BF901E20E380B800211563 /* InTimerSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InTimerSettingVC.swift; sourceTree = "<group>"; };
 		95BF902020E38FF500211563 /* TimerVCFAB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCFAB.swift; sourceTree = "<group>"; };
+		95C4A1062134AF85008C85A0 /* DoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
 		95C6A4C020B32973003D8D28 /* xzTrainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = xzTrainer.xcdatamodel; sourceTree = "<group>"; };
 		95C6A4C220B35286003D8D28 /* Scrambler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scrambler.swift; sourceTree = "<group>"; };
 		95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCPicker.swift; sourceTree = "<group>"; };
@@ -285,7 +287,7 @@
 				950DF6D02111ABFA00A329EB /* MethodOptions.swift */,
 				950DF6D42111ACEB00A329EB /* AdvancedParity.swift */,
 				955E0E12212578F100B2B1E3 /* Memo.strings */,
-				955E0E1721257CDA00B2B1E3 /* LocalizationMemo.swift */,
+				955E0E1721257CDA00B2B1E3 /* LocalizableMemo.swift */,
 			);
 			path = MethodOptions;
 			sourceTree = "<group>";
@@ -631,6 +633,7 @@
 				952FAA0820BB1B58007FD671 /* RoundedButton.swift */,
 				952FAA0A20BB1CDA007FD671 /* RoundedView.swift */,
 				9526D82720C3AA2800F0E251 /* UIButtonX.swift */,
+				95C4A1062134AF85008C85A0 /* DoneTextField.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -779,7 +782,7 @@
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
 				950BC9E5212E8EA000A4E5A6 /* ThemeSubtext.swift in Sources */,
 				955E0E052125428700B2B1E3 /* LocalizationGeneral.swift in Sources */,
-				955E0E1821257CDA00B2B1E3 /* LocalizationMemo.swift in Sources */,
+				955E0E1821257CDA00B2B1E3 /* LocalizableMemo.swift in Sources */,
 				9526D82820C3AA2800F0E251 /* UIButtonX.swift in Sources */,
 				950DF6C92111620800A329EB /* ShowPriorityVC.swift in Sources */,
 				958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */,
@@ -816,6 +819,7 @@
 				958C548821331BF00021D595 /* ThemeTimeText.swift in Sources */,
 				95E1FB4A212948B2002717FC /* Theme.swift in Sources */,
 				950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */,
+				95C4A1072134AF85008C85A0 /* DoneTextField.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				958C548A21331D2F0021D595 /* ThemeLightText.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,

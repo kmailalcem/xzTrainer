@@ -30,7 +30,7 @@ class FloatingActionButton: UIButton {
         backgroundColor = Theme.current.fabBackgroundColor
         tintColor = Theme.current.fabTintColor
         layer.shadowRadius = 3
-        layer.shadowOpacity = 0.083
+        layer.shadowOpacity = Float(Theme.current.shadowOpacity / 3)
         layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     

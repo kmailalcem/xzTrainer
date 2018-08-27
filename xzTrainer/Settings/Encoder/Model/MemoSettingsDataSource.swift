@@ -47,6 +47,13 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
                     PreferCrossLayerCommutator(),
                     PreferSameInnerLayerCommutator(),
                     Prefer1MoveSetUp()
+            ]),
+        MemoMethod(name: "3-style",
+                   requiredEdgeBuffer: nil,
+                   requiredCornerBuffer: nil,
+                   options: [
+                    PreferInterchangeableCorners(),
+                    PreferInterchangeableEdges()
             ])
     ]
 

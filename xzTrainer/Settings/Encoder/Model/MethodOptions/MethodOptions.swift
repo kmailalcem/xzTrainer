@@ -31,7 +31,9 @@ let allMemoStyles: [MemoPreference] = [
     PreferSameOuterLayerCommutator(),
     PreferSameInnerLayerCommutator(),
     PreferCrossLayerCommutator(),
-    Prefer1MoveSetUp()
+    Prefer1MoveSetUp(),
+    PreferInterchangeableCorners(),
+    PreferInterchangeableEdges()
 ]
 
 
@@ -188,5 +190,73 @@ class Prefer1MoveSetUp: MemoPreference {
     
     static var memoKey: String = "Prefer1MoveSetUp"
     var preferredFirstEdge: [EdgePosition] = [.UB, .UL, .UR, .UF, .RB, .LB, .DB]
+}
+
+class PreferInterchangeableCorners: MemoPreference {
+    static var memoKey: String = "PreferInterchangeableCorners"
+    
+    static var description: String = LocalizableMemo.preferInterchangeableCornersTitle.localized
+    
+    static var explanation: String = LocalizableMemo.preferInterchangeableCornersDescription.localized
+
+    var isPreferringMethod: Bool = true
+    
+    var defaultPriority: Int = 100
+    
+    var isEdgeMethod: Bool = false
+    
+    var preferredFirstCorner: [CornerPosition] {
+        var result = [CornerPosition]()
+        for corner in CornerSticker.allValues {
+            if (areInerchangeable(UserSetting.shared.general.cornerBuffer, corner)) {
+                result.append(corner)
+            }
+        }
+        return result
+    }
+    
+    func preferredSecondCorner(for first: CornerPosition) -> [CornerPosition] {
+        var result = [CornerPosition]()
+        for corner in CornerSticker.allValues {
+            if (areInerchangeable(first, corner)) {
+                result.append(corner)
+            }
+        }
+        return result
+    }
+}
+
+class PreferInterchangeableEdges: MemoPreference {
+    static var memoKey: String = "PreferInterchangeableEdges"
+    
+    static var description: String = LocalizableMemo.preferInterchangeableEdgesTitle.localized
+    
+    static var explanation: String = LocalizableMemo.preferInterchangeableEdgesDescription.localized
+    
+    var isPreferringMethod: Bool = true
+    
+    var defaultPriority: Int = 100
+    
+    var isEdgeMethod: Bool = true
+    
+    var preferredFirstEdge: [EdgePosition] {
+        var result = [EdgePosition]()
+        for edge in EdgePosition.allValues {
+            if (areInerchangeable(UserSetting.shared.general.edgeBuffer, edge)) {
+                result.append(edge)
+            }
+        }
+        return result
+    }
+    
+    func preferredSecondEdge(for first: EdgePosition) -> [EdgePosition] {
+        var result = [EdgePosition]()
+        for edge in EdgePosition.allValues {
+            if (areInerchangeable(first, edge)) {
+                result.append(edge)
+            }
+        }
+        return result
+    }
 }
 

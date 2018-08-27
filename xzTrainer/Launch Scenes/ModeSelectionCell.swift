@@ -20,7 +20,7 @@ class ModeSelectionCell: UITableViewCell {
         
         gradientMask.backgroundColor = Theme.current.invertedBackgroundColor.withAlphaComponent(0.75)
         roundedView.backgroundColor = Theme.current.invertedBackgroundColor
-        roundedView.shadowOpacity = 0.25
+        roundedView.shadowOpacity = Float(Theme.current.shadowOpacity)
     }
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

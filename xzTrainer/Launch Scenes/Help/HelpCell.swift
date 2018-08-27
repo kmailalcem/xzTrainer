@@ -19,7 +19,7 @@ class HelpCell: UITableViewCell {
         explainedFAB.image = helpedIcon.image
         fabContainerView.layer.cornerRadius = 20
         fabContainerView.layer.shadowRadius = 3
-        fabContainerView.layer.shadowOpacity = 0.25
+        fabContainerView.layer.shadowOpacity = Float(Theme.current.shadowOpacity)
         fabContainerView.layer.shadowOffset = CGSize(width: 0, height: 0)
         wikiName.text = helpedIcon.wikiName
         explanation.text = helpedIcon.explanation

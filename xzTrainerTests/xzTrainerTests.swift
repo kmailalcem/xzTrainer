@@ -280,4 +280,11 @@ class xzTrainerTests: XCTestCase {
             XCTAssert(CornerSticker.allValues[i].rawValue == i)
         }
     }
+    
+    func testAreInterchangeable() {
+        XCTAssert(areInerchangeable(EdgePosition.BD, EdgePosition.BL))
+        XCTAssert(areInerchangeable(EdgePosition.FU, EdgePosition.BU))
+        XCTAssert(areInerchangeable(CornerPosition.ULB, CornerPosition.UBR))
+        XCTAssert(areInerchangeable(CornerPosition.FLU, CornerPosition.RFU))
+    }
 }

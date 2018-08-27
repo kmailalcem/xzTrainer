@@ -21,14 +21,6 @@ class CubeView: UIView {
     private var _cube = Cube()
     private var _colors = ColorScheme()
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -124,6 +116,7 @@ class CubeView: UIView {
         
         for face in [backFace, frontFace, rightFace, leftFace, topFace, bottomFace] {
             face.setNeedsDisplay()
+            face.layoutIfNeeded()
         }
     }
     
