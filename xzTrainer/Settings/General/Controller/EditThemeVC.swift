@@ -32,9 +32,9 @@ extension EditThemeVC: UITableViewDelegate, UITableViewDataSource {
         let title = ThemeHeader1(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width - 16, height: 50))
         title.autoresizingMask = []
         if section == 0 {
-            title.text = "Color"
+            title.text = LocalizationTheme.color.localized
         } else {
-            title.text = "Shadow"
+            title.text = LocalizationTheme.shadow.localized
         }
         headerView.addSubview(title)
         headerView.backgroundColor = Theme.current.backgroundColor
@@ -61,16 +61,16 @@ extension EditThemeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             switch indexPath.row {
             case 0:
-                cell.configureCell(name: "None", shadowOpacity: 0)
+                cell.configureCell(name: LocalizationTheme.none.localized, shadowOpacity: 0)
             case 1:
-                cell.configureCell(name: "Light", shadowOpacity: 0.25)
+                cell.configureCell(name: LocalizationTheme.light.localized, shadowOpacity: 0.25)
             case 2:
-                cell.configureCell(name: "Heavy", shadowOpacity: 0.75)
+                cell.configureCell(name: LocalizationTheme.heavy.localized, shadowOpacity: 0.75)
             default:
                 cell.configureCell(name: "Full", shadowOpacity: 1)
             }
         }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+        
         return cell
     }
     
@@ -89,14 +89,7 @@ extension EditThemeVC: UITableViewDelegate, UITableViewDataSource {
                 Theme.current.shadowOpacity = 1
             }
         }
-        let windows = UIApplication.shared.windows
-        for window in windows {
-            for view in window.subviews {
-                view.removeFromSuperview()
-                window.addSubview(view)
-            }
-        }
-
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
         tableView.reloadData()
     }
 }

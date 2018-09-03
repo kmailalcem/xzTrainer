@@ -36,6 +36,9 @@
 		95302795213DAAC900508B02 /* EditThemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302794213DAAC900508B02 /* EditThemeVC.swift */; };
 		95302797213DACE200508B02 /* ThemeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302796213DACE200508B02 /* ThemeSelectionCell.swift */; };
 		95302799213DC3CE00508B02 /* ThemeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95302798213DC3CE00508B02 /* ThemeElement.swift */; };
+		9530279E213DDF5800508B02 /* EditTheme.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9530279C213DDF5800508B02 /* EditTheme.storyboard */; };
+		953027A2213DDFC100508B02 /* LocalizationTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953027A1213DDFC100508B02 /* LocalizationTheme.swift */; };
+		953027A5213DE03E00508B02 /* Theme.strings in Resources */ = {isa = PBXBuildFile; fileRef = 953027A7213DE03E00508B02 /* Theme.strings */; };
 		9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533A48F20A8C24D00A5A59E /* CubeView.swift */; };
 		9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */; };
 		9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78020E5F21000A3CE20 /* MemoMethod.swift */; };
@@ -163,6 +166,11 @@
 		95302794213DAAC900508B02 /* EditThemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThemeVC.swift; sourceTree = "<group>"; };
 		95302796213DACE200508B02 /* ThemeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionCell.swift; sourceTree = "<group>"; };
 		95302798213DC3CE00508B02 /* ThemeElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeElement.swift; sourceTree = "<group>"; };
+		9530279D213DDF5800508B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Settings/General/Controller/Base.lproj/EditTheme.storyboard; sourceTree = "<group>"; };
+		953027A0213DDFA100508B02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "xzTrainer/Settings/General/Controller/zh-Hans.lproj/EditTheme.strings"; sourceTree = "<group>"; };
+		953027A1213DDFC100508B02 /* LocalizationTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTheme.swift; sourceTree = "<group>"; };
+		953027A6213DE03E00508B02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Theme.strings"; sourceTree = "<group>"; };
+		953027A8213DE04300508B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Theme.strings; sourceTree = "<group>"; };
 		9533A48F20A8C24D00A5A59E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
 		9539A77D20E5F0E800A3CE20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Base.lproj/InTimerSetting.storyboard; sourceTree = "<group>"; };
 		9539A78020E5F21000A3CE20 /* MemoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoMethod.swift; sourceTree = "<group>"; };
@@ -444,12 +452,15 @@
 		9588BA47210FFED300CE94C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9530279C213DDF5800508B02 /* EditTheme.storyboard */,
 				955E0DF92125394800B2B1E3 /* Settings.storyboard */,
 				950D322320F06C6800CA165C /* SettingsVC.swift */,
 				95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */,
 				950D322520F0823F00CA165C /* EditLetterSchemeVC.swift */,
 				95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */,
 				95302794213DAAC900508B02 /* EditThemeVC.swift */,
+				953027A1213DDFC100508B02 /* LocalizationTheme.swift */,
+				953027A7213DE03E00508B02 /* Theme.strings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -737,8 +748,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953027A5213DE03E00508B02 /* Theme.strings in Resources */,
 				95DB65EA20EF0E900095A778 /* ModeSelection.storyboard in Resources */,
 				958FDCF5212BE9D700AB1E0A /* ResultPopUpView.xib in Resources */,
+				9530279E213DDF5800508B02 /* EditTheme.storyboard in Resources */,
 				95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */,
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
 				958FDCE9212BE91F00AB1E0A /* DetailCubeView.xib in Resources */,
@@ -804,6 +817,7 @@
 				952FAA0B20BB1CDA007FD671 /* RoundedView.swift in Sources */,
 				95302795213DAAC900508B02 /* EditThemeVC.swift in Sources */,
 				95E1FB3D21291000002717FC /* LocalizationHelp.swift in Sources */,
+				953027A2213DDFC100508B02 /* LocalizationTheme.swift in Sources */,
 				950D322A20F0ACB600CA165C /* UserSetting.swift in Sources */,
 				95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */,
 				95EB838F20B430E4003ADB37 /* Solve.swift in Sources */,
@@ -883,6 +897,24 @@
 				95034E7321251A740096E40B /* zh-Hans */,
 			);
 			name = CustomPriority.storyboard;
+			sourceTree = "<group>";
+		};
+		9530279C213DDF5800508B02 /* EditTheme.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9530279D213DDF5800508B02 /* Base */,
+				953027A0213DDFA100508B02 /* zh-Hans */,
+			);
+			name = EditTheme.storyboard;
+			sourceTree = "<group>";
+		};
+		953027A7213DE03E00508B02 /* Theme.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				953027A6213DE03E00508B02 /* zh-Hans */,
+				953027A8213DE04300508B02 /* Base */,
+			);
+			name = Theme.strings;
 			sourceTree = "<group>";
 		};
 		9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */ = {

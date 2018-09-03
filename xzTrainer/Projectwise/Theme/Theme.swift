@@ -9,7 +9,7 @@
 import UIKit
 
 struct Theme {
-    var name: String = "Blue"
+    var name: String = LocalizationTheme.blueTheme.localized
     var key: String = "blueTheme"
     var backgroundColor: UIColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8745098039, alpha: 1)
     var lighterBackgroundColor: UIColor = #colorLiteral(red: 0.8980392157, green: 0.9137254902, blue: 0.937254902, alpha: 1)
@@ -33,9 +33,26 @@ struct Theme {
     
     var alertBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
-    var shadowOpacity = 0.25
+    var shadowOpacity: Double {
+        mutating get {
+            if keyExists(Theme.shadowKey) {
+                _shadowOpacity = UserDefaults.standard.double(forKey: Theme.shadowKey)
+            }
+            if _shadowOpacity == nil {
+                return 0.25
+            } else {
+                return _shadowOpacity!
+            }
+        }
+        set {
+            _shadowOpacity = newValue
+            UserDefaults.standard.set(newValue, forKey: Theme.shadowKey)
+        }
+    }
     
+    private var _shadowOpacity: Double?
     static let themeKey = "themeKey"
+    static let shadowKey = "shadowKey"
     static let defaultTheme = Theme()
     private static var _current: Theme?
     static var current: Theme {
@@ -55,7 +72,7 @@ struct Theme {
         }
     }
     static let whiteTheme = Theme(
-        name: "Black and White",
+        name: LocalizationTheme.whiteTheme.localized,
         key: "whiteTheme",
         backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         lighterBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
@@ -78,10 +95,10 @@ struct Theme {
         fabSelectedColor: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.2352941176, alpha: 1),
         
         alertBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-        shadowOpacity: 0.25)
+        _shadowOpacity: 0.25)
     
     static let pinkTheme = Theme(
-        name: "Pink",
+        name: LocalizationTheme.pinkTheme.localized,
         key: "pinkTheme",
         backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         lighterBackgroundColor: #colorLiteral(red: 0.968627451, green: 0.9176470588, blue: 0.9176470588, alpha: 1),
@@ -103,7 +120,7 @@ struct Theme {
         fabHighlightedColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
         fabSelectedColor: #colorLiteral(red: 0.8, green: 0.3058823529, blue: 0.2235294118, alpha: 1),
         alertBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-        shadowOpacity: 0.25)
+        _shadowOpacity: 0.25)
     
     static let allThemes = [defaultTheme.key: defaultTheme, pinkTheme.key: pinkTheme, whiteTheme.key: whiteTheme]
 }

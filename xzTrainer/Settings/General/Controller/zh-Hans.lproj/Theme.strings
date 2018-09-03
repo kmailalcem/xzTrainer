@@ -1,0 +1,16 @@
+/* 
+  Theme.strings
+  xzTrainer
+
+  Created by Nelson Zhang on 9/3/18.
+  Copyright © 2018 Xuzhi Zhang. All rights reserved.
+*/
+
+"white theme" = "复古黑白";
+"blue theme" = "冷酷蓝";
+"pink theme" = "樱花粉";
+"color" = "配色";
+"shadow" = "阴影";
+"light" = "浅";
+"heavy" = "深";
+"none" = "无";

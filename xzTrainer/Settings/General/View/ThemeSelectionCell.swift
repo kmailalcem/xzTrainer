@@ -33,7 +33,7 @@ class ThemeSelectionCell: UITableViewCell {
         roundedView.backgroundColor = Theme.current.backgroundColor
         roundedView.shadowOpacity = shadowOpacity
         managedShadowOpacity = Double(shadowOpacity)
-        isSelected = managedShadowOpacity == Theme.current.shadowOpacity
+        isSelected = false
     }
     
     func configureCell(name: String, theme: Theme) {
@@ -42,6 +42,6 @@ class ThemeSelectionCell: UITableViewCell {
         roundedView.backgroundColor = theme.backgroundColor
         roundedView.shadowOpacity = Float(Theme.current.shadowOpacity)
         managedTheme = theme
-        isSelected = managedTheme.name == Theme.current.name
+        isSelected = false
     }
 }
