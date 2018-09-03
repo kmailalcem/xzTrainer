@@ -12,15 +12,23 @@ class ThemeText: UILabel {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        becomeObserver()
         themeSetUp()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        becomeObserver()
         themeSetUp()
     }
     
-    func themeSetUp() {
-        textColor = Theme.current.normalTextColor
+    @objc func themeSetUp() {
+        DispatchQueue.main.async {
+            self.textColor = Theme.current.normalTextColor
+        }
+    }
+    
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
 }

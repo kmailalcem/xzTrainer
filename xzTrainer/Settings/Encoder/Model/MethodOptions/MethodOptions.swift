@@ -33,7 +33,10 @@ let allMemoStyles: [MemoPreference] = [
     PreferCrossLayerCommutator(),
     Prefer1MoveSetUp(),
     PreferInterchangeableCorners(),
-    PreferInterchangeableEdges()
+    PreferInterchangeableEdges(),
+    OPPreferShortSetup(),
+    UseUB(),
+    UseUF()
 ]
 
 
@@ -190,6 +193,53 @@ class Prefer1MoveSetUp: MemoPreference {
     
     static var memoKey: String = "Prefer1MoveSetUp"
     var preferredFirstEdge: [EdgePosition] = [.UB, .UL, .UR, .UF, .RB, .LB, .DB]
+}
+
+class OPPreferShortSetup: MemoPreference {
+    var defaultPriority: Int = 80
+    
+    var isEdgeMethod: Bool = true
+    
+    var isPreferringMethod: Bool = true
+    
+    static var description: String = LocalizableMemo.prefer1MoveSetupTitle.localized
+    
+    static var explanation: String = LocalizableMemo.prefer1MoveSetupDescription.localized(edge(.UL), edge(.FL), edge(.DL), edge(.BL))
+    
+    static var memoKey: String = "OPPreferShortSetup"
+    var preferredFirstEdge: [EdgePosition] = [.UL, .FL, .DL, .BL]
+}
+
+class UseUF: MemoPreference {
+    static var memoKey: String = "UseUF"
+    
+    static var description: String = LocalizableMemo.useUFTitle.localized(edge(.UF))
+    
+    static var explanation: String = LocalizableMemo.useUFDescription.localized(edge(.UF))
+    
+    var isEdgeMethod: Bool = true
+    
+    var isPreferringMethod: Bool = true
+    
+    var defaultPriority: Int = 30
+    
+    var preferredFirstEdge: [EdgePosition] = [.UF, .BU, .DB, .FD]
+}
+
+class UseUB: MemoPreference {
+    static var memoKey: String = "UseUB"
+    
+    static var description: String = LocalizableMemo.useUBTitle.localized(edge(.UB));
+    
+    static var explanation: String = LocalizableMemo.useUFDescription.localized(edge(.UB))
+    
+    var isEdgeMethod: Bool = true
+    
+    var isPreferringMethod: Bool = true
+    
+    var defaultPriority: Int = 25
+    
+    var preferredFirstEdge: [EdgePosition] = [.UB, .BD, .DF, .FU]
 }
 
 class PreferInterchangeableCorners: MemoPreference {

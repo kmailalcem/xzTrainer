@@ -14,9 +14,12 @@ enum LocalizableMemo: String, Localizable {
         return "Memo"
     }
     
+    case requiresBuffer = "requires buffer"
     case m2Edges = "m2 edges"
     case opCorners = "old pochmann corners"
+    case opEdges = "old pochmann edges"
     case advancedM2 = "advanced m2"
+    case threeStyle = "3-style"
     
     case preferTrivialTitle = "prefer trivial title"
     case preferTrivialDescription = "prefer trivial description"
@@ -27,8 +30,17 @@ enum LocalizableMemo: String, Localizable {
     case preferCornerWithShortSetUpTitle = "prefer corner with short setup title"
     case preferCornerWithShortSetUpDescription = "prefer corner with short setup description"
     
+    case preferEdgesWithShortSetUpTitle = "prefer edges with short setup title"
+    case preferEdgesWithShortSetUpDescription = "prefer edges with short setup description"
+    
     case useUFLTitle = "use UFL title"
     case useUFLDescription = "use UFL description"
+    
+    case useUFTitle = "use UF title"
+    case useUFDescription = "use UF description"
+    
+    case useUBTitle = "use UB title"
+    case useUBDescription = "use UB description"
     
     case preferSameOuterLayerCommutatorTitle = "prefer same outer layer commutator title"
     case preferSameOuterLayerCommutatorDescription = "prefer same outer layer commutator description"

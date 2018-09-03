@@ -6,10 +6,13 @@
   Copyright © 2018 Xuzhi Zhang. All rights reserved.
 */
 
+"requires buffer" = "(Requires %@ buffer)";
+
 "m2 edges" = "M2 Edges";
 "old pochmann corners" = "Old Pochmann Corners";
 "advanced m2" = "Advanced M2";
 "3-style" = "3-style";
+"old pochmann edges" = "Old Pochmann Edges";
 
 "prefer trivial title" = "Prefer easy edge stickers";
 "prefer trivial description" = "%@ can be solved in only 1 move. %@, %@ can be solved in 4 moves by U2 M' U2 M' or M U2 M U2.";
@@ -40,4 +43,13 @@
 
 "prefer interchangeable edges title" = "Prefer Interchangeable Edges";
 "prefer interchangeable edges description" = "Cycles will break at edges interchangeable with the previous edge.";
+
+"use UB title" = "Use %@ as a target";
+"use UB description" = "%@ target can be solved by Ja Perm.";
+
+"use UF title" = "Use %@ as a target";
+"use UF description" = "%@ target can be solved by Jb Perm.";
+
+"prefer edges with short setup title" = "Prefer Edges with Short Setup";
+"prefer edges with short setup description" = "Break cycles at edge pieces with none or one move setup.";
 

@@ -8,22 +8,26 @@
 
 import UIKit
 
-class ThemeSwitch: UISwitch {
+class ThemeSwitch: UISwitch, ThemeElement {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+        becomeObserver()
+        themeSetUp()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        becomeObserver()
+        themeSetUp()
     }
     
-    private func commonInit() {
+    @objc func themeSetUp() {
         onTintColor = Theme.current.backgroundTintColor
         tintColor = Theme.current.darkerBackgroundColor
     }
     
-
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+    }
 }

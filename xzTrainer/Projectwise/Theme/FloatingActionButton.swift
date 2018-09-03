@@ -18,22 +18,27 @@ class FloatingActionButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        becomeObserver()
+        themeSetUp()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+        becomeObserver()
+        themeSetUp()
     }
     
-    private func commonInit() {
+    @objc func themeSetUp() {
         backgroundColor = Theme.current.fabBackgroundColor
         tintColor = Theme.current.fabTintColor
-        layer.shadowRadius = 3
         layer.shadowOpacity = Float(Theme.current.shadowOpacity / 3)
+        layer.shadowRadius = 3
         layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+    }
     
     override var isHighlighted: Bool {
         didSet {

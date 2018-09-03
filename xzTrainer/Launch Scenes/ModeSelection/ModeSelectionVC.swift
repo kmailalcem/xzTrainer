@@ -73,8 +73,6 @@ class ModeSelectionVC:
             print("invalid table row index reached")
         }
     }
-    
-   
 
     @IBOutlet weak var modeSelectionTable: UITableView!
     
@@ -84,8 +82,7 @@ class ModeSelectionVC:
         modeSelectionTable.delegate = self
         modeSelectionTable.dataSource = self
         
-        profileView.backgroundColor = Theme.current.backgroundColor
-        profileView.tintColor = Theme.current.backgroundTintColor
+        themeSetUp()
         
         let hour = NSCalendar.current.component(.hour, from: Date())
         switch(hour) {
@@ -96,13 +93,22 @@ class ModeSelectionVC:
         default:
             greetingLabel.text = LocalizationGeneral.eveningGreeting.localized + ","
         }
-        greetingLabel.textColor = Theme.current.headerTextColor
+        
         nameLabel.text = UserSetting.shared.general.name + ".".localized()
-        nameLabel.textColor = Theme.current.darkerLightTextColor
         smallNameLabel.text = UserSetting.shared.general.name
         layingConstraints()
         dismissProfile()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+    }
+    
+    @objc override func themeSetUp() {
+        super.themeSetUp()
+        DispatchQueue.main.async {
+            self.greetingLabel.textColor = Theme.current.headerTextColor
+            self.nameLabel.textColor = Theme.current.darkerLightTextColor
+            self.profileView.backgroundColor = Theme.current.backgroundColor
+            self.profileView.tintColor = Theme.current.backgroundTintColor
+        }
     }
 
     private func layingConstraints() {

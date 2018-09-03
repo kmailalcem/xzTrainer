@@ -6,10 +6,13 @@
   Copyright © 2018 Xuzhi Zhang. All rights reserved.
 */
 
+"requires buffer" = "（需要%@缓冲块）";
+
 "m2 edges" = "M2棱块";
 "old pochmann corners" = "Old Pochmann角块";
 "advanced m2" = "进阶M2";
 "3-style" = "彳亍";
+"old pochmann edges" = "Old Pochmann棱块";
 
 "prefer trivial title" = "优先考虑方便set up的棱块";
 "prefer trivial description" = "%@可以被一步还原。 %@, %@可以由U2 M' U2 M'或 M U2 M U2四步还原。";
@@ -18,7 +21,7 @@
 "avoid misoriented edge description" = "朝向错误的棱块通常公式较长或较不顺手。";
 
 "prefer corner with short setup title" = "优先考虑方便set up的角块";
-"prefer corner with short setup description" = "无需set up或一步set up的角块会被优先考虑。";
+"prefer corner with short setup description" = "无需set up或一步set up的角块会优先考虑。";
 
 "use UFL title" = "允许set up到%@";
 "use UFL description" = "U2 [J-Perm] U能够还原%@，且步数比%@短。使用风格后无需或一步set up至%@的贴片将与无需或一步set up到%@的贴片地位同等。";
@@ -41,3 +44,11 @@
 "prefer interchangeable edges title" = "优先考虑可交换的棱块";
 "prefer interchangeable edges description" = "优先考虑在可与上一棱块交换的棱块上开始新循环。";
 
+"use UB title" = "允许set up到%@";
+"use UB description" = "%@可以由Ja Perm还原。";
+
+"use UF title" = "允许set up到%@";
+"use UF description" = "%@可以由Jb Perm还原。";
+
+"prefer edges with short setup title" = "优先考虑方便set up的角块";
+"prefer edges with short setup description" = "无需set up或一步set up的角块会优先考虑。";

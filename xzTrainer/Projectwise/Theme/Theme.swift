@@ -9,6 +9,8 @@
 import UIKit
 
 struct Theme {
+    var name: String = "Blue"
+    var key: String = "blueTheme"
     var backgroundColor: UIColor = #colorLiteral(red: 0.7843137255, green: 0.8274509804, blue: 0.8745098039, alpha: 1)
     var lighterBackgroundColor: UIColor = #colorLiteral(red: 0.8980392157, green: 0.9137254902, blue: 0.937254902, alpha: 1)
     var darkerBackgroundColor: UIColor = #colorLiteral(red: 0.5725490196, green: 0.6509803922, blue: 0.7450980392, alpha: 1)
@@ -33,9 +35,28 @@ struct Theme {
     
     var shadowOpacity = 0.25
     
+    static let themeKey = "themeKey"
     static let defaultTheme = Theme()
-    static var current = Theme.pinkTheme
+    private static var _current: Theme?
+    static var current: Theme {
+        get {
+            if (keyExists(themeKey)) {
+                _current = allThemes[UserDefaults.standard.string(forKey: themeKey)!]!
+            }
+            if _current == nil {
+                return defaultTheme
+            } else {
+                return _current!
+            }
+        }
+        set {
+            UserDefaults.standard.set(newValue.key, forKey: themeKey)
+            _current = newValue
+        }
+    }
     static let whiteTheme = Theme(
+        name: "Black and White",
+        key: "whiteTheme",
         backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         lighterBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         darkerBackgroundColor: #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1),
@@ -59,25 +80,30 @@ struct Theme {
         alertBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         shadowOpacity: 0.25)
     
-    static let pinkTheme = Theme(backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                 lighterBackgroundColor: #colorLiteral(red: 0.968627451, green: 0.9176470588, blue: 0.9176470588, alpha: 1),
-                                 darkerBackgroundColor: #colorLiteral(red: 0.9294117647, green: 0.7921568627, blue: 0.7921568627, alpha: 1),
-                                 
-                                 backgroundTintColor: #colorLiteral(red: 0.8588235294, green: 0.2352941176, blue: 0.4745098039, alpha: 1),
-                                 invertedBackgroundColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
-                                 
-                                 normalTextColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-                                 darkerLightTextColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
-                                 lighterLightTextColor: #colorLiteral(red: 0.968627451, green: 0.9176470588, blue: 0.9176470588, alpha: 1),
-                                 lightTextColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5263805651),
-                                 invertedTexTColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                 headerTextColor: #colorLiteral(red: 0.7137254902, green: 0, blue: 0.3137254902, alpha: 1),
-                                 timerColor: #colorLiteral(red: 0.831372549, green: 0, blue: 0.3843137255, alpha: 1),
-                                 warningTextColor: #colorLiteral(red: 0.5764705882, green: 0.1098039216, blue: 0.007843137255, alpha: 1),
-                                 fabBackgroundColor: #colorLiteral(red: 1, green: 0.9607843137, blue: 0.9568627451, alpha: 1),
-                                 fabTintColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
-                                 fabHighlightedColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
-                                 fabSelectedColor: #colorLiteral(red: 0.8, green: 0.3058823529, blue: 0.2235294118, alpha: 1),
-                                 alertBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                 shadowOpacity: 0.20)
+    static let pinkTheme = Theme(
+        name: "Pink",
+        key: "pinkTheme",
+        backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        lighterBackgroundColor: #colorLiteral(red: 0.968627451, green: 0.9176470588, blue: 0.9176470588, alpha: 1),
+        darkerBackgroundColor: #colorLiteral(red: 0.9294117647, green: 0.7921568627, blue: 0.7921568627, alpha: 1),
+        
+        backgroundTintColor: #colorLiteral(red: 0.8588235294, green: 0.2352941176, blue: 0.4745098039, alpha: 1),
+        invertedBackgroundColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
+        
+        normalTextColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+        darkerLightTextColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
+        lighterLightTextColor: #colorLiteral(red: 0.968627451, green: 0.9176470588, blue: 0.9176470588, alpha: 1),
+        lightTextColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5263805651),
+        invertedTexTColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        headerTextColor: #colorLiteral(red: 0.7137254902, green: 0, blue: 0.3137254902, alpha: 1),
+        timerColor: #colorLiteral(red: 0.831372549, green: 0, blue: 0.3843137255, alpha: 1),
+        warningTextColor: #colorLiteral(red: 0.5764705882, green: 0.1098039216, blue: 0.007843137255, alpha: 1),
+        fabBackgroundColor: #colorLiteral(red: 1, green: 0.9607843137, blue: 0.9568627451, alpha: 1),
+        fabTintColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
+        fabHighlightedColor: #colorLiteral(red: 0.8392156863, green: 0.5843137255, blue: 0.5529411765, alpha: 1),
+        fabSelectedColor: #colorLiteral(red: 0.8, green: 0.3058823529, blue: 0.2235294118, alpha: 1),
+        alertBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        shadowOpacity: 0.25)
+    
+    static let allThemes = [defaultTheme.key: defaultTheme, pinkTheme.key: pinkTheme, whiteTheme.key: whiteTheme]
 }

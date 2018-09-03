@@ -8,7 +8,25 @@
 
 import UIKit
 
-class DropDownTextField: UITextField {
+class DropDownTextField: UITextField, ThemeElement {
+    @objc func themeSetUp() {
+        DispatchQueue.main.async {
+            self.rightViewMode = .always
+            let imageView = UIImageView(frame: CGRect(x: 5, y: 0, width: 10, height: 30))
+            imageView.image = #imageLiteral(resourceName: "DropDown")
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
+            view.addSubview(imageView)
+            self.rightView = view
+            imageView.tintColor = Theme.current.backgroundTintColor
+            self.tintColor = .clear
+        }
+    }
+    
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+
+    }
+    
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,14 +39,8 @@ class DropDownTextField: UITextField {
     }
 
     private func commonInit() {
-        rightViewMode = .always
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 0, width: 10, height: 30))
-        imageView.image = #imageLiteral(resourceName: "DropDown")
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
-        view.addSubview(imageView)
-        rightView = view
-        imageView.tintColor = Theme.current.backgroundTintColor
-        tintColor = .clear
+        becomeObserver()
+        themeSetUp()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

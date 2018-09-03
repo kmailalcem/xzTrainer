@@ -8,17 +8,28 @@
 
 import UIKit
 
-class ThemeViewController: UIViewController {
+class ThemeViewController: UIViewController, ThemeElement {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Theme.current.backgroundColor
-        view.tintColor = Theme.current.backgroundTintColor
+        becomeObserver()
+        themeSetUp()
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func themeSetUp() {
+        DispatchQueue.main.async {
+            self.view.backgroundColor = Theme.current.backgroundColor
+            self.view.tintColor = Theme.current.backgroundTintColor
+        }
+    }
+    
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(ThemeViewController.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
 }

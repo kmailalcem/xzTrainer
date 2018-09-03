@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ModeSelectionCell: UITableViewCell {
+class ModeSelectionCell: UITableViewCell, ThemeElement {
 
     @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var roundedView: RoundedView!
@@ -17,12 +17,22 @@ class ModeSelectionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        gradientMask.backgroundColor = Theme.current.invertedBackgroundColor.withAlphaComponent(0.75)
-        roundedView.backgroundColor = Theme.current.invertedBackgroundColor
-        roundedView.shadowOpacity = Float(Theme.current.shadowOpacity)
+        becomeObserver()
+        themeSetUp()
     }
 
+    @objc func themeSetUp() {
+        DispatchQueue.main.async {
+            self.gradientMask.backgroundColor = Theme.current.invertedBackgroundColor.withAlphaComponent(0.75)
+            self.roundedView.backgroundColor = Theme.current.invertedBackgroundColor
+            self.roundedView.shadowOpacity = Float(Theme.current.shadowOpacity)
+        }
+    }
+    
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+    }
+    
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if highlighted {

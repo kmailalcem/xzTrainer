@@ -9,7 +9,29 @@
 import UIKit
 
 
-class UIButtonX: UIButton {
+class UIButtonX: UIButton, ThemeElement {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        becomeObserver()
+        themeSetUp()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        becomeObserver()
+        themeSetUp()
+    }
+    
+    @objc func themeSetUp() {
+        DispatchQueue.main.async {
+            self.layer.borderColor = Theme.current.backgroundTintColor.cgColor
+        }
+    }
+    
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+    }
+    
     @IBInspectable var cornerRadious: CGFloat = 0 {
         didSet {
             self.layer.cornerRadius = cornerRadious

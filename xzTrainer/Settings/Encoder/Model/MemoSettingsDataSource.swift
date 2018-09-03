@@ -23,7 +23,6 @@ fileprivate func corner(_ piece: CornerSticker) -> String {
 
 class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    
     var methods = [
         MemoMethod(name: LocalizableMemo.m2Edges.localized,
                    requiredEdgeBuffer: .DF,
@@ -39,6 +38,14 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
                     PreferCornerWithShortSetUp(),
                     UseUFL()
             ]),
+        MemoMethod(name: LocalizableMemo.opEdges.localized,
+                   requiredEdgeBuffer: .UL,
+                   requiredCornerBuffer: nil,
+                   options: [
+                    OPPreferShortSetup(),
+                    UseUF(),
+                    UseUB()
+            ]),
         MemoMethod(name: LocalizableMemo.advancedM2.localized,
                    requiredEdgeBuffer: .DF,
                    requiredCornerBuffer: nil,
@@ -48,7 +55,7 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
                     PreferSameInnerLayerCommutator(),
                     Prefer1MoveSetUp()
             ]),
-        MemoMethod(name: "3-style",
+        MemoMethod(name: LocalizableMemo.threeStyle.localized,
                    requiredEdgeBuffer: nil,
                    requiredCornerBuffer: nil,
                    options: [
@@ -57,6 +64,9 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
             ])
     ]
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return methods[section].options.count
     }
@@ -74,11 +84,12 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let method = methods[section]
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        let title = ThemeHeader1(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width - 16, height: 30))
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 50))
+        let title = ThemeHeader1(frame: CGRect(x: 16, y: 0, width: tableView.bounds.size.width - 16, height: 50))
         title.text = method.name
+        title.numberOfLines = 0
         if (!method.applicable) {
-            title.text = title.text! + " (Requires \(method.requiredBuffer) buffer)"
+            title.text = title.text! + LocalizableMemo.requiresBuffer.localized(method.requiredBuffer)
         }
         headerView.addSubview(title)
         headerView.backgroundColor = Theme.current.backgroundColor

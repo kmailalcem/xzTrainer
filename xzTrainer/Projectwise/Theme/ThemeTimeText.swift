@@ -11,17 +11,24 @@ import UIKit
 class ThemeTimeText: UILabel {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        becomeObserver()
         themeSetUp()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        becomeObserver()
         themeSetUp()
     }
     
-    func themeSetUp() {
-        textColor = Theme.current.timerColor
+    @objc func themeSetUp() {
+        DispatchQueue.main.async {
+            self.textColor = Theme.current.timerColor
+        }
         font = UIFont.systemFont(ofSize: 40, weight: .medium)
     }
 
+    func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
+    }
 }
