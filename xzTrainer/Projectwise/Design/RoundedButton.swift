@@ -23,7 +23,7 @@ class RoundedButton: UIButton {
         backgroundColor = Theme.current.invertedBackgroundColor
         setTitleColor(Theme.current.invertedTexTColor, for: .highlighted)
         setTitleColor(Theme.current.invertedTexTColor, for: .normal)
-        setTitleColor(Theme.current.invertedTexTColor, for: .selected)
+        setTitleColor(Theme.current.invertedBackgroundColor, for: .selected)
     }
 
     @IBInspectable var cornerRadious: CGFloat = 0 {
@@ -35,7 +35,7 @@ class RoundedButton: UIButton {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                self.backgroundColor = Theme.current.fabHighlightedColor
+                self.backgroundColor = Theme.current.invertedBackgroundColor.withAlphaComponent(0.15)
             } else {
                 self.backgroundColor = Theme.current.invertedBackgroundColor
             }

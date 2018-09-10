@@ -9,9 +9,6 @@
 import UIKit
 
 public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
-
-    static let defaultColor = Theme.current.headerTextColor
-    static var beginTappingColor = TimerLabel.defaultColor.withAlphaComponent(0.25)
     
     static let readyColor: UIColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     
@@ -39,7 +36,7 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
         // default properties
         text = "Time"
         textAlignment = .center
-        textColor = TimerLabel.defaultColor
+        textColor = Theme.current.headerTextColor
         font = UIFont.init(name: "HelveticaNeue-Light", size: 60)
         // font = font.withSize(50)
         
@@ -83,9 +80,9 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
     
     fileprivate func handleTimerTappedWhileNotTiming(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
-            textColor = TimerLabel.beginTappingColor
+            textColor = Theme.current.headerTextColor.withAlphaComponent(0.25)
         } else if sender.state == .ended {
-            textColor = TimerLabel.defaultColor
+            textColor = Theme.current.headerTextColor
         }
     }
     
@@ -93,7 +90,7 @@ public class TimerLabel: UILabel, UIGestureRecognizerDelegate {
         if sender.state == .began {
             timer?.invalidate()
             updateTimer()
-            textColor = TimerLabel.defaultColor
+            textColor = Theme.current.headerTextColor
             isTiming = false
             endTime = Date.timeIntervalSinceReferenceDate
             delegate?.timerDidFinish(self)

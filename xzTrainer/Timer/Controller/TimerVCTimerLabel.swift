@@ -20,7 +20,7 @@ extension TimerVC: TimerLabelDelegate {
         }
         
         sender.startTimer(delay: (isCasual || memoIsShown) ? 0 : 0.7)
-        sender.textColor = TimerLabel.defaultColor
+        sender.textColor = Theme.current.headerTextColor
     }
     
     func timerDidFinish(_ sender: TimerLabel) {
