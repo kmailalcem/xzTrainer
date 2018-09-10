@@ -16,17 +16,17 @@ public enum CubeColor: Int, StringRepresentable {
     public var string: String {
         switch self {
         case .WHITE:
-            return "White"
+            return "White".localized()
         case .YELLOW:
-            return "Yellow"
+            return "Yellow".localized()
         case .GREEN:
-            return "Green"
+            return "Green".localized()
         case .BLUE:
-            return "Blue"
+            return "Blue".localized()
         case .RED:
-            return "Red"
+            return "Red".localized()
         case .ORANGE:
-            return "Orange"
+            return "Orange".localized()
         }
     }
     

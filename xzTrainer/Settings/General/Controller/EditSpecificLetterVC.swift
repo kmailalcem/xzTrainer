@@ -26,8 +26,15 @@ class EditSpecificLetterVC: ThemeViewController {
     @IBOutlet weak var bufferSwitch: ThemeSwitch!
     @IBOutlet weak var warningLabel: UILabel!
     
-    // var selectedEdgePiece: EdgePosition?
-    // var selectedCornerPiece: CornerPosition?
+    @IBOutlet var samePieceStack: UIStackView!
+    @IBOutlet var sameFaceStack: UIStackView!
+    
+    // To be hidden
+    
+    @IBOutlet var setAsBufferLabel: ThemeText!
+    @IBOutlet var noteLabel: ThemeSubtext!
+    @IBOutlet var samePieceLabel: UILabel!
+    @IBOutlet var sameFaceLabel: UILabel!
     
     var selectedPiece: CubePiece!
     

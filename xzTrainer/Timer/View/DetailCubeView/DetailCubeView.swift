@@ -66,6 +66,7 @@ class DetailCubeView: UIView {
         content.frame = bounds
         addSubview(content)
         cubeView.settingFrame()
+        backgroundColor = .clear
     }
     
     
