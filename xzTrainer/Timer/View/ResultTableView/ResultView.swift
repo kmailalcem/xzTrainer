@@ -17,6 +17,7 @@ class ResultView: UIView {
     var cumulativeTranslation: CGFloat = 0
     var originalPosition: CGPoint!
     var currentPositionTouched: CGPoint!
+    
     func commonInit(owner: TimerVC) {
         themeSetUp()
         sessionSelectionButton.setTitle("default", for: .normal)
@@ -26,9 +27,9 @@ class ResultView: UIView {
         
         resultTable.dataSource = GlobalData.shared
         
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan))
-        // gestureRecognizer.minimumPressDuration = 0.1
-        swipableView.addGestureRecognizer(gestureRecognizer)
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ResultView.handlePan))
+        // allows table view cells to be swiped separate from the view
+        resultTableTriggerButton.addGestureRecognizer(gestureRecognizer)
         
         sessionSelectionButton.addTarget(owner, action: #selector(TimerVC.sessionTablePopIn), for: .touchUpInside)
         
