@@ -58,6 +58,14 @@ class TimerVC: ThemeViewController {
         popUpDetailView.rootViewController = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.reloadTable), name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async {
+            self.detailCubeView.cubeView.hideFacesExceptTop()
+        }
     }
     
     @objc func reloadTable(_ notification: NSNotification) {

@@ -20,6 +20,7 @@ class DetailCubeView: UIView {
     @IBOutlet weak var memoStack: UIStackView!
     
     @IBOutlet var contentView: UIView?
+    
     var memoDisplayMode: MemoDisplayMode = .hidden {
         didSet {
             switch memoDisplayMode {
@@ -36,6 +37,24 @@ class DetailCubeView: UIView {
         }
     }
     
+    private func updateView() {
+        scrambleLabel.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22, withOrientationMangle: memoDisplayMode != .none)
+        updateView(withScramble: scrambleLabel.text!)
+    }
+    
+    private func updateView(withScramble: String) {
+        updateCube(withScramble: scrambleLabel.text!)
+        if memoDisplayMode == .none {
+            self.cubeView.hideFacesExceptTop()
+        } else {
+            UIView.animate(withDuration: 0.8) {
+                self.cubeView.hideFacesExceptTop()
+            }
+        }
+        edgeMemoLabel.text = LocalizationGeneral.timerMessage1.localized
+        cornerMemoLabel.text = LocalizationGeneral.timerMessage2.localized
+    }
+    
     public func updateCube (withScramble scramble: String) {
         scrambleLabel.text = scramble
         let topColor = UserSetting.shared.general.topFaceColor
@@ -46,6 +65,23 @@ class DetailCubeView: UIView {
             cubeView.cube = Cube(top: topColor, front: frontColor, scramble: scramble)
         }
         cubeView.updateFaces()
+    }
+    
+    private func showMemo() {
+        cubeView.showAllFaces()
+        let scrambleFilter: String
+        if needsToScrambleInStandardOrientation {
+            let helperCube = Cube(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor, scramble: "")
+            scrambleFilter = toString(helperCube.rotate(top: .WHITE, front: .GREEN))
+        } else {
+            scrambleFilter = ""
+        }
+        
+        let memorizer = CubePermutationEncoder(
+            forScramble: scrambleFilter + scrambleLabel.text!)
+        
+        edgeMemoLabel.text = memorizer.formattedEdgeMemo
+        cornerMemoLabel.text = memorizer.formattedCornerMemo
     }
     
     var forceScrambleInStandardOrientation: Bool = false
@@ -72,40 +108,5 @@ class DetailCubeView: UIView {
     
     private var needsToScrambleInStandardOrientation: Bool {
         return memoDisplayMode == .none || UserSetting.shared.encoder.scrambleInWCAOrientation || forceScrambleInStandardOrientation
-    }
-    
-    private func updateView() {
-        scrambleLabel.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22, withOrientationMangle: memoDisplayMode != .none)
-        updateView(withScramble: scrambleLabel.text!)
-    }
-    
-    private func updateView(withScramble: String) {
-        updateCube(withScramble: scrambleLabel.text!)
-        if memoDisplayMode == .none {
-            self.cubeView.hideFacesExceptTop()
-        } else {
-            UIView.animate(withDuration: 0.8) {
-                self.cubeView.hideFacesExceptTop()
-            }
-        }
-        edgeMemoLabel.text = LocalizationGeneral.timerMessage1.localized
-        cornerMemoLabel.text = LocalizationGeneral.timerMessage2.localized
-    }
-    
-    private func showMemo() {
-        cubeView.showAllFaces()
-        let scrambleFilter: String
-        if needsToScrambleInStandardOrientation {
-            let helperCube = Cube(top: UserSetting.shared.general.topFaceColor, front: UserSetting.shared.general.frontFaceColor, scramble: "")
-            scrambleFilter = toString(helperCube.rotate(top: .WHITE, front: .GREEN))
-        } else {
-            scrambleFilter = ""
-        }
-        
-        let memorizer = CubePermutationEncoder(
-            forScramble: scrambleFilter + scrambleLabel.text!)
-        
-        edgeMemoLabel.text = memorizer.formattedEdgeMemo
-        cornerMemoLabel.text = memorizer.formattedCornerMemo
     }
 }

@@ -61,6 +61,13 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
                    options: [
                     PreferInterchangeableCorners(),
                     PreferInterchangeableEdges()
+            ]),
+        MemoMethod(name: "URF Orozco",
+                   requiredEdgeBuffer: nil,
+                   requiredCornerBuffer: .URF,
+                   options: [
+                    URFOrozcoCornerPreferPureCommutator(),
+                    URFOrozcoCornerAvoidBadInsertion()
             ])
     ]
 
@@ -89,7 +96,7 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
         title.text = method.name
         title.numberOfLines = 0
         if (!method.applicable) {
-            title.text = title.text! + LocalizableMemo.requiresBuffer.localized(method.requiredBuffer)
+            title.text = title.text! + " " + LocalizableMemo.requiresBuffer.localized(method.requiredBuffer)
         }
         headerView.addSubview(title)
         headerView.backgroundColor = Theme.current.backgroundColor

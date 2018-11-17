@@ -22,6 +22,9 @@ class InTimerSettingVC: ThemeViewController {
         super.viewDidLoad()
         settingsTable.delegate = memoSettingsDataSource
         settingsTable.dataSource = memoSettingsDataSource
+        memoSettingsDataSource.methods.partition { (method) -> Bool in
+            return !method.applicable;
+        }
         settingsTable.containerViewController = self
         wcaSwitch.isOn = UserSetting.shared.encoder.scrambleInWCAOrientation
     }

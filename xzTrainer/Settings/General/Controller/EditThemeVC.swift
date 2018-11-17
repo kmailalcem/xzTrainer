@@ -11,7 +11,7 @@ import UIKit
 class EditThemeVC: ThemeViewController {
 
     @IBOutlet weak var themeEditTable: UITableView!
-    var allThemes = [Theme.defaultTheme, Theme.pinkTheme, Theme.whiteTheme]
+    var allThemes = [Theme.defaultTheme, Theme.pinkTheme, Theme.whiteTheme, Theme.winterTheme]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ extension EditThemeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return allThemes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

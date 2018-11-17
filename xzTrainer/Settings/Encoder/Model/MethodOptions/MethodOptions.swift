@@ -310,3 +310,37 @@ class PreferInterchangeableEdges: MemoPreference {
     }
 }
 
+class URFOrozcoCornerPreferPureCommutator: MemoPreference {
+    static var memoKey: String = "URFOrozcoCornerPreferPureCommutator"
+    
+    static var description: String = LocalizableMemo.preferPureCommutatorTitle.localized
+    
+    static var explanation: String = LocalizableMemo.preferPureCommutatorDescription.localized
+    
+    var isEdgeMethod: Bool = false
+    
+    var isPreferringMethod: Bool = true
+    
+    var defaultPriority: Int = 100
+    
+    var preferredFirstCorner: [CornerPosition] = [.UBR, .DLF, .LFD, .FDL, .BLD, .LDB, .RBD, .RDF]
+    
+}
+
+class URFOrozcoCornerAvoidBadInsertion: MemoPreference {
+    static var memoKey: String = "URFOrozcoCornerAvoidBadInsertion"
+    
+    static var description: String = LocalizableMemo.avoidBadInsersionTitle.localized
+    
+    static var explanation: String = LocalizableMemo.avoidBadInsersionDescription.localized
+    
+    var isEdgeMethod: Bool = false;
+    
+    var isPreferringMethod: Bool = false;
+    
+    var defaultPriority: Int = 100
+    
+    var avoidedFirstCorner: [CornerPosition] = [.DFR, .DRB]
+    
+    
+}

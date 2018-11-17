@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemeSubtext: UILabel, ThemeElement{
+class ThemeSubtext: UILabel {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         becomeObserver()

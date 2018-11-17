@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UIButtonX: UIButton, ThemeElement {
+class UIButtonX: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         becomeObserver()

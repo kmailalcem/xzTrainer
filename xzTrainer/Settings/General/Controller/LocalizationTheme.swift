@@ -16,6 +16,7 @@ enum LocalizationTheme: String, Localizable {
     case whiteTheme = "white theme"
     case blueTheme = "blue theme"
     case pinkTheme = "pink theme"
+    case winterTheme = "winter theme"
     case color = "color"
     case shadow = "shadow"
     case light = "light"

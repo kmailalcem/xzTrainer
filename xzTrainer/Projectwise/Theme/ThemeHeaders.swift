@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemeHeader1: UILabel, ThemeElement {
+class ThemeHeader1: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +35,7 @@ class ThemeHeader1: UILabel, ThemeElement {
 
 }
 
-class ThemeHeader2: UILabel, ThemeElement {
+class ThemeHeader2: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

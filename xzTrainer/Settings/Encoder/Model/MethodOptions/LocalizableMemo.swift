@@ -59,4 +59,10 @@ enum LocalizableMemo: String, Localizable {
     
     case preferInterchangeableEdgesTitle = "prefer interchangeable edges title"
     case preferInterchangeableEdgesDescription = "prefer interchangeable edges description"
+    
+    case preferPureCommutatorTitle = "prefer pure commutator title"
+    case preferPureCommutatorDescription = "prefer pure commutator description"
+    
+    case avoidBadInsersionTitle = "avoid bad insertion title"
+    case avoidBadInsersionDescription = "avoid bad insertion description"
 }

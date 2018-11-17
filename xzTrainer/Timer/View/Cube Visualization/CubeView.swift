@@ -127,19 +127,19 @@ class CubeView: UIView {
     }
     
     public func hideFacesExceptTop() {
-        backFace.alpha = 0
-        leftFace.alpha = 0
-        rightFace.alpha = 0
-        frontFace.alpha = 0
-        bottomFace.alpha = 0
+        backFace.isHidden = true;
+        leftFace.isHidden = true;
+        rightFace.isHidden = true;
+        frontFace.isHidden = true;
+        bottomFace.isHidden = true;
     }
     
     public func showAllFaces() {
-        backFace.alpha = 1
-        leftFace.alpha = 1
-        rightFace.alpha = 1
-        frontFace.alpha = 1
-        bottomFace.alpha = 1
+        backFace.isHidden = false;
+        leftFace.isHidden = false;
+        rightFace.isHidden = false;
+        frontFace.isHidden = false;
+        bottomFace.isHidden = false;
     }
     
 

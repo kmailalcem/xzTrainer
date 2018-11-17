@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DropDownTextField: UITextField, ThemeElement {
+class DropDownTextField: UITextField {
     @objc func themeSetUp() {
         DispatchQueue.main.async {
             self.rightViewMode = .always

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemeSwitch: UISwitch, ThemeElement {
+class ThemeSwitch: UISwitch {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

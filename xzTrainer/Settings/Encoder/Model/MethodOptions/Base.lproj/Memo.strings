@@ -53,3 +53,8 @@
 "prefer edges with short setup title" = "Prefer Edges with Short Setup";
 "prefer edges with short setup description" = "Break cycles at edge pieces with none or one move setup.";
 
+"prefer pure commutator title" = "Prefer Pure Commutator";
+"prefer pure commutator description" = "Break cycle to 8 movers.";
+
+"avoid bad insertion title" = "Avoid Bad Insersion";
+"avoid bad insertion description" = "Don't break cycle at 5-move insertion pieces. ";

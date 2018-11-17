@@ -52,3 +52,6 @@
 
 "prefer edges with short setup title" = "优先考虑方便set up的角块";
 "prefer edges with short setup description" = "无需set up或一步set up的角块会优先考虑。";
+
+"prefer pure commutator title" = "优先考虑纯转换机";
+"avoid bad insertion title" = "避免五步插入";

@@ -122,5 +122,30 @@ struct Theme {
         alertBackgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
         _shadowOpacity: 0.25)
     
-    static let allThemes = [defaultTheme.key: defaultTheme, pinkTheme.key: pinkTheme, whiteTheme.key: whiteTheme]
+    static let winterTheme = Theme(
+        name: LocalizationTheme.winterTheme.localized,
+        key: "winterTheme",
+        backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+        lighterBackgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+        darkerBackgroundColor: #colorLiteral(red: 0.7647058824, green: 0.8352941176, blue: 0.9058823529, alpha: 1),
+        
+        backgroundTintColor: #colorLiteral(red: 0.2980392157, green: 0.4470588235, blue: 0.7019607843, alpha: 1),
+        invertedBackgroundColor: #colorLiteral(red: 0.3215686275, green: 0.4941176471, blue: 0.7529411765, alpha: 1),
+        
+        normalTextColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+        darkerLightTextColor: #colorLiteral(red: 0.2274509804, green: 0.3176470588, blue: 0.5647058824, alpha: 1),
+        lighterLightTextColor: #colorLiteral(red: 0.9019607843, green: 0.9333333333, blue: 0.9607843137, alpha: 1),
+        lightTextColor: #colorLiteral(red: 0.9019607843, green: 0.9333333333, blue: 0.9607843137, alpha: 0.5263805651),
+        invertedTexTColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        headerTextColor: #colorLiteral(red: 0.2274509804, green: 0.3176470588, blue: 0.5647058824, alpha: 1),
+        timerColor: #colorLiteral(red: 0.1647058824, green: 0.2078431373, blue: 0.4509803922, alpha: 1),
+        warningTextColor: #colorLiteral(red: 0.5058823529, green: 0.0862745098, blue: 0, alpha: 1),
+        fabBackgroundColor: #colorLiteral(red: 0.9019607843, green: 0.9333333333, blue: 0.9607843137, alpha: 1),
+        fabTintColor: #colorLiteral(red: 0.631372549, green: 0.7333333333, blue: 0.8392156863, alpha: 1),
+        fabHighlightedColor: #colorLiteral(red: 0.4, green: 0.5607843137, blue: 0.7725490196, alpha: 1),
+        fabSelectedColor: #colorLiteral(red: 0.2274509804, green: 0.3176470588, blue: 0.5647058824, alpha: 1),
+        alertBackgroundColor: #colorLiteral(red: 0.7647058824, green: 0.8352941176, blue: 0.9058823529, alpha: 1),
+        _shadowOpacity: 0.25)
+    
+    static let allThemes = [defaultTheme.key: defaultTheme, pinkTheme.key: pinkTheme, whiteTheme.key: whiteTheme, winterTheme.key : winterTheme]
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ModeSelectionCell: UITableViewCell, ThemeElement {
+class ModeSelectionCell: UITableViewCell {
 
     @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var roundedView: RoundedView!
