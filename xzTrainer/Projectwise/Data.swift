@@ -135,14 +135,19 @@ class GlobalData: NSObject {
     }
     
     public func deleteSession(atIndex index: Int) {
-        if index < sessions.count {
-            if currentSession == sessions[index] {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
-            }
-            clearSession(atIndex: index)
-            managedObjectContext.delete(sessions[index])
-            saveData()
-            sessions.remove(at: index)
+        if index >= sessions.count {
+            return
+        }
+        if currentSession == sessions[index] {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
+        }
+        clearSession(atIndex: index)
+        managedObjectContext.delete(sessions[index])
+        saveData()
+        sessions.remove(at: index)
+        let lastSavedIndex = UserDefaults.standard.integer(forKey: sessionRetrieveKey)
+        if (index < lastSavedIndex) {
+            UserDefaults.standard.set(lastSavedIndex - 1, forKey: sessionRetrieveKey)
         }
     }
     
@@ -164,6 +169,7 @@ class GlobalData: NSObject {
     
     public func reloadSolve(forSessionAtIndex index: Int) {
         currentSession = sessions[index]
+        UserDefaults.standard.set(index, forKey: sessionRetrieveKey)
         userSolves = requestSolves(forSessionAtIndex: index)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSelected"), object: nil, userInfo: ["selectedSessionName": currentSession.name ?? "nil"])
     }
@@ -191,11 +197,18 @@ class GlobalData: NSObject {
         }
     }
     
+    public var currentSessionName: String {
+        get {
+            return currentSession.name!
+        }
+    }
+    
     private static var data: GlobalData?
     private var userSolves: [Solve]
     private var sessions: [Session]
     private let managedObjectContext: NSManagedObjectContext
     private var currentSession: Session!
+    private var sessionRetrieveKey = "LastSessionBeforeExit"
     
     private override init() {
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate)
@@ -210,8 +223,9 @@ class GlobalData: NSObject {
     private func reloadDataForCurrentMode() {
         userSolves = []
         loadData()
-        currentSession = sessions[0]
-        reloadSolve(forSessionAtIndex: 0)
+        let reloadIndex = keyExists(sessionRetrieveKey) ? UserDefaults.standard.integer(forKey: sessionRetrieveKey) : 0
+        currentSession = sessions[reloadIndex]
+        reloadSolve(forSessionAtIndex: reloadIndex)
     }
     
     private func loadData() {
@@ -235,7 +249,11 @@ class GlobalData: NSObject {
             sessions.append(session)
             
         }
-        reloadSolve(forSessionAtIndex: 0)
+        if keyExists(sessionRetrieveKey) {
+            reloadSolve(forSessionAtIndex: UserDefaults.standard.integer(forKey: sessionRetrieveKey))
+        } else {
+            reloadSolve(forSessionAtIndex: 0)
+        }
     }
     
     deinit {

@@ -20,7 +20,8 @@ class ResultView: UIView {
     
     func commonInit(owner: TimerVC) {
         themeSetUp()
-        sessionSelectionButton.setTitle("default", for: .normal)
+        becomeObserver()
+        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
         
         // TimerVC manages all the views; not this one.
         resultTable.delegate = owner
@@ -32,10 +33,7 @@ class ResultView: UIView {
         resultTableTriggerButton.addGestureRecognizer(gestureRecognizer)
         
         sessionSelectionButton.addTarget(owner, action: #selector(TimerVC.sessionTablePopIn), for: .touchUpInside)
-        
         setUpFrame()
-        becomeObserver()
-        
     }
     
     @objc func handlePan(panGesture: UIPanGestureRecognizer) {
@@ -114,15 +112,15 @@ class ResultView: UIView {
 
     @objc func sessionSelected (_ notification: NSNotification) {
         resultTable.reloadData()
-        if let sessionName = notification.userInfo?["selectedSessionName"] as? String {
-            sessionSelectionButton.setTitle(sessionName, for: .normal)
-        }
+        // if let sessionName = notification.userInfo?["selectedSessionName"] as? String {
+        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+        // }
     }
     
     @objc func updateSessionName (_ notification: NSNotification) {
-        if let sessionName = notification.userInfo?["name"] as? String {
-            sessionSelectionButton.setTitle(sessionName, for: .normal)
-        }
+        // if let sessionName = notification.userInfo?["name"] as? String {
+            sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+        // }
     }
     
 }
