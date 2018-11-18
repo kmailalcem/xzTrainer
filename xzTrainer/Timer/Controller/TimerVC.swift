@@ -61,11 +61,9 @@ class TimerVC: ThemeViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.main.async {
-            self.detailCubeView.cubeView.hideFacesExceptTop()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateView()
     }
     
     @objc func reloadTable(_ notification: NSNotification) {
@@ -80,7 +78,7 @@ class TimerVC: ThemeViewController {
         setUpSessionTableFrames()
         setUpResultTableFrames()
         hideFABs()
-        updateView()
+        
     }
     
     private func assignDelegates() {
