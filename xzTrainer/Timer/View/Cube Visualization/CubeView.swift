@@ -76,12 +76,12 @@ class CubeView: UIView {
             leadingOffset = (frame.width - length * 4.3) / 2
         }
         
-        leftFace = CubeFaceView(frame: CGRect(x: leadingOffset, y: topOffset + length + spacing, width: length, height: length))
-        frontFace = CubeFaceView(frame: CGRect(x: leadingOffset + length + spacing, y: leftFace.frame.minY, width: length, height: length))
-        rightFace = CubeFaceView(frame: CGRect(x:  leadingOffset + length * 2 + spacing * 2, y: leftFace.frame.minY, width: length, height: length))
-        backFace = CubeFaceView(frame: CGRect(x: leadingOffset + length * 3 + spacing * 3, y: leftFace.frame.minY, width: length, height: length))
-        topFace = CubeFaceView(frame: CGRect(x: frontFace.frame.minX, y: topOffset, width: length, height: length))
-        bottomFace = CubeFaceView(frame: CGRect(x: frontFace.frame.minX, y: frontFace.frame.maxY + spacing, width: length, height: length))
+        leftFace.frame = CGRect(x: leadingOffset, y: topOffset + length + spacing, width: length, height: length)
+        frontFace.frame = CGRect(x: leadingOffset + length + spacing, y: leftFace.frame.minY, width: length, height: length)
+        rightFace.frame = CGRect(x:  leadingOffset + length * 2 + spacing * 2, y: leftFace.frame.minY, width: length, height: length)
+        backFace.frame = CGRect(x: leadingOffset + length * 3 + spacing * 3, y: leftFace.frame.minY, width: length, height: length)
+        topFace.frame = CGRect(x: frontFace.frame.minX, y: topOffset, width: length, height: length)
+        bottomFace.frame = CGRect(x: frontFace.frame.minX, y: frontFace.frame.maxY + spacing, width: length, height: length)
         for view in [frontFace, backFace, topFace, bottomFace, leftFace, rightFace] {
             addSubview(view)
         }

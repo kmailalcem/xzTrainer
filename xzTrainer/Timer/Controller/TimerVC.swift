@@ -137,6 +137,7 @@ class TimerVC: ThemeViewController {
     
     @IBAction func updateView() {
         detailCubeView.memoDisplayMode = isCasual ? .none : .hidden
+        detailCubeView.updateView()
         if !isCasual {
             manuallyEnterTimeButton.imageView?.image = #imageLiteral(resourceName: "Show")
         }

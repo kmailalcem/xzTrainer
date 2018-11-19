@@ -26,18 +26,15 @@ class DetailCubeView: UIView {
             switch memoDisplayMode {
             case .none:
                 memoStack.isHidden = true
-                updateView()
             case .hidden:
                 memoStack.isHidden = false
-                updateView()
             case .shown:
                 showMemo()
-                
             }
         }
     }
     
-    private func updateView() {
+    public func updateView() {
         scrambleLabel.text = Scrambler.getRandomScrambleWithLength(from: 19, to: 22, withOrientationMangle: memoDisplayMode != .none)
         updateView(withScramble: scrambleLabel.text!)
     }
