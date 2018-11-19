@@ -67,7 +67,8 @@ class MemoSettingsDataSource: NSObject, UITableViewDataSource, UITableViewDelega
                    requiredCornerBuffer: .URF,
                    options: [
                     URFOrozcoCornerPreferPureCommutator(),
-                    URFOrozcoCornerAvoidBadInsertion()
+                    URFOrozcoCornerAvoidBadInsertion(),
+                    URFOrozcoAvoidTwistAlg()
             ])
     ]
 

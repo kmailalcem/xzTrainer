@@ -58,3 +58,6 @@
 
 "avoid bad insertion title" = "Avoid Bad Insersion";
 "avoid bad insertion description" = "Don't break cycle at 5-move insertion pieces. ";
+
+"avoid twist algs title" = "Avoid twist algs";
+"avoid twist algs description" = "Avoid awkward twist algs at %@ and %@";

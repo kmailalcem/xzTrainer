@@ -65,4 +65,7 @@ enum LocalizableMemo: String, Localizable {
     
     case avoidBadInsersionTitle = "avoid bad insertion title"
     case avoidBadInsersionDescription = "avoid bad insertion description"
+    
+    case avoidTwistAlgTitle = "avoid twist algs title"
+    case avoidTwistAlgDescription = "avoid twist algs descrtiption"
 }

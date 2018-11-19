@@ -54,4 +54,7 @@
 "prefer edges with short setup description" = "无需set up或一步set up的角块会优先考虑。";
 
 "prefer pure commutator title" = "优先考虑纯转换机";
-"avoid bad insertion title" = "避免五步插入";
+"avoid bad insertion title" = "避免五步插入。";
+
+"avoid twist algs title" = "避免转角公式";
+"avoid twist algs description" = "避免在%@和%@的转角公式。";

@@ -341,6 +341,20 @@ class URFOrozcoCornerAvoidBadInsertion: MemoPreference {
     var defaultPriority: Int = 100
     
     var avoidedFirstCorner: [CornerPosition] = [.DFR, .DRB]
+}
+
+class URFOrozcoAvoidTwistAlg: MemoPreference {
+    static var memoKey: String = "URFOrozcoAvoidTwistAlg"
     
+    static var description: String = LocalizableMemo.avoidTwistAlgTitle.localized
     
+    static var explanation: String = LocalizableMemo.avoidTwistAlgDescription.localized(corner(.BRU), corner(.RUB))
+    
+    var isEdgeMethod: Bool = false
+    
+    var isPreferringMethod: Bool = false
+    
+    var defaultPriority: Int = 90
+    
+    var avoidedFirstCorner: [CornerPosition] = [.BRU, .RUB]
 }
