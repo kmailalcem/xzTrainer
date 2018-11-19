@@ -318,9 +318,8 @@
                                     </constraints>
                                 </view>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJW-zC-lLA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJW-zC-lLA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="dismissPicker" destination="vDN-0m-B49" eventType="touchUpInside" id="jDJ-sX-03c"/>
                                 </connections>
@@ -331,12 +330,16 @@
                             <constraint firstItem="Dwn-Ur-bTe" firstAttribute="bottom" secondItem="Lqr-Tp-uIn" secondAttribute="bottom" id="4bF-Sp-th6"/>
                             <constraint firstItem="jfD-1z-KMy" firstAttribute="leading" secondItem="Dwn-Ur-bTe" secondAttribute="leading" constant="16" id="51I-ui-baG"/>
                             <constraint firstItem="3nE-Pi-OGz" firstAttribute="top" secondItem="Dwn-Ur-bTe" secondAttribute="top" constant="8" id="8v0-Yr-IDT"/>
+                            <constraint firstItem="mJW-zC-lLA" firstAttribute="leading" secondItem="Dwn-Ur-bTe" secondAttribute="leading" id="9Ye-98-On7"/>
                             <constraint firstItem="jfD-1z-KMy" firstAttribute="top" secondItem="Dwn-Ur-bTe" secondAttribute="top" constant="8" id="AKP-Mn-bR6"/>
                             <constraint firstItem="Lqr-Tp-uIn" firstAttribute="top" secondItem="3nE-Pi-OGz" secondAttribute="bottom" constant="8" id="PzB-Pe-w6w"/>
+                            <constraint firstItem="mJW-zC-lLA" firstAttribute="top" secondItem="KHZ-oz-oil" secondAttribute="top" id="UBU-PA-cMK"/>
+                            <constraint firstItem="mJW-zC-lLA" firstAttribute="bottom" secondItem="Dwn-Ur-bTe" secondAttribute="bottom" id="Ymo-fR-1j8"/>
                             <constraint firstItem="Lqr-Tp-uIn" firstAttribute="leading" secondItem="Dwn-Ur-bTe" secondAttribute="leading" id="bvT-ie-JCJ"/>
                             <constraint firstItem="Dwn-Ur-bTe" firstAttribute="trailing" secondItem="Lqr-Tp-uIn" secondAttribute="trailing" id="cfi-oN-SzU"/>
                             <constraint firstItem="Dwn-Ur-bTe" firstAttribute="trailing" secondItem="3nE-Pi-OGz" secondAttribute="trailing" constant="16" id="dNo-H9-d9I"/>
                             <constraint firstItem="3nE-Pi-OGz" firstAttribute="leading" secondItem="jfD-1z-KMy" secondAttribute="trailing" constant="8" id="neG-GW-beQ"/>
+                            <constraint firstItem="mJW-zC-lLA" firstAttribute="trailing" secondItem="Dwn-Ur-bTe" secondAttribute="trailing" id="wn9-nk-KY8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Dwn-Ur-bTe"/>
                     </view>

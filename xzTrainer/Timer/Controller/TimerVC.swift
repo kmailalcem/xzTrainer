@@ -61,9 +61,14 @@ class TimerVC: ThemeViewController {
         
     }
     
+    var isInitialEntry = true
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateView()
+        
+        if isInitialEntry {
+            isInitialEntry = false
+            updateView()
+        }
     }
     
     @objc func reloadTable(_ notification: NSNotification) {
