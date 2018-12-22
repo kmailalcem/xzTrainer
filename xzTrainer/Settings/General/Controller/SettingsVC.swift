@@ -24,7 +24,6 @@ class SettingsVC:
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var wcaSwitch: ThemeSwitch!
     
-    
     var availableTopColor = CubeColor.allValues
     var availableFrontColor = CubeColor.allValues
     

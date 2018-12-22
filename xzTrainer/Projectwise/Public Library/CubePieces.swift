@@ -66,11 +66,7 @@ public enum EdgeSticker : Int, CubePiece {
     case FL = 18, LF = 19   // ST
     case BL = 20, LB = 21   // WX
     case BR = 22, RB = 23   // YZ
-    
-    static let leftOuterLayerPieces: [EdgeSticker] = [.UL, .BL, .DL, .FL]
-    static let rightOuterLayerPieces: [EdgeSticker] = [.UR, .BR, .DR, .FR]
-    static let leftInnerLayerPieces: [EdgeSticker] = [.LU, .LB, .LD, .LF]
-    static let rightInnerLayerPieces: [EdgeSticker] = [.RU, .RB, .RD, .RF]
+
 }
 
 

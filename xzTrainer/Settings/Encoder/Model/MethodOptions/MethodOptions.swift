@@ -23,6 +23,11 @@ fileprivate func corner(_ piece: CornerSticker) -> String {
 }
 
 
+fileprivate let leftOuterLayerPieces: [EdgeSticker] = [.UL, .BL, .DL, .FL]
+fileprivate let rightOuterLayerPieces: [EdgeSticker] = [.UR, .BR, .DR, .FR]
+fileprivate let leftInnerLayerPieces: [EdgeSticker] = [.LU, .LB, .LD, .LF]
+fileprivate let rightInnerLayerPieces: [EdgeSticker] = [.RU, .RB, .RD, .RF]
+
 let allMemoStyles: [MemoPreference] = [
     PreferTrivial(),
     AvoidMisorientedEdge(),
@@ -59,7 +64,6 @@ class PreferTrivial: MemoPreference {
         }
     }
 }
-
 
 class AvoidMisorientedEdge : MemoPreference {
     var defaultPriority: Int = 50
@@ -122,11 +126,11 @@ class PreferSameOuterLayerCommutator: MemoPreference {
     
     static var memoKey: String = "PreferSameOuterLayerCommutator"
     func preferredSecondEdge(for first: EdgePosition) -> [EdgePosition] {
-        if EdgeSticker.leftOuterLayerPieces.contains(first) {
-            return EdgeSticker.leftOuterLayerPieces
+        if leftOuterLayerPieces.contains(first) {
+            return leftOuterLayerPieces
         }
-        if EdgeSticker.rightOuterLayerPieces.contains(first) {
-            return EdgeSticker.rightOuterLayerPieces
+        if rightOuterLayerPieces.contains(first) {
+            return rightOuterLayerPieces
         }
         return []
     }
@@ -146,11 +150,11 @@ class PreferSameInnerLayerCommutator: MemoPreference {
     static var memoKey: String = "PreferSameInnerLayerCommutator"
     
     func preferredSecondEdge(for first: EdgePosition) -> [EdgePosition] {
-        if EdgeSticker.leftInnerLayerPieces.contains(first) {
-            return EdgeSticker.leftInnerLayerPieces
+        if leftInnerLayerPieces.contains(first) {
+            return leftInnerLayerPieces
         }
-        if EdgeSticker.rightInnerLayerPieces.contains(first) {
-            return EdgeSticker.rightInnerLayerPieces
+        if rightInnerLayerPieces.contains(first) {
+            return rightInnerLayerPieces
         }
         return []
     }
@@ -170,11 +174,11 @@ class PreferCrossLayerCommutator: MemoPreference {
     static var memoKey: String = "PreferCrossLayerCommutator"
     
     func preferredSecondEdge(for first: EdgePosition) -> [EdgePosition] {
-        if EdgeSticker.leftOuterLayerPieces.contains(first) {
-            return EdgeSticker.rightOuterLayerPieces
+        if leftOuterLayerPieces.contains(first) {
+            return rightOuterLayerPieces
         }
-        if EdgeSticker.rightOuterLayerPieces.contains(first) {
-            return EdgeSticker.leftOuterLayerPieces
+        if rightOuterLayerPieces.contains(first) {
+            return leftOuterLayerPieces
         }
         return []
     }

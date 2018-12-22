@@ -9,6 +9,7 @@
 import UIKit
 
 class ResultTableView: UITableView { }
+
 class SessionTableView: UITableView { }
 class SettingsTableView: UITableView {
     weak var containerViewController: UIViewController!

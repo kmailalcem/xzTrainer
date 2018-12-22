@@ -113,17 +113,7 @@ class TimerVC: ThemeViewController {
     }
     
     func appendNewSolve() {
-        let currentSolve = data.requestSolve()
-        currentSolve.time = timerLabel.time
-        
-        //TODO: make this nicer
-        currentSolve.scramble = scrambleFilter + detailCubeView.scrambleLabel.text!
-        currentSolve.edgeMemo = detailCubeView.edgeMemoLabel.text!
-        currentSolve.cornerMemo = detailCubeView.cornerMemoLabel.text!
-
-        currentSolve.date = Date()
-        currentSolve.penalty = 0
-        data.append(solve: currentSolve)
+        data.newSolve(time: timerLabel.time, scramble: scrambleFilter + detailCubeView.scrambleLabel.text!, edgeMemo: detailCubeView.edgeMemoLabel.text!, cornerMemo: detailCubeView.cornerMemoLabel.text!)
     }
     
     

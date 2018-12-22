@@ -32,7 +32,7 @@ extension TimerVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: LocalizationGeneral.delete.localized) {_,_ in
-            self.data.deleteSolve(atIndex: self.data.backIndex(indexPath.row))
+            self.data.deleteSolve(atIndex: self.data.last(indexPath.row))
             self.resultTableView.resultTable.reloadData()
         }
         delete.backgroundColor = #colorLiteral(red: 0.6431372549, green: 0, blue: 0.2392156863, alpha: 1)

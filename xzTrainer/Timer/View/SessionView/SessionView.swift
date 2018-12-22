@@ -117,7 +117,6 @@ class SessionView: UIView, UITableViewDelegate {
             let newName = alert.textFields?.first?.text!
             if newName != nil && newName != "" {
                 self.data.renameSession(atIndex: indexPath.row, to: newName!)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: nil, userInfo: ["name" : newName ?? "New Session"])
             }
             self.sessionTable.reloadData()
         }))
@@ -135,10 +134,7 @@ class SessionView: UIView, UITableViewDelegate {
             if alert.textFields?.first?.text! != "" {
                 sessionName = alert.textFields?.first?.text
             }
-            let session = self.data.requestSession()
-            session.name = sessionName
-            session.id = Int32(Date().timeIntervalSince1970)
-            self.data.append(session: session)
+            self.data.newSession(withName: sessionName!)
             self.sessionTable.reloadData()
         }))
         alert.addAction(cancelAction())
@@ -152,15 +148,4 @@ class SessionView: UIView, UITableViewDelegate {
         tableView(sessionTable, didSelectRowAt: IndexPath(row: 0, section: 0))
     }
     
-}
-
-func makeConfirm(title: String = LocalizationGeneral.areYouSure.localized , message: String, handler: @escaping (UIAlertAction) -> Void) -> ThemeAlertController {
-    let alert = ThemeAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: LocalizationGeneral.yes.localized, style: .default, handler: handler))
-    alert.addAction(UIAlertAction(title: LocalizationGeneral.cancel.localized, style: .cancel, handler: nil))
-    return alert
-}
-
-func cancelAction() -> UIAlertAction {
-    return UIAlertAction(title: LocalizationGeneral.cancel.localized, style: .cancel, handler: nil)
 }

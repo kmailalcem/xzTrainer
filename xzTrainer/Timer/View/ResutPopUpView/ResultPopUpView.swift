@@ -21,12 +21,12 @@ class ResultPopUpView: UIView {
     @IBOutlet weak var ao5Label: UILabel!
     @IBOutlet weak var ao12Label: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var plusTwoButtion: RoundedButton!
+    @IBOutlet weak var plusTwoButton: RoundedButton!
     @IBOutlet weak var okButton: RoundedButton!
     @IBOutlet weak var dnfButton: RoundedButton!
     
     var currentIndexPath: IndexPath!
-    var rootViewController: TimerVC! {
+    var rootViewController: UIViewController! {
         didSet {
             frame = rootViewController.view.frame
         }
@@ -35,11 +35,11 @@ class ResultPopUpView: UIView {
     let data = GlobalData.shared
     
     @IBAction func plusTwo() {
-        plusTwoButtion.isSelected = !plusTwoButtion.isSelected
+        plusTwoButton.isSelected = !plusTwoButton.isSelected
         okButton.isSelected = false
         dnfButton.isSelected = false
-        let index = data.backIndex(currentIndexPath.row)
-        if plusTwoButtion.isSelected {
+        let index = data.last(currentIndexPath.row)
+        if plusTwoButton.isSelected {
             data.plusTwo(forSolveAt: index)
         } else {
             data.okay(forSolveAt: index)
@@ -48,18 +48,18 @@ class ResultPopUpView: UIView {
     }
     
     @IBAction func okay() {
-        plusTwoButtion.isSelected = false
+        plusTwoButton.isSelected = false
         dnfButton.isSelected = false
-        let index = data.backIndex(currentIndexPath.row)
+        let index = data.last(currentIndexPath.row)
         data.okay(forSolveAt: index)
         cleanUpForPenaltyUpdate()
     }
     
     @IBAction func dnf() {
-        plusTwoButtion.isSelected = false
+        plusTwoButton.isSelected = false
         okButton.isSelected = false
         dnfButton.isSelected = !dnfButton.isSelected
-        let index = data.backIndex(currentIndexPath.row)
+        let index = data.last(currentIndexPath.row)
         if dnfButton.isSelected {
             data.dnf(forSolveAt: index)
         } else {
@@ -79,7 +79,7 @@ class ResultPopUpView: UIView {
         containerView.shadowRadius = 8
         containerView.shadowOpacity = Float(Theme.current.shadowOpacity / 2)
         currentIndexPath = indexPath
-        let solve = data.requestSolve(at: data.backIndex(indexPath.row))
+        let solve = data.requestSolve(at: data.last(indexPath.row))
         scrambleLabel.text = solve.scramble
         timeLabel.text = convertTimeDoubleToString(solve.timeIncludingPenalty)
         mo3Label.text = convertTimeDoubleToString(solve.mo3)
@@ -88,13 +88,12 @@ class ResultPopUpView: UIView {
         let chineseDateFormatter = DateFormatter()
         chineseDateFormatter.dateFormat = "(yyyy-MM-dd HH:mm:ss)"
         dateLabel.text = chineseDateFormatter.string(from: solve.date!)
-        plusTwoButtion.isSelected = doubleEqual(solve.penalty, 2)
+        plusTwoButton.isSelected = doubleEqual(solve.penalty, 2)
         dnfButton.isSelected = solve.penalty == Double.infinity
     }
     
-    
     @IBAction func showDetail() {
-        rootViewController.performSegue(withIdentifier: "toSolveDetail", sender: data.backIndex(currentIndexPath.row))
+        rootViewController.performSegue(withIdentifier: "toSolveDetail", sender: data.last(currentIndexPath.row))
     }
     
     @IBAction func dismiss() {
