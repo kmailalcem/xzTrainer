@@ -269,9 +269,9 @@ class xzTrainerTests: XCTestCase {
     }
     
     func testInverse() {
-        XCTAssert(inverse(of: .R) == .RPrime)
-        XCTAssert(inverse(of: .LPrime) == .L)
-        XCTAssert(inverse(of: .B2) == .B2)
+        XCTAssert(inverse(of: Turn.R) == .RPrime)
+        XCTAssert(inverse(of: Turn.LPrime) == .L)
+        XCTAssert(inverse(of: Turn.B2) == .B2)
     }
     
     func testAllValues() {
@@ -286,5 +286,19 @@ class xzTrainerTests: XCTestCase {
         XCTAssert(areInerchangeable(EdgePosition.FU, EdgePosition.BU))
         XCTAssert(areInerchangeable(CornerPosition.ULB, CornerPosition.UBR))
         XCTAssert(areInerchangeable(CornerPosition.FLU, CornerPosition.RFU))
+    }
+    
+    func testExpandConjugate() {
+        let conjStr = "Lw F' Dw2: U R U' R'"
+        let conjugate = Conjugate(fromString: conjStr)!
+        print(conjugate.string)
+        print(conjugate.expanded.string)
+    }
+    
+    func testExpandCommutator() {
+        let commStr = "[U, R D' R' D]"
+        let commutator = Commutator(fromString: commStr)!
+        print(commutator.string)
+        print(commutator.expanded.string)
     }
 }

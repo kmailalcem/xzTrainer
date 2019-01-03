@@ -24,10 +24,10 @@ class Scrambler {
     private static var occupancyStatusSoFar : [Occupancy]
         = [.EMPTY, .EMPTY, .EMPTY]
     
+    
     public static func getRandomScrambleWithLength(from minScrambleLength: Int,
                                       to maxScrambleLength: Int,
                                       withOrientationMangle: Bool) -> String {
-        
         let scrambleLength = randomIntInRange(
             start: minScrambleLength, end: maxScrambleLength)
         let movesWithoutDirections = getRandomMovesWithoutDirections(

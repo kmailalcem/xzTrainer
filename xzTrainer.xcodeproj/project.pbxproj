@@ -95,6 +95,8 @@
 		95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */; };
 		95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */; };
 		95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */; };
+		95CE246921DEB6DC00AD9BBD /* MoveSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */; };
+		95CE246B21DEB6F700AD9BBD /* Conjugate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246A21DEB6F700AD9BBD /* Conjugate.swift */; };
 		95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5920865912004DE650 /* AppDelegate.swift */; };
 		95D52C5C20865912004DE650 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5B20865912004DE650 /* TimerVC.swift */; };
 		95D52C5F20865912004DE650 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C5D20865912004DE650 /* Timer.storyboard */; };
@@ -234,6 +236,8 @@
 		95CB543920F303CC0025FB6E /* SettingsVCPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCPicker.swift; sourceTree = "<group>"; };
 		95CB543D20F34F770025FB6E /* EditSpecificLetterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpecificLetterVC.swift; sourceTree = "<group>"; };
 		95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSetterTextField.swift; sourceTree = "<group>"; };
+		95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSequence.swift; sourceTree = "<group>"; };
+		95CE246A21DEB6F700AD9BBD /* Conjugate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugate.swift; sourceTree = "<group>"; };
 		95D52C5620865912004DE650 /* xzTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xzTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D52C5920865912004DE650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D52C5B20865912004DE650 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
@@ -603,6 +607,8 @@
 			isa = PBXGroup;
 			children = (
 				95BE444B21DDA32800133D3C /* Commutator.swift */,
+				95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */,
+				95CE246A21DEB6F700AD9BBD /* Conjugate.swift */,
 			);
 			path = Spreadsheet;
 			sourceTree = "<group>";
@@ -793,6 +799,7 @@
 				9539A78520E62E1400A3CE20 /* SettingsDetailVC.swift in Sources */,
 				95BF901F20E380B800211563 /* InTimerSettingVC.swift in Sources */,
 				9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */,
+				95CE246921DEB6DC00AD9BBD /* MoveSequence.swift in Sources */,
 				95D52C5C20865912004DE650 /* TimerVC.swift in Sources */,
 				950DF6D72111B2E500A329EB /* ReorderPriorityVC.swift in Sources */,
 				950DF6D12111ABFA00A329EB /* MethodOptions.swift in Sources */,
@@ -843,6 +850,7 @@
 				953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,
 				9587E19F20DB2D6E00CFF85D /* SessionCell.swift in Sources */,
+				95CE246B21DEB6F700AD9BBD /* Conjugate.swift in Sources */,
 				950BC9E1212E8C7A00A4E5A6 /* ThemeText.swift in Sources */,
 				956C5CDC20A0D2230036D80A /* Cube.swift in Sources */,
 				95CB543E20F34F770025FB6E /* EditSpecificLetterVC.swift in Sources */,

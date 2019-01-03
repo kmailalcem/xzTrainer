@@ -1,35 +1,30 @@
 //
-//  random.swift
+//  Conjugate.swift
 //  xzTrainer
 //
-//  Created by Nelson Zhang on 1/2/19.
+//  Created by Nelson Zhang on 1/3/19.
 //  Copyright © 2019 Xuzhi Zhang. All rights reserved.
 //
 
 import Foundation
 
-/// represents a commutator of the form [A, B] (A B A' B')
-class Commutator {
+/// represents a conjugate of the form A : B (A B A')
+class Conjugate {
     /// initializer from two move sequences
     init(A: MoveSequence, B: MoveSequence) {
         self.A = A
         self.B = B
     }
     
-    /// inverse of commutator
-    init(inverseOf commutator: Commutator) {
-        A = commutator.B
-        B = commutator.A
+    /// inverse of conjugate
+    init(inverseOf other: Conjugate) {
+        A = other.A
+        B = MoveSequence(inverseOf: other.B)
     }
     
     /// parse string
     init?(fromString alg: String) {
-        if alg.first == nil || alg.first! != "[" {
-            return nil
-        }
-        var parts = alg.split { (c) -> Bool in
-            return c == "[" || c == "," || c == "]"
-        }
+        var parts = alg.split(separator: ":")
         if parts.count != 2 {
             return nil
         }
@@ -42,19 +37,19 @@ class Commutator {
         B = Bopt!
     }
     
-    /// string representation of commutator
+    /// string representation of conjugates
     var string : String {
-        return "[ \(A.string), \(B.string)]"
+        return "\(A.string): \(B.string)"
     }
     
-    /// expand commutator
+    /// linear expansion
     var expanded : MoveSequence {
         var temp = A
         temp.append(B)
         temp.append(MoveSequence(inverseOf: A))
-        temp.append(MoveSequence(inverseOf: B))
-        return temp;
+        return temp
     }
-    var A : MoveSequence
-    var B : MoveSequence
+    
+    private var A : MoveSequence
+    private var B : MoveSequence
 }

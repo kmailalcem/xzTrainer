@@ -11,7 +11,7 @@ import UIKit
 /// returns the inverse of the supplied move
 public func inverse<T: RawRepresentable>(of move: T) -> T where T.RawValue == String {
     let str = move.rawValue
-    if str.count == 1 {
+    if str.last != "2" && str.last != "'" {
         return T(rawValue: str + "'")!
     } else {
         if str.last == "2" {
