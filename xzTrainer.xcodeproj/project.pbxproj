@@ -86,6 +86,7 @@
 		95AD0E3820A7447200E36982 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95AD0E3720A7447200E36982 /* ColorScheme.swift */; };
 		95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B5265920E23C5000C54F45 /* PreferenceList.swift */; };
 		95B9838220B1F73000CE5908 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9838120B1F73000CE5908 /* ResultCell.swift */; };
+		95BE444C21DDA32800133D3C /* Commutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BE444B21DDA32800133D3C /* Commutator.swift */; };
 		95BF901F20E380B800211563 /* InTimerSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF901E20E380B800211563 /* InTimerSettingVC.swift */; };
 		95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BF902020E38FF500211563 /* TimerVCFAB.swift */; };
 		95C4A1072134AF85008C85A0 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C4A1062134AF85008C85A0 /* DoneTextField.swift */; };
@@ -224,6 +225,7 @@
 		95AD0E3720A7447200E36982 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		95B5265920E23C5000C54F45 /* PreferenceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceList.swift; sourceTree = "<group>"; };
 		95B9838120B1F73000CE5908 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		95BE444B21DDA32800133D3C /* Commutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commutator.swift; sourceTree = "<group>"; };
 		95BF901E20E380B800211563 /* InTimerSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InTimerSettingVC.swift; sourceTree = "<group>"; };
 		95BF902020E38FF500211563 /* TimerVCFAB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVCFAB.swift; sourceTree = "<group>"; };
 		95C4A1062134AF85008C85A0 /* DoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
@@ -597,6 +599,14 @@
 			path = DetailCubeView;
 			sourceTree = "<group>";
 		};
+		95BE444A21DDA2FF00133D3C /* Spreadsheet */ = {
+			isa = PBXGroup;
+			children = (
+				95BE444B21DDA32800133D3C /* Commutator.swift */,
+			);
+			path = Spreadsheet;
+			sourceTree = "<group>";
+		};
 		95CB543820F303AA0025FB6E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +641,7 @@
 				95D52C6020865913004DE650 /* Assets.xcassets */,
 				9588BA542110018800CE94C0 /* Projectwise */,
 				9588BA512110005200CE94C0 /* Launch Scenes */,
+				95BE444A21DDA2FF00133D3C /* Spreadsheet */,
 				9539A77820E5C0E900A3CE20 /* Timer */,
 				95CB543820F303AA0025FB6E /* Settings */,
 				95D52C5920865912004DE650 /* AppDelegate.swift */,
@@ -827,6 +838,7 @@
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
 				9575E630212A402F005F6872 /* ResultView.swift in Sources */,
 				9509144D2126B4B700EDB4B3 /* StringRepresentable.swift in Sources */,
+				95BE444C21DDA32800133D3C /* Commutator.swift in Sources */,
 				958FDCE6212BB3C300AB1E0A /* DetailCubeView.swift in Sources */,
 				953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */,
 				9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */,

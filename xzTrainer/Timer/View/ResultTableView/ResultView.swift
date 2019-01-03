@@ -18,22 +18,56 @@ class ResultView: UIView {
     var originalPosition: CGPoint!
     var currentPositionTouched: CGPoint!
     
-    func commonInit(owner: TimerVC) {
+    func commonInit(tableDelegate: UITableViewDelegate) {
         themeSetUp()
         becomeObserver()
         sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
-        
-        // TimerVC manages all the views; not this one.
-        resultTable.delegate = owner
-        
+        resultTable.delegate = tableDelegate
         resultTable.dataSource = GlobalData.shared
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ResultView.handlePan))
         // allows table view cells to be swiped separate from the view
         resultTableTriggerButton.addGestureRecognizer(gestureRecognizer)
         
-        sessionSelectionButton.addTarget(owner, action: #selector(TimerVC.sessionTablePopIn), for: .touchUpInside)
+        sessionSelectionButton.addTarget(tableDelegate, action: #selector(TimerVC.sessionTablePopIn), for: .touchUpInside)
         setUpFrame()
+    }
+    
+    private func themeSetUp() {
+        isUserInteractionEnabled = true
+        backgroundColor = .clear
+        tintColor = Theme.current.backgroundTintColor
+        resultTable.backgroundColor = .clear
+        swipableView.isUserInteractionEnabled = true
+        swipableView.backgroundColor = Theme.current.darkerBackgroundColor
+        swipableView.shadowRadius = 8
+        swipableView.shadowOpacity = Float(Theme.current.shadowOpacity / 2)
+    }
+    
+    private func becomeObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(ResultView.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ResultView.updateSessionName), name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: nil)
+    }
+    
+    @objc func sessionSelected (_ notification: NSNotification) {
+        resultTable.reloadData()
+        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+    }
+    
+    @objc func updateSessionName (_ notification: NSNotification) {
+        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+    }
+    
+    private func setUpFrame() {
+        let superFrame = superview!.frame
+        var heightOffset = superFrame.maxY - 100
+        
+        // cannot show full first entry when the iPhone is landscape
+        if UIDevice.current.orientation.isLandscape && UIDevice.current.model == "iPhone" {
+            heightOffset = superFrame.maxY - 20
+        }
+        frame = CGRect(x: 0, y: heightOffset, width: superFrame.width, height: superFrame.height)
+        originalPosition = center
     }
     
     @objc func handlePan(panGesture: UIPanGestureRecognizer) {
@@ -59,47 +93,11 @@ class ResultView: UIView {
         return center.y - originalPosition.y <= -150 || velocity.y <= -1200
     }
     
-    private func setUpFrame() {
-        let superFrame = superview!.frame
-        var heightOffset = superFrame.maxY - 100
-        
-        // cannot show full first entry when the iPhone is landscape
-        if UIDevice.current.orientation.isLandscape && UIDevice.current.model == "iPhone" {
-            heightOffset = superFrame.maxY - 20
-        }
-        frame = CGRect(x: 0, y: heightOffset, width: superFrame.width, height: superFrame.height)
-        originalPosition = center
-    }
-    
-    private func becomeObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(ResultView.sessionSelected), name: NSNotification.Name(rawValue: "SessionSelected"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ResultView.updateSessionName), name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: nil)
-    }
-    
-    private func themeSetUp() {
-        isUserInteractionEnabled = true
-        backgroundColor = .clear
-        tintColor = Theme.current.backgroundTintColor
-        resultTable.backgroundColor = .clear
-        swipableView.isUserInteractionEnabled = true
-        swipableView.backgroundColor = Theme.current.darkerBackgroundColor
-        swipableView.shadowRadius = 8
-        swipableView.shadowOpacity = Float(Theme.current.shadowOpacity / 2)
-    }
-    
     @IBAction func resultTableTriggered() {
         if tableIsShown {
             hideResultTable()
         } else {
             showResultTable(velocity: 0)
-        }
-    }
-    
-    func showResultTable(velocity: CGFloat) {
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity, options: [.curveEaseInOut], animations: {
-            self.center = self.superview!.center
-        }) { (_) in
-            self.tableIsShown = true
         }
     }
     
@@ -110,17 +108,12 @@ class ResultView: UIView {
         }
     }
 
-    @objc func sessionSelected (_ notification: NSNotification) {
-        resultTable.reloadData()
-        // if let sessionName = notification.userInfo?["selectedSessionName"] as? String {
-        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
-        // }
-    }
-    
-    @objc func updateSessionName (_ notification: NSNotification) {
-        // if let sessionName = notification.userInfo?["name"] as? String {
-            sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
-        // }
+    func showResultTable(velocity: CGFloat) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: velocity, options: [.curveEaseInOut], animations: {
+            self.center = self.superview!.center
+        }) { (_) in
+            self.tableIsShown = true
+        }
     }
     
 }

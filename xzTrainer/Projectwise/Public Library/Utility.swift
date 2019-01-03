@@ -9,17 +9,37 @@
 import UIKit
 
 /// returns the inverse of the supplied move
-public func inverse(of turn: Turn) -> Turn {
-    let rawValue = turn.rawValue
-    if rawValue.count == 1 {
-        return Turn(rawValue: rawValue + "'")!
+public func inverse<T: RawRepresentable>(of move: T) -> T where T.RawValue == String {
+    let str = move.rawValue
+    if str.count == 1 {
+        return T(rawValue: str + "'")!
     } else {
-        if turn.rawValue.last == "2" {
-            return turn
+        if str.last == "2" {
+            return move
         } else {
-            return Turn(rawValue: String(rawValue[...rawValue.startIndex]))!
+            return T(rawValue: String(str[...str.startIndex]))!
         }
     }
+}
+
+public func inverse(of moves: [Movement]) -> [Movement] {
+    var result = moves
+    result.reverse()
+    for i in 0 ..< result.count {
+        // This switch-on-type is to overcome the restriction that Swift poses.
+        // Even though I would love to use a virtual function, there is no way
+        // for an enum to inherit from a class, and static virtual functions cannot
+        // be used on a protocol base type.
+        if result[i] is Turn {
+            result[i] = inverse(of: result[i] as! Turn)
+        } else if result[i] is WideTurn {
+            result[i] = inverse(of: result[i] as! WideTurn)
+        } else if result[i] is Rotation {
+            result[i] = inverse(of: result[i] as! Rotation)
+        }
+    }
+    
+    return result
 }
 
 /// Absolute position on the cube. This avoids the confusion of, for example, whether the UF piece refer to the piece currently in the UF position or the white green piece in a nonscrambled, normally oriented cube

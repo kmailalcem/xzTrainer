@@ -8,7 +8,15 @@
 
 import Foundation
 
-public enum Turn : String {
+public protocol Movement : StringRepresentable {
+    
+}
+
+public enum Turn : String, Movement {
+    public var string: String {
+        return rawValue
+    }
+    
     case R = "R", RPrime = "R'", R2 = "R2"
     case U = "U", UPrime = "U'", U2 = "U2"
     case B = "B", BPrime = "B'", B2 = "B2"
@@ -24,7 +32,11 @@ public enum Turn : String {
     static let allStandardValues = [R, RPrime, R2, U, UPrime, U2, B, BPrime, B2, L, LPrime, L2, D, DPrime, D2, F, FPrime, F2]
 }
 
-public enum WideTurn : String {
+public enum WideTurn : String, Movement {
+    public var string: String {
+        return rawValue
+    }
+
     case Rw = "Rw", RwPrime = "Rw'", Rw2 = "Rw2"
     case Uw = "Uw", UwPrime = "Uw'", Uw2 = "Uw2"
     case Bw = "Bw", BwPrime = "Bw'", Bw2 = "Bw2"
@@ -33,7 +45,11 @@ public enum WideTurn : String {
     case Fw = "Fw", FwPrime = "Fw'", Fw2 = "Fw2"
 }
 
-public enum Rotation : String {
+public enum Rotation : String, Movement {
+    public var string: String {
+        return rawValue
+    }
+    
     case x = "x", xPrime = "x'", x2 = "x2"
     case y = "y", yPrime = "y'", y2 = "y2"
     case z = "z", zPrime = "z'", z2 = "z2"

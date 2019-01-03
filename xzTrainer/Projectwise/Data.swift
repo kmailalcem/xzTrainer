@@ -59,9 +59,7 @@ class GlobalData: NSObject {
     }
     
     public func newSolve(time: Double, scramble: String, edgeMemo: String, cornerMemo: String) {
-        let entity = NSEntityDescription.entity(forEntityName: "Solve",
-                                                in: managedObjectContext)
-        let solve = Solve(entity: entity!, insertInto: managedObjectContext)
+        let solve = Solve(context: managedObjectContext)
         solve.time = time
         solve.scramble = scramble
         solve.edgeMemo = edgeMemo
@@ -71,7 +69,7 @@ class GlobalData: NSObject {
         solve.session = currentSession
         currentSession.solve?.adding(solve)
         userSolves.append(solve)
-        userSolves[last()].best = userSolves.min()!.time
+        //userSolves[last()].best = userSolves.min()!.time
         timeUpdated(at: last())
     }
     
@@ -99,9 +97,7 @@ class GlobalData: NSObject {
     }
     
     public func newSession(withName name: String) {
-        let entity = NSEntityDescription.entity(forEntityName: "Session",
-                                                in: managedObjectContext)
-        let session = Session(entity: entity!, insertInto: managedObjectContext)
+        let session = Session(context: managedObjectContext)
         session.name = name
         session.id = Int32(Date().timeIntervalSince1970)
         session.mode = currentMode
@@ -225,7 +221,7 @@ class GlobalData: NSObject {
         }
         
         if sessions.count == 0 {
-            let  session = Session(context: managedObjectContext)
+            let session = Session(context: managedObjectContext)
             session.id = Int32(Date().timeIntervalSince1970)
             session.mode = currentMode
             session.name = LocalizationGeneral.defaultt.localized

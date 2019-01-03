@@ -98,7 +98,7 @@ class TimerVC: ThemeViewController {
     
     private func setUpResultTableFrames() {
         view.addSubview(resultTableView)
-        resultTableView.commonInit(owner: self)
+        resultTableView.commonInit(tableDelegate: self)
         resultTableView.resultTable.reloadData()
     }
     
