@@ -21,9 +21,9 @@ class ResultView: UIView {
     func commonInit(tableDelegate: UITableViewDelegate) {
         themeSetUp()
         becomeObserver()
-        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+        sessionSelectionButton.setTitle(SolveModel.shared.currentSessionName, for: .normal)
         resultTable.delegate = tableDelegate
-        resultTable.dataSource = GlobalData.shared
+        resultTable.dataSource = SolveModel.shared
         
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ResultView.handlePan))
         // allows table view cells to be swiped separate from the view
@@ -51,11 +51,11 @@ class ResultView: UIView {
     
     @objc func sessionSelected (_ notification: NSNotification) {
         resultTable.reloadData()
-        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+        sessionSelectionButton.setTitle(SolveModel.shared.currentSessionName, for: .normal)
     }
     
     @objc func updateSessionName (_ notification: NSNotification) {
-        sessionSelectionButton.setTitle(GlobalData.shared.currentSessionName, for: .normal)
+        sessionSelectionButton.setTitle(SolveModel.shared.currentSessionName, for: .normal)
     }
     
     private func setUpFrame() {

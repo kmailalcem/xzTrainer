@@ -13,7 +13,7 @@ class SessionView: UIView, UITableViewDelegate {
     var sessionTable: SessionTableView!
     var dismissButton: UIButton!
     var newSessinButton: FloatingActionButton!
-    var data = GlobalData.shared
+    var data = SolveModel.shared
     weak var rootViewController: TimerVC!
     
     override init(frame: CGRect) {

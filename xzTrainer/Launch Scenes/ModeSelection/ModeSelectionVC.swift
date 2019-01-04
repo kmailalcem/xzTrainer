@@ -110,10 +110,10 @@ class ModeSelectionVC: ThemeViewController {
         if let destination = segue.destination as? TimerVC, let sender = sender as? TimerMode {
             if sender == .execution {
                 destination.isCasual = false
-                GlobalData.shared.currentMode = "execute"
+                SolveModel.shared.currentMode = "execute"
             } else if sender == .casual {
                 destination.isCasual = true
-                GlobalData.shared.currentMode = "casual"
+                SolveModel.shared.currentMode = "casual"
             }
         }
     }
@@ -146,7 +146,7 @@ class ModeSelectionVC: ThemeViewController {
                 self.performSegue(withIdentifier: "toTimer", sender: TimerMode.casual)
             }),
             Mode(name: "My Spreadsheets", image: #imageLiteral(resourceName: "MySpreadsheet"), onSelect: {
-                print("coming soon")
+                self.performSegue(withIdentifier: "toSpreadsheet", sender: nil)
             })
         ]
     }

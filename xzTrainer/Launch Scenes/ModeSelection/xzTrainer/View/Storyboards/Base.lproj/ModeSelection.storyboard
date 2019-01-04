@@ -125,6 +125,14 @@
             </objects>
             <point key="canvasLocation" x="-686" y="-121"/>
         </scene>
+        <!--Spreadsheet-->
+        <scene sceneID="O6k-Uc-0wc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Spreadsheet" id="AcI-Xd-eJn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEX-1c-TX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1839" y="23"/>
+        </scene>
         <!--Mode SelectionVC-->
         <scene sceneID="EtP-hh-BaP">
             <objects>
@@ -397,6 +405,7 @@
                         <outlet property="smallNameLabel" destination="ROG-qm-kdX" id="1h1-QB-aSD"/>
                         <outlet property="upperPiece" destination="Nsd-YL-01L" id="KzV-qC-W1U"/>
                         <segue destination="AEI-hL-Zrh" kind="custom" identifier="toTimer" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="V1g-6Y-BHl"/>
+                        <segue destination="AcI-Xd-eJn" kind="custom" identifier="toSpreadsheet" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="Ikt-nD-Ctv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="it0-S8-Qb8" userLabel="First Responder" sceneMemberID="firstResponder"/>

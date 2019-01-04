@@ -11,7 +11,7 @@ import CoreData
 
 // Provide single port of entry for accessing data managed by Core Data.
 // Manages creations, loads, saves, and deletes of Solve and Session.
-class GlobalData: NSObject {
+class SolveModel: NSObject {
     
     public func plusTwo(forSolveAt index: Int) {
         userSolves[index].penalty = 2
@@ -179,14 +179,14 @@ class GlobalData: NSObject {
     }
     
     // singleton
-    public static var shared: GlobalData {
-        if GlobalData.data == nil {
-            GlobalData.data = GlobalData()
+    public static var shared: SolveModel {
+        if SolveModel.data == nil {
+            SolveModel.data = SolveModel()
         }
-        return GlobalData.data!
+        return SolveModel.data!
     }
     
-    private static var data: GlobalData?
+    private static var data: SolveModel?
     
     private override init() {
         super.init()
@@ -242,7 +242,7 @@ class GlobalData: NSObject {
     }
 }
 
-extension GlobalData: UITableViewDataSource {
+extension SolveModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let resultTableView = tableView as? ResultTableView {
             return tableViewHelper(resultTableView, cellForRowAt: indexPath)

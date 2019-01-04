@@ -46,7 +46,7 @@ class TimerVC: ThemeViewController {
     // booleans to track UI
     var memoIsShown = false
     
-    let data = GlobalData.shared
+    let data = SolveModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

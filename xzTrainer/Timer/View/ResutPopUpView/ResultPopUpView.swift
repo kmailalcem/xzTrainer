@@ -32,7 +32,7 @@ class ResultPopUpView: UIView {
         }
     }
     
-    let data = GlobalData.shared
+    let data = SolveModel.shared
     
     @IBAction func plusTwo() {
         plusTwoButton.isSelected = !plusTwoButton.isSelected
