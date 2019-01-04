@@ -29,6 +29,22 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
         print("Should be a segue here")
     }
     
+    func set(alg: String, _ m: Int, _ n: Int) {
+        algs[m][n].alg = alg
+    }
+    
+    func set(association: String, _ m: Int, _ n: Int) {
+        algs[m][n].assoc = association
+    }
+    
+    func alg(_ m: Int, _ n: Int) -> String {
+        return algs[m][n].alg
+    }
+    
+    func association(_ m: Int, _ n: Int) -> String {
+        return algs[m][n].assoc
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return algs.count
     }

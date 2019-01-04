@@ -14,11 +14,7 @@ func openUrl(_ urlString:String) {
     UIApplication.shared.open(url, options: [:], completionHandler: nil)
 }
 
-class ModeSelectionVC:
-    ThemeViewController,
-    UITableViewDelegate,
-    UITableViewDataSource
-{
+class ModeSelectionVC: ThemeViewController {
     private enum TimerMode { case casual, execution }
     
     private struct Mode {
@@ -27,75 +23,14 @@ class ModeSelectionVC:
         var onSelect: () -> (Void)
     }
 
-    @IBOutlet weak var upperPiece: RoundedView!
-    @IBOutlet weak var greetingLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileView: UIView!
-    @IBOutlet weak var dismissProfileButton: UIButton!
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var smallNameLabel: UILabel!
-    
-    
-    private var profileViewHiddenTrailingConstraint: NSLayoutConstraint?
-    private var profileviewShownTrailingConstraint: NSLayoutConstraint?
-    
-    private var modes: [Mode]!
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ModeSelectionCell") as? ModeSelectionCell
-        if cell == nil {
-            return UITableViewCell()
-        }
-        cell!.modeLabel.text = modes[indexPath.row].name
-        cell!.bgImage.image = modes[indexPath.row].image
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 135
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        modes[indexPath.row].onSelect()
-    }
-
-    @IBOutlet weak var modeSelectionTable: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         modeSelectionTable.delegate = self
         modeSelectionTable.dataSource = self
         
         themeSetUp()
-        modes = [
-        Mode(name: LocalizableMode.executionTraining.localized, image: #imageLiteral(resourceName: "ExecutionBGImage"), onSelect: {
-            self.performSegue(withIdentifier: "toTimer", sender: TimerMode.execution)
-        }),
-        Mode(name: LocalizableMode.casualBLD.localized, image: #imageLiteral(resourceName: "Casual"), onSelect: {
-            self.performSegue(withIdentifier: "toTimer", sender: TimerMode.casual)
-        }),
-        Mode(name: "My Spreadsheet", image: #imageLiteral(resourceName: "MySpreadsheet"), onSelect: {
-            print("coming soon")
-        })
-        ]
-        let hour = NSCalendar.current.component(.hour, from: Date())
-        switch(hour) {
-        case 6...11:
-            greetingLabel.text = LocalizationGeneral.morningGreeting.localized + ","
-        case 12...18:
-            greetingLabel.text = LocalizationGeneral.afternoonGreeting.localized + ","
-        default:
-            greetingLabel.text = LocalizationGeneral.eveningGreeting.localized + ","
-        }
-        
-        nameLabel.text = UserSetting.shared.general.name + ".".localized()
-        smallNameLabel.text = UserSetting.shared.general.name
+        displayGreeting()
         layingConstraints()
         dismissProfile()
         NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
@@ -113,6 +48,21 @@ class ModeSelectionVC:
         }
     }
 
+    private func displayGreeting() {
+        let hour = NSCalendar.current.component(.hour, from: Date())
+        switch(hour) {
+        case 6...11:
+            greetingLabel.text = LocalizationGeneral.morningGreeting.localized + ","
+        case 12...18:
+            greetingLabel.text = LocalizationGeneral.afternoonGreeting.localized + ","
+        default:
+            greetingLabel.text = LocalizationGeneral.eveningGreeting.localized + ","
+        }
+        
+        nameLabel.text = UserSetting.shared.general.name + ".".localized()
+        smallNameLabel.text = UserSetting.shared.general.name
+    }
+    
     private func layingConstraints() {
         view.addSubview(profileView)
         profileView.translatesAutoresizingMaskIntoConstraints = false
@@ -123,10 +73,10 @@ class ModeSelectionVC:
         profileView.trailingAnchor.constraint(equalTo: margin.trailingAnchor, constant: 100).isActive = true
         profileView.leadingAnchor.constraint(equalTo: margin.trailingAnchor, constant: -84).isActive = true
     }
+
     
+    // MARK: - IBActions
     @IBAction func dismissProfile() {
-        
-        
         UIView.animate(withDuration: 0.2) {
             self.dismissProfileButton.alpha = 0
             self.profileView.transform = CGAffineTransform(translationX: self.profileView.frame.width, y: 0)
@@ -155,12 +105,8 @@ class ModeSelectionVC:
         
     }
     
-    
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if let destination = segue.destination as? TimerVC, let sender = sender as? TimerMode {
             if sender == .execution {
                 destination.isCasual = false
@@ -177,5 +123,57 @@ class ModeSelectionVC:
         smallNameLabel.text = UserSetting.shared.general.name
     }
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var upperPiece: RoundedView!
+    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var dismissProfileButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var smallNameLabel: UILabel!
+    @IBOutlet weak var modeSelectionTable: UITableView!
+    
+    // MARK: - Privates
+    private var profileViewHiddenTrailingConstraint: NSLayoutConstraint?
+    private var profileviewShownTrailingConstraint: NSLayoutConstraint?
+    
+    private var modes: [Mode] {
+        return [
+            Mode(name: LocalizableMode.executionTraining.localized, image: #imageLiteral(resourceName: "ExecutionBGImage"), onSelect: {
+                self.performSegue(withIdentifier: "toTimer", sender: TimerMode.execution)
+            }),
+            Mode(name: LocalizableMode.casualBLD.localized, image: #imageLiteral(resourceName: "Casual"), onSelect: {
+                self.performSegue(withIdentifier: "toTimer", sender: TimerMode.casual)
+            }),
+            Mode(name: "My Spreadsheets", image: #imageLiteral(resourceName: "MySpreadsheet"), onSelect: {
+                print("coming soon")
+            })
+        ]
+    }
+}
 
+extension ModeSelectionVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return modes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ModeSelectionCell") as? ModeSelectionCell
+        if cell == nil {
+            return UITableViewCell()
+        }
+        cell!.modeLabel.text = modes[indexPath.row].name
+        cell!.bgImage.image = modes[indexPath.row].image
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 135
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        modes[indexPath.row].onSelect()
+    }
 }
