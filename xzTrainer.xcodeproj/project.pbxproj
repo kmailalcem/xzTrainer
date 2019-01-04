@@ -65,6 +65,8 @@
 		957A5C7021128064002160A7 /* ReorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A5C6F21128064002160A7 /* ReorderCell.swift */; };
 		957A5C7221128092002160A7 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A5C7121128092002160A7 /* ThemeCell.swift */; };
 		957E1C8720DA5DC000CC40AD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E1C8620DA5DC000CC40AD /* Session.swift */; };
+		957E347021DFEAAC00314646 /* AlgSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E346F21DFEAAC00314646 /* AlgSheet.swift */; };
+		957E347221DFEC1300314646 /* SpreadsheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E347121DFEC1300314646 /* SpreadsheetViewController.swift */; };
 		958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125BF210EA4F2009C564B /* DropDownTextField.swift */; };
 		958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125C1210EBA91009C564B /* ThemeAlertController.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
@@ -97,6 +99,8 @@
 		95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */; };
 		95CE246921DEB6DC00AD9BBD /* MoveSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */; };
 		95CE246B21DEB6F700AD9BBD /* Conjugate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246A21DEB6F700AD9BBD /* Conjugate.swift */; };
+		95CE246D21DEB84700AD9BBD /* AlgExpander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246C21DEB84700AD9BBD /* AlgExpander.swift */; };
+		95CE246F21DEFE0300AD9BBD /* Spreadsheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246E21DEFE0300AD9BBD /* Spreadsheet.swift */; };
 		95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5920865912004DE650 /* AppDelegate.swift */; };
 		95D52C5C20865912004DE650 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5B20865912004DE650 /* TimerVC.swift */; };
 		95D52C5F20865912004DE650 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D52C5D20865912004DE650 /* Timer.storyboard */; };
@@ -202,6 +206,8 @@
 		957A5C6F21128064002160A7 /* ReorderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReorderCell.swift; sourceTree = "<group>"; };
 		957A5C7121128092002160A7 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		957E1C8620DA5DC000CC40AD /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		957E346F21DFEAAC00314646 /* AlgSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgSheet.swift; sourceTree = "<group>"; };
+		957E347121DFEC1300314646 /* SpreadsheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadsheetViewController.swift; sourceTree = "<group>"; };
 		958125BF210EA4F2009C564B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		958125C1210EBA91009C564B /* ThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertController.swift; sourceTree = "<group>"; };
 		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
@@ -238,6 +244,8 @@
 		95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSetterTextField.swift; sourceTree = "<group>"; };
 		95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSequence.swift; sourceTree = "<group>"; };
 		95CE246A21DEB6F700AD9BBD /* Conjugate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugate.swift; sourceTree = "<group>"; };
+		95CE246C21DEB84700AD9BBD /* AlgExpander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgExpander.swift; sourceTree = "<group>"; };
+		95CE246E21DEFE0300AD9BBD /* Spreadsheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spreadsheet.swift; sourceTree = "<group>"; };
 		95D52C5620865912004DE650 /* xzTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xzTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D52C5920865912004DE650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95D52C5B20865912004DE650 /* TimerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
@@ -609,6 +617,10 @@
 				95BE444B21DDA32800133D3C /* Commutator.swift */,
 				95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */,
 				95CE246A21DEB6F700AD9BBD /* Conjugate.swift */,
+				95CE246C21DEB84700AD9BBD /* AlgExpander.swift */,
+				95CE246E21DEFE0300AD9BBD /* Spreadsheet.swift */,
+				957E346F21DFEAAC00314646 /* AlgSheet.swift */,
+				957E347121DFEC1300314646 /* SpreadsheetViewController.swift */,
 			);
 			path = Spreadsheet;
 			sourceTree = "<group>";
@@ -798,6 +810,7 @@
 			files = (
 				9539A78520E62E1400A3CE20 /* SettingsDetailVC.swift in Sources */,
 				95BF901F20E380B800211563 /* InTimerSettingVC.swift in Sources */,
+				957E347021DFEAAC00314646 /* AlgSheet.swift in Sources */,
 				9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */,
 				95CE246921DEB6DC00AD9BBD /* MoveSequence.swift in Sources */,
 				95D52C5C20865912004DE650 /* TimerVC.swift in Sources */,
@@ -812,6 +825,7 @@
 				95DB124720E4D6EB007BBAFD /* MemoSettingCell.swift in Sources */,
 				9509144B2126B37F00EDB4B3 /* CubePieces.swift in Sources */,
 				951A33EB20D260C000A12666 /* GradientView.swift in Sources */,
+				957E347221DFEC1300314646 /* SpreadsheetViewController.swift in Sources */,
 				950D322420F06C6800CA165C /* SettingsVC.swift in Sources */,
 				95F886B02112FF5C004D4C2C /* NameVC.swift in Sources */,
 				9572457220D9B6D30086202E /* TimerVCPopUp.swift in Sources */,
@@ -860,6 +874,7 @@
 				950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */,
 				95C4A1072134AF85008C85A0 /* DoneTextField.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
+				95CE246F21DEFE0300AD9BBD /* Spreadsheet.swift in Sources */,
 				958C548A21331D2F0021D595 /* ThemeLightText.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
 				953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */,
@@ -873,6 +888,7 @@
 				955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */,
 				95004C2C20E7739800380DBB /* ModeSelectionCell.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
+				95CE246D21DEB84700AD9BBD /* AlgExpander.swift in Sources */,
 				95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
 				95004C2A20E771A300380DBB /* ModeSelectionVC.swift in Sources */,

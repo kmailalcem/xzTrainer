@@ -133,6 +133,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsd-YL-01L" customClass="RoundedView" customModule="xzTrainer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good morning," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ent-87-HRb">
                                 <rect key="frame" x="16" y="51" width="211" height="35"/>
                                 <constraints>
@@ -166,41 +184,34 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDr-AP-lvF">
+                                <rect key="frame" x="16" y="131" width="343" height="2"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.9137254901960784" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="MKz-W0-92u"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you feel like doing today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1H0-hZ-25T" customClass="ThemeSubtext" customModule="xzTrainer" customModuleProvider="target">
+                                <rect key="frame" x="16" y="141" width="343" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="RkB-hm-3sF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d1f-7t-4hw">
-                                <rect key="frame" x="0.0" y="133" width="375" height="534"/>
+                                <rect key="frame" x="0.0" y="171" width="375" height="496"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="h8g-eL-E39">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDr-AP-lvF">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="2"/>
-                                            <color key="backgroundColor" red="0.89803921568627454" green="0.9137254901960784" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="2" id="MKz-W0-92u"/>
-                                            </constraints>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you feel like doing today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1H0-hZ-25T" customClass="ThemeSubtext" customModule="xzTrainer" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="2" width="343" height="42"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.10980392160000001" green="0.32156862749999998" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="fPE-hM-p2E">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="8"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="1H0-hZ-25T" firstAttribute="top" secondItem="LDr-AP-lvF" secondAttribute="bottom" id="1to-NS-34O"/>
-                                        <constraint firstItem="1H0-hZ-25T" firstAttribute="leading" secondItem="h8g-eL-E39" secondAttribute="leading" constant="16" id="W3C-Zj-Djt"/>
-                                        <constraint firstAttribute="trailing" secondItem="LDr-AP-lvF" secondAttribute="trailing" constant="16" id="ZML-5U-FK9"/>
-                                        <constraint firstAttribute="bottom" secondItem="1H0-hZ-25T" secondAttribute="bottom" id="ZnU-3Y-qDk"/>
-                                        <constraint firstItem="LDr-AP-lvF" firstAttribute="leading" secondItem="h8g-eL-E39" secondAttribute="leading" constant="16" id="abV-Fn-feC"/>
-                                        <constraint firstItem="LDr-AP-lvF" firstAttribute="top" secondItem="h8g-eL-E39" secondAttribute="top" id="ica-4n-rjJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="1H0-hZ-25T" secondAttribute="trailing" constant="16" id="mxd-X8-Tgv"/>
-                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ModeSelectionCell" rowHeight="134" id="HCT-dY-f25" customClass="ModeSelectionCell" customModule="xzTrainer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="134"/>
+                                        <rect key="frame" x="0.0" y="36" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HCT-dY-f25" id="zFG-Eh-fe2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
@@ -307,14 +318,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.82745098039999998" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LDr-AP-lvF" firstAttribute="leading" secondItem="Z9e-UZ-v8v" secondAttribute="leadingMargin" id="2l3-NE-yHu"/>
                             <constraint firstItem="f4X-us-FVb" firstAttribute="top" secondItem="ent-87-HRb" secondAttribute="bottom" constant="8" id="4gN-1b-0WV"/>
                             <constraint firstItem="K89-lM-AkH" firstAttribute="leading" secondItem="Wd0-hF-YII" secondAttribute="leading" constant="-50" id="GIi-7d-sbH"/>
+                            <constraint firstItem="Nsd-YL-01L" firstAttribute="trailing" secondItem="Wd0-hF-YII" secondAttribute="trailing" id="Hm7-Ds-0KG"/>
                             <constraint firstItem="f4X-us-FVb" firstAttribute="centerY" secondItem="ent-87-HRb" secondAttribute="centerY" id="IhH-VN-7F1"/>
+                            <constraint firstItem="Nsd-YL-01L" firstAttribute="bottom" secondItem="1H0-hZ-25T" secondAttribute="bottom" constant="8" id="MvY-Kd-7a7"/>
                             <constraint firstItem="f4X-us-FVb" firstAttribute="top" secondItem="Wd0-hF-YII" secondAttribute="top" constant="31" id="PeG-bp-QAe"/>
                             <constraint firstItem="f4X-us-FVb" firstAttribute="leading" secondItem="Wd0-hF-YII" secondAttribute="leading" constant="56" id="Pr6-ie-h4w"/>
                             <constraint firstItem="K89-lM-AkH" firstAttribute="bottom" secondItem="Wd0-hF-YII" secondAttribute="bottom" constant="57" id="QW2-r8-3gG"/>
+                            <constraint firstItem="Wd0-hF-YII" firstAttribute="trailing" secondItem="1H0-hZ-25T" secondAttribute="trailing" constant="16" id="Rcs-O0-I2v"/>
                             <constraint firstItem="Wd0-hF-YII" firstAttribute="trailing" secondItem="jNj-rK-LKx" secondAttribute="trailing" constant="16" id="Rql-qD-eDK"/>
                             <constraint firstItem="K89-lM-AkH" firstAttribute="top" secondItem="Z9e-UZ-v8v" secondAttribute="top" id="Syx-85-uve"/>
+                            <constraint firstItem="Nsd-YL-01L" firstAttribute="top" secondItem="Z9e-UZ-v8v" secondAttribute="top" id="USj-4U-6MR"/>
                             <constraint firstItem="ent-87-HRb" firstAttribute="top" secondItem="Wd0-hF-YII" secondAttribute="top" constant="31" id="WbY-zs-R6l"/>
                             <constraint firstItem="ent-87-HRb" firstAttribute="leading" secondItem="Wd0-hF-YII" secondAttribute="leading" constant="16" id="XbM-zX-Xsh"/>
                             <constraint firstItem="f4X-us-FVb" firstAttribute="leading" secondItem="ent-87-HRb" secondAttribute="trailing" constant="8" id="Y0B-Ls-dKq"/>
@@ -325,8 +341,13 @@
                             <constraint firstItem="jNj-rK-LKx" firstAttribute="top" secondItem="Wd0-hF-YII" secondAttribute="top" constant="31" id="c3e-V3-V7l"/>
                             <constraint firstItem="K89-lM-AkH" firstAttribute="trailing" secondItem="Wd0-hF-YII" secondAttribute="trailing" constant="50" id="chi-Bq-xd7"/>
                             <constraint firstItem="Wd0-hF-YII" firstAttribute="trailing" secondItem="f4X-us-FVb" secondAttribute="trailing" constant="74" id="fJV-ZK-YWV"/>
+                            <constraint firstItem="1H0-hZ-25T" firstAttribute="leading" secondItem="Wd0-hF-YII" secondAttribute="leading" constant="16" id="fdV-Ed-JKv"/>
+                            <constraint firstItem="1H0-hZ-25T" firstAttribute="top" secondItem="LDr-AP-lvF" secondAttribute="bottom" constant="8" id="gDa-75-Um4"/>
                             <constraint firstItem="Wd0-hF-YII" firstAttribute="bottom" secondItem="d1f-7t-4hw" secondAttribute="bottom" id="jXU-x5-bfE"/>
-                            <constraint firstItem="d1f-7t-4hw" firstAttribute="top" secondItem="jNj-rK-LKx" secondAttribute="bottom" constant="47" id="p5A-73-HLj"/>
+                            <constraint firstItem="d1f-7t-4hw" firstAttribute="top" secondItem="Nsd-YL-01L" secondAttribute="bottom" id="p5A-73-HLj"/>
+                            <constraint firstItem="LDr-AP-lvF" firstAttribute="trailing" secondItem="Z9e-UZ-v8v" secondAttribute="trailingMargin" id="upC-aV-oIV"/>
+                            <constraint firstItem="LDr-AP-lvF" firstAttribute="top" secondItem="f4X-us-FVb" secondAttribute="bottom" constant="8" id="wdx-0u-W2c"/>
+                            <constraint firstItem="Nsd-YL-01L" firstAttribute="leading" secondItem="Wd0-hF-YII" secondAttribute="leading" id="yfr-xH-6sn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wd0-hF-YII"/>
                         <variation key="default">
@@ -374,6 +395,7 @@
                         <outlet property="nameLabel" destination="f4X-us-FVb" id="sD8-JC-8bF"/>
                         <outlet property="profileView" destination="v3q-f8-3Mx" id="y4b-Fv-UJb"/>
                         <outlet property="smallNameLabel" destination="ROG-qm-kdX" id="1h1-QB-aSD"/>
+                        <outlet property="upperPiece" destination="Nsd-YL-01L" id="KzV-qC-W1U"/>
                         <segue destination="AEI-hL-Zrh" kind="custom" identifier="toTimer" customClass="SegueRightToLeft" customModule="xzTrainer" customModuleProvider="target" id="V1g-6Y-BHl"/>
                     </connections>
                 </viewController>
@@ -548,7 +570,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1839" y="-564"/>
+            <point key="canvasLocation" x="-1839.2" y="-564.46776611694156"/>
         </scene>
         <!--Timer-->
         <scene sceneID="4NX-52-s69">

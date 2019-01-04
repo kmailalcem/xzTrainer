@@ -296,9 +296,14 @@ class xzTrainerTests: XCTestCase {
     }
     
     func testExpandCommutator() {
-        let commStr = "[U, R D' R' D]"
+        let commStr = "U, R"
         let commutator = Commutator(fromString: commStr)!
         print(commutator.string)
         print(commutator.expanded.string)
+    }
+    
+    func testExpandAlg() {
+        let algStr = "U R U' R' : [D, L U L' U']"
+        print(expand(alg: algStr).string)
     }
 }

@@ -24,9 +24,6 @@ class Commutator {
     
     /// parse string
     init?(fromString alg: String) {
-        if alg.first == nil || alg.first! != "[" {
-            return nil
-        }
         var parts = alg.split { (c) -> Bool in
             return c == "[" || c == "," || c == "]"
         }

@@ -11,7 +11,7 @@ import Foundation
 /// MoveSequence represents a sequence of moves.
 struct MoveSequence {
     /// initializer from an array of movements
-    init(_ sequence: [Movement]) {
+    init(_ sequence: [Movement] = []) {
         self.sequence = sequence
     }
     
