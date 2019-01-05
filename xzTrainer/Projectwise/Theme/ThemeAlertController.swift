@@ -21,8 +21,8 @@ class ThemeAlertController: UIAlertController {
     override func viewDidLoad() {
         super.viewDidLoad()
         themeSetUp()
-        setValue(NSAttributedString(string: title!, attributes: [NSAttributedStringKey.foregroundColor : Theme.current.headerTextColor]), forKey: "attributedTitle")
-        setValue(NSAttributedString(string: message!, attributes: [NSAttributedStringKey.foregroundColor : Theme.current.normalTextColor]), forKey: "attributedMessage")
+        setValue(NSAttributedString(string: title!, attributes: [NSAttributedString.Key.foregroundColor : Theme.current.headerTextColor]), forKey: "attributedTitle")
+        setValue(NSAttributedString(string: message!, attributes: [NSAttributedString.Key.foregroundColor : Theme.current.normalTextColor]), forKey: "attributedMessage")
     }
 
 }

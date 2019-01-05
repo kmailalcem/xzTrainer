@@ -70,6 +70,7 @@
 		957E347421E00A3700314646 /* Spreadsheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957E347321E00A3700314646 /* Spreadsheet.storyboard */; };
 		957E347621E00A7200314646 /* SelectSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E347521E00A7200314646 /* SelectSheetViewController.swift */; };
 		957E347821E00F8200314646 /* SpreadsheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E347721E00F8200314646 /* SpreadsheetModel.swift */; };
+		957E347A21E013B700314646 /* SelectSpreadsheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E347921E013B700314646 /* SelectSpreadsheetCell.swift */; };
 		958125C0210EA4F2009C564B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125BF210EA4F2009C564B /* DropDownTextField.swift */; };
 		958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958125C1210EBA91009C564B /* ThemeAlertController.swift */; };
 		9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9583EC40209E0E7C004A4D3E /* CentreCore.swift */; };
@@ -102,7 +103,7 @@
 		95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */; };
 		95CE246921DEB6DC00AD9BBD /* MoveSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */; };
 		95CE246B21DEB6F700AD9BBD /* Conjugate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246A21DEB6F700AD9BBD /* Conjugate.swift */; };
-		95CE246D21DEB84700AD9BBD /* AlgExpander.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246C21DEB84700AD9BBD /* AlgExpander.swift */; };
+		95CE246D21DEB84700AD9BBD /* AlgParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246C21DEB84700AD9BBD /* AlgParser.swift */; };
 		95CE246F21DEFE0300AD9BBD /* Spreadsheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CE246E21DEFE0300AD9BBD /* Spreadsheet.swift */; };
 		95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5920865912004DE650 /* AppDelegate.swift */; };
 		95D52C5C20865912004DE650 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D52C5B20865912004DE650 /* TimerVC.swift */; };
@@ -125,6 +126,9 @@
 		95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */; };
 		95F886AE2112F082004D4C2C /* PieceArrayExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F886AD2112F082004D4C2C /* PieceArrayExtentsion.swift */; };
 		95F886B02112FF5C004D4C2C /* NameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F886AF2112FF5C004D4C2C /* NameVC.swift */; };
+		95F90A5121E13FC700FBA143 /* AlgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F90A5021E13FC600FBA143 /* AlgCell.swift */; };
+		95F90A5321E1537800FBA143 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F90A5221E1537800FBA143 /* Algorithm.swift */; };
+		95F90A5521E1543C00FBA143 /* CompositeAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F90A5421E1543C00FBA143 /* CompositeAlgorithm.swift */; };
 		95FAA778212AA64B00EB620C /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FAA777212AA64B00EB620C /* ResultCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +218,7 @@
 		957E347321E00A3700314646 /* Spreadsheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spreadsheet.storyboard; sourceTree = "<group>"; };
 		957E347521E00A7200314646 /* SelectSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSheetViewController.swift; sourceTree = "<group>"; };
 		957E347721E00F8200314646 /* SpreadsheetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadsheetModel.swift; sourceTree = "<group>"; };
+		957E347921E013B700314646 /* SelectSpreadsheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSpreadsheetCell.swift; sourceTree = "<group>"; };
 		958125BF210EA4F2009C564B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		958125C1210EBA91009C564B /* ThemeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAlertController.swift; sourceTree = "<group>"; };
 		9583EC40209E0E7C004A4D3E /* CentreCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentreCore.swift; sourceTree = "<group>"; };
@@ -250,7 +255,7 @@
 		95CB543F20F35BE00025FB6E /* LetterSetterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSetterTextField.swift; sourceTree = "<group>"; };
 		95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveSequence.swift; sourceTree = "<group>"; };
 		95CE246A21DEB6F700AD9BBD /* Conjugate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugate.swift; sourceTree = "<group>"; };
-		95CE246C21DEB84700AD9BBD /* AlgExpander.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgExpander.swift; sourceTree = "<group>"; };
+		95CE246C21DEB84700AD9BBD /* AlgParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgParser.swift; sourceTree = "<group>"; };
 		95CE246E21DEFE0300AD9BBD /* Spreadsheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spreadsheet.swift; sourceTree = "<group>"; };
 		95D52C5620865912004DE650 /* xzTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xzTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D52C5920865912004DE650 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +281,9 @@
 		95F1294F20A4E2F3000732A4 /* CubeFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeFaceView.swift; sourceTree = "<group>"; };
 		95F886AD2112F082004D4C2C /* PieceArrayExtentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceArrayExtentsion.swift; sourceTree = "<group>"; };
 		95F886AF2112FF5C004D4C2C /* NameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameVC.swift; sourceTree = "<group>"; };
+		95F90A5021E13FC600FBA143 /* AlgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgCell.swift; sourceTree = "<group>"; };
+		95F90A5221E1537800FBA143 /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
+		95F90A5421E1543C00FBA143 /* CompositeAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeAlgorithm.swift; sourceTree = "<group>"; };
 		95FAA777212AA64B00EB620C /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -620,16 +628,20 @@
 		95BE444A21DDA2FF00133D3C /* Spreadsheet */ = {
 			isa = PBXGroup;
 			children = (
+				95F90A5221E1537800FBA143 /* Algorithm.swift */,
+				95F90A5421E1543C00FBA143 /* CompositeAlgorithm.swift */,
 				95BE444B21DDA32800133D3C /* Commutator.swift */,
 				95CE246821DEB6DC00AD9BBD /* MoveSequence.swift */,
 				95CE246A21DEB6F700AD9BBD /* Conjugate.swift */,
-				95CE246C21DEB84700AD9BBD /* AlgExpander.swift */,
+				95CE246C21DEB84700AD9BBD /* AlgParser.swift */,
 				95CE246E21DEFE0300AD9BBD /* Spreadsheet.swift */,
 				957E346F21DFEAAC00314646 /* AlgSheet.swift */,
 				957E347521E00A7200314646 /* SelectSheetViewController.swift */,
 				957E347121DFEC1300314646 /* SpreadsheetViewController.swift */,
 				957E347321E00A3700314646 /* Spreadsheet.storyboard */,
 				957E347721E00F8200314646 /* SpreadsheetModel.swift */,
+				957E347921E013B700314646 /* SelectSpreadsheetCell.swift */,
+				95F90A5021E13FC600FBA143 /* AlgCell.swift */,
 			);
 			path = Spreadsheet;
 			sourceTree = "<group>";
@@ -740,11 +752,12 @@
 				TargetAttributes = {
 					9583EC48209E13BF004A4D3E = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 						TestTargetID = 95D52C5520865912004DE650;
 					};
 					95D52C5520865912004DE650 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -823,9 +836,11 @@
 				957E347021DFEAAC00314646 /* AlgSheet.swift in Sources */,
 				9572457420D9B7DF0086202E /* TimerVCTableManager.swift in Sources */,
 				95CE246921DEB6DC00AD9BBD /* MoveSequence.swift in Sources */,
+				95F90A5521E1543C00FBA143 /* CompositeAlgorithm.swift in Sources */,
 				95D52C5C20865912004DE650 /* TimerVC.swift in Sources */,
 				950DF6D72111B2E500A329EB /* ReorderPriorityVC.swift in Sources */,
 				950DF6D12111ABFA00A329EB /* MethodOptions.swift in Sources */,
+				95F90A5121E13FC700FBA143 /* AlgCell.swift in Sources */,
 				950D322820F0ABAB00CA165C /* GeneralSetting.swift in Sources */,
 				95183BBF210717A1006D2D6F /* AdvancedParityVC.swift in Sources */,
 				9509144F2126C12900EDB4B3 /* TurnsAndRotations.swift in Sources */,
@@ -884,6 +899,7 @@
 				95E1FB4A212948B2002717FC /* Theme.swift in Sources */,
 				950DF6D52111ACEB00A329EB /* AdvancedParity.swift in Sources */,
 				95C4A1072134AF85008C85A0 /* DoneTextField.swift in Sources */,
+				95F90A5321E1537800FBA143 /* Algorithm.swift in Sources */,
 				957E347621E00A7200314646 /* SelectSheetViewController.swift in Sources */,
 				95F1295020A4E2F3000732A4 /* CubeFaceView.swift in Sources */,
 				95CE246F21DEFE0300AD9BBD /* Spreadsheet.swift in Sources */,
@@ -896,11 +912,12 @@
 				9575ED5720D90D7A00D9CF81 /* SolveModel.swift in Sources */,
 				95302797213DACE200508B02 /* ThemeSelectionCell.swift in Sources */,
 				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,
+				957E347A21E013B700314646 /* SelectSpreadsheetCell.swift in Sources */,
 				9575E62A212A304B005F6872 /* ResultPopUpView.swift in Sources */,
 				955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */,
 				95004C2C20E7739800380DBB /* ModeSelectionCell.swift in Sources */,
 				952FAA0920BB1B58007FD671 /* RoundedButton.swift in Sources */,
-				95CE246D21DEB84700AD9BBD /* AlgExpander.swift in Sources */,
+				95CE246D21DEB84700AD9BBD /* AlgParser.swift in Sources */,
 				95CB544020F35BE00025FB6E /* LetterSetterTextField.swift in Sources */,
 				95D52C5A20865912004DE650 /* AppDelegate.swift in Sources */,
 				95004C2A20E771A300380DBB /* ModeSelectionVC.swift in Sources */,
@@ -1090,7 +1107,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.random.xzTrainerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xzTrainer.app/xzTrainer";
 			};
@@ -1110,7 +1127,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nelson.random.xzTrainerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xzTrainer.app/xzTrainer";
 			};
@@ -1251,7 +1268,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = xzTrainer;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1274,7 +1291,7 @@
 				PROVISIONING_PROFILE = "fe656db9-3cfe-43fb-9886-46a1e6461960";
 				PROVISIONING_PROFILE_SPECIFIER = xzTrainer;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

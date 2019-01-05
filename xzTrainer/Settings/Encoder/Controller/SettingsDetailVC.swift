@@ -65,13 +65,13 @@ class SettingsDetailVC: ThemeViewController {
         loadSecondLetters()
         updateLetters()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
         var keyboardHeight: CGFloat = 0
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             keyboardHeight = keyboardRectangle.height
         }
@@ -112,15 +112,15 @@ class SettingsDetailVC: ThemeViewController {
     @IBAction func updateLetters() {
         if isPreferMethod {
             if  methodIsEdge {
-                firstLetters.text = formatedPieces(option.preferredFirstEdge, showInLetters: showInLetterSchemeSwitch.isOn)
+                firstLetters.text = commaSeparated(option.preferredFirstEdge, showInLetters: showInLetterSchemeSwitch.isOn)
             } else {
-                firstLetters.text = formatedPieces(option.preferredFirstCorner, showInLetters: showInLetterSchemeSwitch.isOn)
+                firstLetters.text = commaSeparated(option.preferredFirstCorner, showInLetters: showInLetterSchemeSwitch.isOn)
             }
         } else {
             if methodIsEdge {
-                firstLetters.text = formatedPieces(option.avoidedFirstEdge, showInLetters: showInLetterSchemeSwitch.isOn)
+                firstLetters.text = commaSeparated(option.avoidedFirstEdge, showInLetters: showInLetterSchemeSwitch.isOn)
             } else {
-                firstLetters.text = formatedPieces(option.avoidedFirstCorner, showInLetters: showInLetterSchemeSwitch.isOn)
+                firstLetters.text = commaSeparated(option.avoidedFirstCorner, showInLetters: showInLetterSchemeSwitch.isOn)
             }
             firstLetters.textColor = Theme.current.warningTextColor
         }
@@ -179,15 +179,15 @@ extension SettingsDetailVC: UITableViewDelegate, UITableViewDataSource  {
         if methodIsEdge {
             let (edge, secondLetters) = secondEdgeLetters[indexPath.row]
             cell.configureCell(
-                startingLetter: formatedPieces([edge], showInLetters: showInLetterSchemeSwitch.isOn),
-                secondLetters: formatedPieces(secondLetters, showInLetters: showInLetterSchemeSwitch.isOn),
+                startingLetter: commaSeparated([edge], showInLetters: showInLetterSchemeSwitch.isOn),
+                secondLetters: commaSeparated(secondLetters, showInLetters: showInLetterSchemeSwitch.isOn),
                 isPreferringMethod: isPreferMethod)
             return cell
         } else {
             let (corner, secondLetters) = secondCornerLetters[indexPath.row]
             cell.configureCell(
-                startingLetter: formatedPieces([corner], showInLetters: showInLetterSchemeSwitch.isOn),
-                secondLetters: formatedPieces(secondLetters, showInLetters: showInLetterSchemeSwitch.isOn),
+                startingLetter: commaSeparated([corner], showInLetters: showInLetterSchemeSwitch.isOn),
+                secondLetters: commaSeparated(secondLetters, showInLetters: showInLetterSchemeSwitch.isOn),
                 isPreferringMethod: isPreferMethod)
             return cell
         }

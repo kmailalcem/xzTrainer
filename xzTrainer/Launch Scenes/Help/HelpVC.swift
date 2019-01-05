@@ -29,7 +29,7 @@ class HelpVC: ThemeViewController {
         super.viewDidLoad()
         helpTable.delegate = self
         helpTable.dataSource = self
-        helpTable.rowHeight = UITableViewAutomaticDimension
+        helpTable.rowHeight = UITableView.automaticDimension
         helpTable.estimatedRowHeight = 40
     }
 

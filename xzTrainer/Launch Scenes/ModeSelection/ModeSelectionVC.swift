@@ -11,7 +11,7 @@ import StoreKit
 
 func openUrl(_ urlString:String) {
     let url = URL(string: urlString)!
-    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
 }
 
 class ModeSelectionVC: ThemeViewController {
@@ -176,4 +176,9 @@ extension ModeSelectionVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         modes[indexPath.row].onSelect()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

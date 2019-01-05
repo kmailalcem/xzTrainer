@@ -18,13 +18,18 @@ class SpreadsheetViewController: ThemeViewController, UITableViewDelegate {
         super.viewDidLoad()
         spreadsheetTable.dataSource = spreadsheet
         spreadsheetTable.delegate = self
-
+        titleLabel.text = spreadsheet.name
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        spreadsheet.select(indexPath.section, indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+
     
     /*
     // MARK: - Navigation

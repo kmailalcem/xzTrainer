@@ -9,9 +9,13 @@
 import Foundation
 
 /// represents a conjugate of the form A : B (A B A')
-class Conjugate {
+class Conjugate: Algorithm {
+    var inversed: Algorithm {
+        return Conjugate(inverseOf: self)
+    }
+    
     /// initializer from two move sequences
-    init(A: MoveSequence, B: MoveSequence) {
+    init(A: Algorithm, B: Algorithm) {
         self.A = A
         self.B = B
     }
@@ -19,7 +23,7 @@ class Conjugate {
     /// inverse of conjugate
     init(inverseOf other: Conjugate) {
         A = other.A
-        B = MoveSequence(inverseOf: other.B)
+        B = other.B.inversed
     }
     
     /// parse string
@@ -43,13 +47,13 @@ class Conjugate {
     }
     
     /// linear expansion
-    var expanded : MoveSequence {
-        var temp = A
-        temp.append(B)
-        temp.append(MoveSequence(inverseOf: A))
+    var expanded : Algorithm {
+        var temp = A.expanded as! MoveSequence
+        temp.append(B.expanded as! MoveSequence)
+        temp.append(A.inversed.expanded as! MoveSequence)
         return temp
     }
     
-    private var A : MoveSequence
-    private var B : MoveSequence
+    private var A : Algorithm
+    private var B : Algorithm
 }

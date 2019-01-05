@@ -212,6 +212,7 @@ public class Cube : Equatable {
         }
     }
     
+    @discardableResult
     public func rotate (top: CubeColor, front: CubeColor) -> [Rotation] {
         var result = [Rotation]()
         if top == currentOrientation.front {

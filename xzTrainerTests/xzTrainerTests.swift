@@ -302,8 +302,9 @@ class xzTrainerTests: XCTestCase {
         print(commutator.expanded.string)
     }
     
-    func testExpandAlg() {
-        let algStr = "U R U' R' : [D, L U L' U']"
-        print(expand(alg: algStr).string)
+    func testParseAlg() {
+        let algStr = "U R U' R' : [D : F, [L , U]]"
+        print(parse(alg: algStr)!.inversed.string)
+        print(parse(alg: algStr)!.expanded.string)
     }
 }

@@ -50,11 +50,11 @@ public typealias EdgePosition = EdgeSticker
      - showInLetter: A, B, C
      - not Show In Letter: UF, FU, UL
  */
-func formatedPieces(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
+func commaSeparated(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
     var result = ""
     var separated = false
     for piece in pieces {
-        let letter = UserSetting.shared.general.letterScheme[piece]
+        let letter = letterOf(piece)
         // do not show anything if user didn't label
         if letter.count == 0 {
             continue
@@ -77,11 +77,11 @@ func formatedPieces(_ pieces: [EdgeSticker], showInLetters: Bool) -> String {
      - showInLetter: A, B, C
      - not Show In Letter: UFL, FLU, LUF
  */
-func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
+func commaSeparated(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
     var result = ""
     var separated = false
     for piece in pieces {
-        let letter = UserSetting.shared.general.letterScheme[piece]
+        let letter = letterOf(piece)
         // do not show anything if user didn't label
         if letter.count > 0 {
             if separated {
@@ -96,6 +96,10 @@ func formatedPieces(_ pieces: [CornerSticker], showInLetters: Bool) -> String {
         }
     }
     return result
+}
+
+public func letterOf<T: CubePiece>(_ piece: T) -> String {
+    return UserSetting.shared.general.letterScheme[piece]
 }
 
 /// returns if the given pieces are interchangeable

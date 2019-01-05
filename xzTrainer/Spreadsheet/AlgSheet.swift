@@ -14,7 +14,8 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
         _buffer = buffer
         self.rowIndices = rowIndices
         self.columnIndices = columnIndices
-        algs.reserveCapacity(rowIndices.count)
+        algs = Array(repeating: Array(repeating: (alg: "", assoc: ""), count: columnIndices.count), count: rowIndices.count)
+        
     }
     
     var name : String {
@@ -31,6 +32,18 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
     
     func set(alg: String, _ m: Int, _ n: Int) {
         algs[m][n].alg = alg
+        let inverseM = rowIndices.firstIndex { (piece: T) -> Bool in
+            return piece.rawValue == columnIndices[n].rawValue
+        }
+        let inverseN = columnIndices.firstIndex { (piece: T) -> Bool in
+            return piece.rawValue == rowIndices[n].rawValue
+        }
+        if inverseM == nil || inverseN == nil || algs[inverseM!][inverseN!].alg != ""{
+            return
+        }
+        let expandedAlg = parse(alg: alg)?.inversed.string
+        algs[inverseM!][inverseN!].alg = expandedAlg!
+        
     }
     
     func set(association: String, _ m: Int, _ n: Int) {
@@ -54,7 +67,9 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlgCell") as! AlgCell
+        cell.configureCell(cycle: letterOf(rowIndices[indexPath.section]) + letterOf(columnIndices[indexPath.row]), alg: algs[indexPath.section][indexPath.row].alg, association: algs[indexPath.section][indexPath.row].assoc)
+        return cell
     }
     
     private var algs : [[(alg: String, assoc: String)]] = []

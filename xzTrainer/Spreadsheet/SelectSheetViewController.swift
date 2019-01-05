@@ -8,24 +8,37 @@
 
 import UIKit
 
-class SelectSheetViewController: ThemeViewController {
+class SelectSheetViewController: ThemeViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        spreadsheetsTable.delegate = self
         spreadsheetsTable.dataSource = SpreadsheetModel.shared
     }
     
 
-    @IBOutlet weak var spreadsheetsTable: UITableView!
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
-    */
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        performSegue(withIdentifier: "toIndividualSheet", sender: SpreadsheetModel.shared.spreadsheets[indexPath.row])
+    }
+    
+    @IBOutlet weak var spreadsheetsTable: UITableView!
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SpreadsheetViewController, let sheet = sender as? Spreadsheet {
+            destination.spreadsheet = sheet
+        }
+
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        // so that the correct scene is shown
+    }
 
 }

@@ -9,7 +9,16 @@
 import Foundation
 
 /// MoveSequence represents a sequence of moves.
-struct MoveSequence {
+/// This class represents an Individual in Composite pattern.
+struct MoveSequence: Algorithm {
+    var expanded: Algorithm {
+        return self
+    }
+    
+    var inversed: Algorithm {
+        return MoveSequence(inverseOf: self)
+    }
+    
     /// initializer from an array of movements
     init(_ sequence: [Movement] = []) {
         self.sequence = sequence

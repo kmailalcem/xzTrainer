@@ -81,7 +81,7 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
                 let firstLetters = UserSetting.shared.encoder.userPreference.edgePreferenceAsFirstLetter
                 cell.configureCell(
                     startingLetter: LocalizationGeneral.firstLetter.localized,
-                    secondLetters: formatedPieces(
+                    secondLetters: commaSeparated(
                         firstLetters,
                         showInLetters: true
                     )
@@ -101,11 +101,11 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
             let edgePreference = UserSetting.shared.encoder.userPreference.edgePreferenceAsSecondLetter
             let edge = EdgePosition(rawValue: allRawValues[indexPath.row - 1])!
             cell.configureCell(
-                startingLetter: formatedPieces(
+                startingLetter: commaSeparated(
                     [edge],
                     showInLetters: true
                 ),
-                secondLetters: formatedPieces(
+                secondLetters: commaSeparated(
                     edgePreference[edge]!,
                     showInLetters: true
                 )
@@ -115,7 +115,7 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
                 let firstLetters = UserSetting.shared.encoder.userPreference.cornerPreferenceAsFirstLetter
                 cell.configureCell(
                     startingLetter: LocalizationGeneral.firstLetter.localized,
-                    secondLetters: formatedPieces(
+                    secondLetters: commaSeparated(
                         firstLetters,
                         showInLetters: true
                     )
@@ -134,11 +134,11 @@ extension ShowPriorityVC: UITableViewDelegate, UITableViewDataSource {
             let cornerPreference = UserSetting.shared.encoder.userPreference.cornerPreferenceAsSecondLetter
             let corner = CornerPosition(rawValue: allRawValues[indexPath.row - 1])!
             cell.configureCell(
-                startingLetter: formatedPieces(
+                startingLetter: commaSeparated(
                     [corner],
                     showInLetters: true
                 ),
-                secondLetters: formatedPieces(
+                secondLetters: commaSeparated(
                     cornerPreference[corner]!,
                     showInLetters: true
                 )

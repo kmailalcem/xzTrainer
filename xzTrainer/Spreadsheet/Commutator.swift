@@ -8,10 +8,15 @@
 
 import Foundation
 
-/// represents a commutator of the form [A, B] (A B A' B')
-class Commutator {
+/// represents a commutator of the form [A, B] (A B A' B').
+/// This class represents an Individual in Composite pattern.
+class Commutator: Algorithm {
+    var inversed: Algorithm {
+        return Commutator(inverseOf: self)
+    }
+    
     /// initializer from two move sequences
-    init(A: MoveSequence, B: MoveSequence) {
+    init(A: Algorithm, B: Algorithm) {
         self.A = A
         self.B = B
     }
@@ -45,13 +50,13 @@ class Commutator {
     }
     
     /// expand commutator
-    var expanded : MoveSequence {
-        var temp = A
-        temp.append(B)
-        temp.append(MoveSequence(inverseOf: A))
-        temp.append(MoveSequence(inverseOf: B))
+    var expanded : Algorithm {
+        var temp = A.expanded as! MoveSequence
+        temp.append(B.expanded as! MoveSequence)
+        temp.append(A.inversed.expanded as! MoveSequence)
+        temp.append(B.inversed.expanded as! MoveSequence)
         return temp;
     }
-    var A : MoveSequence
-    var B : MoveSequence
+    var A : Algorithm
+    var B : Algorithm
 }
