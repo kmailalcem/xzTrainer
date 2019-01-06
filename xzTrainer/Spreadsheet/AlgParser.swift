@@ -8,54 +8,21 @@
 
 import Foundation
 
-extension String {
-    subscript (i: Int) -> Character {
-        return self[index(startIndex, offsetBy: i)]
-    }
-    subscript (bounds: CountableRange<Int>) -> Substring {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return self[start ..< end]
-    }
-    subscript (bounds: CountableClosedRange<Int>) -> Substring {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return self[start ... end]
-    }
-    subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
-        let start = index(startIndex, offsetBy: bounds.lowerBound)
-        let end = index(endIndex, offsetBy: -1)
-        return self[start ... end]
-    }
-    subscript (bounds: PartialRangeThrough<Int>) -> Substring {
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return self[startIndex ... end]
-    }
-    subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
-        let end = index(startIndex, offsetBy: bounds.upperBound)
-        return self[startIndex ..< end]
-    }
-}
-
-func parse(alg: String) -> Algorithm? {
-    let alg = alg.trimmingCharacters(in: .whitespaces)
-    print("parsing \(alg)")
+func locateSpecialCharacters(fromAlg alg: String) throws -> (colonIndex: Int?, commaIndex: Int?) {
     var level = 0
     var colonLv0Index: Int? = nil
     var colonExists = false
     var commasLv1Index: Int? = nil
     for i in 0 ..< alg.count {
         switch alg[i] {
-        case "[":
-            level += 1
-        case "]":
-            level -= 1
+        case "[": level += 1
+        case "]": level -= 1
         case ",":
             if level != 1 {
                 break;
             }
             if commasLv1Index != nil {
-                return nil
+                throw XZError.error(msg: "Too many commas (,) found in this part of the algorithm: \(alg)")
             }
             commasLv1Index = i
         case ":":
@@ -64,31 +31,50 @@ func parse(alg: String) -> Algorithm? {
                 break;
             }
             if colonLv0Index != nil {
-                return nil;
+                throw XZError.error(msg: "Too many colons (:) found in this part of the algorithm: \(alg)")
             }
             colonLv0Index = i
         default: break
         }
     }
-    if colonLv0Index == nil && commasLv1Index == nil {
-        return colonExists ? nil : MoveSequence(fromString: alg)
+    if colonLv0Index == nil && commasLv1Index == nil && colonExists {
+        throw XZError.error(msg: "Unexpected colon (:) found in this part of the algorithm: \(alg) (Maybe the setup moves were also wrapped in [])")
     }
-    if colonLv0Index != nil {
-        let aPart = parse(alg: String(alg[0 ..< colonLv0Index!]))
-        let bPart = parse(alg: String(alg[colonLv0Index! + 1 ..< alg.count]))
-        if aPart == nil || bPart == nil {
-            return nil
-        }
-        return Conjugate(A: aPart!, B: bPart!)
-    }
-    if commasLv1Index != nil {
-        let aPart = parse(alg: String(alg[1 ..< commasLv1Index!]))
-        let bPart = parse(alg: String(alg[commasLv1Index! + 1 ..< alg.count - 1]))
-        if aPart == nil || bPart == nil {
-            return nil
-        }
-        return Commutator(A: aPart!, B: bPart!)
+    return (colonIndex: colonLv0Index, commaIndex: commasLv1Index)
+}
+
+func parse(alg: String) throws -> Algorithm {
+    let alg = alg.trimmingCharacters(in: .whitespaces)
+    print("parsing \(alg)")
+    let colonLv0Index: Int?
+    let commasLv1Index: Int?
+    do {
+        (colonLv0Index, commasLv1Index) = try locateSpecialCharacters(fromAlg: alg)
+    } catch let error {
+        throw error
     }
     
-    return nil
+    if colonLv0Index == nil && commasLv1Index == nil {
+        let result = MoveSequence(fromString: alg)
+        if result == nil {
+            throw XZError.error(msg: "I can't understand this algorithm: \(alg)")
+        }
+        return result!
+    }
+    if colonLv0Index != nil {
+        do {
+            let aPart = try parse(alg: String(alg[0 ..< colonLv0Index!]))
+            let bPart = try parse(alg: String(alg[colonLv0Index! + 1 ..< alg.count]))
+            return Conjugate(A: aPart, B: bPart)
+        } catch let error {
+            throw error
+        }
+    }
+    do {
+        let aPart = try parse(alg: String(alg[1 ..< commasLv1Index!]))
+        let bPart = try parse(alg: String(alg[commasLv1Index! + 1 ..< alg.count - 1]))
+        return Commutator(A: aPart, B: bPart)
+    } catch let error {
+        throw error
+    }
 }

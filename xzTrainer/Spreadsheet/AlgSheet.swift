@@ -15,7 +15,6 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
         self.rowIndices = rowIndices
         self.columnIndices = columnIndices
         algs = Array(repeating: Array(repeating: (alg: "", assoc: ""), count: columnIndices.count), count: rowIndices.count)
-        
     }
     
     var name : String {
@@ -41,9 +40,12 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
         if inverseM == nil || inverseN == nil || algs[inverseM!][inverseN!].alg != ""{
             return
         }
-        let expandedAlg = parse(alg: alg)?.inversed.string
-        algs[inverseM!][inverseN!].alg = expandedAlg!
-        
+        do {
+            let expandedAlg = try parse(alg: alg).inversed.string
+            algs[inverseM!][inverseN!].alg = expandedAlg
+        } catch let error {
+            print(error)
+        }
     }
     
     func set(association: String, _ m: Int, _ n: Int) {
@@ -70,6 +72,16 @@ class AlgSheet<T: CubePiece> : NSObject, Spreadsheet {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AlgCell") as! AlgCell
         cell.configureCell(cycle: letterOf(rowIndices[indexPath.section]) + letterOf(columnIndices[indexPath.row]), alg: algs[indexPath.section][indexPath.row].alg, association: algs[indexPath.section][indexPath.row].assoc)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return letterOf(rowIndices[section])
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return rowIndices.map({ (piece) -> String in
+            return letterOf(piece)
+        })
     }
     
     private var algs : [[(alg: String, assoc: String)]] = []
