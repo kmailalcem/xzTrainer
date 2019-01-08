@@ -32,6 +32,11 @@ class ThemeHeader1: UILabel {
     func becomeObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 
 }
 
@@ -59,5 +64,10 @@ class ThemeHeader2: UILabel {
     func becomeObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
 }

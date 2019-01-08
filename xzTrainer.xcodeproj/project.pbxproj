@@ -38,6 +38,9 @@
 		953027A2213DDFC100508B02 /* LocalizationTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953027A1213DDFC100508B02 /* LocalizationTheme.swift */; };
 		953027A5213DE03E00508B02 /* Theme.strings in Resources */ = {isa = PBXBuildFile; fileRef = 953027A7213DE03E00508B02 /* Theme.strings */; };
 		9533A49020A8C24D00A5A59E /* CubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9533A48F20A8C24D00A5A59E /* CubeView.swift */; };
+		9537EFE521E2943F0034E81E /* AlgEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537EFE421E2943F0034E81E /* AlgEditorView.swift */; };
+		9537EFE721E2944E0034E81E /* AlgEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9537EFE621E2944E0034E81E /* AlgEditor.xib */; };
+		9537EFE921E2989F0034E81E /* AlgEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537EFE821E2989F0034E81E /* AlgEditorViewController.swift */; };
 		9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9539A77C20E5F0E800A3CE20 /* InTimerSetting.storyboard */; };
 		9539A78120E5F21000A3CE20 /* MemoMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78020E5F21000A3CE20 /* MemoMethod.swift */; };
 		9539A78520E62E1400A3CE20 /* SettingsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */; };
@@ -182,6 +185,9 @@
 		953027A6213DE03E00508B02 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Theme.strings"; sourceTree = "<group>"; };
 		953027A8213DE04300508B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Theme.strings; sourceTree = "<group>"; };
 		9533A48F20A8C24D00A5A59E /* CubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeView.swift; sourceTree = "<group>"; };
+		9537EFE421E2943F0034E81E /* AlgEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgEditorView.swift; sourceTree = "<group>"; };
+		9537EFE621E2944E0034E81E /* AlgEditor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlgEditor.xib; sourceTree = "<group>"; };
+		9537EFE821E2989F0034E81E /* AlgEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgEditorViewController.swift; sourceTree = "<group>"; };
 		9539A77D20E5F0E800A3CE20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = xzTrainer/Base.lproj/InTimerSetting.storyboard; sourceTree = "<group>"; };
 		9539A78020E5F21000A3CE20 /* MemoMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoMethod.swift; sourceTree = "<group>"; };
 		9539A78420E62E1400A3CE20 /* SettingsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailVC.swift; sourceTree = "<group>"; };
@@ -642,6 +648,9 @@
 				957E347721E00F8200314646 /* SpreadsheetModel.swift */,
 				957E347921E013B700314646 /* SelectSpreadsheetCell.swift */,
 				95F90A5021E13FC600FBA143 /* AlgCell.swift */,
+				9537EFE821E2989F0034E81E /* AlgEditorViewController.swift */,
+				9537EFE421E2943F0034E81E /* AlgEditorView.swift */,
+				9537EFE621E2944E0034E81E /* AlgEditor.xib */,
 			);
 			path = Spreadsheet;
 			sourceTree = "<group>";
@@ -800,6 +809,7 @@
 				95D52C6420865913004DE650 /* LaunchScreen.storyboard in Resources */,
 				95D52C6120865913004DE650 /* Assets.xcassets in Resources */,
 				958FDCE9212BE91F00AB1E0A /* DetailCubeView.xib in Resources */,
+				9537EFE721E2944E0034E81E /* AlgEditor.xib in Resources */,
 				9575E639212A4366005F6872 /* SessionCell.xib in Resources */,
 				95E1FB3E21291163002717FC /* IconExplanations.strings in Resources */,
 				957E347421E00A3700314646 /* Spreadsheet.storyboard in Resources */,
@@ -905,6 +915,7 @@
 				95CE246F21DEFE0300AD9BBD /* Spreadsheet.swift in Sources */,
 				958C548A21331D2F0021D595 /* ThemeLightText.swift in Sources */,
 				95E0EA0720AF31F90058B87A /* TimerLabel.swift in Sources */,
+				9537EFE921E2989F0034E81E /* AlgEditorViewController.swift in Sources */,
 				953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */,
 				95CB543A20F303CC0025FB6E /* SettingsVCPicker.swift in Sources */,
 				950BC9E3212E8C9C00A4E5A6 /* ThemeHeaders.swift in Sources */,
@@ -913,6 +924,7 @@
 				95302797213DACE200508B02 /* ThemeSelectionCell.swift in Sources */,
 				957E1C8720DA5DC000CC40AD /* Session.swift in Sources */,
 				957E347A21E013B700314646 /* SelectSpreadsheetCell.swift in Sources */,
+				9537EFE521E2943F0034E81E /* AlgEditorView.swift in Sources */,
 				9575E62A212A304B005F6872 /* ResultPopUpView.swift in Sources */,
 				955E0E07212545FE00B2B1E3 /* LocalizableMode.swift in Sources */,
 				95004C2C20E7739800380DBB /* ModeSelectionCell.swift in Sources */,

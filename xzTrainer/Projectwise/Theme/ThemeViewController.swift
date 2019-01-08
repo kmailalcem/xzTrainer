@@ -32,4 +32,9 @@ class ThemeViewController: UIViewController {
     func becomeObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(ThemeViewController.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }

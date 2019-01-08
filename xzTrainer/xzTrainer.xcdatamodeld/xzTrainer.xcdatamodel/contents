@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AlgEntryMO" representedClassName="AlgEntryMO" syncable="YES" codeGenerationType="class">
+        <attribute name="alg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assoc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="row" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlgRowMO" inverseName="entries" inverseEntity="AlgRowMO" syncable="YES"/>
+    </entity>
+    <entity name="AlgRowMO" representedClassName="AlgRowMO" syncable="YES" codeGenerationType="class">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AlgEntryMO" inverseName="row" inverseEntity="AlgEntryMO" syncable="YES"/>
+        <relationship name="table" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AlgSheetMO" inverseName="rows" inverseEntity="AlgSheetMO" syncable="YES"/>
+    </entity>
+    <entity name="AlgSheetMO" representedClassName="AlgSheetMO" parentEntity="SpreadsheetMO" syncable="YES" codeGenerationType="class">
+        <attribute name="buffer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="columnIndices" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="faceCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rowIndices" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AlgRowMO" inverseName="table" inverseEntity="AlgRowMO" syncable="YES"/>
+    </entity>
     <entity name="Session" representedClassName="Session" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="mode" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,8 +40,17 @@
         <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="solve" inverseEntity="Session" syncable="YES"/>
     </entity>
+    <entity name="SpreadsheetMO" representedClassName="SpreadsheetMO" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Session" positionX="-21116" positionY="-450" width="128" height="103"/>
-        <element name="Solve" positionX="-21393" positionY="-457" width="128" height="253"/>
+        <element name="AlgEntryMO" positionX="-21131.52734375" positionY="-167.70703125" width="128" height="105"/>
+        <element name="AlgRowMO" positionX="-21353.01171875" positionY="-161.52734375" width="128" height="90"/>
+        <element name="AlgSheetMO" positionX="-21601.54296875" positionY="-182.78515625" width="128" height="120"/>
+        <element name="Session" positionX="-21345.46484375" positionY="-774.0546875" width="128" height="103"/>
+        <element name="Solve" positionX="-21499.81640625" positionY="-816.28515625" width="128" height="253"/>
+        <element name="SpreadsheetMO" positionX="-21402" positionY="-234" width="128" height="90"/>
     </elements>
 </model>

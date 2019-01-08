@@ -50,6 +50,10 @@ class SessionView: UIView, UITableViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(SessionView.deletedCurrentSession), name: NSNotification.Name(rawValue: "DeletedCurrentSession"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func dismiss() {
         UIView.animate(withDuration: 0.2, animations: {
             self.alpha = 0

@@ -58,7 +58,10 @@ class TimerVC: ThemeViewController {
         popUpDetailView.rootViewController = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.reloadTable), name: NSNotification.Name(rawValue: "TimeUpdated"), object: nil)
-        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     var isInitialEntry = true

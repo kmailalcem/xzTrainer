@@ -15,9 +15,21 @@ class SelectSheetViewController: ThemeViewController, UITableViewDelegate {
 
         spreadsheetsTable.delegate = self
         spreadsheetsTable.dataSource = SpreadsheetModel.shared
+        NotificationCenter.default.addObserver(self, selector: #selector(SelectSheetViewController.reload), name: Notification.Name(rawValue: "createdSheet"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
+    @IBAction func newSheet() {
+        SpreadsheetModel.shared.newAlgSheet()
+    }
+    
+    @objc private func reload() {
+        spreadsheetsTable.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
@@ -34,7 +46,6 @@ class SelectSheetViewController: ThemeViewController, UITableViewDelegate {
         if let destination = segue.destination as? SpreadsheetViewController, let sheet = sender as? Spreadsheet {
             destination.spreadsheet = sheet
         }
-
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {

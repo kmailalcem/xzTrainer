@@ -303,8 +303,15 @@ class xzTrainerTests: XCTestCase {
     }
     
     func testParseAlg() {
-        let algStr = "U R U' R' : [D : F, [L , U]]"
-        print(parse(alg: algStr)!.inversed.string)
-        print(parse(alg: algStr)!.expanded.string)
+        let algStr = "U R U' R' [D F, [R, U]]"
+        do {
+            print(try parse(alg: algStr).inversed.string)
+            print(try parse(alg: algStr).expanded.string)
+        } catch XZError.error(let msg) {
+            print(msg)
+        } catch let error {
+            print(error)
+        }
+        
     }
 }

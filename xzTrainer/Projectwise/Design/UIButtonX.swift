@@ -32,6 +32,10 @@ class UIButtonX: UIButton {
         NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @IBInspectable var cornerRadious: CGFloat = 0 {
         didSet {
             self.layer.cornerRadius = cornerRadious

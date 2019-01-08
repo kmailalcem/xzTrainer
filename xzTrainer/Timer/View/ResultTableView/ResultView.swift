@@ -49,6 +49,10 @@ class ResultView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(ResultView.updateSessionName), name: NSNotification.Name(rawValue: "SessionNameNeedsUpdate"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func sessionSelected (_ notification: NSNotification) {
         resultTable.reloadData()
         sessionSelectionButton.setTitle(SolveModel.shared.currentSessionName, for: .normal)

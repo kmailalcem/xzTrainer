@@ -69,6 +69,10 @@ class SettingsDetailVC: ThemeViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsDetailVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         var keyboardHeight: CGFloat = 0
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {

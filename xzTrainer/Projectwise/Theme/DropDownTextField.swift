@@ -27,6 +27,10 @@ class DropDownTextField: UITextField {
 
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

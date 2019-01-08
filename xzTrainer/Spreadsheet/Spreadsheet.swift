@@ -11,5 +11,6 @@ import UIKit
 protocol Spreadsheet : UITableViewDataSource {
     var name : String { get }
     var type : String { get }
-    func select(_ m: Int, _ n: Int)
+    func delegatedSegue(_ viewController: ThemeViewController, _ m: Int, _ n: Int)
+    func save()
 }

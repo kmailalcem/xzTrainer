@@ -40,6 +40,10 @@ class FloatingActionButton: UIButton {
         NotificationCenter.default.addObserver(self, selector: #selector(self.themeSetUp), name: NSNotification.Name(rawValue: "ThemeUpdated"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {

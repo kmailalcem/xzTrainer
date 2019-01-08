@@ -18,6 +18,9 @@ func locateSpecialCharacters(fromAlg alg: String) throws -> (colonIndex: Int?, c
         case "[": level += 1
         case "]": level -= 1
         case ",":
+            if (level == 0) {
+                throw XZError.error(msg: "Unexpected comma (,) found in this part of the algorithm: \(alg)")
+            }
             if level != 1 {
                 break;
             }
@@ -38,14 +41,13 @@ func locateSpecialCharacters(fromAlg alg: String) throws -> (colonIndex: Int?, c
         }
     }
     if colonLv0Index == nil && commasLv1Index == nil && colonExists {
-        throw XZError.error(msg: "Unexpected colon (:) found in this part of the algorithm: \(alg) (Maybe the setup moves were also wrapped in [])")
+        throw XZError.error(msg: "Unexpected colon (:) found in this part of the algorithm: \(alg) (Maybe the setup moves were not separated by (:) or were also wrapped in [])")
     }
     return (colonIndex: colonLv0Index, commaIndex: commasLv1Index)
 }
 
 func parse(alg: String) throws -> Algorithm {
     let alg = alg.trimmingCharacters(in: .whitespaces)
-    print("parsing \(alg)")
     let colonLv0Index: Int?
     let commasLv1Index: Int?
     do {
@@ -69,6 +71,9 @@ func parse(alg: String) throws -> Algorithm {
         } catch let error {
             throw error
         }
+    }
+    if commasLv1Index! + 1 >= alg.count {
+        throw XZError.error(msg: "Expecting more expressions after comma (,): \(alg)")
     }
     do {
         let aPart = try parse(alg: String(alg[1 ..< commasLv1Index!]))
