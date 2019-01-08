@@ -55,7 +55,6 @@ class SpreadsheetModel: NSObject {
             self.spreadsheets.append(AlgSheet(name: "DF Edges", buffer: EdgeSticker.DF, rowIndices: EdgeSticker.allValues.removeBuffer(.DF), columnIndices: EdgeSticker.allValues.removeBuffer(.DF)))
             self.notifyNewSheet()
         })
-        
     }
     
     private func notifyNewSheet() {

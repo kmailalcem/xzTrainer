@@ -47,6 +47,8 @@
 		953F41F8211BD0C800EBC194 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953F41F6211BD0C800EBC194 /* Help.storyboard */; };
 		953F41FB211BD44F00EBC194 /* HelpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F41FA211BD44F00EBC194 /* HelpCell.swift */; };
 		953F41FD211BD5E400EBC194 /* HelpedIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953F41FC211BD5E400EBC194 /* HelpedIcon.swift */; };
+		9559A21E21E50D0F0097B5F9 /* CreateSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559A21D21E50D0F0097B5F9 /* CreateSheetView.swift */; };
+		9559A22021E50D210097B5F9 /* CreateSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9559A21F21E50D210097B5F9 /* CreateSheetView.xib */; };
 		955E0DF72125394800B2B1E3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955E0DF92125394800B2B1E3 /* Settings.storyboard */; };
 		955E0DFF21253E8C00B2B1E3 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E0DFE21253E8C00B2B1E3 /* LocalizationHelper.swift */; };
 		955E0E00212541AA00B2B1E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 955E0E02212541AA00B2B1E3 /* Localizable.strings */; };
@@ -194,6 +196,8 @@
 		953F41F7211BD0C800EBC194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "xzTrainer/Launch Scenes/ModeSelection/xzTrainer/View/Storyboards/Base.lproj/Help.storyboard"; sourceTree = "<group>"; };
 		953F41FA211BD44F00EBC194 /* HelpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCell.swift; sourceTree = "<group>"; };
 		953F41FC211BD5E400EBC194 /* HelpedIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpedIcon.swift; sourceTree = "<group>"; };
+		9559A21D21E50D0F0097B5F9 /* CreateSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSheetView.swift; sourceTree = "<group>"; };
+		9559A21F21E50D210097B5F9 /* CreateSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateSheetView.xib; sourceTree = "<group>"; };
 		955E0DF82125394800B2B1E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		955E0DFB2125394C00B2B1E3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Settings.strings"; sourceTree = "<group>"; };
 		955E0DFE21253E8C00B2B1E3 /* LocalizationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationHelper.swift; sourceTree = "<group>"; };
@@ -651,6 +655,8 @@
 				9537EFE821E2989F0034E81E /* AlgEditorViewController.swift */,
 				9537EFE421E2943F0034E81E /* AlgEditorView.swift */,
 				9537EFE621E2944E0034E81E /* AlgEditor.xib */,
+				9559A21D21E50D0F0097B5F9 /* CreateSheetView.swift */,
+				9559A21F21E50D210097B5F9 /* CreateSheetView.xib */,
 			);
 			path = Spreadsheet;
 			sourceTree = "<group>";
@@ -814,6 +820,7 @@
 				95E1FB3E21291163002717FC /* IconExplanations.strings in Resources */,
 				957E347421E00A3700314646 /* Spreadsheet.storyboard in Resources */,
 				9539A77E20E5F0E800A3CE20 /* InTimerSetting.storyboard in Resources */,
+				9559A22021E50D210097B5F9 /* CreateSheetView.xib in Resources */,
 				955E0E00212541AA00B2B1E3 /* Localizable.strings in Resources */,
 				950DF6CC2111622400A329EB /* CustomPriority.storyboard in Resources */,
 				95D52C5F20865912004DE650 /* Timer.storyboard in Resources */,
@@ -892,6 +899,7 @@
 				95BF902120E38FF500211563 /* TimerVCFAB.swift in Sources */,
 				95B5265A20E23C5000C54F45 /* PreferenceList.swift in Sources */,
 				958125C2210EBA91009C564B /* ThemeAlertController.swift in Sources */,
+				9559A21E21E50D0F0097B5F9 /* CreateSheetView.swift in Sources */,
 				9583EC42209E0E7C004A4D3E /* CentreCore.swift in Sources */,
 				9575E630212A402F005F6872 /* ResultView.swift in Sources */,
 				9509144D2126B4B700EDB4B3 /* StringRepresentable.swift in Sources */,
